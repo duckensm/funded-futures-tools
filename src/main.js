@@ -39,6 +39,7 @@ function layout(content){
     </header>
     <main>${content}</main>
     <div class="sticky-tools"><a class="btn small" href="#calculators">Calculator</a><button class="btn small" id="copyLink">Copy link</button></div>
+    <div class="tooltip-pop" id="tooltipPop" role="tooltip"></div>
     <div class="toast" id="toast">Link copied</div>
     <footer class="footer"><div class="wrap footer-grid"><div><div class="brand"><span class="brand-mark"></span><span>Funded Futures Tools</span></div><p class="disclaimer">Built for futures traders comparing funded account rules. We focus on NQ/MNQ risk, drawdown mechanics, and practical rule clarity.</p></div><div><b>Tools</b><p class="disclaimer"><a href="#compare">Comparison table</a><br><a href="#calculators">Drawdown calculator</a><br><a href="#calculators">NQ risk calculator</a></p></div><div><b>Important</b><p class="disclaimer">Educational only. Not financial advice. Prop firm rules change; always verify on official websites before buying.</p></div></div></footer>
   `;
@@ -95,6 +96,7 @@ function setCalc(which='drawdown'){
   panel.innerHTML = which==='nq'?nqCalc():which==='planner'?plannerCalc():drawdownCalc();
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.calc===which));
   panel.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',()=>updateCalc(which)));
+  bindHelpDots();
   updateCalc(which);
 }
 function updateCalc(which){
@@ -141,9 +143,31 @@ function bindGlobal(){
   document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>setTimeout(router,0)));
   document.getElementById('copyLink')?.addEventListener('click', async()=>{try{await navigator.clipboard.writeText(location.href); showToast('Link copied');}catch{showToast('Copy unavailable');}});
   document.getElementById('menuBtn')?.addEventListener('click',()=>showToast('Mobile menu is condensed into the page links for MVP.'));
-  document.querySelectorAll('.help-dot').forEach(btn=>btn.addEventListener('click',(event)=>{event.preventDefault(); event.stopPropagation(); showToast(btn.dataset.help || 'Quick definition unavailable.');}));
+  bindHelpDots();
 }
 function showToast(msg){const t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
+function bindHelpDots(){
+  const pop=document.getElementById('tooltipPop');
+  if(!pop) return;
+  document.querySelectorAll('.help-dot').forEach(btn=>{
+    btn.onclick=(event)=>{
+      event.preventDefault();
+      event.stopPropagation();
+      const open=pop.classList.contains('show') && pop.dataset.source===btn.getAttribute('aria-label');
+      if(open){ pop.classList.remove('show'); return; }
+      pop.textContent=btn.dataset.help || 'Quick definition unavailable.';
+      pop.dataset.source=btn.getAttribute('aria-label') || '';
+      const rect=btn.getBoundingClientRect();
+      pop.classList.add('show');
+      const popRect=pop.getBoundingClientRect();
+      const left=Math.min(Math.max(12, rect.left + rect.width/2 - popRect.width/2), window.innerWidth - popRect.width - 12);
+      const top=Math.max(12, rect.bottom + 10);
+      pop.style.left=`${left}px`;
+      pop.style.top=`${top}px`;
+    };
+  });
+}
+document.addEventListener('click',()=>document.getElementById('tooltipPop')?.classList.remove('show'));
 function router(){
   const name=(location.hash.replace('#','').split('/')[0] || 'home');
   const render=pages[name] || pages.home;
