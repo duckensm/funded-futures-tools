@@ -1,0 +1,300 @@
+Source URL: https://tradeify.co/funded-trader-agreement
+Title: Tradeify Funded Trader Agreement - Tradeify
+Captured: 2026-05-31
+
+Tradeify Funded Trader Agreement - Tradeify
+40% off all accounts
+5 time use then 30% off
+USE CODE: MAY
+ENDS 31 MAY, 11:59PM EST 🔥
+How it works
+Pricing
+Help Center
+Join Discord
+Sign in
+Sign in
+Get funded
+Tradeify Evaluation Services Agreement
+Last modified: May 2026
+PREAMBLE
+This Evaluation Services Agreement (the “Agreement”) is entered into by and between you, the “Trader,” and Tradeify Holdings, Corp. and its affiliates, successors, and/or assigns (collectively, the “Company,” “Tradeify,” “we,” or “us”). This Agreement governs your use of Tradeify’s evaluation programs, simulated funded accounts, and live funded accounts, together with all
+related services.
+‍
+1. TRADER APPOINTMENT
+1.1
+Independent Contractor Status
+: The Company appoints the Trader as an independent contractor to manage and execute electronic trade orders on the Company’s proprietary trading platforms. The Trader acknowledges and agrees that the Trader is not an employee or agent of the Company and shall not represent themselves as such.
+1.2
+Trading Equipment
+: The Company may provide the Trader with specific equipment, software, and related electronic tools to facilitate trading activities. The Trader agrees to use this equipment exclusively for trading on the Company’s platforms.
+1.3
+Approved Platforms
+: The Trader shall utilize only the trading platforms and tools explicitly sanctioned by the Company. Any deviation from this requires the Company’s prior written consent.
+1.4
+Surveillance and Compliance
+: The Company utilizes advanced surveillance systems to monitor all trading activities. Suspicious or non-compliant trading behaviors may result in immediate account restrictions or termination.
+1.5
+Account Funds
+: All funds in the trading account remain the sole property of the Company. The Trader acknowledges they have no ownership or claim over these funds, which are exclusively demo funds unless otherwise stated.
+1.6
+Documentation and Compliance
+: The Trader agrees to promptly furnish any documentation or information the Company requests, including but not limited to tax documents, identity verification, and trading records. The Trader also agrees to comply with all Know Your Customer (KYC) requirements as mandated by the Company.
+1.7
+Marketing Materials
+: Any promotional materials representing the Company or its services require the Company’s prior written approval.
+2. COVENANTS AND WARRANTIES OF TRADER
+2.1
+Compliance
+: The Trader commits to familiarizing themselves with and strictly adhering to the Company’s trading guidelines, procedures, and other directives.
+2.2
+Accuracy of Information
+: The Trader guarantees that all personal and professional information provided to the Company is accurate and up-to-date. Any changes must be reported within seven (7) days.
+2.3
+No Legal Hindrances
+: The Trader confirms they have no legal or contractual restrictions that might hinder their performance under this Agreement.
+2.4
+Exclusive Use of Account
+: The Trader acknowledges that the managed trading account provided by the Company is solely for use on the Company’s platform.
+2.5
+Proprietary Data
+: All trading data and related information generated on the Company’s platform are proprietary. Unauthorized reproduction, distribution, or use of this data is prohibited.
+3. NON-SOLICITATION AND CONFIDENTIALITY
+3.1
+Non-Interference
+: The Trader agrees not to disrupt the Company’s business operations, including its contractual relationships and business strategies.
+3.2
+Non-Solicitation
+: During the term of this Agreement and for two (2) years post-termination, the Trader shall not solicit or entice any of the Company’s employees, contractors, or clients.
+3.3
+Confidentiality
+: The Trader shall maintain the confidentiality of all non-public information about the Company, its operations, and clients.
+4. EVALUATION PROGRAMS, FUNDED ACCOUNTS, AND PAYOUTS
+4.1
+Evaluation Paths and Account Rules
+: The Company offers a variety of evaluation paths and simulated funded account programs (including, without limitation, Advanced Challenge, Growth Challenge, Lightning Funded, Select Flex, and Select Daily accounts). The specific rules, parameters, fees, drawdown methodology, profit targets, position sizes, consistency rules, payout thresholds, payout caps, and minimum balance requirements applicable to each evaluation path and funded account program are maintained on, and may be updated from time to time at, the Company’s Help Center.
+For complete and current details on all evaluation paths and funded account rules, the Trader shall refer to:
+https://help.tradeify.co/en
+. The Trader agrees that the rules published at the Help Center are incorporated into this Agreement by reference and are binding upon the Trader. The Company
+reserves the right to modify these rules at any time in accordance with Section 15 (Amendments).
+‍
+4.2
+Maximum Number of Simulated Funded Accounts:
+The Company limits the maximum number of Simulated Funded Accounts that may be held by any single individual to five (5). This limit applies on a per-individual and per-household basis and across ALL funded account types, including Advanced Challenge funded accounts, Growth Challenge funded accounts, Lightning Funded accounts, Select Flex funded accounts, and Select Daily funded accounts.
+Example: A trader may NOT hold three (3) Lightning Funded accounts, two (2) Select Flex accounts, and one (1) Growth funded account. The maximum total is five (5) funded accounts in any combination.
+Tradeify Elite Live Restrictions.
+Traders who are transitioned to Tradeify Elite Live (Section 5) may NOT hold ANY other funded accounts, challenge accounts, or straight-to-sim accounts while their Elite Live account is active.
+No other member of a Trader’s household may hold any Tradeify accounts (Challenge, Funded, or Elite Live) while the Trader’s Elite Live account is active.
+4.3
+Compensation Structure (General):
+Profit splits, payout schedules, payout caps, and related conditions for each account type are set forth in the rules published at the Help Center referenced in Section 4.1. Unless otherwise specified for a particular account type, profits withdrawn are split
+90% to the Trader and 10% to the Company. Any amounts not withdrawn remain at risk of loss from the Trader’s activity. The Trader will be paid as a 10-99 independent contractor, not as an employee.
+4.4
+Payout Processing:
+Once a payout request is approved, funds are withdrawn from the Trader’s account and payment is typically issued within twenty-four to forty-eight (24-48) hours. Payout requests submitted outside of normal business hours (Monday through Friday, 8:00 a.m. to 5:00 p.m. EST/EDT, excluding U.S. Federal holidays) may take up to seventy-two (72) hours to process. The Company reserves the right to take up to the end of the next payout cycle to approve, review, or deny a payout request.
+4.5
+Payout Policy Selection (Select Accounts):
+Where an evaluation path requires the Trader to choose between payout policies (for example, between Select Flex and Select Daily upon passing a Select Challenge), that choice is permanent and irrevocable for the specific funded account in question. No refunds or exchanges will be provided if the Trader later prefers a different
+payout policy. Traders who pass multiple Select Challenges may select different payout policies for each funded account, and each account’s policy selection is independent.
+5. MOVE TO LIVE (TRADEIFY ELITE LIVE)
+The Company does not hold a broker-dealer license and does not provide brokerage services; all Tradeify Elite Live accounts are issued through and facilitated by NinjaTrader and GFF Brokers, third-party regulated brokerages.
+5.1
+Discretion to Move Traders to Live:
+Tradeify reserves the right, in its sole and absolute discretion, to move a Trader from a Simulated Funded Account to a Tradeify Elite Live account at any point in the Trader’s funded account journey, including at any time before, at, or after any particular payout milestone. The decision to transition a Trader to Live is solely Tradeify’s, and
+Tradeify may also elect to keep the Trader on a Simulated Funded Account at its discretion.
+5.2
+Internal Policy Guidelines:
+As an internal policy guideline (and not as a binding entitlement to the Trader), Tradeify generally evaluates Traders for transition to Tradeify Elite Live who have achieved either:
+ten (10) approved payouts since the Trader’s last live account or, where applicable, since services with Tradeify commenced; or
+three (3) approved payouts on a single Simulated Funded Account.
+These thresholds are internal benchmarks used by Tradeify’s risk management team and do not create any right or obligation to be transitioned to Live. Tradeify may, in its sole discretion, transition a Trader to Live earlier or later than these thresholds, or not at all.
+5.3
+Live Account Rules:
+The specific parameters of Tradeify Elite Live accounts (including, without limitation, starting balance allocation, availability requirements, profit splits, dynamic daily loss limits, scaling rules, and payout mechanics) are maintained at the Company’s Help Center referenced in Section 4.1 and are incorporated by reference. Tradeify Elite Live accounts are
+subject to dynamic risk parameters that adjust based on the Trader’s performance.
+5.4
+Restrictions on Other Accounts:
+A Trader who has been transitioned to a Tradeify Elite Live account is prohibited from opening or holding new Challenge, Straight-to-Sim, or any other Tradeify funded accounts while the Live Funded Account remains active. No other member of the Trader’s household may hold any Tradeify accounts during this period.
+5.5
+Live Account Failure:
+In the event of failure of a Tradeify Elite Live account, Tradeify’s risk management team will contact the Trader to determine next steps.
+5.6
+Restricted Jurisdictions:
+If a Trader resides in a jurisdiction that renders the Trader ineligible for a Tradeify Elite Live account, Tradeify’s risk management team will contact the Trader to discuss alternative options. Such Traders may remain on Simulated Funded status for the duration of their relationship with Tradeify, subject to Section 16 (Geographic Restrictions).
+5.7
+Transition Process:
+Upon notification of a Live Funded Account transition, the Trader will receive an official email from Tradeify. Trading activity must cease until further instructions are provided. The account balance at the time of transition will be used in determining the starting balance of the Live Funded Account, in accordance with the rules published at the Help Center.
+6. PROHIBITED TRADING ACTIVITIES
+6.1
+Exploitation of Errors:
+The core of Tradeify’s guidelines is a mutual understanding between Tradeify and the Trader that the Trader acts in good faith. Traders are prohibited from using strategies that seek to exploit or create errors within our platform. This includes taking advantage of discrepancies in price displays, delays in updates, or any other technical errors in our services. Such actions are considered unethical and can lead to serious consequences, including termination of the Trader’s trading account.
+6.2
+Disruptive Practices:
+The Trader is forbidden from using strategies that incorporate disruptive practices.
+6.3
+External or Slow Data Feed:
+Trading based on an external or delayed data feed is not allowed.
+6.4
+Manipulative Trades:
+The Trader must not engage in trades with the intent to manipulate, abuse, or gain an unfair advantage on the Company’s platform. This includes short-term or high-frequency trades or simultaneously entering opposing positions.
+6.5
+Consistency in Trading:
+The Trader must adhere to a consistent trading plan in terms of size, stops, and targets, avoiding maximum or larger contract sizes on single trades, refraining from flipping contracts just to register a “trading day,” maintaining consistent trading sizes, avoiding dollar-cost averaging and high-frequency trading, and demonstrating consistency in the trading plan.
+6.6
+Automated Bots:
+The use of automated trading bots or algorithms (“bots/algos”) is permitted only under the following conditions:
+Ownership: The Trader must be able to prove that the Trader is the sole owner of the bot or strategy and that no one else has access to or is using it. This ensures that the bot/algorithm is not being shared with other traders or firms.
+Exclusive Use: While the Trader may use the bot on the Trader’s personal accounts, using it across multiple firms is against Tradeify’s policy. The bot must be solely for the Trader’s own use within Tradeify.
+No High-Frequency Trading (HFT) Bots: Personal bots are allowed as long as they are not high-frequency trading (HFT) bots. Tradeify has specific risk measures in place to detect and monitor such activities.
+Compliance & Verification: Tradeify reserves the right to request information or documentation if our risk measures flag the Trader’s account for potential violations of these guidelines.
+6.7
+Collaborative Trading and Hedging:
+Independent Trading Requirement: All users of Tradeify are required to execute their trading strategies independently. Team trading, collaborative trading, or any form of trade copying among users is strictly prohibited. Each user is responsible for their own trades and must ensure that all trading decisions reflect their individual strategy and discretion.
+Hedging Prohibited: Traders are strictly prohibited from executing hedging strategies, defined as holding opposing positions in the same or correlated instruments to offset risk. Violations will result in immediate disqualification from the evaluation program.
+Contract Type Limitation: Traders may not trade both mini and micro futures contracts simultaneously. All trades must involve only one contract type throughout the evaluation period.
+Purpose: These restrictions are in place to ensure consistency, accurate performance evaluation, and adherence to risk management protocols.
+Non-Compliance: Any breach of the above rules will result in account termination and forfeiture of eligibility for funding or continued participation in the program.
+Tradeify maintains risk management protocols designed to monitor for violations of these conditions. Tradeify reserves the right to request additional information or documentation if an account is flagged by these measures, to ensure compliance with these terms.
+6.8
+Microscalping:
+Microscalping refers to executing trades with the intent of capturing small profits from minimal price movements, such as a few ticks or points typically within a very short period of time. Trades executed in less than ten (10) seconds are difficult to reliably replicate or copy, so we have implemented the following guideline: 50% or more of the Trader’s account profit must come from trades held longer than ten (10) seconds.
+6.9
+Maximum Account Idle Time:
+To maintain an active account status, the Trader is required to execute at least one trade per calendar week. Failure to comply with this requirement may result in the Trader’s account being classified as inactive.
+6.10
+Audit Clause:
+The Company reserves the right to audit and review the trading activities and styles of all Traders to ensure compliance with the Company’s rules and guidelines. This includes, but is not limited to, monitoring for adherence to prohibited trading practices as outlined in the Company’s policies. The audit may be conducted at any time, without prior notice, and Traders are required to fully cooperate with any requests for information or documentation. Failure to comply with the Company’s rules or audit process may result in disciplinary action, up to and including termination of trading privileges.
+7. REFUNDS, CANCELLATIONS, AND CHARGEBACKS
+7.1
+Non-Refundable Services:
+All fees paid to the Company for evaluation programs, subscriptions, or any other services are strictly non-refundable. This includes, but is not limited to:
+one-time fees for “Straight to Sim Funded” account programs and activation fees;
+subscription fees for “Growth” and “Advanced” evaluation programs;
+subscription, activation, and reset fees for any “Select” evaluation programs and funded accounts; and
+any other one-time or recurring charges for additional services or products offered by the Company.
+7.2
+Service Fulfillment:
+Upon purchase of any service or program, the Company considers the service rendered in full upon granting the Trader access to the evaluation or platform. Refunds will not be provided regardless of:
+the Trader’s progress or completion of the evaluation program; or
+any failure to meet the requirements for program qualification.
+7.3
+Account Violations and Termination:
+In the event of account violations, rule breaches, or disqualifications as outlined in the Company’s rules and guidelines (whether set forth in this Agreement or at the Help Center), the Trader is not eligible for a refund of any fees paid.
+7.4
+Technical and Third-Party Issues:
+The Company is not responsible for, nor will refunds be issued resulting from:
+technical malfunctions of third-party platforms used for trading or evaluations; or
+internet connectivity issues or hardware failures on the Trader’s side.
+7.5
+Cancellation:
+The Trader may cancel any active subscription at any time through the Trader’s account dashboard or by contacting the Company at support@tradeify.co. Cancellation will stop future subscription renewals; however, no refund (in whole or in part) will be issued for any
+subscription period that has already commenced or for any one-time fee already paid. Failure to activate a passed evaluation does not prevent or stop subscription charges, and the Trader remains responsible for all applicable subscription fees until the subscription is properly cancelled in accordance with this Section.
+7.6
+Chargebacks:
+The Trader agrees that all charges incurred under this Agreement are valid, authorized, and final. By purchasing any service from the Company, the Trader expressly waives the right to initiate, pursue, or maintain any chargeback, payment dispute, reversal, or similar claim with any credit card issuer, bank, payment processor, or other financial institution in
+connection with fees paid to the Company.
+In the event that the Trader (or any person acting on the Trader’s behalf or using the Trader’s payment method) initiates a chargeback, payment dispute, or reversal of any payment made to the Company, the following consequences shall apply automatically and without further notice:
+the Trader will be permanently banned from all Tradeify services, including without limitation all evaluation programs, Simulated Funded Accounts, Tradeify Elite Live accounts, and any related products or platforms;
+all of the Trader’s accounts (active, passed, funded, or otherwise) will be immediately and permanently terminated, and any pending or unpaid payouts will be forfeited;
+the Trader will be ineligible to register, hold, or use any Tradeify account in the future, whether under the same or any different identity, payment method, household, or affiliated party;
+the Company reserves the right to dispute the chargeback with the issuing bank or payment processor and to recover any costs, fees, or losses associated with the chargeback (including reasonable attorneys’ fees) from the Trader; and
+the Company may report the chargeback and any related conduct to credit bureaus, payment processors, anti-fraud databases, and law enforcement, where appropriate.
+If the Trader believes a charge is incorrect or wishes to dispute a transaction, the Trader must first contact the Company at support@tradeify.co and allow the Company a reasonable opportunity to investigate and resolve the matter before initiating any chargeback or payment dispute.
+8. TERMINATION
+8.1
+Termination by Company:
+The Company reserves the right to terminate this Agreement immediately in the event of any breach by the Trader, including without limitation any breach of Sections 6 (Prohibited Trading Activities) or 7 (Refunds, Cancellations, and Chargebacks).
+8.2
+Termination by Trader:
+The Trader may terminate this Agreement by providing written notice to the Company. Termination by the Trader does not entitle the Trader to any refund of fees previously paid, in accordance with Section 7.
+9. INDEMNIFICATION
+The Trader agrees to indemnify and hold the Company harmless from any claims or liabilities arising from the Trader’s breach of this Agreement or misuse of the Company’s platform.
+10. GOVERNING LAW AND DISPUTE RESOLUTION
+This Agreement is governed by the laws of the State of Florida. Any disputes arising under this Agreement shall be resolved through binding arbitration in Florida in accordance with the rules of the American Arbitration Association (AAA).
+11. ENTIRE AGREEMENT AND AMENDMENTS
+This Agreement, together with the rules published at the Help Center referenced in Section 4.1 (which are incorporated by reference), constitutes the entire agreement between the Parties and supersedes all prior agreements or understandings. Any amendments must be in writing and signed by both Parties, except that the Company may unilaterally update the rules published at the Help Center and may amend this Agreement in accordance with Section 15 (Amendments).
+12. INTELLECTUAL PROPERTY
+All intellectual property rights associated with the Company’s platform remain the exclusive property of the Company.
+13. DATA PROTECTION AND PRIVACY
+The Company may collect and process the Trader’s personal data and will implement security measures to protect this data. The Company will not share this data with third parties except as required by law.
+14. LIMITATION OF LIABILITY
+The Company is not liable for any losses incurred by the Trader due to trading activities or factors beyond the Company’s control.
+15. FORCE MAJEURE
+The Company is not responsible for any failure or delay in performing its obligations due to unforeseen circumstances.
+16. AMENDMENTS
+The Company reserves the right to modify, amend, or update the terms, conditions, plans, and payout requirements of this Agreement, and the rules published at the Help Center referenced in Section 4.1, at its sole discretion and at any time. Any changes will become effective upon posting to the Company’s website (including the Help Center) or upon other written notification to the Trader. Continued use of the Company’s services after any such changes constitutes acceptance of the revised terms.
+17. GEOGRAPHIC RESTRICTIONS
+The Company does not accept or permit the participation of individuals or entities who are citizens, residents, or are otherwise located in countries on the Company’s restricted-jurisdictions list. Additionally, certain jurisdictions are eligible to purchase an evaluation account but are not eligible for a Tradeify Elite Live account; Traders residing in those jurisdictions will remain on a Simulated Funded Account for the duration of their contract with the Company. The current restricted-jurisdictions list and the list of jurisdictions ineligible for Tradeify Elite Live are maintained at the Help Center referenced in Section 4.1 and may be updated from time to time at the Company’s sole discretion. The Company reserves the right to deny access, terminate accounts, and take any
+necessary legal action if it is determined that this policy has been violated.
+18. CONTACT
+All feedback, comments, requests for technical support, and other communications relating to the Website or this Agreement should be directed to:
+support@tradeify.co
+Be the first to get limited time deals
+Get one email per week filled with deals, insights and tips.
+Email address
+Please enter valid email
+Email address
+Subscribe
+We promise no spam.
+See our privacy policy
+Thank you! Your submission has been received!
+Oops! Something went wrong while submitting the form.
+Making trading accessible to everyone
+Company
+Home
+Pricing
+Grand Cup Leaderboard
+Become an affiliate
+Careers
+Merchandise
+Resources
+Help Center
+Blog
+Privacy Policy
+Terms of Use
+Funded Trader Agreement
+Contact
+Support
+Discord community
+Partners and media
+Copyright ©
+2025
+Tradeify Holdings, Corp.
+‍
+1700 S. Dixie Highway, Suite 305 Boca Raton, FL 33432
+All rights reserved.
+Important Disclaimers:
+The materials and content provided by Tradeify Holdings, Corp. (“Tradeify”), whether on our website, through distributed documents, TradeifyTV, or other communications, are intended solely for educational and general informational purposes (the “Information”). This Information should not be viewed as an offer or solicitation to buy or sell futures, futures-related products/derivatives, or any futures products of any kind, or otherwise constitute any type of trading or investment advice, recommendation or strategy, or an endorsement of any financial instruments, companies, or funds. Users are encouraged to do their own research, should not interpret such Information as personalized financial advice, and should consult with a qualified financial adviser before making any financial decisions. The Information presented herein does not consider your personal financial situation, risk tolerance, or investment goals. The Information provided is not targeted at any specific jurisdiction and should not be used in any manner that would contravene local laws or regulations.
+Hypothetical/Simulated Performance. Hypothetical or simulated performance results have many inherent limitations, some of which are described below. Unlike an actual performance record, simulated results do not represent actual trading. Also, because the trades have not actually been executed, the results may have under-or-over compensated for the impact, if any, of certain market factors, such as lack of liquidity. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown. In fact, there are frequently sharp differences between hypothetical performance results and the actual results subsequently achieved by any particular trading program. One of the limitations of hypothetical performance results is that they are generally prepared with the benefit of hindsight. In addition, hypothetical trading does not involve financial risk, and no hypothetical trading record can completely account for the impact of financial risk in actual trading. For example, the ability to withstand losses or to adhere to a particular trading program in spite of trading losses are material points which can also adversely affect actual trading results. There are numerous other factors related to the markets in general or to the implementation of any specific trading program which cannot be fully accounted for in the preparation of hypothetical performance results and all of which can adversely affect actual trading results.
+Trade examples presented for compensation purposes are hypothetical and should not be expected to reflect live trading results. Simulated results do not necessarily imply future profits. The risk of loss in trading forex or commodity contracts can be substantial. You should therefore, carefully consider whether such trading is suitable for you in light of your financial condition.
+Engaging in futures, forex, and other financial trading involves significant risk and is not appropriate for all investors. It is possible to lose the entire amount of your investment, or even more. Only use risk capital—money you can afford to lose without impacting your financial security or lifestyle. Trading should only be undertaken by individuals who have the necessary risk capital and fully understand the risks involved. Past trading results do not guarantee future performance. Tradeify Holdings, Corp. does not warrant the accuracy or completeness of the Information provided and is not responsible for any losses or damages resulting from reliance on this Information. Certain investment products present heightened risks:
+Security Futures.
+Securities futures products are not suitable for all investors. Supporting documentation is available upon request for all comparisons, recommendations, statistics or other technical data presented. Past performance regarding securities futures (as applicable) is subject the following
+Risk Disclosure Statement for Security Futures Products
+.
+Forex Futures.
+The prices of forex futures contracts may be highly volatile and while generally liquid, there may be times (e.g., during market stress or outside of regular trading hours) when it is difficult to execute trades at desired prices. Forex futures are traded on margin and present risks associated with the use of leverage – this enables an investor to control a large position with a relatively small amount of capital and may amplify gains, but may also magnify losses.
+Virtual Currency Derivatives/Products.
+Virtual currency derivatives may experience significant price volatility and the initial margin for virtual currency derivatives may be set as a percentage of the value of a particular contract, which means that margin requirements for long positions can increase if the price of the contract rises. Certain restrictions may be imposed on customer trading activity in virtual currency derivatives, such as requiring additional margin, imposing position limits, prohibiting naked shorting or prohibiting give-in transactions. The rules of certain designated contract markets impose trading halts that may restrict a market participant's ability to exit a position during a period of high volatility. Given the material characteristics of these products, including the lack of a centralized pricing source and the opaque nature of the virtual currency market, there currently is no widely accepted practice to verify the ownership and control of a virtual currency or the valuation attributed to a virtual currency.
+Testimonials. Testimonials provided herein, as well as those presented via
+TrustPilot
+may not be representative of the experience of other Tradeify account holders and such testimonials are not indicative of, or a guarantee of, future performance or success. No compensation has been provided in connection with such testimonials.
+Tradeify Brokerage Disclaimer:
+Tradeify Brokerage LLC d/b/a Slay Markets is an introducing broker registered with the Commodity Futures Trading Commission ("CFTC") and guaranteed by NinjaTrader Clearing, LLC d/b/a NinjaTrader, Kraken Derivatives US, and Tradovate ("NTC"), and is a National Futures Association Member (NFA ID: 0575972). Tradeify Brokerage LLC's principal place of business is 1700 S. Dixie Highway, Suite 305, Boca Raton, FL 33432.
+We use cookies
+We use cookies to ensure you get the best
+experience on our website. For more information on
+how we use cookies, please see our
+Privacy Policy
+.
+Decline
+Accept
+fetch("https://api.memberstack.com/v1/members", {
+method: "GET",
+headers: {
+"Authorization": "Bearer sk_6d18cba9c725b151410e", // Replace with Live API Key
+"Content-Type": "application/json"
+}
+})
+.then(response => response.json())
+// .then(data => console.log(data))
+// .catch(error => console.error("Error:", error));

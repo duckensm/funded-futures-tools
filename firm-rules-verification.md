@@ -7,7 +7,7 @@ Use this sheet before publishing affiliate traffic. Only mark a firm as official
 | 1 | Apex Trader Funding | https://apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/ | Official EOD rules checked in user's Chrome; pricing/checkout still verify | 2026-05-31 | EOD evaluation rules, EOD drawdown, EOD PA, EOD payouts captured. Still verify live pricing/checkout discounts. |
 | 2 | MyFundedFutures | https://help.myfundedfutures.com/en/articles/11802636-traders-evaluation-simplified | Official help-center rules checked; checkout discounts still verify | 2026-05-31 | Eval specs/prices, Max EOD trailing, 50% consistency, $0 activation fee, payout rules, news restrictions captured. Still verify live checkout discounts/coupons. |
 | 3 | TakeProfitTrader | https://takeprofittrader.com/ | Official homepage/help rules checked in user's Chrome; remaining account cards/checkout still verify | 2026-05-31 | Homepage pricing, visible 50K specs, consistency, PRO withdrawal/buffer, PRO rules, resets, NOFEE30 promo captured. Still verify all account cards and live checkout. |
-| 4 | Tradeify | https://tradeify.co/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
+| 4 | Tradeify | https://tradeify.co/ | Official homepage/help rules checked in user's Chrome; live promo/checkout still verify | 2026-05-31 | Growth, Select, Lightning pricing snapshot; eval rules; EOD drawdown; DLL; Select payout policies; Growth payout policy; Lightning rules captured. |
 | 5 | Bulenox | https://bulenox.com/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
 | 6 | Lucid Trader Funding | https://lucidfunding.com/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
 | 7 | Earn2Trade | https://www.earn2trade.com/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
@@ -97,3 +97,31 @@ Key official values captured:
 - Reset prices: 25K $79, 50K $99, 75K $139, 100K $169, 150K $199.
 - NOFEE30 promo FAQ: 30% lifetime discount and $130 PRO activation fee waived for life on active account created with code; no additional fees to get funded during promo; monthly subscription stops after PRO. Verify live checkout/promo before publishing.
 - Caveat: only 50K account card specs were visible in the captured homepage view; verify remaining account cards and checkout before final affiliate traffic.
+
+
+## Tradeify official verification notes — checked 2026-05-31
+
+Official pages captured under `research/tradeify-official/` using the user's Chrome browser:
+
+- Homepage/pricing: https://tradeify.co/
+- Select evaluation accounts: https://help.tradeify.co/en/articles/12853921-select-evaluation-accounts
+- Growth evaluation accounts: https://help.tradeify.co/en/articles/10495915-growth-evaluation-accounts
+- Trailing max drawdowns: https://help.tradeify.co/en/articles/10495897-rules-trailing-max-drawdowns
+- Daily loss limit: https://help.tradeify.co/en/articles/10468321-rules-daily-loss-limit
+- Select Flex/Daily payout policies: https://help.tradeify.co/en/articles/12853966-select-flex-and-select-daily-payout-policies
+- Growth funded payout policy: https://help.tradeify.co/en/articles/11083796-growth-funded-account-payout-policy
+- Lightning funded accounts: https://help.tradeify.co/en/articles/10495938-lightning-funded-accounts
+
+Key official values captured:
+
+- Homepage promo captured: 40% off all accounts with code MAY ending 2026-05-31; verify live checkout before publishing coupons or permanent pricing.
+- Promo prices shown: Growth 25K $59, 50K $87, 100K $153, 150K $221; Select 25K $65, 50K $99, 100K $159, 150K $221; Lightning 25K $207, 50K $295, 100K $396, 150K $478.
+- Select evaluation: targets $1,500/$3,000/$6,000/$9,000; EOD max drawdown $1,000/$2,000/$3,000/$4,500; no Daily Loss Limit during evaluation; 40% consistency; max contracts 1/4/8/12 minis; minimum 3 trading days due to consistency; no activation fee.
+- Growth evaluation: targets $1,500/$3,000/$6,000/$9,000; DLL $600/$1,250/$2,500/$3,750; EOD max drawdown $1,000/$2,000/$3,500/$5,000; max contracts 1/4/8/12 minis; no evaluation consistency; can pass in 1 trading day; no activation fee.
+- EOD drawdown: all Growth, Select, and Lightning accounts use End-of-Day trailing drawdown; it updates at EOD but is enforced in real time. On simulated funded accounts, it locks at starting balance + $100 once profit exceeds drawdown amount by $100.
+- DLL: soft breach that pauses trading until next session. Applies to Growth, Lightning, and Select Daily funded accounts; Select Flex has no DLL. Initial DLLs captured: Growth/Lightning $600/$1,250/$2,500/$3,000 for 25K/50K/100K/150K, with 25K Lightning note showing no DLL protection; Select Daily $500/$1,000/$1,250/$1,750.
+- Growth funded payout: 90% trader split; 35% consistency; 5+ profitable trading days with minimum day profit $100/$150/$200/$250; min payout $250/$500/$1,000/$1,500; account balance thresholds $26,500/$53,000/$104,500/$156,500.
+- Select Flex: 90/10 split; every 5 winning days; no DLL; no funded consistency; payout up to 50% of total profits capped at $1,250/$3,000/$4,000/$5,000; no minimum balance requirement.
+- Select Daily: 90/10 split; daily eligibility; buffers $1,100/$2,100/$2,600/$3,600; payout caps $600/$1,000/$1,500/$2,500; $250 minimum payout; positive cycle profit required.
+- Lightning: no evaluation; current drawdown $1,000/$2,000/$4,000/$5,250; max contracts 1/4/8/12 minis; homepage says 20% consistency and tooltip says 25% for payout 2 and 30% for payout 3+.
+- Caveat: pricing was captured during a limited-time promo and should be rechecked in live checkout before paid traffic.
