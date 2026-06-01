@@ -58,47 +58,70 @@ function renderHome(){
       <div class="hero-actions"><a class="btn primary" href="#calculators">Run the free calculators</a><a class="btn" href="#compare">Compare prop firms</a></div>
       <div class="mini-proof"><span><b>7</b> starter firms</span><span><b>3</b> calculators</span><span><b>NQ-first</b> examples</span><span><b>No signals</b>, just rules + risk</span></div>
     </div>
-    <div class="nq-chart-card" aria-label="Animated NQ futures chart preview">
-      <div class="chart-top"><div><span class="ticker">NQ</span><strong>Nasdaq futures rule-risk map</strong></div><span class="live-pill"><i></i> Live-style preview</span></div>
-      <div class="chart-stage">
-        <svg class="nq-chart" viewBox="0 0 620 360" role="img" aria-label="Animated NQ price line with drawdown and stop zones">
+    <div class="nq-chart-card upgraded" aria-label="Animated NQ futures trading dashboard preview">
+      <div class="chart-top pro">
+        <div><span class="ticker">NQ</span><strong>Nasdaq futures risk cockpit</strong><small>Simulated visual · rule/risk focused</small></div>
+        <span class="live-pill"><i></i> Market replay</span>
+      </div>
+      <div class="chart-stage pro-stage">
+        <div class="chart-hud top-left"><span>Account buffer</span><b>$1,900</b><em>above drawdown</em></div>
+        <div class="chart-hud top-right"><span>Position risk</span><b>$500</b><em>2 NQ · 12.5 pts</em></div>
+        <svg class="nq-chart pro-chart" viewBox="0 0 720 430" role="img" aria-label="Animated NQ trading dashboard with price, liquidity, risk zones, and drawdown floor">
           <defs>
-            <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#10b981" stop-opacity=".35"/><stop offset="52%" stop-color="#6d73ff" stop-opacity=".12"/><stop offset="100%" stop-color="#050608" stop-opacity="0"/></linearGradient>
-            <linearGradient id="chartStroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38bdf8"/><stop offset=".45" stop-color="#8b5cf6"/><stop offset="1" stop-color="#10b981"/></linearGradient>
-            <filter id="softGlow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <linearGradient id="proFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#10b981" stop-opacity=".45"/><stop offset="42%" stop-color="#38bdf8" stop-opacity=".15"/><stop offset="100%" stop-color="#050608" stop-opacity="0"/></linearGradient>
+            <linearGradient id="proStroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38bdf8"/><stop offset=".42" stop-color="#a78bfa"/><stop offset=".72" stop-color="#f59e0b"/><stop offset="1" stop-color="#10b981"/></linearGradient>
+            <radialGradient id="hotDot"><stop offset="0" stop-color="#fff"/><stop offset=".42" stop-color="#7ee7c7"/><stop offset="1" stop-color="#10b981" stop-opacity="0"/></radialGradient>
+            <filter id="proGlow"><feGaussianBlur stdDeviation="6" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <clipPath id="chartClip"><rect x="44" y="40" width="560" height="308" rx="16"/></clipPath>
           </defs>
-          <g class="grid-lines">
-            <path d="M42 62H590 M42 122H590 M42 182H590 M42 242H590 M42 302H590"/>
-            <path d="M90 36V318 M190 36V318 M290 36V318 M390 36V318 M490 36V318"/>
+          <rect x="24" y="22" width="672" height="374" rx="26" class="screen-bg"/>
+          <g class="depth-bars left-depth">
+            <rect x="628" y="70" width="38" height="10"/><rect x="628" y="92" width="58" height="10"/><rect x="628" y="114" width="31" height="10"/><rect x="628" y="136" width="68" height="10"/><rect x="628" y="158" width="45" height="10"/>
           </g>
-          <path class="drawdown-zone" d="M42 244 H590 V318 H42 Z"/>
-          <text x="54" y="266" class="chart-label danger">Drawdown floor</text>
-          <path class="target-zone" d="M42 72 H590 V34 H42 Z"/>
-          <text x="470" y="60" class="chart-label good">Payout zone</text>
-          <g class="candles">
-            <path d="M88 206V154"/><rect x="78" y="166" width="20" height="34" rx="4"/>
-            <path d="M138 186V126"/><rect x="128" y="138" width="20" height="38" rx="4"/>
-            <path d="M188 198V142"/><rect x="178" y="152" width="20" height="36" rx="4"/>
-            <path d="M238 158V104"/><rect x="228" y="116" width="20" height="32" rx="4"/>
-            <path d="M288 176V118"/><rect x="278" y="128" width="20" height="38" rx="4"/>
-            <path d="M338 132V82"/><rect x="328" y="92" width="20" height="32" rx="4"/>
-            <path d="M388 148V92"/><rect x="378" y="104" width="20" height="34" rx="4"/>
-            <path d="M438 118V66"/><rect x="428" y="78" width="20" height="30" rx="4"/>
+          <g class="depth-bars sell-depth">
+            <rect x="628" y="214" width="52" height="10"/><rect x="628" y="236" width="34" height="10"/><rect x="628" y="258" width="72" height="10"/><rect x="628" y="280" width="46" height="10"/><rect x="628" y="302" width="60" height="10"/>
           </g>
-          <path class="price-fill" d="M42 238 C80 210 105 184 140 166 C178 146 206 184 238 142 C270 104 305 174 340 106 C380 56 414 134 450 84 C498 34 538 92 590 54 V318 H42 Z"/>
-          <path class="price-line glow" d="M42 238 C80 210 105 184 140 166 C178 146 206 184 238 142 C270 104 305 174 340 106 C380 56 414 134 450 84 C498 34 538 92 590 54"/>
-          <path class="price-line main" d="M42 238 C80 210 105 184 140 166 C178 146 206 184 238 142 C270 104 305 174 340 106 C380 56 414 134 450 84 C498 34 538 92 590 54"/>
-          <line class="stop-line" x1="42" y1="214" x2="590" y2="214"/>
-          <text x="454" y="205" class="chart-label">NQ stop risk: $500</text>
-          <circle class="price-dot" r="7" cx="590" cy="54"/>
-          <circle class="pulse-dot" r="12" cx="590" cy="54"/>
+          <text x="628" y="54" class="micro-label good">BUY DEPTH</text>
+          <text x="628" y="198" class="micro-label danger">SELL DEPTH</text>
+          <g clip-path="url(#chartClip)">
+            <rect x="44" y="40" width="560" height="308" class="chart-pane"/>
+            <path class="grid-lines pro-grid" d="M44 82H604 M44 124H604 M44 166H604 M44 208H604 M44 250H604 M44 292H604 M96 40V348 M168 40V348 M240 40V348 M312 40V348 M384 40V348 M456 40V348 M528 40V348"/>
+            <path class="drawdown-zone pro-danger" d="M44 273 H604 V348 H44 Z"/>
+            <path class="target-zone pro-target" d="M44 40 H604 V88 H44 Z"/>
+            <path class="risk-channel" d="M64 255 C128 216 162 186 218 176 C282 164 315 118 368 132 C430 148 476 96 536 82"/>
+            <path class="price-fill pro-fill" d="M44 272 C76 250 99 222 132 226 C164 230 178 177 214 186 C250 194 270 132 314 144 C350 156 371 196 410 154 C454 106 486 116 522 82 C554 52 575 94 604 70 V348 H44 Z"/>
+            <g class="candle-pack">
+              <path d="M92 247V204"/><rect x="82" y="216" width="20" height="22" rx="4"/>
+              <path d="M146 230V182"/><rect x="136" y="194" width="20" height="27" rx="4"/>
+              <path d="M200 206V166"/><rect x="190" y="176" width="20" height="22" rx="4"/>
+              <path d="M254 188V132"/><rect x="244" y="144" width="20" height="35" rx="4"/>
+              <path d="M308 167V112"/><rect x="298" y="124" width="20" height="31" rx="4"/>
+              <path d="M362 174V126"/><rect x="352" y="136" width="20" height="28" rx="4"/>
+              <path d="M416 156V104"/><rect x="406" y="116" width="20" height="30" rx="4"/>
+              <path d="M470 126V82"/><rect x="460" y="92" width="20" height="24" rx="4"/>
+              <path d="M524 106V58"/><rect x="514" y="70" width="20" height="26" rx="4"/>
+            </g>
+            <path class="price-line glow pro-glow" d="M44 272 C76 250 99 222 132 226 C164 230 178 177 214 186 C250 194 270 132 314 144 C350 156 371 196 410 154 C454 106 486 116 522 82 C554 52 575 94 604 70"/>
+            <path class="price-line main pro-main" d="M44 272 C76 250 99 222 132 226 C164 230 178 177 214 186 C250 194 270 132 314 144 C350 156 371 196 410 154 C454 106 486 116 522 82 C554 52 575 94 604 70"/>
+            <line class="stop-line pro-stop" x1="44" y1="226" x2="604" y2="226"/>
+            <line class="scan-line" x1="128" y1="40" x2="128" y2="348"/>
+            <circle class="price-dot pro-dot" r="7" cx="604" cy="70"/>
+            <circle class="pulse-dot pro-pulse" r="12" cx="604" cy="70"/>
+          </g>
+          <text x="58" y="69" class="chart-label good">payout zone</text>
+          <text x="58" y="302" class="chart-label danger">drawdown floor</text>
+          <text x="456" y="218" class="chart-label amber">planned stop</text>
+          <g class="price-tape">
+            <rect x="502" y="42" width="102" height="34" rx="10"/>
+            <text x="514" y="64">21,436.25</text>
+          </g>
         </svg>
+        <div class="tape-row"><span>ES +0.31%</span><span>NQ +0.82%</span><span>VIX -1.4%</span><span>MNQ risk $50</span></div>
       </div>
-      <div class="chart-metrics">
-        <div><span>Account</span><b>$50K</b></div><div><span>Cushion</span><b>$1.9K</b></div><div><span>Stop</span><b>12.5 pts</b></div><div><span>Bias</span><b class="green-text">Risk-on</b></div>
+      <div class="chart-metrics pro-metrics">
+        <div><span>Drawdown mode</span><b>EOD</b></div><div><span>Safe size</span><b>MNQ first</b></div><div><span>Rule focus</span><b>Consistency</b></div><div><span>Status</span><b class="green-text">Trade room</b></div>
       </div>
-    </div>
-  </div></section>
+    </div>  </div></section>
   <section class="section"><div class="wrap"><div class="section-head"><div><h2>A futures prop firm shortlist built around buyer intent.</h2><p class="subhead">Most sites rank everything. This one starts with the names traders actually search, then explains the rules through NQ-focused calculators.</p></div><a class="btn" href="#firms">View firm pages</a></div><div class="grid3">
     <div class="card"><div class="icon">⚡</div><h3>NQ/MNQ specific</h3><p>Risk examples use futures point values, contract counts, trailing drawdown buffers, and daily loss limits.</p></div>
     <div class="card"><div class="icon">◷</div><h3>Rule clarity</h3><p>Plain-English explanations of trailing drawdown, consistency rules, payout rules, activation fees, and reset risk.</p></div>
