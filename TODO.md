@@ -14,6 +14,7 @@
 - Reordered comparison around buyer-intent categories instead of fake numeric rankings.
 - Removed visible risk badge/column from comparison UI because it caused layout issues.
 - Added/then upgraded animated NQ hero chart into trading-cockpit style graphic.
+- Added affiliate placeholder system with status fields, coupon placeholders, outbound buttons, and basic dataLayer click events.
 - Officially verified firm rules for:
   - Apex Trader Funding
   - MyFundedFutures
@@ -34,19 +35,14 @@
 
 ## Next recommended work
 
-1. Add affiliate placeholder system.
-   - Add status fields: approved / pending / not applied.
-   - Add affiliate URL placeholders.
-   - Add coupon code placeholders.
-   - Add outbound buttons: “Visit official site”, “Check discount”, “Compare rules”.
-
-2. Add analytics.
+1. Add analytics.
    - Track calculator usage.
    - Track firm page views.
    - Track outbound firm clicks.
    - Track comparison table clicks.
+   - Note: outbound firm clicks now push a basic `outbound_firm_click` event to `window.dataLayer`; next step is wiring a real analytics provider.
 
-3. Add email capture.
+2. Add email capture.
    - Lead magnet idea: “Free NQ Prop Firm Risk Checklist”.
    - Add signup box to homepage and calculators section.
    - Wire to Formspree, ConvertKit, Beehiiv, or another email tool.
