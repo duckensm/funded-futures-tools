@@ -32,7 +32,7 @@
 ## User affiliate status remembered from session
 
 - Phidias Propfirm: affiliate approved; add the user-specific affiliate URL/coupon when available.
-- Lucid Trading: affiliate approved; add the user-specific affiliate URL/coupon when available.
+- Lucid Trading: affiliate link live at https://lucidtrading.com/ref/dutrading with code `dutrading`; verify checkout before paid campaigns.
 - Bulenox: affiliate approved; add the user-specific affiliate URL/coupon when available.
 - TakeProfitTrader: affiliate application declined; keep at bottom as brief reference only, do not promote.
 - Apex: still need to apply.
