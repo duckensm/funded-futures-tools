@@ -8,7 +8,7 @@ Use this sheet before publishing affiliate traffic. Only mark a firm as official
 | 2 | MyFundedFutures | https://help.myfundedfutures.com/en/articles/11802636-traders-evaluation-simplified | Official help-center rules checked; checkout discounts still verify | 2026-05-31 | Eval specs/prices, Max EOD trailing, 50% consistency, $0 activation fee, payout rules, news restrictions captured. Still verify live checkout discounts/coupons. |
 | 3 | TakeProfitTrader | https://takeprofittrader.com/ | Official homepage/help rules checked in user's Chrome; remaining account cards/checkout still verify | 2026-05-31 | Homepage pricing, visible 50K specs, consistency, PRO withdrawal/buffer, PRO rules, resets, NOFEE30 promo captured. Still verify all account cards and live checkout. |
 | 4 | Tradeify | https://tradeify.co/ | Official homepage/help rules checked in user's Chrome; live promo/checkout still verify | 2026-05-31 | Growth, Select, Lightning pricing snapshot; eval rules; EOD drawdown; DLL; Select payout policies; Growth payout policy; Lightning rules captured. |
-| 5 | Bulenox | https://bulenox.com/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
+| 5 | Bulenox | https://bulenox.com/ | Official homepage/help rules checked; checkout coupons still verify | 2026-05-31 | Homepage tiers/prices, Qualification rules, trailing/EOD options, DLL, scaling, Master activation fees, payout/consistency rules captured. |
 | 6 | Lucid Trader Funding | https://lucidfunding.com/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
 | 7 | Earn2Trade | https://www.earn2trade.com/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
 
@@ -125,3 +125,31 @@ Key official values captured:
 - Select Daily: 90/10 split; daily eligibility; buffers $1,100/$2,100/$2,600/$3,600; payout caps $600/$1,000/$1,500/$2,500; $250 minimum payout; positive cycle profit required.
 - Lightning: no evaluation; current drawdown $1,000/$2,000/$4,000/$5,250; max contracts 1/4/8/12 minis; homepage says 20% consistency and tooltip says 25% for payout 2 and 30% for payout 3+.
 - Caveat: pricing was captured during a limited-time promo and should be rechecked in live checkout before paid traffic.
+
+
+## Bulenox official verification notes — checked 2026-05-31
+
+Official pages captured under `research/bulenox-official/`:
+
+- Homepage/pricing: https://bulenox.com/
+- Qualification Account rules: https://bulenox.com/help/qualification-account/
+- Master Account rules: https://bulenox.com/help/master-account/
+- Funded Account rules: https://bulenox.com/help/funded-account/
+- Subscription/payment: https://bulenox.com/help/subscription-and-payment/
+- FAQ/warnings captured for context.
+
+Key official values captured:
+
+- Homepage tiers: 10K target $1,000 / drawdown $1,000 / 5 micro contracts / $115 monthly; 25K target $1,500 / drawdown $1,500 / 3 contracts / $145 monthly; 50K target $3,000 / drawdown $2,500 / 7 contracts / $125 monthly with $50OFF coupon ($175 listed); 100K target $6,000 / drawdown $3,000 / 12 contracts / $155 monthly with $60OFF coupon ($215 listed); 150K target $9,000 / drawdown $4,500 / 15 contracts / $325 monthly; 250K target $15,000 / drawdown $5,500 / 25 contracts / $535 monthly.
+- Homepage offers each tier as Option 1 No Scaling Account or Option 2 EOD Account.
+- Qualification rules: no minimum trading days required to get Master account; must reach profit target and at least 1 completed trading day; all positions must be closed before 15:59 CT/CST; NQ and MNQ are permitted instruments.
+- Option 1 No Scaling: trailing drawdown follows current balance including realized and unrealized gains, recorded in real time, includes commissions.
+- Option 2 EOD: EOD drawdown updates only when account balance reaches a new high at end of day; after Qualification, Master EOD stops moving when it reaches initial balance + $100.
+- EOD Daily Loss Limits: 10K $400, 25K $500, 50K $1,100, 100K $2,200, 150K $3,300, 250K $4,500. DLL includes commissions and real-time/unrealized P&L; hitting it suspends trading for the day but is not a rule violation.
+- EOD scaling: 10K no scaling/5 micros; 25K 2→3 contracts; 50K 2→4→7; 100K 3→5→8→12; 150K 5→8→10→15; 250K 6→12→18→25.
+- Master activation fees: 25K $143, 50K $148, 100K $248, 150K $498, 250K $898; Qualification page also lists 10K $98 for Option 2.
+- Reset: $78 outside the free reset on billing date; reset does not change subscription expiration.
+- Master payouts: first $10,000 paid 100% to trader, then 90/10 split; processed weekly Wednesdays; requires at least 10 trading days; minimum withdrawal $1,000; first-three-payout max $1,000/$1,500/$1,750/$2,000/$2,500 for 25K/50K/100K/150K/250K; no max after third payout.
+- Master consistency: 40% best-day rule at withdrawal request; failing consistency blocks payout but does not violate account.
+- Funded Account: after 3 successful Master payouts, transition may occur at Risk Management's sole discretion; Funded Account reward request requires at least 5 trading days; Funded Account balance caps listed 25K $2,500, 50K $5,000, 100K $10,000, 150K $15,000, 250K $25,000.
+- Caveat: homepage coupon prices and live checkout should still be rechecked before publishing paid traffic.
