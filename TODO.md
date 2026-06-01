@@ -32,7 +32,8 @@
 ## User affiliate status remembered from session
 
 - Phidias Propfirm: affiliate approved; add the user-specific affiliate URL/coupon when available.
-- Lucid and Bulenox: signed up / pending.
+- Lucid Trading: affiliate approved; add the user-specific affiliate URL/coupon when available.
+- Bulenox: affiliate approved; add the user-specific affiliate URL/coupon when available.
 - TakeProfitTrader: affiliate application declined; keep at bottom as brief reference only, do not promote.
 - Apex: still need to apply.
 - Tradeify, MyFundedFutures, Earn2Trade: apply later.
