@@ -10,7 +10,7 @@ Use this sheet before publishing affiliate traffic. Only mark a firm as official
 | 4 | Tradeify | https://tradeify.co/ | Official homepage/help rules checked in user's Chrome; live promo/checkout still verify | 2026-05-31 | Growth, Select, Lightning pricing snapshot; eval rules; EOD drawdown; DLL; Select payout policies; Growth payout policy; Lightning rules captured. |
 | 5 | Bulenox | https://bulenox.com/ | Official homepage/help rules checked; checkout coupons still verify | 2026-05-31 | Homepage tiers/prices, Qualification rules, trailing/EOD options, DLL, scaling, Master activation fees, payout/consistency rules captured. |
 | 6 | Lucid Trading | https://lucidtrading.com/ | Official homepage/about checked in user's Chrome; affiliate/checkout still verify | 2026-05-31 | Corrected dead LucidFunding.com domain to LucidTrading.com; Pro/Flex/Direct pricing, drawdown, DLL, contracts, activation fees, payout path captured. |
-| 7 | Earn2Trade | https://www.earn2trade.com/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
+| 7 | Earn2Trade | https://www.earn2trade.com/ | Official homepage/product/purchase pages checked; live promo/checkout still verify | 2026-05-31 | TCP and Gauntlet Mini pricing/specs, EOD/trailing drawdown, DLL, contracts, reset pricing, activation fee, payout/profit split, instruments, platforms captured. |
 
 ## Official source links discovered
 
@@ -176,3 +176,30 @@ Key official values captured:
 - Example funded rules captured from 25K Pro funded card: payout profit target $250, max loss $1,000, 40% consistency, max size 2 mini or 20 micro, 3 days to payout, free activation, 5 payouts to live.
 - About page claims: no activation fees for LucidPro, no hard breach rules, EOD drawdown; LucidDirect skips evaluation and has a DLL that scales as you earn; no payout windows; no monthly billing; LucidLive allows daily withdrawals and swing trading after successful track record.
 - Caveat: affiliate page/final checkout should still be verified separately before adding affiliate CTAs.
+
+
+## Earn2Trade official verification notes — checked 2026-05-31
+
+Official pages captured under `research/earn2trade-official/`:
+
+- Homepage: https://www.earn2trade.com/
+- Purchase flow: https://www.earn2trade.com/purchase and plan-specific query URLs
+- Trader Career Path: https://www.earn2trade.com/trader-career-path
+- Gauntlet Mini: https://www.earn2trade.com/gauntlet-mini
+- Help center base: https://help.earn2trade.com/en/
+
+Key official values captured:
+
+- Products: Trader Career Path® and The Gauntlet Mini™.
+- Homepage claims: trusted by 10,000+ traders; #1 Funding Program; Live Trading Accounts; Easy Withdrawals; Crypto Payouts; Trader Career Path starts from $60 and can scale up to $400K with fixed drawdown; Gauntlet Mini starts from $68 and supports $50K-$200K virtual accounts. Treat homepage "from" prices as promo/marketing and verify checkout.
+- Purchase page promo banner: Limited Time Offer, 60% OFF on all Trader Career Path® plans and all The Gauntlet Mini™ plans. Live checkout should be rechecked before paid traffic.
+- Platforms shown: Rithmic, NinjaTrader, Finamark, Tradovate, TradingView; FAQ text also references R Trader Pro.
+- Allowed instruments: futures products only on CME, COMEX, NYMEX, and CBOT. Stocks, Options, Forex, Cryptocurrency, and CFDs are not permitted/available.
+- Common evaluation rules: minimum 10 trading days; reach profit goal; maintain consistency; trade only approved times; do not reach/dip below daily loss limit; do not reach/dip below EOD trailing drawdown; follow progression ladder. Noncompliance with progression ladder locks account for rest of the day; drawdown breach fails account and requires reset/new purchase.
+- Trader Career Path purchase pricing: TCP25 $150/month, $25K virtual capital, $1,750 profit goal, $1,500 EOD drawdown, $550 daily loss limit, up to 3 contracts, $100 current reset price; TCP50 $190/month, $50K capital, $3,000 goal, $2,000 EOD drawdown, $1,100 DLL, 6 contracts, $100 current reset price; TCP100 $350/month, $100K capital, $6,000 goal, $3,500 EOD drawdown, $2,200 DLL, 12 contracts, $100 current reset/fixed reset price.
+- TCP reset FAQ: TCP100 reset fixed rate $100; TCP50/TCP25 reset pricing dynamic based on promotions and below current new-subscription price; free reset at each renewal; resets only during evaluation and cannot reset funded Live/LiveSim accounts.
+- TCP progression captured: after evaluation, LiveSim® or Live account with same capital, 80% profit split; progression through $50K Live ($3K target, $2K trailing DD, $1.1K DLL, 6 contracts), $100K Live ($6K target, $3.5K trailing DD, $2.2K DLL, 12 contracts), $200K Live ($11K target, drawdown fixed to $194K, $4.4K DLL, 16 contracts); page says custom offer after final target and homepage says scale up to $400K with fixed drawdown.
+- The Gauntlet Mini pricing: GAU50 $170/month, $50K capital, $3,000 goal, $2,000 EOD drawdown, $1,100 DLL, 6 contracts, $100 reset; GAU100 $315/month, $100K capital, $6,000 goal, $3,500 EOD drawdown, $2,200 DLL, 12 contracts, $100 reset; GAU150 $375/month, $150K capital, $9,000 goal, $4,500 EOD drawdown, $3,300 DLL, 15 contracts, $130 reset; GAU200 $550/month, $200K capital, $11,000 goal, $6,000 EOD drawdown, $4,400 DLL, 16 contracts, $155 reset.
+- Funded/withdrawal FAQ: after passing, certificate and choice of LiveSim® or Live funded account with same capital; keep 80% of profits; homepage says withdraw weekly from $100+ with no additional performance targets required; activation fee is one-time $139 deducted only from first successful withdrawal and not upfront.
+- Commission FAQ: commissions vary by instrument and are consistent with industry-standard futures rates; schedules provided upon account activation and may depend on provider/platform selected (Tradovate or Rithmic).
+- Caveat: checkout, limited-time discounts, and affiliate program terms should still be rechecked before adding final affiliate CTAs.
