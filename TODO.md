@@ -30,7 +30,8 @@
 ## User affiliate status remembered from session
 
 - Lucid and Bulenox: signed up / pending.
-- Apex and TakeProfitTrader: still need to apply.
+- TakeProfitTrader: affiliate application declined; keep at bottom as brief reference only, do not promote.
+- Apex: still need to apply.
 - Tradeify, MyFundedFutures, Earn2Trade: apply later.
 
 ## Next recommended work
@@ -54,7 +55,6 @@
 
 5. Apply for remaining affiliate programs.
    - Apex
-   - TakeProfitTrader
    - Tradeify
    - MyFundedFutures
    - Earn2Trade
