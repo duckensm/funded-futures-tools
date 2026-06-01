@@ -58,12 +58,44 @@ function renderHome(){
       <div class="hero-actions"><a class="btn primary" href="#calculators">Run the free calculators</a><a class="btn" href="#compare">Compare prop firms</a></div>
       <div class="mini-proof"><span><b>7</b> starter firms</span><span><b>3</b> calculators</span><span><b>NQ-first</b> examples</span><span><b>No signals</b>, just rules + risk</span></div>
     </div>
-    <div class="terminal-card" aria-label="Prop account risk preview">
-      <div class="terminal-top"><div class="lights"><i></i><i></i><i></i></div><span>risk-check / nq-account</span></div>
-      <div class="terminal-body">
-        <div class="score-card"><div><strong>Trailing drawdown cushion</strong><br><span>$50k account · high-water mark $52,400 · $2,500 trail</span><div class="risk-bar"><i style="width:68%"></i></div></div><div class="score">$1.9k</div></div>
-        <div class="score-card"><div><strong>NQ stop risk</strong><br><span>2 contracts · 12.5 point stop · $20/point</span><div class="risk-bar"><i style="width:42%"></i></div></div><div class="score">$500</div></div>
-        <div class="score-card"><div><strong>Rule-risk score</strong><br><span>Best for micros, scalpers, and payout safety</span><div class="risk-bar"><i style="width:82%"></i></div></div><div class="score">82</div></div>
+    <div class="nq-chart-card" aria-label="Animated NQ futures chart preview">
+      <div class="chart-top"><div><span class="ticker">NQ</span><strong>Nasdaq futures rule-risk map</strong></div><span class="live-pill"><i></i> Live-style preview</span></div>
+      <div class="chart-stage">
+        <svg class="nq-chart" viewBox="0 0 620 360" role="img" aria-label="Animated NQ price line with drawdown and stop zones">
+          <defs>
+            <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#10b981" stop-opacity=".35"/><stop offset="52%" stop-color="#6d73ff" stop-opacity=".12"/><stop offset="100%" stop-color="#050608" stop-opacity="0"/></linearGradient>
+            <linearGradient id="chartStroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38bdf8"/><stop offset=".45" stop-color="#8b5cf6"/><stop offset="1" stop-color="#10b981"/></linearGradient>
+            <filter id="softGlow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <g class="grid-lines">
+            <path d="M42 62H590 M42 122H590 M42 182H590 M42 242H590 M42 302H590"/>
+            <path d="M90 36V318 M190 36V318 M290 36V318 M390 36V318 M490 36V318"/>
+          </g>
+          <path class="drawdown-zone" d="M42 244 H590 V318 H42 Z"/>
+          <text x="54" y="266" class="chart-label danger">Drawdown floor</text>
+          <path class="target-zone" d="M42 72 H590 V34 H42 Z"/>
+          <text x="470" y="60" class="chart-label good">Payout zone</text>
+          <g class="candles">
+            <path d="M88 206V154"/><rect x="78" y="166" width="20" height="34" rx="4"/>
+            <path d="M138 186V126"/><rect x="128" y="138" width="20" height="38" rx="4"/>
+            <path d="M188 198V142"/><rect x="178" y="152" width="20" height="36" rx="4"/>
+            <path d="M238 158V104"/><rect x="228" y="116" width="20" height="32" rx="4"/>
+            <path d="M288 176V118"/><rect x="278" y="128" width="20" height="38" rx="4"/>
+            <path d="M338 132V82"/><rect x="328" y="92" width="20" height="32" rx="4"/>
+            <path d="M388 148V92"/><rect x="378" y="104" width="20" height="34" rx="4"/>
+            <path d="M438 118V66"/><rect x="428" y="78" width="20" height="30" rx="4"/>
+          </g>
+          <path class="price-fill" d="M42 238 C80 210 105 184 140 166 C178 146 206 184 238 142 C270 104 305 174 340 106 C380 56 414 134 450 84 C498 34 538 92 590 54 V318 H42 Z"/>
+          <path class="price-line glow" d="M42 238 C80 210 105 184 140 166 C178 146 206 184 238 142 C270 104 305 174 340 106 C380 56 414 134 450 84 C498 34 538 92 590 54"/>
+          <path class="price-line main" d="M42 238 C80 210 105 184 140 166 C178 146 206 184 238 142 C270 104 305 174 340 106 C380 56 414 134 450 84 C498 34 538 92 590 54"/>
+          <line class="stop-line" x1="42" y1="214" x2="590" y2="214"/>
+          <text x="454" y="205" class="chart-label">NQ stop risk: $500</text>
+          <circle class="price-dot" r="7" cx="590" cy="54"/>
+          <circle class="pulse-dot" r="12" cx="590" cy="54"/>
+        </svg>
+      </div>
+      <div class="chart-metrics">
+        <div><span>Account</span><b>$50K</b></div><div><span>Cushion</span><b>$1.9K</b></div><div><span>Stop</span><b>12.5 pts</b></div><div><span>Bias</span><b class="green-text">Risk-on</b></div>
       </div>
     </div>
   </div></section>
