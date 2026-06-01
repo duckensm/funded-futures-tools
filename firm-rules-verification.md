@@ -9,7 +9,7 @@ Use this sheet before publishing affiliate traffic. Only mark a firm as official
 | 3 | TakeProfitTrader | https://takeprofittrader.com/ | Official homepage/help rules checked in user's Chrome; remaining account cards/checkout still verify | 2026-05-31 | Homepage pricing, visible 50K specs, consistency, PRO withdrawal/buffer, PRO rules, resets, NOFEE30 promo captured. Still verify all account cards and live checkout. |
 | 4 | Tradeify | https://tradeify.co/ | Official homepage/help rules checked in user's Chrome; live promo/checkout still verify | 2026-05-31 | Growth, Select, Lightning pricing snapshot; eval rules; EOD drawdown; DLL; Select payout policies; Growth payout policy; Lightning rules captured. |
 | 5 | Bulenox | https://bulenox.com/ | Official homepage/help rules checked; checkout coupons still verify | 2026-05-31 | Homepage tiers/prices, Qualification rules, trailing/EOD options, DLL, scaling, Master activation fees, payout/consistency rules captured. |
-| 6 | Lucid Trader Funding | https://lucidfunding.com/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
+| 6 | Lucid Trading | https://lucidtrading.com/ | Official homepage/about checked in user's Chrome; affiliate/checkout still verify | 2026-05-31 | Corrected dead LucidFunding.com domain to LucidTrading.com; Pro/Flex/Direct pricing, drawdown, DLL, contracts, activation fees, payout path captured. |
 | 7 | Earn2Trade | https://www.earn2trade.com/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
 
 ## Official source links discovered
@@ -19,7 +19,7 @@ Use this sheet before publishing affiliate traffic. Only mark a firm as official
 - TakeProfitTrader: https://takeprofittraderhelp.zendesk.com/hc/en-us
 - Tradeify: https://tradeify.co/#pricing-section, https://help.tradeify.co/en, https://help.tradeify.co/article/18-trailing-drawdowns, https://tradeify.co/funded-trader-agreement
 - Bulenox: https://bulenox.com/help/, https://bulenox.com/member/aff/signup
-- Lucid Trader Funding: https://lucidtraderfunding.com/ did not resolve; https://lucidfunding.com/ resolved and should be checked as the likely current official domain before keeping this firm in the list.
+- Lucid Trading: https://lucidtraderfunding.com/ did not resolve; https://lucidfunding.com/ redirects to a GoDaddy domain-for-sale page; current official prop firm site found/verified as https://lucidtrading.com/.
 - Earn2Trade: https://www.earn2trade.com/purchase, https://help.earn2trade.com/en/
 
 ## Verification standard
@@ -153,3 +153,26 @@ Key official values captured:
 - Master consistency: 40% best-day rule at withdrawal request; failing consistency blocks payout but does not violate account.
 - Funded Account: after 3 successful Master payouts, transition may occur at Risk Management's sole discretion; Funded Account reward request requires at least 5 trading days; Funded Account balance caps listed 25K $2,500, 50K $5,000, 100K $10,000, 150K $15,000, 250K $25,000.
 - Caveat: homepage coupon prices and live checkout should still be rechecked before publishing paid traffic.
+
+
+## Lucid Trading official verification notes — checked 2026-05-31
+
+Official pages captured under `research/lucid-official/` using the user's Chrome browser:
+
+- Current official homepage/pricing: https://lucidtrading.com/
+- About page: https://lucidtrading.com/about-us/
+- Prior candidate domain checked: https://lucidfunding.com/ redirects to a GoDaddy parked-domain sale page and is not the current prop firm site.
+
+Key official values captured:
+
+- Site identity: Official current firm name/site is Lucid Trading at LucidTrading.com. Update references away from Lucid Trader Funding / LucidFunding.com.
+- Homepage headline stats: $150M+ paid to traders, 250,000+ traders use Lucid, 15-minute average payout time, Trustpilot rated 4.8/5. Treat marketing stats as homepage claims.
+- Platform partners shown: NinjaTrader, Tradovate, Tradesea, Rithmic, MotiveWave, QuantTower.
+- General path: pass an eval and get funded in as little as 2 days or go straight to funded; EOD drawdowns; 10:1 micro scaling; no hard breach rules; 90/10 profit split; no payout windows; path to LucidLive.
+- Coupon displayed: VAULT. Prices below were captured with visible coupon-at-checkout pricing; verify checkout before publishing coupons.
+- LucidPro evals: 25K price $135 / coupon $94.50 / reset $90 / target $1,250 / max loss $1,000 EOD / DLL none / max size 2 mini or 20 micro; 50K $185 / $129.50 / reset $120 / target $3,000 / loss $2,000 / DLL $1,200 / 4 mini or 40 micro; 100K $285 / $199.50 / reset $180 / target $6,000 / loss $3,000 / DLL $1,800 / 6 mini or 60 micro; 150K $370 / $259 / reset $245 / target $9,000 / loss $4,500 / DLL $2,700 / 10 mini or 100 micro. Activation fee free; realtime dashboard; pass in as little as one day.
+- LucidFlex evals: 25K price $100 / coupon $70 / reset $60 / target $1,250 / loss $1,000 EOD / 50% consistency / 2 mini or 20 micro; 50K $140 / $98 / reset $95 / target $3,000 / loss $2,000 / 50% consistency / 4 mini or 40 micro; 100K $225 / $157.50 / reset $140 / target $6,000 / loss $3,000 / 50% consistency / 6 mini or 60 micro; 150K $420 / $294 / reset $280 / target $9,000 / loss $4,500 / 50% consistency / 10 mini or 100 micro. DLL none; no consistency in funded; activation fee free.
+- LucidDirect straight-funded: 25K price $340 / coupon $238 / loss $1,000 EOD / DLL none / 20% consistency / 2 mini or 20 micro; 50K $520 / $364 / loss $2,000 / DLL below initial trail $1,200 / LucidScale DLL above initial trail 60% of Peak EOD Balance / 20% consistency / 4 mini or 40 micro; 100K $700 / $490 / loss $3,500 / DLL $2,100 / LucidScale 60% of Peak EOD Balance / 20% consistency / 6 mini or 60 micro; 150K $840 / $588 / loss $5,000 / DLL $3,000 / LucidScale 60% of Peak EOD Balance / 20% consistency / 10 mini or 100 micro. Min days to payout 5; max accounts 5; realtime dashboard.
+- Example funded rules captured from 25K Pro funded card: payout profit target $250, max loss $1,000, 40% consistency, max size 2 mini or 20 micro, 3 days to payout, free activation, 5 payouts to live.
+- About page claims: no activation fees for LucidPro, no hard breach rules, EOD drawdown; LucidDirect skips evaluation and has a DLL that scales as you earn; no payout windows; no monthly billing; LucidLive allows daily withdrawals and swing trading after successful track record.
+- Caveat: affiliate page/final checkout should still be verified separately before adding affiliate CTAs.
