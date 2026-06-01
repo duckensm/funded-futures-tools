@@ -1,13 +1,13 @@
 import './styles.css';
 
 const firms = [
-  {id:'earn2trade', name:'Earn2Trade', best:'Structured evaluations', price:'$150+', target:'$6k on $50k', drawdown:'EOD trailing / rules vary', daily:'Varies', payout:'Published affiliate program', score:88, risk:'Medium', fit:'Best for traders who want a more traditional evaluation path.'},
-  {id:'takeprofittrader', name:'TakeProfitTrader', best:'Fast payout focus', price:'$150+', target:'Firm dependent', drawdown:'Trailing', daily:'Account dependent', payout:'Strong payout branding', score:84, risk:'Medium', fit:'Best for traders who value simple branding and direct payout messaging.'},
-  {id:'apex', name:'Apex Trader Funding', best:'EOD drawdown option', price:'EOD: $177-$397 retail', target:'$1.5k-$9k EOD', drawdown:'EOD trailing + intraday trailing', daily:'EOD DLL: $500-$2k', payout:'6-step payout ladder', score:83, risk:'Medium', fit:'Best for NQ traders who want Apex promos but prefer EOD drawdown over intraday trailing.'},
-  {id:'myfundedfutures', name:'MyFundedFutures', best:'Modern futures programs', price:'Varies', target:'Account dependent', drawdown:'Static/trailing varies', daily:'Varies', payout:'Modern rules', score:80, risk:'Medium', fit:'Best for traders comparing newer alternatives.'},
-  {id:'lucidtraderfunding', name:'Lucid Trader Funding', best:'Futures funding alternative', price:'Varies', target:'Account dependent', drawdown:'Rules vary', daily:'Varies', payout:'Verify current rules', score:77, risk:'Medium-High', fit:'Best for traders who want to compare newer futures funding options.'},
-  {id:'tradeify', name:'Tradeify', best:'Modern trader funding option', price:'Varies', target:'Account dependent', drawdown:'Rules vary', daily:'Varies', payout:'Verify current rules', score:79, risk:'Medium', fit:'Best for traders comparing newer prop firm models and payout structures.'},
-  {id:'bulenox', name:'Bulenox', best:'Budget promos', price:'Promo varies', target:'Account dependent', drawdown:'Trailing', daily:'Varies', payout:'Promo heavy', score:74, risk:'High', fit:'Best for deal seekers who read rules carefully.'}
+  {id:'apex', name:'Apex Trader Funding', best:'High search demand + EOD option', price:'EOD: $177-$397 retail', target:'$1.5k-$9k EOD', drawdown:'EOD trailing + intraday trailing', daily:'EOD DLL: $500-$2k', payout:'6-step payout ladder', score:88, risk:'Medium', fit:'Best for NQ traders who want a heavily searched futures prop firm and prefer EOD drawdown over intraday trailing.'},
+  {id:'myfundedfutures', name:'MyFundedFutures', best:'Popular modern futures option', price:'Varies', target:'Account dependent', drawdown:'Static/trailing varies', daily:'Varies', payout:'Modern rules', score:84, risk:'Medium', fit:'Best for traders comparing newer futures-specific alternatives with strong current market interest.'},
+  {id:'takeprofittrader', name:'TakeProfitTrader', best:'Fast payout focus', price:'$150+', target:'Firm dependent', drawdown:'Trailing', daily:'Account dependent', payout:'Strong payout branding', score:82, risk:'Medium', fit:'Best for traders who value simple branding and direct payout messaging.'},
+  {id:'tradeify', name:'Tradeify', best:'Modern trader funding option', price:'Varies', target:'Account dependent', drawdown:'Rules vary', daily:'Varies', payout:'Verify current rules', score:80, risk:'Medium', fit:'Best for traders comparing newer prop firm models and payout structures.'},
+  {id:'bulenox', name:'Bulenox', best:'Budget promos', price:'Promo varies', target:'Account dependent', drawdown:'Trailing', daily:'Varies', payout:'Promo heavy', score:76, risk:'High', fit:'Best for deal seekers who read rules carefully.'},
+  {id:'lucidtraderfunding', name:'Lucid Trader Funding', best:'Newer futures funding alternative', price:'Varies', target:'Account dependent', drawdown:'Rules vary', daily:'Varies', payout:'Verify current rules', score:74, risk:'Medium-High', fit:'Best for traders who want to compare newer futures funding options after checking the bigger names.'},
+  {id:'earn2trade', name:'Earn2Trade', best:'Legacy structured evaluations', price:'$150+', target:'$6k on $50k', drawdown:'EOD trailing / rules vary', daily:'Varies', payout:'Published affiliate program', score:70, risk:'Medium', fit:'Best as a secondary/legacy comparison, not as the headline top prop firm.'}
 ];
 
 const pages = {
@@ -65,7 +65,7 @@ function renderHome(){
       </div>
     </div>
   </div></section>
-  <section class="section"><div class="wrap"><div class="section-head"><div><h2>A smarter clone of the prop firm comparison model.</h2><p class="subhead">Most sites rank everything. This one narrows down to funded futures accounts and explains the rules through calculators.</p></div><a class="btn" href="#firms">View firm pages</a></div><div class="grid3">
+  <section class="section"><div class="wrap"><div class="section-head"><div><h2>A futures prop firm shortlist built around buyer intent.</h2><p class="subhead">Most sites rank everything. This one starts with the names traders actually search, then explains the rules through NQ-focused calculators.</p></div><a class="btn" href="#firms">View firm pages</a></div><div class="grid3">
     <div class="card"><div class="icon">⚡</div><h3>NQ/MNQ specific</h3><p>Risk examples use futures point values, contract counts, trailing drawdown buffers, and daily loss limits.</p></div>
     <div class="card"><div class="icon">◷</div><h3>Rule clarity</h3><p>Plain-English explanations of trailing drawdown, consistency rules, payout rules, activation fees, and reset risk.</p></div>
     <div class="card"><div class="icon">↗</div><h3>Monetizable from day one</h3><p>Ready for affiliate links, discount codes, email capture, comparison pages, and YouTube traffic.</p></div>
@@ -77,7 +77,7 @@ function renderHome(){
 
 function comparisonSection(full=true){
   const rows = firms.map(f=>`<tr><td><strong>${f.name}</strong><br><span class="pill ${riskClass(f.score)}">Score ${f.score}</span></td><td>${f.best}</td><td>${f.price}</td><td>${f.target}</td><td>${f.drawdown}</td><td>${f.daily}</td><td><span class="pill">${f.risk}</span></td><td><a class="btn small" href="#firms/${f.id}">Details</a></td></tr>`).join('');
-  return `<section class="section" id="compare"><div class="wrap"><div class="section-head"><div><h2>Futures prop firm comparison.</h2><p class="subhead">Starter database. Values are intentionally marked “varies” where rules change often. Final launch should verify each firm directly.</p></div>${full?'<a class="btn" href="#calculators">Check risk</a>':''}</div><div class="table-wrap"><table><thead><tr><th>Firm</th><th>Best for</th><th>Price</th><th>Profit target</th><th>Drawdown</th><th>Daily loss</th><th>Risk</th><th></th></tr></thead><tbody>${rows}</tbody></table></div></div></section>`;
+  return `<section class="section" id="compare"><div class="wrap"><div class="section-head"><div><h2>Futures prop firm comparison.</h2><p class="subhead">Sorted as a practical buyer-intent shortlist, not a claim that every firm is the market leader. Values are intentionally marked “varies” where rules change often; final launch should verify each firm directly.</p></div>${full?'<a class="btn" href="#calculators">Check risk</a>':''}</div><div class="table-wrap"><table><thead><tr><th>Firm</th><th>Best for</th><th>Price</th><th>Profit target</th><th>Drawdown</th><th>Daily loss</th><th>Risk</th><th></th></tr></thead><tbody>${rows}</tbody></table></div></div></section>`;
 }
 
 function renderCompare(){ return comparisonSection(true); }
