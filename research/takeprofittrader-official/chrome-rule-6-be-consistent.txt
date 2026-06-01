@@ -1,0 +1,150 @@
+Source URL: https://takeprofittraderhelp.zendesk.com/hc/en-us/articles/15170316538013-Rule-6-Be-Consistent
+Captured: 2026-05-31 via user Chrome UIA
+Window: Rule 5: Be Consistent – TakeProfitTrader - Google Chrome
+
+--- VIEWPORT 1 ---
+Rule 5: Be Consistent – TakeProfitTrader - Google Chrome - Duckens (Person 1)
+Minimize
+Restore
+Close
+Back
+Forward
+Reload
+View site information
+takeprofittraderhelp.zendesk.com/hc/en-us/articles/15170316538013-Rule-5-Be-Consistent
+Bookmark this tab
+Surfshark VPN Extension. Not connected
+Has access to this site
+Extensions
+Duckens (Person 1)
+Chrome
+Bookmarks
+Saved Tab Groups
+✅AI Prompts for Teachers toolkit group - Opened
+Tab groups
+Separator
+Maximum Security - Powered By Deputy.com
+My Product for sale
+Investment
+PropFirms
+Progressive Insurance
+Insurance Quotes: Home, Auto Insurance | Foremost Insurance Group
+Check Federal Refund Status
+Menu containing hidden bookmarks
+All Bookmarks
+Separator
+Rule 5: Be Consistent – TakeProfitTrader
+Skip to main content
+TakeProfitTrader Help Center home page
+Sign in
+Breadcrumb
+TakeProfitTrader
+> Test Rules
+Test Rules
+> The 6 Core Rules
+The 6 Core Rules
+Search
+Articles in this section
+Rule 1: Hit Your Profit Target
+Rule 2: Do Not Exceed Maximum Position Size
+Rule 3: Do Not Hit End-Of-Day (EOD) Maximum Trailing Drawdown
+Rule 4: Trade Approved Products, During Approved Hours
+Rule 5: Be Consistent
+Rule 6: No Counter Positions
+Rule 5: Be Consistent
+User (Vlada) is a team member
+Vlada
+25 days ago
+·
+Updated
+Before funding traders, Take Profit Trader must ensure they demonstrate consistency.
+There are two requirements that determine whether your performance is considered consistent.
+1. Minimum Number of Trading Days
+To show that you can make money and manage risk, you must trade for a
+minimum of 5 trading days
+.
+A trading day is defined as any day in which you place
+at least one trade
+.
+You may take as long as you want to complete the test, but you
+must
+meet the 5-day minimum.
+If you reach your profit target in only 2 days, you still need 3 additional active trading days.
+This rule exists because a trader needs to demonstrate skill and discipline, not just a few lucky trades.
+2. Profit Consistency (Percentage of Profits Rule)
+To prevent the evaluation from being treated like a lottery ticket, no single trading day may exceed
+50% of your total net profits
+.
+This is based on your
+net P/L
+.
+Use the formula:
+Highest profit day / Net P/L = Consistency Percentage
+This percentage must be
+below 50%
+to qualify for a PRO account.
+If your consistency percentage is above 50%, you do not meet the consistency rule. However,
+you have not failed the test account
+; you simply need to increase your total profit goal to pass the consistency rule.
+Updated Profit Goal (Automatic Adjustment)
+Your consistency threshold adjusts automatically based on your
+net P/L
+.
+To determine your updated profit requirement, use:
+Updated Profit Goal = Net P/L × 2
+This updated goal appears directly in your dashboard.
+Example
+Account size:
+$50,000
+Required profit target:
+$3,000
+Your results:
+Day 1: +$2,000
+All remaining days combined: +$1,100
+Net P/L =
+$3,100
+Consistency percentage:
+$2,000 / $3,100 = 65%
+(too high)
+You need to increase your net P/L until your highest day becomes less than 50% of total net profits.
+Updated required profit (Net P/L × 2):
+$3,100 × 2 = $6,200
+$2,000 / $4,001 < 50%
+This ensures your performance is not dominated by a single trading day.
+Was this article helpful?
+This article was helpful
+This article was not helpful
+35 out of 42 found this helpful
+Recently viewed articles
+How to Activate a PRO Account Using Credit
+Related articles
+PRO Account Rules
+Rule 4: Trade Approved Products, During Approved Hours
+Activating Your CQG Data Feed
+Permitted Products
+Advantages of PRO+
+TakeProfitTrader
+English (United States)
+Takeprofittrader Chat Button Frame
+Chat
+grammarly-integration
+{"mode":"full","isActive":true,"isUserDisabled":false}
+grammarly-integration
+{"mode":"full","isActive":true,"isUserDisabled":false}
+Tab search
+Inbox (5) - duckensm@gmail.com - Gmail - Memory usage - 418 MB
+Inbox - steadyhabit.app@gmail.com - Gmail
+Inbox (3) - dutrading1@gmail.com - Gmail
+Amazon.com : project source 24-in clear wall-mount replacement bar only towel bar
+X
+Topstep Dashboard
+(3284) Discord | #📈trading-prop-firms | The Future Prop Trader - Memory usage - 319 MB
+what are the top 10 future trading prop firms - Google Search
+ETSY Google Sheet - Google Drive
+Funded Futures Tools | Prop firm calculators for NQ traders
+The Best Payout Policy Prop Firm For Funded Futures Traders
+Rule 5: Be Consistent – TakeProfitTrader
+Close
+New Tab
+Open Gemini in Chrome
+Dismiss suggestion

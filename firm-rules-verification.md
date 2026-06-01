@@ -6,7 +6,7 @@ Use this sheet before publishing affiliate traffic. Only mark a firm as official
 |---:|---|---|---|---|---|
 | 1 | Apex Trader Funding | https://apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/ | Official EOD rules checked in user's Chrome; pricing/checkout still verify | 2026-05-31 | EOD evaluation rules, EOD drawdown, EOD PA, EOD payouts captured. Still verify live pricing/checkout discounts. |
 | 2 | MyFundedFutures | https://help.myfundedfutures.com/en/articles/11802636-traders-evaluation-simplified | Official help-center rules checked; checkout discounts still verify | 2026-05-31 | Eval specs/prices, Max EOD trailing, 50% consistency, $0 activation fee, payout rules, news restrictions captured. Still verify live checkout discounts/coupons. |
-| 3 | TakeProfitTrader | https://takeprofittrader.com/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
+| 3 | TakeProfitTrader | https://takeprofittrader.com/ | Official homepage/help rules checked in user's Chrome; remaining account cards/checkout still verify | 2026-05-31 | Homepage pricing, visible 50K specs, consistency, PRO withdrawal/buffer, PRO rules, resets, NOFEE30 promo captured. Still verify all account cards and live checkout. |
 | 4 | Tradeify | https://tradeify.co/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
 | 5 | Bulenox | https://bulenox.com/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
 | 6 | Lucid Trader Funding | https://lucidfunding.com/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
@@ -72,3 +72,28 @@ Key official values captured:
 - Payouts: Rapid daily, $500 minimum, 90% split; Flex after 5 winning days, $250 minimum, 80% split; Pro every 14 calendar days, $1,000 minimum, 80% split.
 - News: T1 news trading permitted for evaluations and 25K/50K Flex, prohibited for Rapid Sim Funded and Pro Sim Funded; no positions/orders 2 minutes before/after applicable releases.
 - Pricing caveat: official help article prices captured; still verify live checkout discounts and coupon codes before affiliate traffic.
+
+
+## TakeProfitTrader official verification notes — checked 2026-05-31
+
+Official pages captured under `research/takeprofittrader-official/` using the user's Chrome browser:
+
+- Homepage/pricing: https://takeprofittrader.com/
+- Consistency rule: https://takeprofittraderhelp.zendesk.com/hc/en-us/articles/15170316538013-Rule-5-Be-Consistent
+- PRO profit split/withdrawals: https://takeprofittraderhelp.zendesk.com/hc/en-us/articles/15172219527581-PRO-Account-Profit-Split-Withdrawal-Rules
+- PRO account rules: https://takeprofittraderhelp.zendesk.com/hc/en-us/articles/15171769361053-PRO-Account-Rules
+- Test reset pricing: https://takeprofittraderhelp.zendesk.com/hc/en-us/articles/15140989806493-Resetting-Your-Test-Account
+- NOFEE30 promo FAQ: https://takeprofittraderhelp.zendesk.com/hc/en-us/articles/36337706971677-NOFEE30-PROMO-FAQ
+
+Key official values captured:
+
+- Homepage prices shown: 25K $150/mo, 50K $170/mo, 75K $245/mo, 100K $330/mo, 150K $360/mo.
+- Visible 50K card: profit target $3,000; max position 6 contracts / 60 micros; Daily Loss Limit $1,100 marked Removed; EOD trailing drawdown $2,000.
+- Homepage journey table: Test is SIM, PRO is SIM, PRO+ is LIVE; PRO split 80/20, PRO+ split 90/10; PRO has buffer requirement, PRO+ no buffer; Test and PRO+ drawdown EOD, PRO drawdown intraday; PRO accounts max 5; max withdrawal no max.
+- Consistency/min days: 5 trading days minimum; no single trading day may exceed 50% of total net profits; if above 50%, account not failed, trader needs more profit.
+- PRO withdrawals: 80/20 split; can withdraw day one after reaching buffer; buffer equals max drawdown. Buffer zones: 25K $26,500, 50K $52,000, 75K $77,500, 100K $103,000, 150K $154,500.
+- Inside-buffer withdrawal after termination: 50% if ≤60 trading days, 80% if >60 trading days.
+- PRO rules: no bots/algos; avoid limit up/down; at least one trading day per calendar week; no counter positions; PRO intraday trailing based on peak balance including unrealized gains; flat/no orders around prohibited news one minute before/during/after.
+- Reset prices: 25K $79, 50K $99, 75K $139, 100K $169, 150K $199.
+- NOFEE30 promo FAQ: 30% lifetime discount and $130 PRO activation fee waived for life on active account created with code; no additional fees to get funded during promo; monthly subscription stops after PRO. Verify live checkout/promo before publishing.
+- Caveat: only 50K account card specs were visible in the captured homepage view; verify remaining account cards and checkout before final affiliate traffic.
