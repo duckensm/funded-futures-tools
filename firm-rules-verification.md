@@ -11,6 +11,7 @@ Use this sheet before publishing affiliate traffic. Only mark a firm as official
 | 5 | Bulenox | https://bulenox.com/ | Official homepage/help rules checked; checkout coupons still verify | 2026-05-31 | Homepage tiers/prices, Qualification rules, trailing/EOD options, DLL, scaling, Master activation fees, payout/consistency rules captured. |
 | 6 | Lucid Trading | https://lucidtrading.com/ | Official homepage/about checked in user's Chrome; affiliate/checkout still verify | 2026-05-31 | Corrected dead LucidFunding.com domain to LucidTrading.com; Pro/Flex/Direct pricing, drawdown, DLL, contracts, activation fees, payout path captured. |
 | 7 | Earn2Trade | https://www.earn2trade.com/ | Official homepage/product/purchase pages checked; live promo/checkout still verify | 2026-05-31 | TCP and Gauntlet Mini pricing/specs, EOD/trailing drawdown, DLL, contracts, reset pricing, activation fee, payout/profit split, instruments, platforms captured. |
+| 8 | Phidias Propfirm | https://phidiaspropfirm.com/ | Official Phidias 2.0/accounts/rules/affiliate pages checked; checkout and user-specific affiliate link still verify | 2026-06-01 | E2L static drawdown, Fundamental/Premium EOD drawdown, payout cadence, activation fees, Premium reset, platforms, and affiliate status captured. |
 
 ## Official source links discovered
 
@@ -21,6 +22,7 @@ Use this sheet before publishing affiliate traffic. Only mark a firm as official
 - Bulenox: https://bulenox.com/help/, https://bulenox.com/member/aff/signup
 - Lucid Trading: https://lucidtraderfunding.com/ did not resolve; https://lucidfunding.com/ redirects to a GoDaddy domain-for-sale page; current official prop firm site found/verified as https://lucidtrading.com/.
 - Earn2Trade: https://www.earn2trade.com/purchase, https://help.earn2trade.com/en/
+- Phidias Propfirm: https://phidiaspropfirm.com/, https://phidiaspropfirm.com/phidias-2-0, https://phidiaspropfirm.com/accounts, https://phidiaspropfirm.com/rules, https://phidiaspropfirm.com/affiliate-program
 
 ## Verification standard
 
@@ -203,3 +205,29 @@ Key official values captured:
 - Funded/withdrawal FAQ: after passing, certificate and choice of LiveSim® or Live funded account with same capital; keep 80% of profits; homepage says withdraw weekly from $100+ with no additional performance targets required; activation fee is one-time $139 deducted only from first successful withdrawal and not upfront.
 - Commission FAQ: commissions vary by instrument and are consistent with industry-standard futures rates; schedules provided upon account activation and may depend on provider/platform selected (Tradovate or Rithmic).
 - Caveat: checkout, limited-time discounts, and affiliate program terms should still be rechecked before adding final affiliate CTAs.
+
+## Phidias Propfirm official verification notes — checked 2026-06-01
+
+Official pages captured under `research/phidias-official/`:
+
+- Homepage: https://phidiaspropfirm.com/
+- Phidias 2.0 launch/update: https://phidiaspropfirm.com/phidias-2-0
+- Accounts/pricing configurator page: https://phidiaspropfirm.com/accounts
+- Rules: https://phidiaspropfirm.com/rules
+- Affiliate program: https://phidiaspropfirm.com/affiliate-program
+
+Key official values captured:
+
+- Phidias 2.0 has three main account families: Express to Live, Fundamental, and Premium.
+- New platform lineup includes Tradovate, NinjaTrader, and TradingView execution alongside Rithmic and DeepCharts.
+- Express to Live: 25K/50K/100K/150K; static drawdown that never trails; 0 minimum trading days; no consistency rule; no daily loss limit; news trading authorized; up to 5 E2L accounts per trader; overnight/weekend not permitted.
+- E2L grid: 25K target $1,500 / static DD $500 / bonus payout $1,000 / LIVE credit $500 / max 2 minis; 50K target $2,500 / DD $650 / bonus $2,000 / credit $1,000 / max 5 minis; 100K target $3,500 / DD $800 / bonus $3,000 / credit $1,500 / max 7 minis; 150K target $4,500 / DD $1,000 / bonus $4,500 / credit $2,000 / max 9 minis.
+- Fundamental: 50K/100K/150K; EOD trailing drawdown; 3 minimum evaluation days; 10 funded qualifying days between payouts; funded 30% daily consistency rule; 80/20 split; overnight/weekend not permitted.
+- Premium: 50K/100K/150K; EOD trailing drawdown; 1 minimum evaluation day; 5 funded qualifying days between payouts; funded 30% daily consistency rule; overnight/weekend authorized; progressive split 75%, 80%, 85%, 90%, then 100% from payout 5 onward; one Cash Account Reset option.
+- Fundamental/Premium grids: 50K drawdown $2,500 / target $4,000 / max 10 minis / activation $149 / payout cap $2,000 / withdrawal threshold $52,600; 100K drawdown $3,000 / target $6,000 / max 14 minis / activation $149 / payout cap $2,500 / threshold $103,700; 150K drawdown $4,500 / target $9,000 / max 17 minis / activation $169 / payout cap $2,750 / threshold $154,500.
+- Premium Cash Account Reset listed at 50K $399, 100K $499, 150K $599, one time per account.
+- EOD drawdown for Fundamental/Premium is calculated at the end of each trading day and excludes unrealized intraday highs, but the liquidation level is enforced if reached.
+- Standard withdrawal section: minimum withdrawal $500; payments through Rise; Fundamental payout cadence 10 days; Premium payout cadence 5 days.
+- Fundamental/Premium LIVE transition is discretionary after 5 successful payouts or $100,000 cumulative profits across accounts; not guaranteed.
+- Affiliate page states affiliates get a unique coupon code/dashboard, starting commission 15%, and Phidias reviews applications within 24h. User says they are already approved.
+- Visible promo/coupon caveat: site showed PHIDIAS80 and launch code TRADOVATE language; verify live checkout and the user's actual affiliate code/link before promoting a discount.

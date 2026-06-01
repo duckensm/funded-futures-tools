@@ -11,6 +11,7 @@
 - Added challenge pass planner.
 - Removed Topstep from shortlist.
 - Added Lucid Trading and Tradeify.
+- Added Phidias Propfirm as an approved affiliate/partner firm and captured Phidias 2.0 rules.
 - Reordered comparison around buyer-intent categories instead of fake numeric rankings.
 - Removed visible risk badge/column from comparison UI because it caused layout issues.
 - Added/then upgraded animated NQ hero chart into trading-cockpit style graphic.
@@ -23,12 +24,14 @@
   - Bulenox
   - Lucid Trading
   - Earn2Trade
+  - Phidias Propfirm
 - Created `firm-rules-verification.md` with verification notes.
 - Build currently succeeds with `npm run build`.
 - Latest local URL: `http://127.0.0.1:5173`.
 
 ## User affiliate status remembered from session
 
+- Phidias Propfirm: affiliate approved; add the user-specific affiliate URL/coupon when available.
 - Lucid and Bulenox: signed up / pending.
 - TakeProfitTrader: affiliate application declined; keep at bottom as brief reference only, do not promote.
 - Apex: still need to apply.
