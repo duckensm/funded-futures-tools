@@ -1,0 +1,1462 @@
+EOD Drawdown Explained - Apex Trader Funding - Google Chrome - Duckens (Person 1)
+Minimize
+Restore
+Close
+Back
+Forward
+Reload
+View site information
+apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/eod-drawdown-explained/
+Bookmark this tab
+Surfshark VPN Extension. Not connected
+Has access to this site
+Extensions
+Duckens (Person 1)
+Chrome
+Bookmarks
+Saved Tab Groups
+✅AI Prompts for Teachers toolkit group - Opened
+Tab groups
+Separator
+Maximum Security - Powered By Deputy.com
+My Product for sale
+Investment
+PropFirms
+Progressive Insurance
+Insurance Quotes: Home, Auto Insurance | Foremost Insurance Group
+Check Federal Refund Status
+Menu containing hidden bookmarks
+All Bookmarks
+Separator
+EOD Drawdown Explained - Apex Trader Funding
+Skip to content
+Support
+Status
+ANY SIZE EVALS UP TO 90% OFF – 90% OFF | USE CODE: COUPON “SAVENOW”
+COUPON "SAVENOW"
+Ends in:
+3
+d
+02
+h
+20
+m
+39
+s
+Apex Trader Funding
+Apex Trader Funding
+Apex Trader Funding
+Primary Menu
+Home
+Home
+About
+About
+Status
+Status
+Products
+Products
+Helpdesk
+Helpdesk
+Testimonials
+Testimonials
+Log In
+Sign Up
+Breadcrumbs
+Home
+Home
+Help Center
+Help Center
+EOD Trailing Drawdown Accounts
+EOD Trailing Drawdown Accounts
+Hero Banner
+HELP CENTER
+Search for:
+￼
+EOD Drawdown Explained
+Table of Contents
+In this article
+EOD Drawdown At A Glance:
+Skip to section: EOD Drawdown at a Glance:
+What Is The EOD Drawdown?
+Skip to section: What is the EOD Drawdown?
+How Is EOD Threshold Calculated?
+Skip to section: How is EOD Threshold Calculated?
+What Happens If EOD Threshold Is Reached Intraday
+Skip to section: What Happens If EOD threshold is reached intraday
+When EOD Drawdown Stops Trailing
+Skip to section: When EOD Drawdown Stops Trailing
+Video Explanation Of EOD Drawdown
+Skip to section: Video Explanation of EOD Drawdown
+Frequently Asked Questions
+Skip to section: Frequently Asked Questions
+Skip to section:
+EOD Drawdown at a Glance:
+Defines the maximum total drawdown allowed on your account
+Calculated once daily at market close
+Enforced in real time during the next trading session
+If reached → positions close automatically
+If reached → account is failed (evaluation) or closed (PA)
+Threshold never moves downward
+What is the EOD Drawdown?
+The End-of-Day (EOD) Drawdown sets the lowest balance your account is allowed to reach. It is calculated once per day at market close based on your EOD account balance.Once calculated, the EOD Drawdown becomes active for the next trading session. If at any moment during the trading session the account balance touches or falls below the EOD Drawdown, all open positions are automatically liquidated.
+In an evaluation, reaching the EOD Drawdown results in evaluation failure.In a Performance Account (PA), reaching the EOD Threshold results in account closure.
+How is EOD Threshold Calculated?
+The EOD Threshold is recalculated once per trading day at 4:59:59 PM ET, based on the account’s closing balance. It always trails the highest achieved EOD balance and never moves downward. Each account begins with a fixed drawdown amount based on account size.
+Example Explained
+Example Explained
+What Happens If EOD threshold is reached intraday
+If at any moment your account balance touches or falls below the EOD Threshold:
+All open positions are automatically liquidated
+Your evaluation is failed or PA is closed
+Trading stops immediately
+Even though the threshold is calculated at end-of-day, it is
+enforced in real time.
+When EOD Drawdown Stops Trailing
+Performance Accounts
+Once the EOD Threshold reaches Starting Balance + $100, it stops increasing.
+Example for a 50K EOD PA:
+Threshold Stop Level = $50,100
+This occurs when the Highest EOD Balance reaches $52,100 (Starting Balance + Max Drawdown + $100). From that point onward, the EOD Threshold remains fixed at $50,100
+Evaluations Rithmic and Wealthcharts
+EOD Threshold stops trailing and becomes fixed when it reaches an amount equal to the Target Profit balance.
+Example for a 50K Rithmic and Wealthcharts EOD Evaluation account:
+Threshold Stop Level = $53.000
+This occurs when the Highest EOD Balance closes above $55,000 ($53,000 + $2,000). From that point onward, the EOD Threshold remains fixed at $53,000.
+Evaluations Tradovate
+EOD Drawdown trails indefinitely with the peak EOD account balance.
+Video Explanation of EOD Drawdown
+EOD Drawdown
+EOD Drawdown - YouTube
+YouTube Video Player
+Frequently Asked Questions
+Do I fail if I reach EOD Threshold Intraday?
+Do I fail if I reach EOD Threshold Intraday?
+Does the EOD Threshold move?
+Does the EOD Threshold move?
+What happens to the EOD Threshold on losing days?
+What happens to the EOD Threshold on losing days?
+What is the difference between DLL and EOD Threshold?
+What is the difference between DLL and EOD Threshold?
+Can my account dip below the threshold intraday if it later recovers?
+Can my account dip below the threshold intraday if it later recovers?
+What is the difference between Live Trailing Threshold and EOD Threshold?
+What is the difference between Live Trailing Threshold and EOD Threshold?
+Call to Action
+Can’t find what you’re looking for?
+Our team of experts is here to help
+Contact Us
+Apex Trader Funding Inc.
+2028 E. Ben White Blvd Ste 240-9873
+Austin, TX 78741
+Contact Support 24/7 Via Help Desk
+Footer Menu
+Policies
+Privacy Policy
+Privacy Policy
+Cookie Policy
+Cookie Policy
+Terms of Use
+Terms of Use
+Risk Disclosure
+Risk Disclosure
+Cookie Preferences
+Cookie Preferences
+Resources
+Coupon Code
+Coupon Code
+Payouts
+Payouts
+Restricted Countries
+Restricted Countries
+Useful Links
+About Us
+About Us
+Logos
+Logos
+Careers
+Careers
+News
+News
+RISK DISCLOSURE:
+Apex Trader Funding offers simulated trading programs for educational, informational, and evaluation purposes only. All activity occurs in a simulated environment using virtual funds; no real capital is at risk and no live market execution occurs. This is not an offer or solicitation to invest or trade in real financial markets. Trading carries substantial risk and is not suitable for everyone. Past performance, whether actual or simulated, does not guarantee future results. Apex does not provide investment advice and is not a broker-dealer, futures commission merchant, or financial advisor. Use of our services is subject to our User Agreement, Terms of Use, Privacy Policy, and Risk Disclosure. Participation does not create an employment relationship. Reward payouts are discretionary and subject to eligibility, compliance, and applicable tax laws. Services are intended for U.S. users only and are not offered where prohibited by local laws or regulations.
+2021-2026, Apex Trader Funding Inc. All Rights Reserved.
+💬 Need Help?
+grammarly-integration
+{"mode":"full","isActive":true,"isUserDisabled":false}
+Tab search
+Inbox (5) - duckensm@gmail.com - Gmail - Memory usage - 418 MB
+Close
+Inbox - steadyhabit.app@gmail.com - Gmail
+Close
+Inbox (3) - dutrading1@gmail.com - Gmail
+Close
+Amazon.com : project source 24-in clear wall-mount replacement bar only towel bar
+Close
+X
+Close
+Topstep Dashboard
+Close
+(3284) Discord | #📈trading-prop-firms | The Future Prop Trader - Memory usage - 319 MB
+what are the top 10 future trading prop firms - Google Search
+ETSY Google Sheet - Google Drive
+Funded Futures Tools | Prop firm calculators for NQ traders
+EOD Drawdown Explained - Apex Trader Funding
+Close
+New Tab
+Open Gemini in Chrome
+EOD Drawdown Explained - Apex Trader Funding - Google Chrome - Duckens (Person 1)
+Minimize
+Restore
+Close
+Back
+Forward
+Reload
+View site information
+apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/eod-drawdown-explained/
+Bookmark this tab
+Surfshark VPN Extension. Not connected
+Has access to this site
+Extensions
+Duckens (Person 1)
+Chrome
+Bookmarks
+Saved Tab Groups
+✅AI Prompts for Teachers toolkit group - Opened
+Tab groups
+Separator
+Maximum Security - Powered By Deputy.com
+My Product for sale
+Investment
+PropFirms
+Progressive Insurance
+Insurance Quotes: Home, Auto Insurance | Foremost Insurance Group
+Check Federal Refund Status
+Menu containing hidden bookmarks
+All Bookmarks
+Separator
+EOD Drawdown Explained - Apex Trader Funding
+Skip to content
+Support
+Status
+ANY SIZE EVALS UP TO 90% OFF – 90% OFF | USE CODE: COUPON “SAVENOW”
+COUPON "SAVENOW"
+Ends in:
+3
+d
+02
+h
+20
+m
+37
+s
+Apex Trader Funding
+Apex Trader Funding
+Apex Trader Funding
+Primary Menu
+Home
+Home
+About
+About
+Status
+Status
+Products
+Products
+Helpdesk
+Helpdesk
+Testimonials
+Testimonials
+Log In
+Sign Up
+Breadcrumbs
+Home
+Home
+Help Center
+Help Center
+EOD Trailing Drawdown Accounts
+EOD Trailing Drawdown Accounts
+Hero Banner
+HELP CENTER
+Search for:
+￼
+EOD Drawdown Explained
+Table of Contents
+In this article
+EOD Drawdown At A Glance:
+Skip to section: EOD Drawdown at a Glance:
+What Is The EOD Drawdown?
+Skip to section: What is the EOD Drawdown?
+How Is EOD Threshold Calculated?
+Skip to section: How is EOD Threshold Calculated?
+What Happens If EOD Threshold Is Reached Intraday
+Skip to section: What Happens If EOD threshold is reached intraday
+When EOD Drawdown Stops Trailing
+Skip to section: When EOD Drawdown Stops Trailing
+Video Explanation Of EOD Drawdown
+Skip to section: Video Explanation of EOD Drawdown
+Frequently Asked Questions
+Skip to section: Frequently Asked Questions
+Skip to section:
+EOD Drawdown at a Glance:
+Defines the maximum total drawdown allowed on your account
+Calculated once daily at market close
+Enforced in real time during the next trading session
+If reached → positions close automatically
+If reached → account is failed (evaluation) or closed (PA)
+Threshold never moves downward
+What is the EOD Drawdown?
+The End-of-Day (EOD) Drawdown sets the lowest balance your account is allowed to reach. It is calculated once per day at market close based on your EOD account balance.Once calculated, the EOD Drawdown becomes active for the next trading session. If at any moment during the trading session the account balance touches or falls below the EOD Drawdown, all open positions are automatically liquidated.
+In an evaluation, reaching the EOD Drawdown results in evaluation failure.In a Performance Account (PA), reaching the EOD Threshold results in account closure.
+How is EOD Threshold Calculated?
+The EOD Threshold is recalculated once per trading day at 4:59:59 PM ET, based on the account’s closing balance. It always trails the highest achieved EOD balance and never moves downward. Each account begins with a fixed drawdown amount based on account size.
+Example Explained
+Example Explained
+What Happens If EOD threshold is reached intraday
+If at any moment your account balance touches or falls below the EOD Threshold:
+All open positions are automatically liquidated
+Your evaluation is failed or PA is closed
+Trading stops immediately
+Even though the threshold is calculated at end-of-day, it is
+enforced in real time.
+When EOD Drawdown Stops Trailing
+Performance Accounts
+Once the EOD Threshold reaches Starting Balance + $100, it stops increasing.
+Example for a 50K EOD PA:
+Threshold Stop Level = $50,100
+This occurs when the Highest EOD Balance reaches $52,100 (Starting Balance + Max Drawdown + $100). From that point onward, the EOD Threshold remains fixed at $50,100
+Evaluations Rithmic and Wealthcharts
+EOD Threshold stops trailing and becomes fixed when it reaches an amount equal to the Target Profit balance.
+Example for a 50K Rithmic and Wealthcharts EOD Evaluation account:
+Threshold Stop Level = $53.000
+This occurs when the Highest EOD Balance closes above $55,000 ($53,000 + $2,000). From that point onward, the EOD Threshold remains fixed at $53,000.
+Evaluations Tradovate
+EOD Drawdown trails indefinitely with the peak EOD account balance.
+Video Explanation of EOD Drawdown
+EOD Drawdown
+EOD Drawdown - YouTube
+YouTube Video Player
+Frequently Asked Questions
+Do I fail if I reach EOD Threshold Intraday?
+Do I fail if I reach EOD Threshold Intraday?
+Does the EOD Threshold move?
+Does the EOD Threshold move?
+What happens to the EOD Threshold on losing days?
+What happens to the EOD Threshold on losing days?
+What is the difference between DLL and EOD Threshold?
+What is the difference between DLL and EOD Threshold?
+Can my account dip below the threshold intraday if it later recovers?
+Can my account dip below the threshold intraday if it later recovers?
+What is the difference between Live Trailing Threshold and EOD Threshold?
+What is the difference between Live Trailing Threshold and EOD Threshold?
+Call to Action
+Can’t find what you’re looking for?
+Our team of experts is here to help
+Contact Us
+Apex Trader Funding Inc.
+2028 E. Ben White Blvd Ste 240-9873
+Austin, TX 78741
+Contact Support 24/7 Via Help Desk
+Footer Menu
+Policies
+Privacy Policy
+Privacy Policy
+Cookie Policy
+Cookie Policy
+Terms of Use
+Terms of Use
+Risk Disclosure
+Risk Disclosure
+Cookie Preferences
+Cookie Preferences
+Resources
+Coupon Code
+Coupon Code
+Payouts
+Payouts
+Restricted Countries
+Restricted Countries
+Useful Links
+About Us
+About Us
+Logos
+Logos
+Careers
+Careers
+News
+News
+RISK DISCLOSURE:
+Apex Trader Funding offers simulated trading programs for educational, informational, and evaluation purposes only. All activity occurs in a simulated environment using virtual funds; no real capital is at risk and no live market execution occurs. This is not an offer or solicitation to invest or trade in real financial markets. Trading carries substantial risk and is not suitable for everyone. Past performance, whether actual or simulated, does not guarantee future results. Apex does not provide investment advice and is not a broker-dealer, futures commission merchant, or financial advisor. Use of our services is subject to our User Agreement, Terms of Use, Privacy Policy, and Risk Disclosure. Participation does not create an employment relationship. Reward payouts are discretionary and subject to eligibility, compliance, and applicable tax laws. Services are intended for U.S. users only and are not offered where prohibited by local laws or regulations.
+2021-2026, Apex Trader Funding Inc. All Rights Reserved.
+💬 Need Help?
+grammarly-integration
+{"mode":"full","isActive":true,"isUserDisabled":false}
+Tab search
+Inbox (5) - duckensm@gmail.com - Gmail - Memory usage - 418 MB
+Close
+Inbox - steadyhabit.app@gmail.com - Gmail
+Close
+Inbox (3) - dutrading1@gmail.com - Gmail
+Close
+Amazon.com : project source 24-in clear wall-mount replacement bar only towel bar
+Close
+X
+Close
+Topstep Dashboard
+Close
+(3284) Discord | #📈trading-prop-firms | The Future Prop Trader - Memory usage - 319 MB
+what are the top 10 future trading prop firms - Google Search
+ETSY Google Sheet - Google Drive
+Funded Futures Tools | Prop firm calculators for NQ traders
+EOD Drawdown Explained - Apex Trader Funding
+Close
+New Tab
+Open Gemini in Chrome
+EOD Drawdown Explained - Apex Trader Funding - Google Chrome - Duckens (Person 1)
+Minimize
+Restore
+Close
+Back
+Forward
+Reload
+View site information
+apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/eod-drawdown-explained/
+Bookmark this tab
+Surfshark VPN Extension. Not connected
+Has access to this site
+Extensions
+Duckens (Person 1)
+Chrome
+Bookmarks
+Saved Tab Groups
+✅AI Prompts for Teachers toolkit group - Opened
+Tab groups
+Separator
+Maximum Security - Powered By Deputy.com
+My Product for sale
+Investment
+PropFirms
+Progressive Insurance
+Insurance Quotes: Home, Auto Insurance | Foremost Insurance Group
+Check Federal Refund Status
+Menu containing hidden bookmarks
+All Bookmarks
+Separator
+EOD Drawdown Explained - Apex Trader Funding
+Skip to content
+Support
+Status
+ANY SIZE EVALS UP TO 90% OFF – 90% OFF | USE CODE: COUPON “SAVENOW”
+COUPON "SAVENOW"
+Ends in:
+3
+d
+02
+h
+20
+m
+36
+s
+Apex Trader Funding
+Apex Trader Funding
+Apex Trader Funding
+Primary Menu
+Home
+Home
+About
+About
+Status
+Status
+Products
+Products
+Helpdesk
+Helpdesk
+Testimonials
+Testimonials
+Log In
+Sign Up
+Breadcrumbs
+Home
+Home
+Help Center
+Help Center
+EOD Trailing Drawdown Accounts
+EOD Trailing Drawdown Accounts
+Hero Banner
+HELP CENTER
+Search for:
+￼
+EOD Drawdown Explained
+Table of Contents
+In this article
+EOD Drawdown At A Glance:
+Skip to section: EOD Drawdown at a Glance:
+What Is The EOD Drawdown?
+Skip to section: What is the EOD Drawdown?
+How Is EOD Threshold Calculated?
+Skip to section: How is EOD Threshold Calculated?
+What Happens If EOD Threshold Is Reached Intraday
+Skip to section: What Happens If EOD threshold is reached intraday
+When EOD Drawdown Stops Trailing
+Skip to section: When EOD Drawdown Stops Trailing
+Video Explanation Of EOD Drawdown
+Skip to section: Video Explanation of EOD Drawdown
+Frequently Asked Questions
+Skip to section: Frequently Asked Questions
+Skip to section:
+EOD Drawdown at a Glance:
+Defines the maximum total drawdown allowed on your account
+Calculated once daily at market close
+Enforced in real time during the next trading session
+If reached → positions close automatically
+If reached → account is failed (evaluation) or closed (PA)
+Threshold never moves downward
+What is the EOD Drawdown?
+The End-of-Day (EOD) Drawdown sets the lowest balance your account is allowed to reach. It is calculated once per day at market close based on your EOD account balance.Once calculated, the EOD Drawdown becomes active for the next trading session. If at any moment during the trading session the account balance touches or falls below the EOD Drawdown, all open positions are automatically liquidated.
+In an evaluation, reaching the EOD Drawdown results in evaluation failure.In a Performance Account (PA), reaching the EOD Threshold results in account closure.
+How is EOD Threshold Calculated?
+The EOD Threshold is recalculated once per trading day at 4:59:59 PM ET, based on the account’s closing balance. It always trails the highest achieved EOD balance and never moves downward. Each account begins with a fixed drawdown amount based on account size.
+Example Explained
+Example Explained
+What Happens If EOD threshold is reached intraday
+If at any moment your account balance touches or falls below the EOD Threshold:
+All open positions are automatically liquidated
+Your evaluation is failed or PA is closed
+Trading stops immediately
+Even though the threshold is calculated at end-of-day, it is
+enforced in real time.
+When EOD Drawdown Stops Trailing
+Performance Accounts
+Once the EOD Threshold reaches Starting Balance + $100, it stops increasing.
+Example for a 50K EOD PA:
+Threshold Stop Level = $50,100
+This occurs when the Highest EOD Balance reaches $52,100 (Starting Balance + Max Drawdown + $100). From that point onward, the EOD Threshold remains fixed at $50,100
+Evaluations Rithmic and Wealthcharts
+EOD Threshold stops trailing and becomes fixed when it reaches an amount equal to the Target Profit balance.
+Example for a 50K Rithmic and Wealthcharts EOD Evaluation account:
+Threshold Stop Level = $53.000
+This occurs when the Highest EOD Balance closes above $55,000 ($53,000 + $2,000). From that point onward, the EOD Threshold remains fixed at $53,000.
+Evaluations Tradovate
+EOD Drawdown trails indefinitely with the peak EOD account balance.
+Video Explanation of EOD Drawdown
+EOD Drawdown
+EOD Drawdown - YouTube
+YouTube Video Player
+Frequently Asked Questions
+Do I fail if I reach EOD Threshold Intraday?
+Do I fail if I reach EOD Threshold Intraday?
+Does the EOD Threshold move?
+Does the EOD Threshold move?
+What happens to the EOD Threshold on losing days?
+What happens to the EOD Threshold on losing days?
+What is the difference between DLL and EOD Threshold?
+What is the difference between DLL and EOD Threshold?
+Can my account dip below the threshold intraday if it later recovers?
+Can my account dip below the threshold intraday if it later recovers?
+What is the difference between Live Trailing Threshold and EOD Threshold?
+What is the difference between Live Trailing Threshold and EOD Threshold?
+Call to Action
+Can’t find what you’re looking for?
+Our team of experts is here to help
+Contact Us
+Apex Trader Funding Inc.
+2028 E. Ben White Blvd Ste 240-9873
+Austin, TX 78741
+Contact Support 24/7 Via Help Desk
+Footer Menu
+Policies
+Privacy Policy
+Privacy Policy
+Cookie Policy
+Cookie Policy
+Terms of Use
+Terms of Use
+Risk Disclosure
+Risk Disclosure
+Cookie Preferences
+Cookie Preferences
+Resources
+Coupon Code
+Coupon Code
+Payouts
+Payouts
+Restricted Countries
+Restricted Countries
+Useful Links
+About Us
+About Us
+Logos
+Logos
+Careers
+Careers
+News
+News
+RISK DISCLOSURE:
+Apex Trader Funding offers simulated trading programs for educational, informational, and evaluation purposes only. All activity occurs in a simulated environment using virtual funds; no real capital is at risk and no live market execution occurs. This is not an offer or solicitation to invest or trade in real financial markets. Trading carries substantial risk and is not suitable for everyone. Past performance, whether actual or simulated, does not guarantee future results. Apex does not provide investment advice and is not a broker-dealer, futures commission merchant, or financial advisor. Use of our services is subject to our User Agreement, Terms of Use, Privacy Policy, and Risk Disclosure. Participation does not create an employment relationship. Reward payouts are discretionary and subject to eligibility, compliance, and applicable tax laws. Services are intended for U.S. users only and are not offered where prohibited by local laws or regulations.
+2021-2026, Apex Trader Funding Inc. All Rights Reserved.
+💬 Need Help?
+grammarly-integration
+{"mode":"full","isActive":true,"isUserDisabled":false}
+Tab search
+Inbox (5) - duckensm@gmail.com - Gmail - Memory usage - 418 MB
+Close
+Inbox - steadyhabit.app@gmail.com - Gmail
+Close
+Inbox (3) - dutrading1@gmail.com - Gmail
+Close
+Amazon.com : project source 24-in clear wall-mount replacement bar only towel bar
+Close
+X
+Close
+Topstep Dashboard
+Close
+(3284) Discord | #📈trading-prop-firms | The Future Prop Trader - Memory usage - 319 MB
+what are the top 10 future trading prop firms - Google Search
+ETSY Google Sheet - Google Drive
+Funded Futures Tools | Prop firm calculators for NQ traders
+EOD Drawdown Explained - Apex Trader Funding
+Close
+New Tab
+Open Gemini in Chrome
+EOD Drawdown Explained - Apex Trader Funding - Google Chrome - Duckens (Person 1)
+Minimize
+Restore
+Close
+Back
+Forward
+Reload
+View site information
+apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/eod-drawdown-explained/
+Bookmark this tab
+Surfshark VPN Extension. Not connected
+Has access to this site
+Extensions
+Duckens (Person 1)
+Chrome
+Bookmarks
+Saved Tab Groups
+✅AI Prompts for Teachers toolkit group - Opened
+Tab groups
+Separator
+Maximum Security - Powered By Deputy.com
+My Product for sale
+Investment
+PropFirms
+Progressive Insurance
+Insurance Quotes: Home, Auto Insurance | Foremost Insurance Group
+Check Federal Refund Status
+Menu containing hidden bookmarks
+All Bookmarks
+Separator
+EOD Drawdown Explained - Apex Trader Funding
+Skip to content
+Support
+Status
+ANY SIZE EVALS UP TO 90% OFF – 90% OFF | USE CODE: COUPON “SAVENOW”
+COUPON "SAVENOW"
+Ends in:
+3
+d
+02
+h
+20
+m
+35
+s
+Apex Trader Funding
+Apex Trader Funding
+Apex Trader Funding
+Primary Menu
+Home
+Home
+About
+About
+Status
+Status
+Products
+Products
+Helpdesk
+Helpdesk
+Testimonials
+Testimonials
+Log In
+Sign Up
+Breadcrumbs
+Home
+Home
+Help Center
+Help Center
+EOD Trailing Drawdown Accounts
+EOD Trailing Drawdown Accounts
+Hero Banner
+HELP CENTER
+Search for:
+￼
+EOD Drawdown Explained
+Table of Contents
+In this article
+EOD Drawdown At A Glance:
+Skip to section: EOD Drawdown at a Glance:
+What Is The EOD Drawdown?
+Skip to section: What is the EOD Drawdown?
+How Is EOD Threshold Calculated?
+Skip to section: How is EOD Threshold Calculated?
+What Happens If EOD Threshold Is Reached Intraday
+Skip to section: What Happens If EOD threshold is reached intraday
+When EOD Drawdown Stops Trailing
+Skip to section: When EOD Drawdown Stops Trailing
+Video Explanation Of EOD Drawdown
+Skip to section: Video Explanation of EOD Drawdown
+Frequently Asked Questions
+Skip to section: Frequently Asked Questions
+Skip to section:
+EOD Drawdown at a Glance:
+Defines the maximum total drawdown allowed on your account
+Calculated once daily at market close
+Enforced in real time during the next trading session
+If reached → positions close automatically
+If reached → account is failed (evaluation) or closed (PA)
+Threshold never moves downward
+What is the EOD Drawdown?
+The End-of-Day (EOD) Drawdown sets the lowest balance your account is allowed to reach. It is calculated once per day at market close based on your EOD account balance.Once calculated, the EOD Drawdown becomes active for the next trading session. If at any moment during the trading session the account balance touches or falls below the EOD Drawdown, all open positions are automatically liquidated.
+In an evaluation, reaching the EOD Drawdown results in evaluation failure.In a Performance Account (PA), reaching the EOD Threshold results in account closure.
+How is EOD Threshold Calculated?
+The EOD Threshold is recalculated once per trading day at 4:59:59 PM ET, based on the account’s closing balance. It always trails the highest achieved EOD balance and never moves downward. Each account begins with a fixed drawdown amount based on account size.
+Example Explained
+Example Explained
+What Happens If EOD threshold is reached intraday
+If at any moment your account balance touches or falls below the EOD Threshold:
+All open positions are automatically liquidated
+Your evaluation is failed or PA is closed
+Trading stops immediately
+Even though the threshold is calculated at end-of-day, it is
+enforced in real time.
+When EOD Drawdown Stops Trailing
+Performance Accounts
+Once the EOD Threshold reaches Starting Balance + $100, it stops increasing.
+Example for a 50K EOD PA:
+Threshold Stop Level = $50,100
+This occurs when the Highest EOD Balance reaches $52,100 (Starting Balance + Max Drawdown + $100). From that point onward, the EOD Threshold remains fixed at $50,100
+Evaluations Rithmic and Wealthcharts
+EOD Threshold stops trailing and becomes fixed when it reaches an amount equal to the Target Profit balance.
+Example for a 50K Rithmic and Wealthcharts EOD Evaluation account:
+Threshold Stop Level = $53.000
+This occurs when the Highest EOD Balance closes above $55,000 ($53,000 + $2,000). From that point onward, the EOD Threshold remains fixed at $53,000.
+Evaluations Tradovate
+EOD Drawdown trails indefinitely with the peak EOD account balance.
+Video Explanation of EOD Drawdown
+EOD Drawdown
+EOD Drawdown - YouTube
+YouTube Video Player
+Frequently Asked Questions
+Do I fail if I reach EOD Threshold Intraday?
+Do I fail if I reach EOD Threshold Intraday?
+Does the EOD Threshold move?
+Does the EOD Threshold move?
+What happens to the EOD Threshold on losing days?
+What happens to the EOD Threshold on losing days?
+What is the difference between DLL and EOD Threshold?
+What is the difference between DLL and EOD Threshold?
+Can my account dip below the threshold intraday if it later recovers?
+Can my account dip below the threshold intraday if it later recovers?
+What is the difference between Live Trailing Threshold and EOD Threshold?
+What is the difference between Live Trailing Threshold and EOD Threshold?
+Call to Action
+Can’t find what you’re looking for?
+Our team of experts is here to help
+Contact Us
+Apex Trader Funding Inc.
+2028 E. Ben White Blvd Ste 240-9873
+Austin, TX 78741
+Contact Support 24/7 Via Help Desk
+Footer Menu
+Policies
+Privacy Policy
+Privacy Policy
+Cookie Policy
+Cookie Policy
+Terms of Use
+Terms of Use
+Risk Disclosure
+Risk Disclosure
+Cookie Preferences
+Cookie Preferences
+Resources
+Coupon Code
+Coupon Code
+Payouts
+Payouts
+Restricted Countries
+Restricted Countries
+Useful Links
+About Us
+About Us
+Logos
+Logos
+Careers
+Careers
+News
+News
+RISK DISCLOSURE:
+Apex Trader Funding offers simulated trading programs for educational, informational, and evaluation purposes only. All activity occurs in a simulated environment using virtual funds; no real capital is at risk and no live market execution occurs. This is not an offer or solicitation to invest or trade in real financial markets. Trading carries substantial risk and is not suitable for everyone. Past performance, whether actual or simulated, does not guarantee future results. Apex does not provide investment advice and is not a broker-dealer, futures commission merchant, or financial advisor. Use of our services is subject to our User Agreement, Terms of Use, Privacy Policy, and Risk Disclosure. Participation does not create an employment relationship. Reward payouts are discretionary and subject to eligibility, compliance, and applicable tax laws. Services are intended for U.S. users only and are not offered where prohibited by local laws or regulations.
+2021-2026, Apex Trader Funding Inc. All Rights Reserved.
+💬 Need Help?
+grammarly-integration
+{"mode":"full","isActive":true,"isUserDisabled":false}
+Tab search
+Inbox (5) - duckensm@gmail.com - Gmail - Memory usage - 418 MB
+Close
+Inbox - steadyhabit.app@gmail.com - Gmail
+Close
+Inbox (3) - dutrading1@gmail.com - Gmail
+Close
+Amazon.com : project source 24-in clear wall-mount replacement bar only towel bar
+Close
+X
+Close
+Topstep Dashboard
+Close
+(3284) Discord | #📈trading-prop-firms | The Future Prop Trader - Memory usage - 319 MB
+what are the top 10 future trading prop firms - Google Search
+ETSY Google Sheet - Google Drive
+Funded Futures Tools | Prop firm calculators for NQ traders
+EOD Drawdown Explained - Apex Trader Funding
+Close
+New Tab
+Open Gemini in Chrome
+EOD Drawdown Explained - Apex Trader Funding - Google Chrome - Duckens (Person 1)
+Minimize
+Restore
+Close
+Back
+Forward
+Reload
+View site information
+apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/eod-drawdown-explained/
+Bookmark this tab
+Surfshark VPN Extension. Not connected
+Has access to this site
+Extensions
+Duckens (Person 1)
+Chrome
+Bookmarks
+Saved Tab Groups
+✅AI Prompts for Teachers toolkit group - Opened
+Tab groups
+Separator
+Maximum Security - Powered By Deputy.com
+My Product for sale
+Investment
+PropFirms
+Progressive Insurance
+Insurance Quotes: Home, Auto Insurance | Foremost Insurance Group
+Check Federal Refund Status
+Menu containing hidden bookmarks
+All Bookmarks
+Separator
+EOD Drawdown Explained - Apex Trader Funding
+Skip to content
+Support
+Status
+ANY SIZE EVALS UP TO 90% OFF – 90% OFF | USE CODE: COUPON “SAVENOW”
+COUPON "SAVENOW"
+Ends in:
+3
+d
+02
+h
+20
+m
+34
+s
+Apex Trader Funding
+Apex Trader Funding
+Apex Trader Funding
+Primary Menu
+Home
+Home
+About
+About
+Status
+Status
+Products
+Products
+Helpdesk
+Helpdesk
+Testimonials
+Testimonials
+Log In
+Sign Up
+Breadcrumbs
+Home
+Home
+Help Center
+Help Center
+EOD Trailing Drawdown Accounts
+EOD Trailing Drawdown Accounts
+Hero Banner
+HELP CENTER
+Search for:
+￼
+EOD Drawdown Explained
+Table of Contents
+In this article
+EOD Drawdown At A Glance:
+Skip to section: EOD Drawdown at a Glance:
+What Is The EOD Drawdown?
+Skip to section: What is the EOD Drawdown?
+How Is EOD Threshold Calculated?
+Skip to section: How is EOD Threshold Calculated?
+What Happens If EOD Threshold Is Reached Intraday
+Skip to section: What Happens If EOD threshold is reached intraday
+When EOD Drawdown Stops Trailing
+Skip to section: When EOD Drawdown Stops Trailing
+Video Explanation Of EOD Drawdown
+Skip to section: Video Explanation of EOD Drawdown
+Frequently Asked Questions
+Skip to section: Frequently Asked Questions
+Skip to section:
+EOD Drawdown at a Glance:
+Defines the maximum total drawdown allowed on your account
+Calculated once daily at market close
+Enforced in real time during the next trading session
+If reached → positions close automatically
+If reached → account is failed (evaluation) or closed (PA)
+Threshold never moves downward
+What is the EOD Drawdown?
+The End-of-Day (EOD) Drawdown sets the lowest balance your account is allowed to reach. It is calculated once per day at market close based on your EOD account balance.Once calculated, the EOD Drawdown becomes active for the next trading session. If at any moment during the trading session the account balance touches or falls below the EOD Drawdown, all open positions are automatically liquidated.
+In an evaluation, reaching the EOD Drawdown results in evaluation failure.In a Performance Account (PA), reaching the EOD Threshold results in account closure.
+How is EOD Threshold Calculated?
+The EOD Threshold is recalculated once per trading day at 4:59:59 PM ET, based on the account’s closing balance. It always trails the highest achieved EOD balance and never moves downward. Each account begins with a fixed drawdown amount based on account size.
+Example Explained
+Example Explained
+What Happens If EOD threshold is reached intraday
+If at any moment your account balance touches or falls below the EOD Threshold:
+All open positions are automatically liquidated
+Your evaluation is failed or PA is closed
+Trading stops immediately
+Even though the threshold is calculated at end-of-day, it is
+enforced in real time.
+When EOD Drawdown Stops Trailing
+Performance Accounts
+Once the EOD Threshold reaches Starting Balance + $100, it stops increasing.
+Example for a 50K EOD PA:
+Threshold Stop Level = $50,100
+This occurs when the Highest EOD Balance reaches $52,100 (Starting Balance + Max Drawdown + $100). From that point onward, the EOD Threshold remains fixed at $50,100
+Evaluations Rithmic and Wealthcharts
+EOD Threshold stops trailing and becomes fixed when it reaches an amount equal to the Target Profit balance.
+Example for a 50K Rithmic and Wealthcharts EOD Evaluation account:
+Threshold Stop Level = $53.000
+This occurs when the Highest EOD Balance closes above $55,000 ($53,000 + $2,000). From that point onward, the EOD Threshold remains fixed at $53,000.
+Evaluations Tradovate
+EOD Drawdown trails indefinitely with the peak EOD account balance.
+Video Explanation of EOD Drawdown
+EOD Drawdown
+EOD Drawdown - YouTube
+YouTube Video Player
+Frequently Asked Questions
+Do I fail if I reach EOD Threshold Intraday?
+Do I fail if I reach EOD Threshold Intraday?
+Does the EOD Threshold move?
+Does the EOD Threshold move?
+What happens to the EOD Threshold on losing days?
+What happens to the EOD Threshold on losing days?
+What is the difference between DLL and EOD Threshold?
+What is the difference between DLL and EOD Threshold?
+Can my account dip below the threshold intraday if it later recovers?
+Can my account dip below the threshold intraday if it later recovers?
+What is the difference between Live Trailing Threshold and EOD Threshold?
+What is the difference between Live Trailing Threshold and EOD Threshold?
+Call to Action
+Can’t find what you’re looking for?
+Our team of experts is here to help
+Contact Us
+Apex Trader Funding Inc.
+2028 E. Ben White Blvd Ste 240-9873
+Austin, TX 78741
+Contact Support 24/7 Via Help Desk
+Footer Menu
+Policies
+Privacy Policy
+Privacy Policy
+Cookie Policy
+Cookie Policy
+Terms of Use
+Terms of Use
+Risk Disclosure
+Risk Disclosure
+Cookie Preferences
+Cookie Preferences
+Resources
+Coupon Code
+Coupon Code
+Payouts
+Payouts
+Restricted Countries
+Restricted Countries
+Useful Links
+About Us
+About Us
+Logos
+Logos
+Careers
+Careers
+News
+News
+RISK DISCLOSURE:
+Apex Trader Funding offers simulated trading programs for educational, informational, and evaluation purposes only. All activity occurs in a simulated environment using virtual funds; no real capital is at risk and no live market execution occurs. This is not an offer or solicitation to invest or trade in real financial markets. Trading carries substantial risk and is not suitable for everyone. Past performance, whether actual or simulated, does not guarantee future results. Apex does not provide investment advice and is not a broker-dealer, futures commission merchant, or financial advisor. Use of our services is subject to our User Agreement, Terms of Use, Privacy Policy, and Risk Disclosure. Participation does not create an employment relationship. Reward payouts are discretionary and subject to eligibility, compliance, and applicable tax laws. Services are intended for U.S. users only and are not offered where prohibited by local laws or regulations.
+2021-2026, Apex Trader Funding Inc. All Rights Reserved.
+💬 Need Help?
+grammarly-integration
+{"mode":"full","isActive":true,"isUserDisabled":false}
+Tab search
+Inbox (5) - duckensm@gmail.com - Gmail - Memory usage - 418 MB
+Close
+Inbox - steadyhabit.app@gmail.com - Gmail
+Close
+Inbox (3) - dutrading1@gmail.com - Gmail
+Close
+Amazon.com : project source 24-in clear wall-mount replacement bar only towel bar
+Close
+X
+Close
+Topstep Dashboard
+Close
+(3284) Discord | #📈trading-prop-firms | The Future Prop Trader - Memory usage - 319 MB
+what are the top 10 future trading prop firms - Google Search
+ETSY Google Sheet - Google Drive
+Funded Futures Tools | Prop firm calculators for NQ traders
+EOD Drawdown Explained - Apex Trader Funding
+Close
+New Tab
+Open Gemini in Chrome
+EOD Drawdown Explained - Apex Trader Funding - Google Chrome - Duckens (Person 1)
+Minimize
+Restore
+Close
+Back
+Forward
+Reload
+View site information
+apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/eod-drawdown-explained/
+Bookmark this tab
+Surfshark VPN Extension. Not connected
+Has access to this site
+Extensions
+Duckens (Person 1)
+Chrome
+Bookmarks
+Saved Tab Groups
+✅AI Prompts for Teachers toolkit group - Opened
+Tab groups
+Separator
+Maximum Security - Powered By Deputy.com
+My Product for sale
+Investment
+PropFirms
+Progressive Insurance
+Insurance Quotes: Home, Auto Insurance | Foremost Insurance Group
+Check Federal Refund Status
+Menu containing hidden bookmarks
+All Bookmarks
+Separator
+EOD Drawdown Explained - Apex Trader Funding
+Skip to content
+Support
+Status
+ANY SIZE EVALS UP TO 90% OFF – 90% OFF | USE CODE: COUPON “SAVENOW”
+COUPON "SAVENOW"
+Ends in:
+d
+h
+m
+s
+Apex Trader Funding
+Apex Trader Funding
+Apex Trader Funding
+Primary Menu
+Home
+Home
+About
+About
+Status
+Status
+Products
+Products
+Helpdesk
+Helpdesk
+Testimonials
+Testimonials
+Log In
+Sign Up
+Breadcrumbs
+Home
+Home
+Help Center
+Help Center
+EOD Trailing Drawdown Accounts
+EOD Trailing Drawdown Accounts
+Hero Banner
+HELP CENTER
+Search for:
+￼
+EOD Drawdown Explained
+Table of Contents
+In this article
+EOD Drawdown At A Glance:
+Skip to section: EOD Drawdown at a Glance:
+What Is The EOD Drawdown?
+Skip to section: What is the EOD Drawdown?
+How Is EOD Threshold Calculated?
+Skip to section: How is EOD Threshold Calculated?
+What Happens If EOD Threshold Is Reached Intraday
+Skip to section: What Happens If EOD threshold is reached intraday
+When EOD Drawdown Stops Trailing
+Skip to section: When EOD Drawdown Stops Trailing
+Video Explanation Of EOD Drawdown
+Skip to section: Video Explanation of EOD Drawdown
+Frequently Asked Questions
+Skip to section: Frequently Asked Questions
+Skip to section:
+EOD Drawdown at a Glance:
+Defines the maximum total drawdown allowed on your account
+Calculated once daily at market close
+Enforced in real time during the next trading session
+If reached → positions close automatically
+If reached → account is failed (evaluation) or closed (PA)
+Threshold never moves downward
+What is the EOD Drawdown?
+The End-of-Day (EOD) Drawdown sets the lowest balance your account is allowed to reach. It is calculated once per day at market close based on your EOD account balance.Once calculated, the EOD Drawdown becomes active for the next trading session. If at any moment during the trading session the account balance touches or falls below the EOD Drawdown, all open positions are automatically liquidated.
+In an evaluation, reaching the EOD Drawdown results in evaluation failure.In a Performance Account (PA), reaching the EOD Threshold results in account closure.
+How is EOD Threshold Calculated?
+The EOD Threshold is recalculated once per trading day at 4:59:59 PM ET, based on the account’s closing balance. It always trails the highest achieved EOD balance and never moves downward. Each account begins with a fixed drawdown amount based on account size.
+Example Explained
+Example Explained
+What Happens If EOD threshold is reached intraday
+If at any moment your account balance touches or falls below the EOD Threshold:
+All open positions are automatically liquidated
+Your evaluation is failed or PA is closed
+Trading stops immediately
+Even though the threshold is calculated at end-of-day, it is
+enforced in real time.
+When EOD Drawdown Stops Trailing
+Performance Accounts
+Once the EOD Threshold reaches Starting Balance + $100, it stops increasing.
+Example for a 50K EOD PA:
+Threshold Stop Level = $50,100
+This occurs when the Highest EOD Balance reaches $52,100 (Starting Balance + Max Drawdown + $100). From that point onward, the EOD Threshold remains fixed at $50,100
+Evaluations Rithmic and Wealthcharts
+EOD Threshold stops trailing and becomes fixed when it reaches an amount equal to the Target Profit balance.
+Example for a 50K Rithmic and Wealthcharts EOD Evaluation account:
+Threshold Stop Level = $53.000
+This occurs when the Highest EOD Balance closes above $55,000 ($53,000 + $2,000). From that point onward, the EOD Threshold remains fixed at $53,000.
+Evaluations Tradovate
+EOD Drawdown trails indefinitely with the peak EOD account balance.
+Video Explanation of EOD Drawdown
+EOD Drawdown
+EOD Drawdown - YouTube
+YouTube Video Player
+Play video
+Hide player controls
+EOD Drawdown
+Apex Trader Funding
+thumbnail-image
+thumbnail-image
+Apex Trader Funding
+27.9K subscribers
+Share
+Watch on YouTube
+grammarly-integration
+{"mode":"full","isActive":true,"isUserDisabled":false}
+Frequently Asked Questions
+Do I fail if I reach EOD Threshold Intraday?
+Do I fail if I reach EOD Threshold Intraday?
+Does the EOD Threshold move?
+Does the EOD Threshold move?
+What happens to the EOD Threshold on losing days?
+What happens to the EOD Threshold on losing days?
+What is the difference between DLL and EOD Threshold?
+What is the difference between DLL and EOD Threshold?
+Can my account dip below the threshold intraday if it later recovers?
+Can my account dip below the threshold intraday if it later recovers?
+What is the difference between Live Trailing Threshold and EOD Threshold?
+What is the difference between Live Trailing Threshold and EOD Threshold?
+Call to Action
+Can’t find what you’re looking for?
+Our team of experts is here to help
+Contact Us
+Apex Trader Funding Inc.
+2028 E. Ben White Blvd Ste 240-9873
+Austin, TX 78741
+Contact Support 24/7 Via Help Desk
+Footer Menu
+Policies
+Privacy Policy
+Privacy Policy
+Cookie Policy
+Cookie Policy
+Terms of Use
+Terms of Use
+Risk Disclosure
+Risk Disclosure
+Cookie Preferences
+Cookie Preferences
+Resources
+Coupon Code
+Coupon Code
+Payouts
+Payouts
+Restricted Countries
+Restricted Countries
+Useful Links
+About Us
+About Us
+Logos
+Logos
+Careers
+Careers
+News
+News
+RISK DISCLOSURE:
+Apex Trader Funding offers simulated trading programs for educational, informational, and evaluation purposes only. All activity occurs in a simulated environment using virtual funds; no real capital is at risk and no live market execution occurs. This is not an offer or solicitation to invest or trade in real financial markets. Trading carries substantial risk and is not suitable for everyone. Past performance, whether actual or simulated, does not guarantee future results. Apex does not provide investment advice and is not a broker-dealer, futures commission merchant, or financial advisor. Use of our services is subject to our User Agreement, Terms of Use, Privacy Policy, and Risk Disclosure. Participation does not create an employment relationship. Reward payouts are discretionary and subject to eligibility, compliance, and applicable tax laws. Services are intended for U.S. users only and are not offered where prohibited by local laws or regulations.
+2021-2026, Apex Trader Funding Inc. All Rights Reserved.
+💬 Need Help?
+grammarly-integration
+{"mode":"full","isActive":true,"isUserDisabled":false}
+Tab search
+Inbox (5) - duckensm@gmail.com - Gmail - Memory usage - 418 MB
+Close
+Inbox - steadyhabit.app@gmail.com - Gmail
+Close
+Inbox (3) - dutrading1@gmail.com - Gmail
+Close
+Amazon.com : project source 24-in clear wall-mount replacement bar only towel bar
+Close
+X
+Close
+Topstep Dashboard
+Close
+(3284) Discord | #📈trading-prop-firms | The Future Prop Trader - Memory usage - 319 MB
+what are the top 10 future trading prop firms - Google Search
+ETSY Google Sheet - Google Drive
+Funded Futures Tools | Prop firm calculators for NQ traders
+EOD Drawdown Explained - Apex Trader Funding
+Close
+New Tab
+Open Gemini in Chrome
+EOD Drawdown Explained - Apex Trader Funding - Google Chrome - Duckens (Person 1)
+Minimize
+Restore
+Close
+Back
+Forward
+Reload
+View site information
+apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/eod-drawdown-explained/
+Bookmark this tab
+Surfshark VPN Extension. Not connected
+Has access to this site
+Extensions
+Duckens (Person 1)
+Chrome
+Bookmarks
+Saved Tab Groups
+✅AI Prompts for Teachers toolkit group - Opened
+Tab groups
+Separator
+Maximum Security - Powered By Deputy.com
+My Product for sale
+Investment
+PropFirms
+Progressive Insurance
+Insurance Quotes: Home, Auto Insurance | Foremost Insurance Group
+Check Federal Refund Status
+Menu containing hidden bookmarks
+All Bookmarks
+Separator
+EOD Drawdown Explained - Apex Trader Funding
+Skip to content
+Support
+Status
+ANY SIZE EVALS UP TO 90% OFF – 90% OFF | USE CODE: COUPON “SAVENOW”
+COUPON "SAVENOW"
+Ends in:
+3
+d
+02
+h
+20
+m
+31
+s
+Apex Trader Funding
+Apex Trader Funding
+Apex Trader Funding
+Primary Menu
+Home
+Home
+About
+About
+Status
+Status
+Products
+Products
+Helpdesk
+Helpdesk
+Testimonials
+Testimonials
+Log In
+Sign Up
+Breadcrumbs
+Home
+Home
+Help Center
+Help Center
+EOD Trailing Drawdown Accounts
+EOD Trailing Drawdown Accounts
+Hero Banner
+HELP CENTER
+Search for:
+￼
+EOD Drawdown Explained
+Table of Contents
+In this article
+EOD Drawdown At A Glance:
+Skip to section: EOD Drawdown at a Glance:
+What Is The EOD Drawdown?
+Skip to section: What is the EOD Drawdown?
+How Is EOD Threshold Calculated?
+Skip to section: How is EOD Threshold Calculated?
+What Happens If EOD Threshold Is Reached Intraday
+Skip to section: What Happens If EOD threshold is reached intraday
+When EOD Drawdown Stops Trailing
+Skip to section: When EOD Drawdown Stops Trailing
+Video Explanation Of EOD Drawdown
+Skip to section: Video Explanation of EOD Drawdown
+Frequently Asked Questions
+Skip to section: Frequently Asked Questions
+Skip to section:
+EOD Drawdown at a Glance:
+Defines the maximum total drawdown allowed on your account
+Calculated once daily at market close
+Enforced in real time during the next trading session
+If reached → positions close automatically
+If reached → account is failed (evaluation) or closed (PA)
+Threshold never moves downward
+What is the EOD Drawdown?
+The End-of-Day (EOD) Drawdown sets the lowest balance your account is allowed to reach. It is calculated once per day at market close based on your EOD account balance.Once calculated, the EOD Drawdown becomes active for the next trading session. If at any moment during the trading session the account balance touches or falls below the EOD Drawdown, all open positions are automatically liquidated.
+In an evaluation, reaching the EOD Drawdown results in evaluation failure.In a Performance Account (PA), reaching the EOD Threshold results in account closure.
+How is EOD Threshold Calculated?
+The EOD Threshold is recalculated once per trading day at 4:59:59 PM ET, based on the account’s closing balance. It always trails the highest achieved EOD balance and never moves downward. Each account begins with a fixed drawdown amount based on account size.
+Example Explained
+Example Explained
+What Happens If EOD threshold is reached intraday
+If at any moment your account balance touches or falls below the EOD Threshold:
+All open positions are automatically liquidated
+Your evaluation is failed or PA is closed
+Trading stops immediately
+Even though the threshold is calculated at end-of-day, it is
+enforced in real time.
+When EOD Drawdown Stops Trailing
+Performance Accounts
+Once the EOD Threshold reaches Starting Balance + $100, it stops increasing.
+Example for a 50K EOD PA:
+Threshold Stop Level = $50,100
+This occurs when the Highest EOD Balance reaches $52,100 (Starting Balance + Max Drawdown + $100). From that point onward, the EOD Threshold remains fixed at $50,100
+Evaluations Rithmic and Wealthcharts
+EOD Threshold stops trailing and becomes fixed when it reaches an amount equal to the Target Profit balance.
+Example for a 50K Rithmic and Wealthcharts EOD Evaluation account:
+Threshold Stop Level = $53.000
+This occurs when the Highest EOD Balance closes above $55,000 ($53,000 + $2,000). From that point onward, the EOD Threshold remains fixed at $53,000.
+Evaluations Tradovate
+EOD Drawdown trails indefinitely with the peak EOD account balance.
+Video Explanation of EOD Drawdown
+EOD Drawdown
+EOD Drawdown - YouTube
+YouTube Video Player
+Play video
+Hide player controls
+EOD Drawdown
+Apex Trader Funding
+thumbnail-image
+thumbnail-image
+Apex Trader Funding
+27.9K subscribers
+Share
+Watch on YouTube
+grammarly-integration
+{"mode":"full","isActive":true,"isUserDisabled":false}
+Frequently Asked Questions
+Do I fail if I reach EOD Threshold Intraday?
+Do I fail if I reach EOD Threshold Intraday?
+Does the EOD Threshold move?
+Does the EOD Threshold move?
+What happens to the EOD Threshold on losing days?
+What happens to the EOD Threshold on losing days?
+What is the difference between DLL and EOD Threshold?
+What is the difference between DLL and EOD Threshold?
+Can my account dip below the threshold intraday if it later recovers?
+Can my account dip below the threshold intraday if it later recovers?
+What is the difference between Live Trailing Threshold and EOD Threshold?
+What is the difference between Live Trailing Threshold and EOD Threshold?
+Call to Action
+Can’t find what you’re looking for?
+Our team of experts is here to help
+Contact Us
+Apex Trader Funding Inc.
+2028 E. Ben White Blvd Ste 240-9873
+Austin, TX 78741
+Contact Support 24/7 Via Help Desk
+Footer Menu
+Policies
+Privacy Policy
+Privacy Policy
+Cookie Policy
+Cookie Policy
+Terms of Use
+Terms of Use
+Risk Disclosure
+Risk Disclosure
+Cookie Preferences
+Cookie Preferences
+Resources
+Coupon Code
+Coupon Code
+Payouts
+Payouts
+Restricted Countries
+Restricted Countries
+Useful Links
+About Us
+About Us
+Logos
+Logos
+Careers
+Careers
+News
+News
+RISK DISCLOSURE:
+Apex Trader Funding offers simulated trading programs for educational, informational, and evaluation purposes only. All activity occurs in a simulated environment using virtual funds; no real capital is at risk and no live market execution occurs. This is not an offer or solicitation to invest or trade in real financial markets. Trading carries substantial risk and is not suitable for everyone. Past performance, whether actual or simulated, does not guarantee future results. Apex does not provide investment advice and is not a broker-dealer, futures commission merchant, or financial advisor. Use of our services is subject to our User Agreement, Terms of Use, Privacy Policy, and Risk Disclosure. Participation does not create an employment relationship. Reward payouts are discretionary and subject to eligibility, compliance, and applicable tax laws. Services are intended for U.S. users only and are not offered where prohibited by local laws or regulations.
+2021-2026, Apex Trader Funding Inc. All Rights Reserved.
+💬 Need Help?
+grammarly-integration
+{"mode":"full","isActive":true,"isUserDisabled":false}
+Tab search
+Inbox (5) - duckensm@gmail.com - Gmail - Memory usage - 418 MB
+Close
+Inbox - steadyhabit.app@gmail.com - Gmail
+Close
+Inbox (3) - dutrading1@gmail.com - Gmail
+Close
+Amazon.com : project source 24-in clear wall-mount replacement bar only towel bar
+Close
+X
+Close
+Topstep Dashboard
+Close
+(3284) Discord | #📈trading-prop-firms | The Future Prop Trader - Memory usage - 319 MB
+what are the top 10 future trading prop firms - Google Search
+ETSY Google Sheet - Google Drive
+Funded Futures Tools | Prop firm calculators for NQ traders
+EOD Drawdown Explained - Apex Trader Funding
+Close
+New Tab
+Open Gemini in Chrome

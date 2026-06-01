@@ -4,7 +4,7 @@ Use this sheet before publishing affiliate traffic. Only mark a firm as official
 
 | Priority | Firm | Official URL | Status | Last verified | Fields to collect |
 |---:|---|---|---|---|---|
-| 1 | Apex Trader Funding | https://apextraderfunding.com/ | Research snapshot; needs official re-check | Not official yet | Account sizes, EOD vs intraday rules, prices, targets, drawdown, DLL, contracts, PA/activation fee, payouts, consistency, resets |
+| 1 | Apex Trader Funding | https://apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/ | Official EOD rules checked in user's Chrome; pricing/checkout still verify | 2026-05-31 | EOD evaluation rules, EOD drawdown, EOD PA, EOD payouts captured. Still verify live pricing/checkout discounts. |
 | 2 | MyFundedFutures | https://myfundedfutures.com/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
 | 3 | TakeProfitTrader | https://takeprofittrader.com/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
 | 4 | Tradeify | https://tradeify.co/ | Needs official verification | Not yet verified | Account sizes, prices, targets, drawdown, DLL, contracts, activation fee, payouts, consistency, resets |
