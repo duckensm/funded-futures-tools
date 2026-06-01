@@ -1,0 +1,55 @@
+Source URL: https://help.myfundedfutures.com/en/articles/8348565-max-eod-trailing
+Title: MAX EOD Trailing | My Funded Futures Help Center
+Captured: 2026-05-31
+
+MAX EOD Trailing | My Funded Futures Help Center
+Skip to main content
+Go to website
+Discord
+YouTube
+English
+हिन्दी
+Español
+English
+Go to website
+Discord
+YouTube
+English
+हिन्दी
+Español
+English
+Search for articles...
+All Collections
+Traders Evaluation
+MAX EOD Trailing
+MAX EOD Trailing
+Max EOD
+March 2, 2026
+At
+MyFunded Futures
+, we wanted to eliminate the daily drawdown so that our traders could relax without having to worry about the constant drawdowns affecting their accounts and mindset.
+We do not have a daily drawdown but we will have a Max EOD (End of Day) Drawdown which will be set at 3%. Also to be noted the Max EOD trailing locks in at $100 plus the initial starting balance.
+​
+​
+NOTE:
+You
+must be aware
+that
+open equity losses
+are taken into consideration when calculating whether or not the account failed on this rule. This means that if an open position dips your account balance below the minimum account balance, your evaluation attempt will fail
+​
+Take the Challenge to Get Funded
+Examples:
+50k is 52k +$100 which is 52.1k 50K Accounts have 4% DD
+100k is 103k +$100 which is 103.1k
+150k is 154.5k +100 which is 154.6k
+Related Articles
+Understanding Evaluation Parameters at MyFunded Futures
+Traders Evaluation Simplified
+Understanding Rapid Live
+Payout Policy Overview, Best and Fastest Prop-Firm Payouts
+Rapid Plan 25k - A Comprehensive Look
+Did this answer your question?
+😞
+😐
+😃
