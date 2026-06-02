@@ -45,6 +45,39 @@ function affiliateCard(f){
   }
   return `<div class="article-card affiliate-card"><h2>Official source</h2><p>${couponText(f)}</p><p>Use the official firm site for current prices, rules, promos, and account availability.</p>${affiliateActions(f,false)}</div>`;
 }
+function firmTraits(f){
+  const hay = `${f.name} ${f.category} ${f.best} ${f.price} ${f.drawdown} ${f.daily} ${f.payout} ${f.fit}`.toLowerCase();
+  const tags = [];
+  if(isRecommended(f)) tags.push('Recommended');
+  if(hay.includes('eod')) tags.push('EOD drawdown');
+  if(hay.includes('static')) tags.push('Static drawdown');
+  if(hay.includes('no activation') || hay.includes('activation fee: free') || hay.includes('free activation')) tags.push('No activation fee');
+  if(hay.includes('daily') || hay.includes('fast') || hay.includes('1 day') || hay.includes('one-day')) tags.push('Fast payout/pass');
+  if(hay.includes('direct') || hay.includes('lightning')) tags.push('Direct funded option');
+  if(hay.includes('overnight') || hay.includes('swing')) tags.push('Swing-friendly');
+  return [...new Set(tags)].slice(0,4);
+}
+function firmMatches(f, filter){
+  if(!filter || filter === 'all') return true;
+  const hay = `${f.name} ${f.category} ${f.best} ${f.price} ${f.drawdown} ${f.daily} ${f.payout} ${f.fit}`.toLowerCase();
+  if(filter === 'recommended') return isRecommended(f);
+  if(filter === 'eod') return hay.includes('eod');
+  if(filter === 'static') return hay.includes('static');
+  if(filter === 'fast') return hay.includes('daily') || hay.includes('fast') || hay.includes('1 day') || hay.includes('one-day') || hay.includes('5 days');
+  if(filter === 'noactivation') return hay.includes('no activation') || hay.includes('activation fee: free') || hay.includes('free activation') || hay.includes('$0 activation');
+  return true;
+}
+function finderRecommendation(goal){
+  const map={
+    cheapest:'bulenox',
+    fast:'lucidtraderfunding',
+    eod:'lucidtraderfunding',
+    static:'phidias',
+    structured:'earn2trade',
+    flexible:'tradeify'
+  };
+  return firms.find(f=>f.id===(map[goal]||'lucidtraderfunding')) || firms[0];
+}
 function trackEvent(name,payload={}){
   window.dataLayer=window.dataLayer||[];
   window.dataLayer.push({event:name,...payload});
@@ -156,8 +189,9 @@ function renderHome(){
 }
 
 function comparisonSection(full=true){
-  const rows = firms.map(f=>`<tr><td><strong>${f.name}</strong><br><span class="pill ${verificationClass(f)}">${verificationLabel(f)}</span>${recommendationBadge(f)}</td><td><strong>${f.category}</strong><br><span class="muted-small">${f.best}</span></td><td>${f.price}</td><td>${f.target}</td><td>${f.drawdown}</td><td>${f.daily}</td><td>${affiliateActions(f,true)}</td></tr>`).join('');
-  return `<section class="section" id="compare"><div class="wrap"><div class="section-head"><div><h2>Futures prop firm comparison.</h2><p class="subhead">This is now a verification-first buyer-intent shortlist, not a fake numeric ranking. Unverified firms stay visibly marked until their official rules are checked.</p></div>${full?'<a class="btn" href="#calculators">Check risk</a>':''}</div><div class="table-wrap"><table><thead><tr><th>Firm</th><th>Category</th><th>Price</th><th>Profit target</th><th>Drawdown</th><th>Daily loss</th><th></th></tr></thead><tbody>${rows}</tbody></table></div></div></section>`;
+  const rows = firms.map(f=>`<tr data-firm-row data-tags="${firmTraits(f).join(' ').toLowerCase()}"><td><strong>${f.name}</strong><br><span class="pill ${verificationClass(f)}">${verificationLabel(f)}</span>${recommendationBadge(f)}</td><td><strong>${f.category}</strong><br><span class="muted-small">${f.best}</span></td><td>${f.price}</td><td>${f.target}</td><td>${f.drawdown}</td><td>${f.daily}</td><td>${affiliateActions(f,true)}</td></tr>`).join('');
+  const cards = firms.map(f=>`<article class="finder-card" data-firm-card data-firm-name="${f.name.toLowerCase()}" data-filter-match="all ${['recommended','eod','static','fast','noactivation'].filter(x=>firmMatches(f,x)).join(' ')}"><div class="finder-card-top"><div><h3>${f.name}</h3><p>${f.fit}</p></div>${recommendationBadge(f)}</div><div class="finder-tags">${firmTraits(f).map(t=>`<span>${t}</span>`).join('')}</div><div class="finder-stats"><div><small>Drawdown</small><b>${f.drawdown}</b></div><div><small>Payout</small><b>${f.payout}</b></div><div><small>Cost note</small><b>${f.price}</b></div></div><div class="finder-actions">${affiliateActions(f,true)}</div></article>`).join('');
+  return `<section class="section" id="compare"><div class="wrap"><div class="section-head"><div><h2>Find and compare futures prop firms.</h2><p class="subhead">Use the finder to narrow accounts by what matters: recommended partners, EOD/static drawdown, fast payout paths, activation fees, and NQ-friendly risk rules.</p></div>${full?'<a class="btn" href="#calculators">Check risk</a>':''}</div><div class="finder-panel"><div class="finder-copy"><span class="eyebrow"><span class="dot"></span>Prop firm finder</span><h3>Pick your priority. Get a practical starting point.</h3><p>Not every trader needs the same firm. Choose your main goal and the finder highlights the closest match from the firms currently researched on this site.</p><select id="finderGoal"><option value="fast">Fast payout / live-capital path</option><option value="cheapest">Lowest displayed starting cost</option><option value="eod">EOD drawdown preferred</option><option value="static">Static drawdown / no trailing</option><option value="structured">Structured legacy evaluation</option><option value="flexible">Flexible payout-policy choice</option></select></div><div class="finder-result" id="finderResult"></div></div><div class="compare-toolbar"><div class="filter-buttons" role="group" aria-label="Compare filters"><button class="filter-chip active" data-filter="all">All firms</button><button class="filter-chip" data-filter="recommended">Recommended</button><button class="filter-chip" data-filter="eod">EOD drawdown</button><button class="filter-chip" data-filter="static">Static</button><button class="filter-chip" data-filter="fast">Fast payout</button><button class="filter-chip" data-filter="noactivation">No activation fee</button></div><input id="firmSearch" class="firm-search" type="search" placeholder="Search firm, drawdown, payout..."></div><div class="finder-grid">${cards}</div><details class="table-details" ${full?'open':''}><summary>Open full comparison table</summary><div class="table-wrap"><table><thead><tr><th>Firm</th><th>Category</th><th>Price</th><th>Profit target</th><th>Drawdown</th><th>Daily loss</th><th></th></tr></thead><tbody>${rows}</tbody></table></div></details></div></section>`;
 }
 
 function renderCompare(){ return comparisonSection(true); }
@@ -341,6 +375,33 @@ function bindGlobal(){
   document.getElementById('menuBtn')?.addEventListener('click',()=>showToast('Mobile menu is condensed into the page links for MVP.'));
   bindHelpDots();
   document.querySelectorAll('[data-outbound-firm]').forEach(a=>a.addEventListener('click',()=>trackEvent('outbound_firm_click',{firm:a.dataset.outboundFirm,source:a.dataset.outboundSource,path:location.hash||'#home'})));
+  bindCompareFinder();
+}
+function bindCompareFinder(){
+  const goal=document.getElementById('finderGoal');
+  const result=document.getElementById('finderResult');
+  const renderResult=()=>{
+    if(!goal||!result) return;
+    const f=finderRecommendation(goal.value);
+    result.innerHTML=`<span class="pill green">Best starting point</span><h3>${f.name}</h3><p>${f.fit}</p><div class="finder-tags">${firmTraits(f).map(t=>`<span>${t}</span>`).join('')}</div>${affiliateActions(f,true)}`;
+  };
+  goal?.addEventListener('change',()=>{renderResult(); trackEvent('prop_firm_finder_change',{goal:goal.value,path:location.hash||'#compare'});});
+  renderResult();
+  const chips=[...document.querySelectorAll('.filter-chip')];
+  const cards=[...document.querySelectorAll('[data-firm-card]')];
+  const search=document.getElementById('firmSearch');
+  const apply=()=>{
+    const active=document.querySelector('.filter-chip.active')?.dataset.filter || 'all';
+    const q=(search?.value||'').trim().toLowerCase();
+    cards.forEach(card=>{
+      const filterOk=(card.dataset.filterMatch||'').split(' ').includes(active);
+      const searchOk=!q || card.textContent.toLowerCase().includes(q) || (card.dataset.firmName||'').includes(q);
+      card.hidden=!(filterOk && searchOk);
+    });
+  };
+  chips.forEach(btn=>btn.addEventListener('click',()=>{chips.forEach(b=>b.classList.remove('active')); btn.classList.add('active'); apply(); trackEvent('prop_firm_filter_click',{filter:btn.dataset.filter,path:location.hash||'#compare'});}));
+  search?.addEventListener('input',apply);
+  apply();
 }
 function showToast(msg){const t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
 function bindHelpDots(){
