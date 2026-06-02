@@ -140,8 +140,9 @@ function layout(content){
         <nav class="nav-links" aria-label="Primary">
           <a href="#compare">Compare Firms</a><a href="#checklist">Checklist</a><a href="#calculators">Calculators</a><a href="#firms">Firm Guides</a><a href="#disclaimers">Disclosures</a>
         </nav>
-        <div class="nav-cta"><a class="btn" href="#checklist">Download checklist</a><a class="btn primary" href="#compare">Compare firms</a><button class="btn mobile-menu" id="menuBtn">Menu</button></div>
+        <div class="nav-cta"><a class="btn" href="#checklist">Free checklist</a><a class="btn primary" href="#compare">Compare firms</a><button class="btn mobile-menu" id="menuBtn" aria-controls="mobileNav" aria-expanded="false">Menu</button></div>
       </div>
+      <div class="wrap mobile-nav-drawer" id="mobileNav" hidden><a href="#compare">Compare firms</a><a href="#checklist">Checklist</a><a href="#calculators">Calculators</a><a href="#firms">Firm guides</a><a href="#disclaimers">Disclosures</a></div>
     </header>
     <main>${content}</main>
     <div class="sticky-tools"><a class="btn small" href="#calculators">Calculator</a><button class="btn small" id="copyLink">Copy link</button></div>
@@ -159,8 +160,8 @@ function renderHome(){
       <div class="eyebrow"><span class="dot"></span>Built for NQ / MNQ funded futures traders</div>
       <h1>Choose the right prop firm before the <span class="grad">drawdown trap</span> gets you.</h1>
       <p class="lead">Compare funded futures accounts, calculate trailing drawdown risk, size NQ trades correctly, and find partner links without digging through scattered rule pages.</p>
-      <div class="hero-actions"><a class="btn primary" href="#calculators">Run the free calculators</a><a class="btn" href="#compare">Compare prop firms</a></div>
-      <div class="mini-proof"><span><b>8</b> starter firms</span><span><b>3</b> calculators</span><span><b>NQ-first</b> examples</span><span><b>No signals</b>, just rules + risk</span></div>
+      <div class="hero-actions"><a class="btn primary" href="#calculators">Start with risk calculator</a><a class="btn" href="#compare">Compare firms</a><a class="btn" href="#checklist">Get checklist</a></div>
+      <div class="mini-proof"><span><b>8</b> starter firms</span><span><b>3</b> calculators</span><span><b>NQ-first</b> examples</span><span><b>Partner offers</b> clearly labeled</span></div>
     </div>
     <div class="nq-chart-card upgraded" aria-label="Animated NQ futures trading dashboard preview">
       <div class="chart-top pro">
@@ -233,13 +234,23 @@ function renderHome(){
         <div><span>Drawdown mode</span><b>EOD</b></div><div><span>Safe size</span><b>MNQ first</b></div><div><span>Rule focus</span><b>Consistency</b></div><div><span>Status</span><b class="green-text">Trade room</b></div>
       </div>
     </div>  </div></section>
-  <section class="section"><div class="wrap"><div class="section-head"><div><h2>Partner offers to check before you buy.</h2><p class="subhead">Open the partner offer directly, then confirm the code and final checkout price before purchasing. Rules and discounts can change without notice.</p></div><a class="btn" href="#firms">Compare rules first</a></div>${partnerOfferBanners()}</div></section>
+  ${startPathSection()}
+  <section class="section"><div class="wrap"><div class="section-head"><div><h2>Partner offers to check before you buy.</h2><p class="subhead">Use these after you have checked rule fit. Open the partner offer directly, try the code, and confirm the final checkout price before purchasing.</p></div><a class="btn" href="#firms">Read firm guides</a></div>${partnerOfferBanners()}</div></section>
   ${comparisonSection(false)}
   ${leadMagnetSection()}
   ${calculatorSection()}
   <section class="section"><div class="wrap cta-band"><div><div class="eyebrow"><span class="dot"></span>Built for futures traders</div><h2>Compare rules before you buy an account.</h2><p class="subhead">Use the finder, firm guides, and calculators to check drawdown, payout, daily-loss, and risk rules before choosing a funded futures account.</p></div><a class="btn primary" href="#disclaimers">Review disclosures</a></div></section>`;
 }
 
+
+function startPathSection(){
+  const steps = [
+    { href:'#calculators', label:'1', title:'Check account risk', text:'Convert NQ/MNQ stop size into dollars before choosing an account.' },
+    { href:'#compare', label:'2', title:'Compare rule fit', text:'Filter by drawdown, payout path, activation fees, and NQ-friendly rules.' },
+    { href:'#checklist', label:'3', title:'Use the checklist', text:'Download the pre-check before you click a partner offer or buy a challenge.' }
+  ];
+  return `<section class="start-path wrap" aria-label="Suggested first steps">${steps.map(step=>`<a href="${step.href}"><span>${step.label}</span><div><b>${step.title}</b><em>${step.text}</em></div></a>`).join('')}</section>`;
+}
 
 function partnerOfferBanners(){
   const offers = [
@@ -254,7 +265,7 @@ function partnerOfferBanners(){
 }
 
 function leadMagnetSection(){
-  return `<section class="section lead-magnet" id="checklist"><div class="wrap lead-grid"><div class="lead-copy"><span class="eyebrow"><span class="dot"></span>Free NQ prop firm checklist</span><h2>Before you buy another challenge, run through the drawdown traps first.</h2><p class="subhead">Download a practical checklist for NQ/MNQ traders: EOD vs intraday drawdown, daily loss limits, consistency rules, payout buffers, activation fees, and account-size risk.</p><div class="checklist-preview"><div><b>1</b><span>Confirm the drawdown type before comparing prices.</span></div><div><b>2</b><span>Calculate NQ/MNQ stop risk against daily loss and cushion.</span></div><div><b>3</b><span>Check payout rules, consistency %, activation fees, and reset costs.</span></div><div><b>4</b><span>Use partner offers only after rechecking live checkout terms.</span></div></div></div><form class="lead-form" id="leadForm"><h3>Join the list and unlock the checklist</h3><p>Enter your email to join Funded Futures Tools and unlock the NQ Prop Firm Risk Checklist instantly. You can unsubscribe anytime.</p><label>Email address</label><input id="leadEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required><label>Trading focus</label><select id="leadFocus" name="focus"><option value="NQ/MNQ prop firm challenges">NQ/MNQ prop firm challenges</option><option value="EOD drawdown accounts">EOD drawdown accounts</option><option value="Partner offers / firm comparison">Partner offers / firm comparison</option><option value="Risk sizing calculators">Risk sizing calculators</option></select><button class="btn primary" type="submit">Subscribe + unlock checklist</button><p class="lead-status" id="leadStatus">Checklist unlocks after signup. Educational only; not financial advice.</p><div class="download-card" id="checklistDownload" hidden><b>Checklist unlocked.</b><span>Download the printable checklist guide and keep comparing firms on the site.</span><button class="btn small" type="button" id="downloadChecklist">Download checklist guide</button></div></form></div></section>`;
+  return `<section class="section lead-magnet" id="checklist"><div class="wrap lead-grid"><div class="lead-copy"><span class="eyebrow"><span class="dot"></span>Free NQ prop firm checklist</span><h2>Before you buy another challenge, run through the drawdown traps first.</h2><p class="subhead">Download a practical checklist for NQ/MNQ traders: EOD vs intraday drawdown, daily loss limits, consistency rules, payout buffers, activation fees, and account-size risk.</p><div class="checklist-preview"><div><b>1</b><span>Confirm the drawdown type before comparing prices.</span></div><div><b>2</b><span>Calculate NQ/MNQ stop risk against daily loss and cushion.</span></div><div><b>3</b><span>Check payout rules, consistency %, activation fees, and reset costs.</span></div><div><b>4</b><span>Use partner offers only after rechecking live checkout terms.</span></div></div></div><form class="lead-form" id="leadForm"><h3>Unlock the printable checklist</h3><p>Enter your email to join Funded Futures Tools and unlock the NQ Prop Firm Risk Checklist instantly. You can unsubscribe anytime.</p><label>Email address</label><input id="leadEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required><label>Trading focus</label><select id="leadFocus" name="focus"><option value="NQ/MNQ prop firm challenges">NQ/MNQ prop firm challenges</option><option value="EOD drawdown accounts">EOD drawdown accounts</option><option value="Partner offers / firm comparison">Partner offers / firm comparison</option><option value="Risk sizing calculators">Risk sizing calculators</option></select><button class="btn primary" type="submit">Join list + unlock checklist</button><p class="lead-status" id="leadStatus">Checklist unlocks after signup. Educational only; not financial advice.</p><div class="download-card" id="checklistDownload" hidden><b>Checklist unlocked.</b><span>Download the printable checklist guide and keep comparing firms on the site.</span><button class="btn small" type="button" id="downloadChecklist">Download checklist guide</button></div></form></div></section>`;
 }
 function escapeHtml(value=''){
   return String(value).replace(/[&<>"']/g, char=>({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]));
@@ -470,7 +481,18 @@ function renderBestNqArticle(){
 function bindGlobal(){
   document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>setTimeout(router,0)));
   document.getElementById('copyLink')?.addEventListener('click', async()=>{try{await navigator.clipboard.writeText(location.href); showToast('Link copied');}catch{showToast('Copy unavailable');}});
-  document.getElementById('menuBtn')?.addEventListener('click',()=>showToast('Use the page links above to jump between sections.'));
+  const menuBtn=document.getElementById('menuBtn');
+  const mobileNav=document.getElementById('mobileNav');
+  menuBtn?.addEventListener('click',()=>{
+    if(!mobileNav) return;
+    const isOpen=!mobileNav.hidden;
+    mobileNav.hidden=isOpen;
+    menuBtn.setAttribute('aria-expanded',String(!isOpen));
+  });
+  mobileNav?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+    mobileNav.hidden=true;
+    menuBtn?.setAttribute('aria-expanded','false');
+  }));
   bindHelpDots();
   document.querySelectorAll('[data-outbound-firm]').forEach(a=>a.addEventListener('click',()=>trackEvent('outbound_firm_click',{firm:a.dataset.outboundFirm,source:a.dataset.outboundSource,path:location.hash||'#home'})));
   initMarketTape();
