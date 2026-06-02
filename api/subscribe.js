@@ -1,4 +1,5 @@
 const BEEHIIV_ENDPOINT = 'https://api.beehiiv.com/v2/publications';
+const MAILERLITE_ENDPOINT = 'https://connect.mailerlite.com/api';
 
 export function isValidEmail(email){
   const value = String(email || '').trim();
@@ -23,6 +24,23 @@ export function buildBeehiivPayload(input){
   };
 }
 
+export function buildMailerLitePayload(input, groupId = ''){
+  const email = String(input?.email || '').trim().toLowerCase();
+  const payload = {
+    email,
+    fields: {
+      trading_focus: cleanText(input?.focus, 'NQ/MNQ prop firm challenges'),
+      signup_source: cleanText(input?.source, 'nq_prop_firm_checklist'),
+      signup_path: cleanText(input?.path, '#checklist'),
+    },
+    status: 'active',
+  };
+  if(groupId){
+    payload.groups = [String(groupId)];
+  }
+  return payload;
+}
+
 function parseJsonBody(req){
   if(!req.body) return {};
   if(typeof req.body === 'object') return req.body;
@@ -33,7 +51,7 @@ function parseJsonBody(req){
   }
 }
 
-async function readBeehiivError(response){
+async function readProviderError(response){
   const text = await response.text();
   if(!text) return `beehiiv returned ${response.status}`;
   try{
@@ -67,11 +85,47 @@ export async function subscribeToBeehiiv(input, env = process.env, fetchImpl = f
   });
 
   if(!response.ok){
-    throw new Error(await readBeehiivError(response));
+    throw new Error(await readProviderError(response));
   }
 
   const json = await response.json();
   return json.data || json;
+}
+
+export async function subscribeToMailerLite(input, env = process.env, fetchImpl = fetch){
+  const apiKey = env.MAILERLITE_API_KEY;
+  const groupId = env.MAILERLITE_GROUP_ID;
+  if(!apiKey){
+    throw new Error('MAILERLITE_API_KEY is required');
+  }
+  if(!isValidEmail(input?.email)){
+    throw new Error('A valid email address is required');
+  }
+
+  const response = await fetchImpl(`${MAILERLITE_ENDPOINT}/subscribers`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify(buildMailerLitePayload(input, groupId)),
+  });
+
+  if(!response.ok){
+    throw new Error(await readProviderError(response));
+  }
+
+  const json = await response.json();
+  return json.data || json;
+}
+
+export async function subscribeLead(input, env = process.env, fetchImpl = fetch){
+  const provider = String(env.EMAIL_PROVIDER || '').trim().toLowerCase();
+  if(provider === 'mailerlite'){
+    return subscribeToMailerLite(input, env, fetchImpl);
+  }
+  return subscribeToBeehiiv(input, env, fetchImpl);
 }
 
 export default async function handler(req, res){
@@ -82,7 +136,7 @@ export default async function handler(req, res){
 
   const body = parseJsonBody(req);
   try{
-    const subscription = await subscribeToBeehiiv(body);
+    const subscription = await subscribeLead(body);
     res.status(200).json({
       ok: true,
       saved: true,
@@ -91,7 +145,7 @@ export default async function handler(req, res){
     });
   }catch(error){
     const message = error instanceof Error ? error.message : 'Subscription failed';
-    const status = message.includes('valid email') ? 400 : message.includes('BEEHIIV_') ? 500 : 502;
+    const status = message.includes('valid email') ? 400 : message.includes('BEEHIIV_') || message.includes('MAILERLITE_') ? 500 : 502;
     res.status(status).json({ ok: false, saved: false, message, error: message });
   }
 }

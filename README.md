@@ -64,18 +64,21 @@ VITE_CLARITY_PROJECT_ID=xxxxxxxxxx
 
 When set in Vercel and redeployed, the shared analytics helper sends route views, outbound firm clicks, calculator tab changes, calculator resets, finder changes, and filter clicks to GA4. Clarity receives page/session tracking and named custom events.
 
-## Optional Beehiiv checklist capture
+## Optional checklist email capture
 
-The checklist form posts to `api/subscribe.js`, a Vercel serverless function that keeps the Beehiiv API key server-side.
+The checklist form posts to `api/subscribe.js`, a Vercel serverless function that keeps email provider API keys server-side. The current recommended provider is MailerLite.
 
 Set these Vercel environment variables before production email capture:
 
 ```text
-BEEHIIV_API_KEY=
-BEEHIIV_PUBLICATION_ID=
+EMAIL_PROVIDER=mailerlite
+MAILERLITE_API_KEY=
+MAILERLITE_GROUP_ID=
 ```
 
-Use the API V2 `pub_...` publication ID. If Beehiiv is not configured, the checklist still unlocks locally but the email is not saved centrally.
+Use the MailerLite group ID for `NQ Checklist Leads` so checklist signups are grouped correctly. If the email provider is not configured, the checklist still unlocks locally but the email is not saved centrally.
+
+Beehiiv can still be used as a fallback by setting `EMAIL_PROVIDER=beehiiv` and configuring `BEEHIIV_API_KEY` plus `BEEHIIV_PUBLICATION_ID`.
 
 ## Compliance note
 
