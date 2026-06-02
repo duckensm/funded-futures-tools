@@ -220,7 +220,14 @@ function renderHome(){
             <text x="514" y="64">21,436.25</text>
           </g>
         </svg>
-        <div class="tape-row"><span>ES +0.31%</span><span>NQ +0.82%</span><span>VIX -1.4%</span><span>MNQ risk $50</span></div>
+      </div>
+      <div class="market-tape" aria-label="Market context tape for S&P 500, Nasdaq 100, gold, and crude oil">
+        <div class="market-tape-head"><span>Market context</span><b>S&P / Nasdaq / gold / crude</b></div>
+        <div class="market-tape-widget" id="marketTapeWidget">
+          <tv-ticker-tape symbols="FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,CMCMARKETS:GOLD,TVC:USOIL"></tv-ticker-tape>
+          <div class="market-tape-loading">Loading market tape...</div>
+        </div>
+        <p>TradingView context tape only. It is not an executable futures quote feed; use your trading platform for ES, NQ, GC, and CL execution.</p>
       </div>
       <div class="chart-metrics pro-metrics">
         <div><span>Drawdown mode</span><b>EOD</b></div><div><span>Safe size</span><b>MNQ first</b></div><div><span>Rule focus</span><b>Consistency</b></div><div><span>Status</span><b class="green-text">Trade room</b></div>
@@ -466,8 +473,20 @@ function bindGlobal(){
   document.getElementById('menuBtn')?.addEventListener('click',()=>showToast('Use the page links above to jump between sections.'));
   bindHelpDots();
   document.querySelectorAll('[data-outbound-firm]').forEach(a=>a.addEventListener('click',()=>trackEvent('outbound_firm_click',{firm:a.dataset.outboundFirm,source:a.dataset.outboundSource,path:location.hash||'#home'})));
+  initMarketTape();
   bindCompareFinder();
   bindLeadForm();
+}
+function initMarketTape(){
+  const container=document.getElementById('marketTapeWidget');
+  if(!container || document.getElementById('tradingViewTickerTapeScript')) return;
+  container.dataset.loaded='true';
+  const script=document.createElement('script');
+  script.id='tradingViewTickerTapeScript';
+  script.type='module';
+  script.src='https://widgets.tradingview-widget.com/w/en/tv-ticker-tape.js';
+  script.async=true;
+  document.head.appendChild(script);
 }
 function bindCompareFinder(){
   const goal=document.getElementById('finderGoal');
