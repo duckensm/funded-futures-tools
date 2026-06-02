@@ -9,9 +9,9 @@
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "@vitejs/plugin-react": "latest",
-    "vite": "latest",
-    "typescript": "latest"
-  },
-  "devDependencies": {}
+    "typescript": "latest",
+    "vite": "latest"
+  }
 }

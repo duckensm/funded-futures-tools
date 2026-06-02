@@ -12,6 +12,7 @@ A static comparison and calculator hub for funded futures traders, focused on NQ
 - Challenge pass planner
 - Affiliate disclosure and educational disclaimer
 - Recommended partner links/codes for Lucid Trading and Bulenox
+- Vercel Analytics injection plus custom events for route views, calculator tabs/resets, finder filters, and outbound firm clicks
 
 ## Current recommended links
 

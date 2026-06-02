@@ -1,4 +1,7 @@
 import './styles.css';
+import { inject, track as vercelTrack } from '@vercel/analytics';
+
+inject();
 
 const firms = [
   {id:'apex', name:'Apex Trader Funding', category:'Best high-search Apex/EOD option', best:'Official EOD rules checked in Chrome', price:'Retail prices still verify at checkout', target:'$1.5k / $3k / $6k / $9k', drawdown:'EOD trailing + intraday trailing', daily:'EOD DLL: $500 / $1k / $1.5k / $2k', payout:'100% split; 5 qualifying days; 50% consistency; max 6 payouts', risk:'Medium', officialUrl:'https://apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/', lastVerified:'2026-05-31', verification:'official', affiliateUrl:'', couponCode:'', fit:'Best for NQ traders who want a heavily searched futures prop firm and prefer officially documented EOD drawdown over intraday trailing.'},
@@ -79,9 +82,11 @@ function finderRecommendation(goal){
   return firms.find(f=>f.id===(map[goal]||'lucidtraderfunding')) || firms[0];
 }
 function trackEvent(name,payload={}){
+  const cleanPayload={...payload};
   window.dataLayer=window.dataLayer||[];
-  window.dataLayer.push({event:name,...payload});
-  console.info('[analytics]', name, payload);
+  window.dataLayer.push({event:name,...cleanPayload});
+  try{ vercelTrack(name, cleanPayload); }catch(err){ console.warn('[analytics unavailable]', name, err); }
+  console.info('[analytics]', name, cleanPayload);
 }
 
 function layout(content){
@@ -441,8 +446,9 @@ function router(){
   const name=(location.hash.replace('#','').split('/')[0] || 'home');
   const render=pages[name] || pages.home;
   layout(render());
+  trackEvent('route_view',{route:name,path:location.hash||'#home'});
   if(document.getElementById('calcPanel')) setCalc('drawdown');
-  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>setCalc(t.dataset.calc)));
+  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{trackEvent('calculator_tab_click',{calculator:t.dataset.calc,path:location.hash||'#calculators'}); setCalc(t.dataset.calc);}));
   document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')===`#${name}`));
 }
 window.addEventListener('hashchange',router);
