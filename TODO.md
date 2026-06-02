@@ -11,7 +11,7 @@
 - Added challenge pass planner.
 - Removed Topstep from shortlist.
 - Added Lucid Trading and Tradeify.
-- Added Phidias Propfirm as an approved affiliate/partner firm and captured Phidias 2.0 rules.
+- Added Phidias Propfirm and captured Phidias 2.0 rules.
 - Reordered comparison around buyer-intent categories instead of fake numeric rankings.
 - Removed visible risk badge/column from comparison UI because it caused layout issues.
 - Added/then upgraded animated NQ hero chart into trading-cockpit style graphic.
@@ -29,14 +29,13 @@
 - Build currently succeeds with `npm run build`.
 - Latest local URL: `http://127.0.0.1:5173`.
 
-## User affiliate status remembered from session
+## Public recommendation notes
 
-- Phidias Propfirm: affiliate approved; add the user-specific affiliate URL/coupon when available.
-- Lucid Trading: affiliate link live at https://lucidtrading.com/ref/dutrading with code `dutrading`; verify checkout before paid campaigns.
-- Bulenox: affiliate approved; live affiliate URL `https://bulenox.com/member/aff/go/dutrading`; code `dutrading`.
-- TakeProfitTrader: affiliate application declined; keep at bottom as brief reference only, do not promote.
-- Apex: still need to apply.
-- Tradeify, MyFundedFutures, Earn2Trade: apply later.
+- Lucid Trading: currently recommended partner link at https://lucidtrading.com/ref/dutrading with code `dutrading`; verify checkout before paid campaigns.
+- Bulenox: currently recommended partner link at https://bulenox.com/member/aff/go/dutrading with code `dutrading`; verify checkout before paid campaigns.
+- Phidias Propfirm: add partner URL/coupon when ready and checkout terms are confirmed.
+- TakeProfitTrader: keep at bottom as brief reference only.
+- Apex, Tradeify, MyFundedFutures, Earn2Trade: official-source references for now.
 
 ## Next recommended work
 

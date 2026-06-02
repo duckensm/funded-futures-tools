@@ -11,15 +11,13 @@ A static comparison and calculator hub for funded futures traders, focused on NQ
 - Futures risk calculator for NQ, MNQ, ES, GC, and CL
 - Challenge pass planner
 - Affiliate disclosure and educational disclaimer
-- Live affiliate links/codes where approved
+- Recommended partner links/codes for Lucid Trading and Bulenox
 
-## Affiliate status
+## Current recommended links
 
-- Lucid Trading: live affiliate link and code `dutrading`
-- Bulenox: live affiliate link and code `dutrading`
-- Phidias Propfirm: approved, affiliate URL/code pending
-- TakeProfitTrader: declined, kept as brief reference only
-- Other firms: not yet applied or pending future review
+- Lucid Trading: recommended partner link with code `dutrading`
+- Bulenox: recommended partner link with code `dutrading`
+- Other firm pages remain official-source rule references until they are ready to feature.
 
 Rules, pricing, payout terms, and discounts can change. Users should always verify the official firm site before purchasing.
 

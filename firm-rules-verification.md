@@ -229,5 +229,5 @@ Key official values captured:
 - EOD drawdown for Fundamental/Premium is calculated at the end of each trading day and excludes unrealized intraday highs, but the liquidation level is enforced if reached.
 - Standard withdrawal section: minimum withdrawal $500; payments through Rise; Fundamental payout cadence 10 days; Premium payout cadence 5 days.
 - Fundamental/Premium LIVE transition is discretionary after 5 successful payouts or $100,000 cumulative profits across accounts; not guaranteed.
-- Affiliate page states affiliates get a unique coupon code/dashboard, starting commission 15%, and Phidias reviews applications within 24h. User says they are already approved.
+- Affiliate page states affiliates get a unique coupon code/dashboard, starting commission 15%, and Phidias reviews applications within 24h. Add a public partner URL/coupon only after the final user-specific link and checkout terms are confirmed.
 - Visible promo/coupon caveat: site showed PHIDIAS80 and launch code TRADOVATE language; verify live checkout and the user's actual affiliate code/link before promoting a discount.
