@@ -163,7 +163,7 @@ function comparisonSection(full=true){
 function renderCompare(){ return comparisonSection(true); }
 
 function calculatorSection(){
-  return `<section class="section" id="calculators"><div class="wrap"><div class="section-head"><div><h2>Free calculators that create trust.</h2><p class="subhead">These tools are the traffic hook: they make the site useful before partner links are finalized.</p></div></div><div class="calc-grid"><div class="tabs"><button class="tab active" data-calc="drawdown"><b>Trailing drawdown + consistency</b><br>Calculate liquidation cushion and 30/40/50% consistency rules.</button><button class="tab" data-calc="nq"><b>NQ / MNQ risk</b><br>Translate stops and contracts into dollars.</button><button class="tab" data-calc="planner"><b>Challenge pass planner</b><br>Estimate daily target and risk pace.</button></div><div class="calculator" id="calcPanel"></div></div></div></section>`;
+  return `<section class="section" id="calculators"><div class="wrap"><div class="section-head"><div><h2>Free calculators that create trust.</h2><p class="subhead">These tools are the traffic hook: they make the site useful before partner links are finalized.</p></div></div><div class="calc-grid"><div class="tabs"><button class="tab active" data-calc="drawdown"><b>Trailing drawdown + consistency</b><br>Calculate liquidation cushion and 30/40/50% consistency rules.</button><button class="tab" data-calc="nq"><b>Futures risk</b><br>NQ, MNQ, ES, GC, and CL stop-risk calculator.</button><button class="tab" data-calc="planner"><b>Challenge pass planner</b><br>Estimate daily target and risk pace.</button></div><div class="calculator" id="calcPanel"></div></div></div></section>`;
 }
 function renderCalculators(){ return calculatorSection(); }
 
