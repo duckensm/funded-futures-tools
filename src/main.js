@@ -47,6 +47,7 @@ const firms = [
 const pages = {
   home: renderHome,
   compare: renderCompare,
+  checklist: renderChecklist,
   calculators: renderCalculators,
   firms: renderFirms,
   disclaimers: renderDisclaimers
@@ -134,9 +135,9 @@ function layout(content){
       <div class="wrap nav-inner">
         <a class="brand" href="#home" aria-label="Funded Futures Tools home"><span class="brand-mark"></span><span>Funded Futures Tools</span></a>
         <nav class="nav-links" aria-label="Primary">
-          <a href="#compare">Compare Firms</a><a href="#calculators">Calculators</a><a href="#firms">Firm Pages</a><a href="#disclaimers">Disclosures</a>
+          <a href="#compare">Compare Firms</a><a href="#checklist">Checklist</a><a href="#calculators">Calculators</a><a href="#firms">Firm Pages</a><a href="#disclaimers">Disclosures</a>
         </nav>
-        <div class="nav-cta"><a class="btn" href="#calculators">Use calculators</a><a class="btn primary" href="#compare">Find best firm</a><button class="btn mobile-menu" id="menuBtn">Menu</button></div>
+        <div class="nav-cta"><a class="btn" href="#checklist">Get checklist</a><a class="btn primary" href="#compare">Find best firm</a><button class="btn mobile-menu" id="menuBtn">Menu</button></div>
       </div>
     </header>
     <main>${content}</main>
@@ -228,8 +229,17 @@ function renderHome(){
     <div class="card"><div class="icon">↗</div><h3>Trader-first comparison</h3><p>Built for firm research, discount-code checks, rule clarity, and YouTube/Discord traffic without pretending to be a signal service.</p></div>
   </div></div></section>
   ${comparisonSection(false)}
+  ${leadMagnetSection()}
   ${calculatorSection()}
   <section class="section"><div class="wrap cta-band"><div><div class="eyebrow"><span class="dot"></span>Built for futures traders</div><h2>Compare rules before you buy an account.</h2><p class="subhead">Use the finder, firm pages, and calculators to check drawdown, payout, daily-loss, and risk rules before choosing a funded futures account.</p></div><a class="btn primary" href="#disclaimers">Review disclosures</a></div></section>`;
+}
+
+
+function leadMagnetSection(){
+  return `<section class="section lead-magnet" id="checklist"><div class="wrap lead-grid"><div class="lead-copy"><span class="eyebrow"><span class="dot"></span>Free NQ prop firm checklist</span><h2>Before you buy another challenge, run through the drawdown traps first.</h2><p class="subhead">Get a practical checklist for NQ/MNQ traders: EOD vs intraday drawdown, daily loss limits, consistency rules, payout buffers, activation fees, and account-size risk.</p><div class="checklist-preview"><div><b>1</b><span>Confirm the drawdown type before comparing prices.</span></div><div><b>2</b><span>Calculate NQ/MNQ stop risk against daily loss and cushion.</span></div><div><b>3</b><span>Check payout rules, consistency %, activation fees, and reset costs.</span></div><div><b>4</b><span>Use partner offers only after rechecking live checkout terms.</span></div></div></div><form class="lead-form" id="leadForm"><h3>Send me the checklist</h3><p>Enter your email to unlock the NQ Prop Firm Risk Checklist. No signals, no spam — just rule/risk notes for funded futures traders.</p><label>Email address</label><input id="leadEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required><label>Trading focus</label><select id="leadFocus" name="focus"><option value="NQ/MNQ prop firm challenges">NQ/MNQ prop firm challenges</option><option value="EOD drawdown accounts">EOD drawdown accounts</option><option value="Discount codes / firm comparison">Discount codes / firm comparison</option><option value="Risk sizing calculators">Risk sizing calculators</option></select><button class="btn primary" type="submit">Unlock checklist</button><p class="lead-status" id="leadStatus">You will get the checklist instantly after submitting. Educational only — not financial advice.</p><div class="download-card" id="checklistDownload" hidden><b>Checklist unlocked.</b><span>Download the text checklist now and keep comparing firms on the site.</span><button class="btn small" type="button" id="downloadChecklist">Download checklist</button></div></form></div></section>`;
+}
+function checklistText(email='', focus=''){
+  return `NQ Prop Firm Risk Checklist\nFunded Futures Tools\n\nEmail: ${email}\nFocus: ${focus}\n\n1. Drawdown type\n- Is it EOD trailing, intraday trailing, or static?\n- For EOD drawdown, confirm whether intraday unrealized gains move the floor.\n- For static drawdown, calculate starting balance minus max loss.\n\n2. NQ/MNQ position risk\n- NQ = $20 per point per contract. MNQ = $2 per point per contract.\n- Risk = contracts x stop points x point value.\n- Compare risk to daily loss limit and remaining drawdown cushion before taking the trade.\n\n3. Payout rules\n- Minimum trading days.\n- Minimum profit/buffer before withdrawal.\n- Consistency rule percentage.\n- First payout cap and later payout caps.\n\n4. Fees and promo terms\n- Monthly price or one-time price.\n- Reset cost.\n- Activation fee or funded account fee.\n- Whether the coupon works at live checkout.\n\n5. Account fit\n- If your edge needs wider stops, avoid tight intraday trailing drawdown.\n- If you scalp only, compare daily loss and contract limits first.\n- If you hold overnight, confirm overnight/weekend rules.\n\nEducational only. Not financial advice. Prop firm rules change; verify official sources before buying.`;
 }
 
 function comparisonSection(full=true){
@@ -239,6 +249,7 @@ function comparisonSection(full=true){
 }
 
 function renderCompare(){ return comparisonSection(true); }
+function renderChecklist(){ return `${leadMagnetSection()}${calculatorSection()}`; }
 
 function calculatorSection(){
   return `<section class="section" id="calculators"><div class="wrap"><div class="section-head"><div><h2>Free calculators that create trust.</h2><p class="subhead">Use these calculators to pressure-test drawdown, consistency, futures stop risk, and challenge pace before choosing an account.</p></div></div><div class="calc-grid"><div class="tabs"><button class="tab active" data-calc="drawdown"><b>Trailing drawdown + consistency</b><br>Calculate liquidation cushion and 30/40/50% consistency rules.</button><button class="tab" data-calc="nq"><b>Futures risk</b><br>NQ, MNQ, ES, GC, and CL stop-risk calculator.</button><button class="tab" data-calc="planner"><b>Challenge pass planner</b><br>Estimate daily target and risk pace.</button></div><div class="calculator" id="calcPanel"></div></div></div></section>`;
@@ -422,7 +433,7 @@ function renderApexArticle(f){
   <div class="article-card"><h2>Official Apex pages checked</h2><ul><li>https://apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/eod-evaluations/</li><li>https://apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/eod-drawdown-explained/</li><li>https://apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/eod-performance-accounts-pa/</li><li>https://apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/eod-payouts/</li></ul></div></article>`;
 }
 
-function renderDisclaimers(){return `<article class="article wrap"><h1>Disclosures & launch notes</h1><div class="article-card"><h2>Affiliate disclosure</h2><p>This site may earn commissions when visitors click partner links or use discount codes. Rankings should be based on rules, fit, and trader risk — not only commission size.</p></div><div class="article-card"><h2>Educational only</h2><p>Funded Futures Tools is not financial advice, investment advice, or a promise that users will pass an evaluation or make money. Futures trading carries substantial risk.</p></div><div class="article-card"><h2>Rule-change policy</h2><p>Prop firm rules, prices, discounts, payout policies, and restrictions change frequently. Every firm page should include a visible “last updated” date and link to the official rules.</p></div><div class="article-card"><h2>Before launch checklist</h2><ul><li>Verify each prop firm rule directly from official sources.</li><li>Recheck every partner offer, coupon code, and official rule page before publishing major updates.</li><li>Add privacy policy, terms, and final brand/domain.</li><li>Add email capture for the funded account rule checklist.</li></ul></div></article>`}
+function renderDisclaimers(){return `<article class="article wrap"><h1>Disclosures & launch notes</h1><div class="article-card"><h2>Affiliate disclosure</h2><p>This site may earn commissions when visitors click partner links or use discount codes. Rankings should be based on rules, fit, and trader risk — not only commission size.</p></div><div class="article-card"><h2>Educational only</h2><p>Funded Futures Tools is not financial advice, investment advice, or a promise that users will pass an evaluation or make money. Futures trading carries substantial risk.</p></div><div class="article-card"><h2>Rule-change policy</h2><p>Prop firm rules, prices, discounts, payout policies, and restrictions change frequently. Every firm page should include a visible “last updated” date and link to the official rules.</p></div><div class="article-card"><h2>Before launch checklist</h2><ul><li>Verify each prop firm rule directly from official sources.</li><li>Recheck every partner offer, coupon code, and official rule page before publishing major updates.</li><li>Add privacy policy, terms, and final brand/domain.</li><li>Email capture/checklist section is live; connect a dedicated email provider/webhook when ready for a real subscriber database.</li></ul></div></article>`}
 
 function bindGlobal(){
   document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>setTimeout(router,0)));
@@ -431,6 +442,7 @@ function bindGlobal(){
   bindHelpDots();
   document.querySelectorAll('[data-outbound-firm]').forEach(a=>a.addEventListener('click',()=>trackEvent('outbound_firm_click',{firm:a.dataset.outboundFirm,source:a.dataset.outboundSource,path:location.hash||'#home'})));
   bindCompareFinder();
+  bindLeadForm();
 }
 function bindCompareFinder(){
   const goal=document.getElementById('finderGoal');
@@ -458,6 +470,41 @@ function bindCompareFinder(){
   search?.addEventListener('input',apply);
   apply();
 }
+function bindLeadForm(){
+  const form=document.getElementById('leadForm');
+  if(!form) return;
+  const email=document.getElementById('leadEmail');
+  const focus=document.getElementById('leadFocus');
+  const status=document.getElementById('leadStatus');
+  const downloadBox=document.getElementById('checklistDownload');
+  const downloadBtn=document.getElementById('downloadChecklist');
+  const unlock=()=>{
+    downloadBox.hidden=false;
+    status.textContent='Checklist unlocked. Save the download and keep using the comparison/finder before choosing a firm.';
+  };
+  form.addEventListener('submit', event=>{
+    event.preventDefault();
+    const value=(email.value||'').trim();
+    if(!email.checkValidity() || !value){ email.focus(); return; }
+    const payload={email:value,focus:focus.value,path:location.hash||'#checklist',source:'nq_prop_firm_checklist'};
+    localStorage.setItem('fftChecklistLead', JSON.stringify({...payload, createdAt:new Date().toISOString()}));
+    trackEvent('lead_magnet_submit',{focus:payload.focus,source:payload.source,path:payload.path});
+    unlock();
+  });
+  downloadBtn?.addEventListener('click',()=>{
+    const blob=new Blob([checklistText(email.value.trim(), focus.value)],{type:'text/plain'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;
+    a.download='nq-prop-firm-risk-checklist.txt';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    trackEvent('lead_magnet_download',{focus:focus.value,path:location.hash||'#checklist'});
+  });
+}
+
 function showToast(msg){const t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
 function bindHelpDots(){
   const pop=document.getElementById('tooltipPop');
