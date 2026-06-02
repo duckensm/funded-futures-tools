@@ -11,7 +11,7 @@ Use this sheet before publishing affiliate traffic. Only mark a firm as official
 | 5 | Bulenox | https://bulenox.com/ | Official homepage/help rules checked; affiliate URL live: https://bulenox.com/member/aff/go/dutrading; code `dutrading`; verify checkout terms before discount-specific claims | 2026-05-31 | Homepage tiers/prices, Qualification rules, trailing/EOD options, DLL, scaling, Master activation fees, payout/consistency rules captured. |
 | 6 | Lucid Trading | https://lucidtrading.com/ref/dutrading | Official homepage/about checked in user's Chrome; affiliate link/code live; checkout still verify | 2026-05-31 | Corrected dead LucidFunding.com domain to LucidTrading.com; Pro/Flex/Direct pricing, drawdown, DLL, contracts, activation fees, payout path captured. Affiliate code: dutrading. |
 | 7 | Earn2Trade | https://www.earn2trade.com/ | Official homepage/product/purchase pages checked; live promo/checkout still verify | 2026-05-31 | TCP and Gauntlet Mini pricing/specs, EOD/trailing drawdown, DLL, contracts, reset pricing, activation fee, payout/profit split, instruments, platforms captured. |
-| 8 | Phidias Propfirm | https://phidiaspropfirm.com/ | Official Phidias 2.0/accounts/rules/affiliate pages checked; checkout and user-specific affiliate link still verify | 2026-06-01 | E2L static drawdown, Fundamental/Premium EOD drawdown, payout cadence, activation fees, Premium reset, platforms, and affiliate status captured. |
+| 8 | Phidias Propfirm | https://member.phidiaspropfirm.com/aff/go/duckensm | Official Phidias 2.0/accounts/rules/affiliate pages checked; affiliate URL live; code `DUTRADING`; checkout still verify | 2026-06-02 | E2L static drawdown, Fundamental/Premium EOD drawdown, payout cadence, activation fees, Premium reset, platforms, and affiliate status captured. |
 
 ## Official source links discovered
 
@@ -229,5 +229,5 @@ Key official values captured:
 - EOD drawdown for Fundamental/Premium is calculated at the end of each trading day and excludes unrealized intraday highs, but the liquidation level is enforced if reached.
 - Standard withdrawal section: minimum withdrawal $500; payments through Rise; Fundamental payout cadence 10 days; Premium payout cadence 5 days.
 - Fundamental/Premium LIVE transition is discretionary after 5 successful payouts or $100,000 cumulative profits across accounts; not guaranteed.
-- Affiliate page states affiliates get a unique coupon code/dashboard, starting commission 15%, and Phidias reviews applications within 24h. Add a public partner URL/coupon only after the final user-specific link and checkout terms are confirmed.
-- Visible promo/coupon caveat: site showed PHIDIAS80 and launch code TRADOVATE language; verify live checkout and the user's actual affiliate code/link before promoting a discount.
+- Affiliate page states affiliates get a unique coupon code/dashboard, starting commission 15%, and Phidias reviews applications within 24h. User-specific partner link added 2026-06-02: https://member.phidiaspropfirm.com/aff/go/duckensm with code DUTRADING. Verify live checkout terms before discount-specific claims.
+- Visible promo/coupon caveat: site showed PHIDIAS80 and launch code TRADOVATE language; verify live checkout before promoting a discount.
