@@ -3,6 +3,36 @@ import { inject, track as vercelTrack } from '@vercel/analytics';
 
 inject();
 
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || '';
+const CLARITY_PROJECT_ID = import.meta.env.VITE_CLARITY_PROJECT_ID || '';
+
+function injectScript(src, attrs = {}){
+  if(!src || document.head.querySelector(`script[src="${src}"]`)) return;
+  const script=document.createElement('script');
+  script.src=src;
+  script.async=true;
+  Object.entries(attrs).forEach(([key,value])=>{ if(value !== undefined) script.setAttribute(key,value); });
+  document.head.appendChild(script);
+}
+
+function initFreeAnalytics(){
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=window.gtag||function(){ window.dataLayer.push(arguments); };
+
+  if(GA_MEASUREMENT_ID){
+    injectScript(`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`);
+    window.gtag('js', new Date());
+    window.gtag('config', GA_MEASUREMENT_ID, { send_page_view: false });
+  }
+
+  if(CLARITY_PROJECT_ID){
+    window.clarity=window.clarity||function(){ (window.clarity.q=window.clarity.q||[]).push(arguments); };
+    injectScript(`https://www.clarity.ms/tag/${CLARITY_PROJECT_ID}`);
+  }
+}
+
+initFreeAnalytics();
+
 const firms = [
   {id:'apex', name:'Apex Trader Funding', category:'Best high-search Apex/EOD option', best:'Official EOD rules checked in Chrome', price:'Retail prices still verify at checkout', target:'$1.5k / $3k / $6k / $9k', drawdown:'EOD trailing + intraday trailing', daily:'EOD DLL: $500 / $1k / $1.5k / $2k', payout:'100% split; 5 qualifying days; 50% consistency; max 6 payouts', risk:'Medium', officialUrl:'https://apextraderfunding.com/help-center/eod-trailing-drawdown-accounts/', lastVerified:'2026-05-31', verification:'official', affiliateUrl:'', couponCode:'', fit:'Best for NQ traders who want a heavily searched futures prop firm and prefer officially documented EOD drawdown over intraday trailing.'},
   {id:'phidias', name:'Phidias Propfirm', category:'Fast E2L / swing-friendly Premium option', best:'Official Phidias 2.0, accounts, rules, and affiliate pages checked', price:'Starts at $55 one-time after visible PHIDIAS80 promo; verify checkout and affiliate code', target:'E2L $1.5k/$2.5k/$3.5k/$4.5k; Fundamental/Premium $4k/$6k/$9k', drawdown:'E2L static; Fundamental/Premium EOD trailing; no intraday trailing', daily:'No daily loss limit listed; Fundamental/Premium enforce EOD floor and funded 30% consistency', payout:'E2L first payout converts to LIVE path; Fundamental 80%; Premium 75→100%; daily uncapped LIVE payouts', risk:'Medium', officialUrl:'https://phidiaspropfirm.com/', lastVerified:'2026-06-01', verification:'official', affiliateUrl:'', couponCode:'', fit:'Best for NQ traders who want Phidias 2.0 rules: Express to Live static drawdown, no minimum days, no consistency rule, plus Premium accounts for overnight/weekend holds and progressive profit split.'},
@@ -85,6 +115,15 @@ function trackEvent(name,payload={}){
   const cleanPayload={...payload};
   window.dataLayer=window.dataLayer||[];
   window.dataLayer.push({event:name,...cleanPayload});
+  if(GA_MEASUREMENT_ID && window.gtag){
+    if(name === 'route_view'){
+      window.gtag('event', 'page_view', { page_title: document.title, page_location: window.location.href, page_path: window.location.pathname + window.location.hash });
+    }
+    window.gtag('event', name, cleanPayload);
+  }
+  if(CLARITY_PROJECT_ID && window.clarity){
+    window.clarity('event', name);
+  }
   try{ vercelTrack(name, cleanPayload); }catch(err){ console.warn('[analytics unavailable]', name, err); }
   console.info('[analytics]', name, cleanPayload);
 }

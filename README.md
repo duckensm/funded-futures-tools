@@ -12,7 +12,8 @@ A static comparison and calculator hub for funded futures traders, focused on NQ
 - Challenge pass planner
 - Affiliate disclosure and educational disclaimer
 - Recommended partner links/codes for Lucid Trading and Bulenox
-- Vercel Analytics injection plus custom events for route views, calculator tabs/resets, finder filters, and outbound firm clicks
+- Vercel Analytics page-view tracking
+- Optional free Google Analytics 4 + Microsoft Clarity support for custom events, heatmaps, and session recordings
 
 ## Current recommended links
 
@@ -51,6 +52,17 @@ Use these settings when importing the GitHub repo into Vercel:
 - Install command: `npm install`
 - Build command: `npm run build`
 - Output directory: `dist`
+
+## Optional GA4 / Clarity analytics
+
+The site supports two optional environment variables for free custom analytics beyond Vercel Hobby page views:
+
+```text
+VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+VITE_CLARITY_PROJECT_ID=xxxxxxxxxx
+```
+
+When set in Vercel and redeployed, the shared analytics helper sends route views, outbound firm clicks, calculator tab changes, calculator resets, finder changes, and filter clicks to GA4. Clarity receives page/session tracking and named custom events.
 
 ## Compliance note
 
