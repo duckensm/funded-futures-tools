@@ -1,16 +1,27 @@
 # Funded Futures Tools
 
-A fast MVP website for comparing funded futures prop firms and helping NQ/MNQ traders avoid drawdown/risk mistakes.
+A static comparison and calculator hub for funded futures traders, focused on NQ/MNQ-style prop-firm decisions.
 
-## Included in this MVP
+## What is included
 
-- Dark premium landing page
-- Futures prop firm comparison table
-- Trailing drawdown calculator
-- NQ/MNQ risk calculator
+- Premium dark landing page for futures prop-firm comparison
+- Comparison table with official-source verification status
+- Firm detail pages for Apex Trader Funding, Phidias Propfirm, Lucid Trading, MyFundedFutures, Tradeify, Bulenox, Earn2Trade, and TakeProfitTrader
+- Trailing drawdown and consistency calculator
+- Futures risk calculator for NQ, MNQ, ES, GC, and CL
 - Challenge pass planner
-- Starter firm pages for Earn2Trade, TakeProfitTrader, Topstep, Apex, MyFundedFutures, and Bulenox
-- Disclosures and launch checklist page
+- Affiliate disclosure and educational disclaimer
+- Live affiliate links/codes where approved
+
+## Affiliate status
+
+- Lucid Trading: live affiliate link and code `dutrading`
+- Bulenox: live affiliate link and code `dutrading`
+- Phidias Propfirm: approved, affiliate URL/code pending
+- TakeProfitTrader: declined, kept as brief reference only
+- Other firms: not yet applied or pending future review
+
+Rules, pricing, payout terms, and discounts can change. Users should always verify the official firm site before purchasing.
 
 ## Run locally
 
@@ -33,15 +44,15 @@ npm run build
 
 The production output goes to `dist/`.
 
-## Next launch steps
+## Vercel deployment settings
 
-1. Verify each prop firm's current rules from official websites.
-2. Apply for affiliate programs.
-3. Replace placeholder detail CTAs with approved affiliate/discount links.
-4. Choose domain/brand.
-5. Deploy to Vercel, Netlify, or Cloudflare Pages.
-6. Add email capture for a funded account rule checklist.
+Use these settings when importing the GitHub repo into Vercel:
+
+- Framework preset: `Vite`
+- Install command: `npm install`
+- Build command: `npm run build`
+- Output directory: `dist`
 
 ## Compliance note
 
-This site should stay educational and rule-comparison focused. Do not promise users they will pass challenges or make money.
+This site is educational and rule-comparison focused. It is not financial advice and does not promise that users will pass evaluations, receive payouts, or make money. Affiliate links may earn a commission.
