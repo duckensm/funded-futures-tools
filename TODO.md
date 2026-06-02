@@ -4,7 +4,7 @@ Last updated: 2026-06-02
 
 ## Highest priority
 
-1. Connect checklist lead capture to a real subscriber backend
+1. Connect checklist unlock to a real subscriber backend
    - Current form unlocks/downloads checklist locally and tracks events.
    - It does NOT yet save emails centrally.
    - Options: Beehiiv, ConvertKit, Mailchimp, Airtable, Google Sheets, or a Vercel serverless webhook.
@@ -19,8 +19,8 @@ Last updated: 2026-06-02
      - lead_magnet_download
 
 3. Add privacy policy and terms
-   - Needed because the site has analytics and email capture.
-   - Include affiliate disclosure, analytics disclosure, email capture/data use, and educational-only risk disclaimer.
+   - Needed because the site has analytics and a checklist email field.
+   - Include affiliate disclosure, analytics disclosure, browser-local checklist unlock/data use, and educational-only risk disclaimer.
 
 ## Traffic / monetization
 
@@ -45,6 +45,6 @@ Last updated: 2026-06-02
 - Live site: https://funded-futures-tools.vercel.app
 - Project path: C:/Users/ducke/funded-futures-tools
 - Checklist page live: https://funded-futures-tools.vercel.app/#checklist
-- Latest checklist commit pushed: 0988ab4 Add NQ prop firm checklist lead capture
+- Latest public-copy commit pushed: df856aa Polish public site copy
 - Build command: npm run build
 - Deploy command: vercel deploy --prod --yes
