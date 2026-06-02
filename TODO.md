@@ -4,10 +4,10 @@ Last updated: 2026-06-02
 
 ## Highest priority
 
-1. Connect checklist unlock to a real subscriber backend
-   - Current form unlocks/downloads checklist locally and tracks events.
-   - It does NOT yet save emails centrally.
-   - Options: Beehiiv, ConvertKit, Mailchimp, Airtable, Google Sheets, or a Vercel serverless webhook.
+1. Finish Beehiiv production subscriber QA
+   - Vercel API route and frontend submit flow are wired.
+   - Vercel production env vars are set for `BEEHIIV_API_KEY` and API V2 `BEEHIIV_PUBLICATION_ID`.
+   - Submit one real test email after deploy and confirm it appears in Beehiiv.
 
 2. Verify analytics events after real traffic
    - GA4 Measurement ID: G-FRYQ27CNJQ
@@ -18,23 +18,16 @@ Last updated: 2026-06-02
      - lead_magnet_submit
      - lead_magnet_download
 
-3. Add privacy policy and terms
-   - Needed because the site has analytics and a checklist email field.
-   - Include affiliate disclosure, analytics disclosure, browser-local checklist unlock/data use, and educational-only risk disclaimer.
-
 ## Traffic / monetization
 
-4. Submit site to Google Search Console
+3. Submit site to Google Search Console
    - Add property for https://funded-futures-tools.vercel.app
    - Verify ownership.
    - Submit homepage and key hash routes/pages if applicable.
    - Request indexing.
 
-5. Add first SEO buyer-intent article
-   Suggested first article:
-   - Best Funded Futures Prop Firms for NQ Traders
-
-   Other good follow-ups:
+4. Add more SEO buyer-intent articles
+   Good follow-ups:
    - EOD Drawdown vs Intraday Trailing Drawdown Explained
    - How Much Should You Risk Per NQ/MNQ Trade in a Prop Firm Challenge?
    - Apex vs Lucid Trading vs Bulenox for NQ Traders
@@ -45,6 +38,5 @@ Last updated: 2026-06-02
 - Live site: https://funded-futures-tools.vercel.app
 - Project path: C:/Users/ducke/funded-futures-tools
 - Checklist page live: https://funded-futures-tools.vercel.app/#checklist
-- Latest public-copy commit pushed: df856aa Polish public site copy
 - Build command: npm run build
-- Deploy command: vercel deploy --prod --yes
+- Deploy command: npm exec -- vercel deploy --prod --yes
