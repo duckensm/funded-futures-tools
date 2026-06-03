@@ -1,12 +1,12 @@
 # Funded Futures Tools TODO
 
-Last updated: 2026-06-02
+Last updated: 2026-06-03
 
 ## Highest priority
 
-1. Connect a custom domain when ready
-   - Buy or connect the final domain.
-   - Update canonical, Open Graph URL, `robots.txt`, `sitemap.xml`, and MailerLite checklist links from the Vercel URL to the custom domain.
+1. Finish custom domain setup
+   - Domain connected: `futurespropedge.com`
+   - SSL verified for `futurespropedge.com` and `www.futurespropedge.com`.
    - Authenticate the sending domain in MailerLite for better inbox placement.
 
 2. Verify analytics events after real traffic
@@ -19,7 +19,7 @@ Last updated: 2026-06-02
      - lead_magnet_checklist_open
 
 3. Submit site to Google Search Console
-   - Add property for https://funded-futures-tools.vercel.app
+   - Add property for https://futurespropedge.com
    - Verify ownership.
    - Submit the homepage and sitemap.
    - Request indexing.
@@ -40,9 +40,9 @@ Last updated: 2026-06-02
 
 ## Current status snapshot
 
-- Live site: https://funded-futures-tools.vercel.app
+- Live site: https://futurespropedge.com
 - Project path: C:/Users/ducke/funded-futures-tools
-- Checklist page live: https://funded-futures-tools.vercel.app/nq-prop-firm-risk-checklist.html
+- Checklist page live: https://futurespropedge.com/nq-prop-firm-risk-checklist.html
 - Email capture: MailerLite group `NQ Checklist Leads`
 - Welcome automation: `NQ Checklist Welcome Email`
 - Build command: npm run build

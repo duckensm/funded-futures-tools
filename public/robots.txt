@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://funded-futures-tools.vercel.app/sitemap.xml
+Sitemap: https://futurespropedge.com/sitemap.xml
