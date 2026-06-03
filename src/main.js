@@ -1,5 +1,6 @@
 import './styles.css';
 import { inject, track as vercelTrack } from '@vercel/analytics';
+import { DEFAULT_CALCULATORS, calculateDrawdownState, calculateFuturesRisk } from './calculatorLogic.js';
 
 inject();
 
@@ -281,9 +282,9 @@ function calculatorSection(){
 }
 function renderCalculators(){ return calculatorSection(); }
 
-function drawdownCalc(){return `<h3>Trailing drawdown + consistency simulator</h3><p class="disclaimer">Enter the account state and the firm's consistency percentage. Many prop firms require your biggest winning day to be no more than 30%, 40%, or 50% of total profit before payout.</p><div class="form-grid"><div><label>Starting balance</label><input id="startBal" type="number" value="50000"></div><div><label>Current balance</label><input id="currentBal" type="number" value="51400"></div><div><label>High-water mark <button class="help-dot" type="button" data-help="High-water mark is the highest balance or equity your account has reached so far. For Apex-style EOD drawdown, use the highest end-of-day closing balance, not the highest intraday unrealized spike. Example: if the EOD high-water mark is $52,400 and the trail is $2,500, the liquidation level is $49,900." aria-label="What is high-water mark?">?</button></label><input id="highBal" type="number" value="52400"></div><div><label>Drawdown amount</label><input id="ddAmount" type="number" value="2500"></div><div><label>Drawdown type</label><select id="ddType"><option value="trailing">Intraday trailing</option><option value="eod">EOD trailing (Apex-style)</option><option value="static">Static from start</option></select></div><div><label>Consistency rule %</label><input id="consistencyPct" type="number" value="40" min="1" max="100" step="1"></div><div><label>Total profit so far</label><input id="totalProfit" type="number" value="3000"></div><div><label>Best winning day</label><input id="bestDay" type="number" value="1400"></div></div><div class="calc-actions"><button class="btn small" type="button" data-reset-calc="drawdown">Reset calculator</button></div><div class="result-box" id="ddResults"></div><div class="note" id="ddNote"></div>`}
-function nqCalc(){return `<h3>Futures position risk calculator</h3><p class="disclaimer">Choose the futures contract and enter your stop size. Point values used: NQ $20, MNQ $2, ES $50, GC $100, and CL $1,000 per point per contract.</p><div class="form-grid"><div><label>Market</label><select id="market"><option value="20" data-symbol="NQ" data-step="0.25">NQ - Nasdaq 100</option><option value="2" data-symbol="MNQ" data-step="0.25">MNQ - Micro Nasdaq</option><option value="50" data-symbol="ES" data-step="0.25">ES - S&P 500</option><option value="100" data-symbol="GC" data-step="0.1">GC - Gold</option><option value="1000" data-symbol="CL" data-step="0.01">CL - Crude Oil</option></select></div><div><label>Contracts</label><input id="contracts" type="number" value="2"></div><div><label>Stop size in points</label><input id="stopPts" type="number" value="12.5" step="0.25"></div><div><label>Daily loss limit</label><input id="dailyLoss" type="number" value="1000"></div><div><label>Drawdown cushion</label><input id="cushion" type="number" value="1900"></div></div><div class="calc-actions"><button class="btn small" type="button" data-reset-calc="nq">Reset calculator</button></div><div class="result-box" id="nqResults"></div><div class="note" id="nqNote"></div>`}
-function plannerCalc(){return `<h3>Challenge pass planner</h3><p class="disclaimer">Plan a conservative pace instead of trying to pass in one overleveraged day.</p><div class="form-grid"><div><label>Profit target</label><input id="profitTarget" type="number" value="3000"></div><div><label>Days to pass</label><input id="days" type="number" value="10"></div><div><label>Max daily loss</label><input id="maxDailyLoss" type="number" value="1000"></div><div><label>Risk per trade</label><input id="riskTrade" type="number" value="250"></div></div><div class="calc-actions"><button class="btn small" type="button" data-reset-calc="planner">Reset calculator</button></div><div class="result-box" id="planResults"></div><div class="note" id="planNote"></div>`}
+function drawdownCalc(){const d=DEFAULT_CALCULATORS.drawdown;return `<h3>Trailing drawdown + consistency simulator</h3><p class="disclaimer">Enter the account state and the firm's consistency percentage. Many prop firms require your biggest winning day to be no more than 30%, 40%, or 50% of total profit before payout.</p><div class="form-grid"><div><label>Starting balance</label><input id="startBal" type="number" value="${d.startBal}"></div><div><label>Current balance</label><input id="currentBal" type="number" value="${d.currentBal}"></div><div><label>High-water mark <button class="help-dot" type="button" data-help="High-water mark is the highest balance or equity your account has reached so far. For Apex-style EOD drawdown, use the highest end-of-day closing balance, not the highest intraday unrealized spike. Example: if the EOD high-water mark is $52,400 and the trail is $2,500, the liquidation level is $49,900." aria-label="What is high-water mark?">?</button></label><input id="highBal" type="number" value="${d.highBal}"></div><div><label>Drawdown amount</label><input id="ddAmount" type="number" value="${d.ddAmount}"></div><div><label>Drawdown type</label><select id="ddType"><option value="trailing">Intraday trailing</option><option value="eod">EOD trailing (Apex-style)</option><option value="static">Static from start</option></select></div><div><label>Consistency rule %</label><input id="consistencyPct" type="number" value="${d.consistencyPct}" min="1" max="100" step="1"></div><div><label>Total profit so far</label><input id="totalProfit" type="number" value="${d.totalProfit}"></div><div><label>Best winning day</label><input id="bestDay" type="number" value="${d.bestDay}"></div></div><div class="calc-actions"><button class="btn small" type="button" data-reset-calc="drawdown">Reset calculator</button></div><div class="result-box" id="ddResults"></div><div class="note" id="ddNote"></div>`}
+function nqCalc(){const d=DEFAULT_CALCULATORS.nq;return `<h3>Futures position risk calculator</h3><p class="disclaimer">Choose the futures contract and enter your stop size. Point values used: NQ $20, MNQ $2, ES $50, GC $100, and CL $1,000 per point per contract.</p><div class="form-grid"><div><label>Market</label><select id="market"><option value="20" data-symbol="NQ" data-step="0.25">NQ - Nasdaq 100</option><option value="2" data-symbol="MNQ" data-step="0.25">MNQ - Micro Nasdaq</option><option value="50" data-symbol="ES" data-step="0.25">ES - S&P 500</option><option value="100" data-symbol="GC" data-step="0.1">GC - Gold</option><option value="1000" data-symbol="CL" data-step="0.01">CL - Crude Oil</option></select></div><div><label>Contracts</label><input id="contracts" type="number" value="${d.contracts}"></div><div><label>Stop size in points</label><input id="stopPts" type="number" value="${d.stopPts}" step="0.25"></div><div><label>Daily loss limit</label><input id="dailyLoss" type="number" value="${d.dailyLoss}"></div><div><label>Drawdown cushion</label><input id="cushion" type="number" value="${d.cushion}"></div><div><label>Profit target</label><input id="target" type="number" value="${d.target}"></div></div><div class="calc-actions"><button class="btn small" type="button" data-reset-calc="nq">Reset calculator</button></div><div class="result-box" id="nqResults"></div><div class="note" id="nqNote"></div>`}
+function plannerCalc(){const d=DEFAULT_CALCULATORS.planner;return `<h3>Challenge pass planner</h3><p class="disclaimer">Plan a conservative pace instead of trying to pass in one overleveraged day.</p><div class="form-grid"><div><label>Profit target</label><input id="profitTarget" type="number" value="${d.profitTarget}"></div><div><label>Days to pass</label><input id="days" type="number" value="${d.days}"></div><div><label>Max daily loss</label><input id="maxDailyLoss" type="number" value="${d.maxDailyLoss}"></div><div><label>Risk per trade</label><input id="riskTrade" type="number" value="${d.riskTrade}"></div></div><div class="calc-actions"><button class="btn small" type="button" data-reset-calc="planner">Reset calculator</button></div><div class="result-box" id="planResults"></div><div class="note" id="planNote"></div>`}
 
 function setCalc(which='drawdown'){
   const panel=document.getElementById('calcPanel'); if(!panel) return;
@@ -295,11 +296,7 @@ function setCalc(which='drawdown'){
   updateCalc(which);
 }
 function resetCalc(which){
-  const defaults={
-    drawdown:{startBal:50000,currentBal:51400,highBal:52400,ddAmount:2500,ddType:'trailing',consistencyPct:40,totalProfit:3000,bestDay:1400},
-    nq:{market:'20',contracts:2,stopPts:12.5,dailyLoss:1000,cushion:1900},
-    planner:{profitTarget:3000,days:10,maxDailyLoss:1000,riskTrade:250}
-  }[which] || {};
+  const defaults=DEFAULT_CALCULATORS[which] || {};
   Object.entries(defaults).forEach(([id,value])=>{const el=document.getElementById(id); if(el) el.value=value;});
   updateCalc(which);
   trackEvent('calculator_reset',{calculator:which,path:location.hash||'#calculators'});
@@ -307,16 +304,16 @@ function resetCalc(which){
 function updateCalc(which){
   if(which==='drawdown'){
     const start=num('startBal'), current=num('currentBal'), high=num('highBal'), dd=num('ddAmount'), type=document.getElementById('ddType').value;
-    const consistencyPct=Math.max(1, Math.min(100, num('consistencyPct')));
-    const totalProfit=Math.max(0, num('totalProfit'));
-    const bestDay=Math.max(0, num('bestDay'));
-    const threshold = type==='static' ? start-dd : high-dd;
-    const cushion=current-threshold;
-    const used=Math.max(0,Math.min(100,(1-(cushion/dd))*100));
-    const maxBestDayAllowed=totalProfit*(consistencyPct/100);
-    const currentBestDayPct=totalProfit>0 ? (bestDay/totalProfit)*100 : 0;
-    const extraProfitNeeded=Math.max(0, (bestDay/(consistencyPct/100))-totalProfit);
-    const consistencyPass=bestDay<=maxBestDayAllowed && totalProfit>0;
+    const {threshold,cushion,used,maxBestDayAllowed,currentBestDayPct,extraProfitNeeded,consistencyPass,consistencyPct}=calculateDrawdownState({
+      startBal:start,
+      currentBal:current,
+      highBal:high,
+      ddAmount:dd,
+      ddType:type,
+      consistencyPct:num('consistencyPct'),
+      totalProfit:num('totalProfit'),
+      bestDay:num('bestDay'),
+    });
     document.getElementById('ddResults').innerHTML=`<div class="metric"><span>Liquidation threshold</span><strong>${money(threshold)}</strong></div><div class="metric"><span>Remaining cushion</span><strong>${money(cushion)}</strong></div><div class="metric"><span>Drawdown used</span><strong>${used.toFixed(0)}%</strong></div><div class="metric"><span>Best day allowed</span><strong>${money(maxBestDayAllowed)}</strong></div><div class="metric"><span>Current best day %</span><strong>${currentBestDayPct.toFixed(0)}%</strong></div><div class="metric"><span>Profit needed to pass</span><strong>${money(extraProfitNeeded)}</strong></div>`;
     const typeMsg = type==='eod' ? 'Apex-style EOD mode: use the highest closing balance; intraday unrealized spikes should not move the threshold.' : type==='trailing' ? 'Intraday trailing mode: high-water mark may move with unrealized intraday profits, depending on firm rules.' : 'Static mode: threshold stays fixed from starting balance.';
     const drawdownMsg = cushion <= 0 ? 'This account would be at or below the failure threshold.' : cushion < dd*.25 ? 'Danger zone: one normal NQ loss could put this account near failure.' : 'Drawdown cushion looks workable.';
@@ -330,11 +327,18 @@ function updateCalc(which){
     const pointValue=num('market');
     const contracts=num('contracts');
     const stopPts=num('stopPts');
-    const risk=pointValue*contracts*stopPts, pctDaily=risk/num('dailyLoss')*100, pctCush=risk/num('cushion')*100;
+    const {risk,pctDaily,pctCushion,pctTarget}=calculateFuturesRisk({
+      pointValue,
+      contracts,
+      stopPts,
+      dailyLoss:num('dailyLoss'),
+      cushion:num('cushion'),
+      target:num('target'),
+    });
     const stopInput=document.getElementById('stopPts');
     if(stopInput && selected?.dataset.step) stopInput.step=selected.dataset.step;
-    document.getElementById('nqResults').innerHTML=`<div class="metric"><span>${symbol} dollar risk</span><strong>${money(risk)}</strong></div><div class="metric"><span>Daily loss used</span><strong>${pctDaily.toFixed(0)}%</strong></div><div class="metric"><span>Cushion used</span><strong>${pctCush.toFixed(0)}%</strong></div>`;
-    document.getElementById('nqNote').textContent = pctDaily>50 || pctCush>35 ? `Aggressive: ${contracts} ${symbol} contract(s) with a ${stopPts}-point stop can damage the account quickly.` : `Reasonable starting point for ${symbol} if the setup quality is strong and firm rules allow it.`;
+    document.getElementById('nqResults').innerHTML=`<div class="metric"><span>${symbol} dollar risk</span><strong>${money(risk)}</strong></div><div class="metric"><span>Daily loss used</span><strong>${pctDaily.toFixed(0)}%</strong></div><div class="metric"><span>Cushion used</span><strong>${pctCushion.toFixed(0)}%</strong></div><div class="metric"><span>Target at risk</span><strong>${pctTarget.toFixed(0)}%</strong></div>`;
+    document.getElementById('nqNote').textContent = pctDaily>50 || pctCushion>35 ? `Aggressive: ${contracts} ${symbol} contract(s) with a ${stopPts}-point stop can damage the account quickly.` : `Reasonable starting point for ${symbol} if the setup quality is strong and firm rules allow it.`;
   }
   if(which==='planner'){
     const daily=num('profitTarget')/Math.max(1,num('days')), lossesToFail=num('maxDailyLoss')/Math.max(1,num('riskTrade')), rr=daily/Math.max(1,num('riskTrade'));
