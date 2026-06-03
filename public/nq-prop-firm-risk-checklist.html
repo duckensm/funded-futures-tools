@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NQ Prop Firm Risk Checklist | Funded Futures Tools</title>
+  <meta name="description" content="A practical NQ and MNQ prop firm risk checklist for drawdown rules, daily loss limits, payout readiness, and checkout review.">
+  <style>
+    :root{color-scheme:light;--ink:#101827;--muted:#667085;--line:#d8dee8;--green:#0f9f6e;--navy:#101828;--soft:#f3f7fb}
+    *{box-sizing:border-box}
+    body{margin:0;background:#e9eef5;color:var(--ink);font-family:Inter,Arial,sans-serif;line-height:1.5}
+    .page{max-width:900px;margin:0 auto;padding:34px 18px}
+    .sheet{background:white;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 18px 60px rgba(16,24,40,.14)}
+    header{background:linear-gradient(135deg,#07111f,#0e3b35);color:white;padding:32px}
+    header span{display:inline-flex;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px 10px;color:#8ff0c7;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    h1{margin:14px 0 10px;font-size:34px;line-height:1.05;letter-spacing:-.04em}
+    h2{margin:0 0 12px;font-size:20px;letter-spacing:-.02em}
+    p{margin:0;color:var(--muted)}
+    main{padding:28px}
+    .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
+    .meta div,.card{border:1px solid var(--line);border-radius:14px;background:#fff;padding:16px}
+    .meta b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+    .meta span{font-weight:800}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .card{margin-bottom:16px}
+    .check{display:grid;grid-template-columns:22px 1fr;gap:10px;padding:9px 0;border-top:1px solid #edf1f6}
+    .check:first-of-type{border-top:0}
+    .box{width:18px;height:18px;border:2px solid var(--green);border-radius:5px;margin-top:3px}
+    .formula{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:12px;font-family:"Courier New",monospace;font-weight:700;color:#253044}
+    .warning{border-color:#f6c56f;background:#fff8eb}
+    .warning h2{color:#935b00}
+    .footer{background:#f8fafc;border-top:1px solid var(--line);padding:22px 28px;font-size:12px;color:var(--muted)}
+    .print{position:sticky;top:12px;display:flex;justify-content:flex-end;margin-bottom:12px}
+    .print button{border:0;border-radius:999px;background:var(--navy);color:white;padding:11px 16px;font-weight:800;cursor:pointer}
+    @media(max-width:720px){.meta,.grid{grid-template-columns:1fr}h1{font-size:28px}.page{padding:14px}header,main{padding:22px}}
+    @media print{body{background:white}.page{padding:0}.print{display:none}.sheet{box-shadow:none;border:0;border-radius:0}.card{break-inside:avoid}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="print"><button onclick="window.print()">Print or save as PDF</button></div>
+    <article class="sheet">
+      <header>
+        <span>Funded Futures Tools</span>
+        <h1>NQ Prop Firm Risk Checklist</h1>
+        <p>A practical pre-purchase checklist for NQ/MNQ traders comparing funded futures accounts.</p>
+      </header>
+      <main>
+        <section class="meta">
+          <div><b>Focus</b><span>NQ/MNQ prop firm challenges</span></div>
+          <div><b>Best use</b><span>Before checkout</span></div>
+          <div><b>Reminder</b><span>Verify official rules</span></div>
+        </section>
+        <section class="grid">
+          <div class="card">
+            <h2>1. Drawdown structure</h2>
+            <div class="check"><span class="box"></span><span>I know whether the account uses EOD trailing, intraday trailing, or static drawdown.</span></div>
+            <div class="check"><span class="box"></span><span>I checked whether unrealized intraday gains can move the drawdown floor.</span></div>
+            <div class="check"><span class="box"></span><span>I calculated the remaining cushion after my normal stop size.</span></div>
+            <div class="formula">Liquidation cushion = current balance - drawdown floor</div>
+          </div>
+          <div class="card">
+            <h2>2. NQ/MNQ risk sizing</h2>
+            <div class="check"><span class="box"></span><span>I converted my stop into dollars before placing the trade.</span></div>
+            <div class="check"><span class="box"></span><span>I compared trade risk against daily loss and remaining drawdown cushion.</span></div>
+            <div class="check"><span class="box"></span><span>I can use MNQ first if the account cushion is still thin.</span></div>
+            <div class="formula">NQ risk = contracts x stop points x $20<br>MNQ risk = contracts x stop points x $2</div>
+          </div>
+          <div class="card">
+            <h2>3. Payout readiness</h2>
+            <div class="check"><span class="box"></span><span>I checked minimum trading days, profit buffer, consistency rule, and payout caps.</span></div>
+            <div class="check"><span class="box"></span><span>I know whether one big day can block or delay payout.</span></div>
+            <div class="check"><span class="box"></span><span>I checked activation fees, funded account fees, resets, and withdrawal timing.</span></div>
+          </div>
+          <div class="card">
+            <h2>4. Account fit</h2>
+            <div class="check"><span class="box"></span><span>My stop size fits the drawdown and daily loss rules.</span></div>
+            <div class="check"><span class="box"></span><span>My strategy fits the hold-time, overnight, news, copier, and platform rules.</span></div>
+            <div class="check"><span class="box"></span><span>I compared rule fit before chasing the lowest displayed price.</span></div>
+          </div>
+        </section>
+        <section class="card warning">
+          <h2>Before checkout</h2>
+          <div class="check"><span class="box"></span><span>I opened the official source and rechecked the current rule page.</span></div>
+          <div class="check"><span class="box"></span><span>I tried any partner code at checkout and confirmed the final price before paying.</span></div>
+          <div class="check"><span class="box"></span><span>I understand this checklist is educational only, not financial advice or a payout guarantee.</span></div>
+        </section>
+      </main>
+      <footer class="footer">Funded Futures Tools may earn commissions from partner links or codes. Prop-firm rules, prices, discounts, payout policies, and account availability can change without notice. Verify all terms directly with each firm before purchasing.</footer>
+    </article>
+  </div>
+</body>
+</html>

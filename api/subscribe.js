@@ -53,7 +53,7 @@ function parseJsonBody(req){
 
 async function readProviderError(response){
   const text = await response.text();
-  if(!text) return `beehiiv returned ${response.status}`;
+    if(!text) return `Email provider returned ${response.status}`;
   try{
     const json = JSON.parse(text);
     return json?.message || json?.error || text;
