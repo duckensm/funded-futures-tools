@@ -1,4 +1,4 @@
-# Funded Futures Tools TODO
+# Futures Prop Edge TODO
 
 Last updated: 2026-06-03
 

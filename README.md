@@ -1,4 +1,4 @@
-# Funded Futures Tools
+# Futures Prop Edge
 
 A static comparison and calculator hub for funded futures traders, focused on NQ/MNQ-style prop-firm decisions.
 
