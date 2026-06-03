@@ -7,8 +7,8 @@ Last updated: 2026-06-03
 1. Finish custom domain setup
    - Domain connected: `futurespropedge.com`
    - SSL verified for `futurespropedge.com` and `www.futurespropedge.com`.
-   - Choose a domain sender address, such as `hello@futurespropedge.com`.
-   - Authenticate the sending domain in MailerLite after the sender address is ready.
+   - Email forwarding active through ImprovMX for `hello@futurespropedge.com`.
+   - MailerLite sending domain added for `futurespropedge.com`; DNS records are in Vercel and waiting on MailerLite activation.
 
 2. Verify analytics events after real traffic
    - GA4 Measurement ID: G-FRYQ27CNJQ
