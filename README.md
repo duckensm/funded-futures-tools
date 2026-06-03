@@ -62,7 +62,7 @@ VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 VITE_CLARITY_PROJECT_ID=xxxxxxxxxx
 ```
 
-When set in Vercel and redeployed, the shared analytics helper sends route views, outbound firm clicks, calculator tab changes, calculator resets, finder changes, and filter clicks to GA4. Clarity receives page/session tracking and named custom events.
+When set in Vercel and redeployed, the shared analytics helper sends route views, outbound firm clicks, checklist submits, checklist opens, calculator tab changes, calculator resets, finder changes, and filter clicks to GA4. Clarity receives page/session tracking and named custom events.
 
 ## Optional checklist email capture
 
