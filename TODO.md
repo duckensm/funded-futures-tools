@@ -7,7 +7,8 @@ Last updated: 2026-06-03
 1. Finish custom domain setup
    - Domain connected: `futurespropedge.com`
    - SSL verified for `futurespropedge.com` and `www.futurespropedge.com`.
-   - Authenticate the sending domain in MailerLite for better inbox placement.
+   - Choose a domain sender address, such as `hello@futurespropedge.com`.
+   - Authenticate the sending domain in MailerLite after the sender address is ready.
 
 2. Verify analytics events after real traffic
    - GA4 Measurement ID: G-FRYQ27CNJQ
@@ -18,11 +19,10 @@ Last updated: 2026-06-03
      - lead_magnet_submit
      - lead_magnet_checklist_open
 
-3. Submit site to Google Search Console
-   - Add property for https://futurespropedge.com
-   - Verify ownership.
-   - Submit the homepage and sitemap.
-   - Request indexing.
+3. Monitor Google Search Console indexing
+   - Domain property verified for `futurespropedge.com`.
+   - Sitemap submitted: https://futurespropedge.com/sitemap.xml
+   - Request indexing for the homepage and strongest SEO pages after deployment.
 
 ## Traffic / monetization
 
