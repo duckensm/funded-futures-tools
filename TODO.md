@@ -10,6 +10,7 @@ Last updated: 2026-06-03
    - Email forwarding active through ImprovMX for `hello@futurespropedge.com`.
    - MailerLite sending domain authenticated for `futurespropedge.com`.
    - MailerLite sender branding updated to `Futures Prop Edge <hello@futurespropedge.com>`.
+   - Checklist automation allows subscriber re-entry for repeat/deleted-address testing.
 
 2. Verify analytics events after real traffic
    - GA4 Measurement ID: G-FRYQ27CNJQ
