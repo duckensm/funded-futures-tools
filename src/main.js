@@ -327,7 +327,7 @@ function updateCalc(which){
     const pointValue=num('market');
     const contracts=num('contracts');
     const stopPts=num('stopPts');
-    const {risk,pctDaily,pctCushion,pctTarget}=calculateFuturesRisk({
+    const {risk,pctDaily,pctCushion,rewardRisk}=calculateFuturesRisk({
       pointValue,
       contracts,
       stopPts,
@@ -337,7 +337,8 @@ function updateCalc(which){
     });
     const stopInput=document.getElementById('stopPts');
     if(stopInput && selected?.dataset.step) stopInput.step=selected.dataset.step;
-    document.getElementById('nqResults').innerHTML=`<div class="metric"><span>${symbol} dollar risk</span><strong>${money(risk)}</strong></div><div class="metric"><span>Daily loss used</span><strong>${pctDaily.toFixed(0)}%</strong></div><div class="metric"><span>Cushion used</span><strong>${pctCushion.toFixed(0)}%</strong></div><div class="metric"><span>Target at risk</span><strong>${pctTarget.toFixed(0)}%</strong></div>`;
+    const rewardRiskDisplay=rewardRisk>0 ? `${rewardRisk.toFixed(1)}R` : '--';
+    document.getElementById('nqResults').innerHTML=`<div class="metric"><span>${symbol} dollar risk</span><strong>${money(risk)}</strong></div><div class="metric"><span>Daily loss used</span><strong>${pctDaily.toFixed(0)}%</strong></div><div class="metric"><span>Cushion used</span><strong>${pctCushion.toFixed(0)}%</strong></div><div class="metric"><span>Reward:risk</span><strong>${rewardRiskDisplay}</strong></div>`;
     document.getElementById('nqNote').textContent = pctDaily>50 || pctCushion>35 ? `Aggressive: ${contracts} ${symbol} contract(s) with a ${stopPts}-point stop can damage the account quickly.` : `Reasonable starting point for ${symbol} if the setup quality is strong and firm rules allow it.`;
   }
   if(which==='planner'){

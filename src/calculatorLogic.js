@@ -30,6 +30,11 @@ function boundedPercent(numerator, denominator) {
   return (numerator / denominator) * 100;
 }
 
+function boundedRatio(numerator, denominator) {
+  if (!Number.isFinite(numerator) || !Number.isFinite(denominator) || denominator <= 0) return 0;
+  return numerator / denominator;
+}
+
 export function calculateDrawdownState({
   startBal,
   currentBal,
@@ -77,6 +82,6 @@ export function calculateFuturesRisk({
     risk,
     pctDaily: boundedPercent(risk, dailyLoss),
     pctCushion: boundedPercent(risk, cushion),
-    pctTarget: boundedPercent(risk, target),
+    rewardRisk: boundedRatio(target, risk),
   };
 }

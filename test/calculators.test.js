@@ -30,7 +30,7 @@ test('drawdown simulator defaults match the 50K intraday trailing example', () =
   assert.equal(result.consistencyPass, true);
 });
 
-test('futures risk defaults use a 2000 drawdown cushion and target field', () => {
+test('futures risk defaults show reward-to-risk multiple from target and risk', () => {
   assert.deepEqual(DEFAULT_CALCULATORS.nq, {
     market: '20',
     contracts: 2,
@@ -52,5 +52,19 @@ test('futures risk defaults use a 2000 drawdown cushion and target field', () =>
   assert.equal(result.risk, 500);
   assert.equal(result.pctDaily, 50);
   assert.equal(result.pctCushion, 25);
-  assert.equal(result.pctTarget, 16.666666666666664);
+  assert.equal(result.rewardRisk, 6);
+});
+
+test('futures risk reward-to-risk multiple follows target divided by risk', () => {
+  const result = calculateFuturesRisk({
+    pointValue: 20,
+    contracts: 1,
+    stopPts: 25,
+    dailyLoss: 1000,
+    cushion: 2000,
+    target: 1000,
+  });
+
+  assert.equal(result.risk, 500);
+  assert.equal(result.rewardRisk, 2);
 });
