@@ -102,3 +102,15 @@ test('Alpha Futures uses the provided partner link and code with official-source
   assert.match(main, /Zero, Premium, Advanced, and Standard/);
   assert.match(main, /Confirm current account type, MLL, payout cap, news rules, and final checkout price/);
 });
+
+test('DayTraders uses the provided partner link and code with current rule guidance', async () => {
+  const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
+
+  assert.match(main, /id:'daytraders'/);
+  assert.match(main, /name:'DayTraders'/);
+  assert.match(main, /affiliateUrl:'https:\/\/daytraders\.com\/go\/dutrading\?c=TNTIQNUL'/);
+  assert.match(main, /couponCode:'TNTIQNUL'/);
+  assert.match(main, /renderDayTradersArticle/);
+  assert.match(main, /Trailing, EOD, Static, S2F, and S2L/);
+  assert.match(main, /Confirm current account type, drawdown model, payout terms, platform support, and final checkout price/);
+});
