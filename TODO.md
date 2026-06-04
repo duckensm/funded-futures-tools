@@ -8,7 +8,8 @@ Last updated: 2026-06-03
    - Domain connected: `futurespropedge.com`
    - SSL verified for `futurespropedge.com` and `www.futurespropedge.com`.
    - Email forwarding active through ImprovMX for `hello@futurespropedge.com`.
-   - MailerLite sending domain added for `futurespropedge.com`; DNS records are in Vercel and waiting on MailerLite activation.
+   - MailerLite sending domain authenticated for `futurespropedge.com`.
+   - MailerLite sender branding updated to `Futures Prop Edge <hello@futurespropedge.com>`.
 
 2. Verify analytics events after real traffic
    - GA4 Measurement ID: G-FRYQ27CNJQ
