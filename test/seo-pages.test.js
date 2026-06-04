@@ -79,3 +79,13 @@ test('homepage exposes SEO guides without hiding partner offers', async () => {
   assert.ok(guidesIndex > partnerOffersIndex, 'guides should appear after partner offers');
   assert.ok(compareIndex > guidesIndex, 'comparison table should remain after guides');
 });
+
+test('Earn2Trade uses the provided partner link and code', async () => {
+  const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
+
+  assert.match(main, /id:'earn2trade'/);
+  assert.match(main, /category:'Partner offer - legacy structured evaluation \+ live-account path'/);
+  assert.match(main, /affiliateUrl:'https:\/\/www\.earn2trade\.com\/trader-career-path\?a_pid=dutrading&a_bid=8d7b4b9e'/);
+  assert.match(main, /couponCode:'dutrading'/);
+  assert.match(main, /try code dutrading and confirm final checkout price/);
+});
