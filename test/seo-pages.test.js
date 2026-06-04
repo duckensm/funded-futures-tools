@@ -89,3 +89,16 @@ test('Earn2Trade uses the provided partner link and code', async () => {
   assert.match(main, /couponCode:'dutrading'/);
   assert.match(main, /try code dutrading and confirm final checkout price/);
 });
+
+test('Alpha Futures uses the provided partner link and code with official-source guidance', async () => {
+  const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
+
+  assert.match(main, /id:'alphafutures'/);
+  assert.match(main, /name:'Alpha Futures'/);
+  assert.match(main, /affiliateUrl:'https:\/\/app\.alpha-futures\.com\/signup\/Duckens026406\/'/);
+  assert.match(main, /couponCode:'Duckens026406'/);
+  assert.match(main, /renderAlphaFuturesArticle/);
+  assert.match(main, /Alpha Futures account types/);
+  assert.match(main, /Zero, Premium, Advanced, and Standard/);
+  assert.match(main, /Confirm current account type, MLL, payout cap, news rules, and final checkout price/);
+});
