@@ -139,11 +139,11 @@ function layout(content){
       <div class="wrap nav-inner">
         <a class="brand" href="#home" aria-label="Futures Prop Edge home"><span class="brand-mark"></span><span>Futures Prop Edge</span></a>
         <nav class="nav-links" aria-label="Primary">
-          <a href="#compare">Compare Firms</a><a href="#checklist">Checklist</a><a href="#calculators">Calculators</a><a href="#firms">Firm Guides</a><a href="#disclaimers">Disclosures</a>
+          <a href="#compare">Compare Firms</a><a href="#checklist">Checklist</a><a href="#calculators">Calculators</a><a href="#guides">Guides</a><a href="#firms">Firm Guides</a><a href="#disclaimers">Disclosures</a>
         </nav>
         <div class="nav-cta"><a class="btn" href="#checklist">Free checklist</a><a class="btn primary" href="#compare">Compare firms</a><button class="btn mobile-menu" id="menuBtn" aria-controls="mobileNav" aria-expanded="false">Menu</button></div>
       </div>
-      <div class="wrap mobile-nav-drawer" id="mobileNav" hidden><a href="#compare">Compare firms</a><a href="#checklist">Checklist</a><a href="#calculators">Calculators</a><a href="#firms">Firm guides</a><a href="#disclaimers">Disclosures</a></div>
+      <div class="wrap mobile-nav-drawer" id="mobileNav" hidden><a href="#compare">Compare firms</a><a href="#checklist">Checklist</a><a href="#calculators">Calculators</a><a href="#guides">Guides</a><a href="#firms">Firm guides</a><a href="#disclaimers">Disclosures</a></div>
     </header>
     <main>${content}</main>
     <div class="sticky-tools"><a class="btn small" href="#calculators">Calculator</a><button class="btn small" id="copyLink">Copy link</button></div>
@@ -237,6 +237,7 @@ function renderHome(){
     </div>  </div></section>
   ${startPathSection()}
   <section class="section"><div class="wrap"><div class="section-head"><div><h2>Partner offers to check before you buy.</h2><p class="subhead">Use these after you have checked rule fit. Open the partner offer directly, try the code, and confirm the final checkout price before purchasing.</p></div><a class="btn" href="#firms">Read firm guides</a></div>${partnerOfferBanners()}</div></section>
+  ${guidesSection()}
   ${comparisonSection(false)}
   ${leadMagnetSection()}
   ${calculatorSection()}
@@ -263,6 +264,15 @@ function partnerOfferBanners(){
     const firm = firms.find(f=>f.id === offer.id);
     return `<a class="promo-banner promo-${offer.id}" href="${affiliateHref(firm)}" target="_blank" rel="sponsored noreferrer" aria-label="${offer.headline} partner offer opens in a new tab" data-outbound-firm="${firm.id}" data-outbound-source="partner-banner"><span class="pill green">Partner offer</span><h3>${offer.headline}</h3><p>${offer.kicker}</p><div class="promo-banner-bottom"><span>${offer.note}</span><b>Confirm final checkout price</b></div></a>`;
   }).join('')}</div>`;
+}
+
+function guidesSection(){
+  const guides = [
+    { href:'/best-nq-prop-firms.html', label:'Best NQ Prop Firms', text:'A practical shortlist for NQ/MNQ traders comparing drawdown, payout, and rule fit.', cta:'Read guide' },
+    { href:'/lucid-trading-vs-apex-nq-traders.html', label:'Lucid vs Apex', text:'A direct rule-fit comparison: Lucid for cleaner EOD rules, Apex for account-scale context.', cta:'Compare rules' },
+    { href:'/best-eod-drawdown-prop-firms-nq-traders.html', label:'Best EOD Drawdown Firms', text:'Use this before buying if intraday trailing drawdown keeps catching normal NQ trades.', cta:'See EOD guide' }
+  ];
+  return `<section class="section guide-strip" id="guides"><div class="wrap"><div class="section-head"><div><span class="eyebrow"><span class="dot"></span>NQ Prop Firm Guides</span><h2>Rule guides that support the comparison.</h2><p class="subhead">These pages give visitors more context, then point them back to the calculators, comparison table, checklist, and partner offers before they buy.</p></div><a class="btn primary" href="#compare">Compare partner offers</a></div><div class="guide-grid">${guides.map(guide=>`<a class="guide-card" href="${guide.href}"><span class="pill">Guide</span><h3>${guide.label}</h3><p>${guide.text}</p><b>${guide.cta}</b></a>`).join('')}</div></div></section>`;
 }
 
 function leadMagnetSection(){
@@ -606,6 +616,7 @@ function router(){
   const name=(location.hash.replace('#','').split('/')[0] || 'home');
   const render=pages[name] || pages.home;
   layout(render());
+  if(!pages[name] && name !== 'home') requestAnimationFrame(()=>document.getElementById(name)?.scrollIntoView({block:'start'}));
   trackEvent('route_view',{route:name,path:location.hash||'#home'});
   if(document.getElementById('calcPanel')) setCalc('drawdown');
   document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{trackEvent('calculator_tab_click',{calculator:t.dataset.calc,path:location.hash||'#calculators'}); setCalc(t.dataset.calc);}));

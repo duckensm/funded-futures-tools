@@ -60,3 +60,22 @@ test('sitemap includes the best EOD drawdown SEO page', async () => {
 
   assert.match(sitemap, /https:\/\/futurespropedge\.com\/best-eod-drawdown-prop-firms-nq-traders\.html/);
 });
+
+test('homepage exposes SEO guides without hiding partner offers', async () => {
+  const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
+
+  assert.match(main, /href="#guides">Guides<\/a>/);
+  assert.match(main, /id="guides"/);
+  assert.match(main, /NQ Prop Firm Guides/);
+  assert.match(main, /href="\/best-nq-prop-firms\.html"/);
+  assert.match(main, /href="\/lucid-trading-vs-apex-nq-traders\.html"/);
+  assert.match(main, /href="\/best-eod-drawdown-prop-firms-nq-traders\.html"/);
+
+  const partnerOffersIndex = main.indexOf('Partner offers to check before you buy.');
+  const guidesIndex = main.indexOf('${guidesSection()}');
+  const compareIndex = main.indexOf('${comparisonSection(false)}');
+
+  assert.ok(partnerOffersIndex > -1, 'partner offer section should stay on the homepage');
+  assert.ok(guidesIndex > partnerOffersIndex, 'guides should appear after partner offers');
+  assert.ok(compareIndex > guidesIndex, 'comparison table should remain after guides');
+});
