@@ -69,7 +69,7 @@ function money(n){
 function num(id){ return parseFloat(document.getElementById(id)?.value || 0); }
 function riskClass(score){ return score >= 84 ? 'green' : score >= 78 ? 'amber' : ''; }
 function verificationClass(f){ return f.verification === 'official' ? 'green' : f.verification === 'research-snapshot' ? 'amber' : ''; }
-function verificationLabel(f){ return f.verification === 'official' ? `Official sources reviewed ${f.lastVerified}` : f.verification === 'research-snapshot' ? `Official-source snapshot updated ${f.lastVerified}` : 'Needs official-source review'; }
+function verificationLabel(f){ return f.verification === 'official' ? 'Source reviewed' : f.verification === 'research-snapshot' ? 'Source review updated' : 'Source review needed'; }
 function isRecommended(f){ return ['phidias','lucidtraderfunding','bulenox'].includes(f.id); }
 function recommendationBadge(f){ return isRecommended(f) ? '<span class="pill green">Recommended</span>' : ''; }
 function affiliatePrimaryLabel(f){ return f.affiliateUrl ? 'Check current offer' : (f.id === 'takeprofittrader' ? 'Official site only' : 'Visit official site'); }

@@ -80,6 +80,18 @@ test('homepage exposes SEO guides without hiding current offers', async () => {
   assert.ok(compareIndex > guidesIndex, 'comparison table should remain after guides');
 });
 
+test('comparison table uses a short source-review badge and preserves readable columns', async () => {
+  const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
+  const styles = await readFile(new URL('../src/styles.css', import.meta.url), 'utf8');
+
+  assert.match(main, /f\.verification === 'official' \? 'Source reviewed'/);
+  assert.doesNotMatch(main, /Official sources reviewed/);
+  assert.match(styles, /\.table-details \.table-wrap\{overflow-x:auto\}/);
+  assert.match(styles, /\.table-details table\{table-layout:fixed;width:100%;min-width:1180px\}/);
+  assert.match(styles, /\.table-details td\{vertical-align:top;line-height:1\.4\}/);
+  assert.match(styles, /\.table-details td>strong\{display:block;line-height:1\.15;margin-bottom:8px\}/);
+});
+
 test('Earn2Trade uses the provided partner link and code', async () => {
   const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
 
