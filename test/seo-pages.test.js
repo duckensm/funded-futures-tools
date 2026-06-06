@@ -61,7 +61,7 @@ test('sitemap includes the best EOD drawdown SEO page', async () => {
   assert.match(sitemap, /https:\/\/futurespropedge\.com\/best-eod-drawdown-prop-firms-nq-traders\.html/);
 });
 
-test('homepage exposes SEO guides without hiding partner offers', async () => {
+test('homepage exposes SEO guides without hiding current offers', async () => {
   const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
 
   assert.match(main, /href="#guides">Guides<\/a>/);
@@ -71,12 +71,12 @@ test('homepage exposes SEO guides without hiding partner offers', async () => {
   assert.match(main, /href="\/lucid-trading-vs-apex-nq-traders\.html"/);
   assert.match(main, /href="\/best-eod-drawdown-prop-firms-nq-traders\.html"/);
 
-  const partnerOffersIndex = main.indexOf('Partner offers to check before you buy.');
+  const offersIndex = main.indexOf('Current offers to check before you buy.');
   const guidesIndex = main.indexOf('${guidesSection()}');
   const compareIndex = main.indexOf('${comparisonSection(false)}');
 
-  assert.ok(partnerOffersIndex > -1, 'partner offer section should stay on the homepage');
-  assert.ok(guidesIndex > partnerOffersIndex, 'guides should appear after partner offers');
+  assert.ok(offersIndex > -1, 'offer section should stay on the homepage');
+  assert.ok(guidesIndex > offersIndex, 'guides should appear after offers');
   assert.ok(compareIndex > guidesIndex, 'comparison table should remain after guides');
 });
 
@@ -84,7 +84,7 @@ test('Earn2Trade uses the provided partner link and code', async () => {
   const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
 
   assert.match(main, /id:'earn2trade'/);
-  assert.match(main, /category:'Partner offer - legacy structured evaluation \+ live-account path'/);
+  assert.match(main, /category:'Legacy structured evaluation \+ live-account path'/);
   assert.match(main, /affiliateUrl:'https:\/\/www\.earn2trade\.com\/trader-career-path\?a_pid=dutrading&a_bid=8d7b4b9e'/);
   assert.match(main, /couponCode:'dutrading'/);
   assert.match(main, /try code dutrading and confirm final checkout price/);
@@ -125,4 +125,17 @@ test('OneUp Trader uses the provided partner link and code with current rule gui
   assert.match(main, /renderOneUpTraderArticle/);
   assert.match(main, /10 trading days or 5 days for Express/);
   assert.match(main, /Confirm current account size, trailing drawdown, consistency, funded rules, reset fees, and final checkout price/);
+});
+
+test('The Legends Trading uses the provided partner link, code, and current promotion', async () => {
+  const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
+
+  assert.match(main, /id:'legendstrading'/);
+  assert.match(main, /name:'The Legends Trading'/);
+  assert.match(main, /affiliateUrl:'https:\/\/thelegendstrading\.com\/\?ref=dutrading'/);
+  assert.match(main, /couponCode:'DUTRADING'/);
+  assert.match(main, /50% OFF Apprentice Plans; 30% OFF Elite Plans/);
+  assert.match(main, /renderLegendsTradingArticle/);
+  assert.match(main, /Apprentice, Elite, and Straight to Master/);
+  assert.match(main, /Confirm the DUTRADING discount, account rules, activation fee, payout terms, and final checkout price/);
 });
