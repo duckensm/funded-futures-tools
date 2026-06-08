@@ -127,16 +127,13 @@ test('DayTraders uses the provided partner link and code with current rule guida
   assert.match(main, /Confirm current account type, drawdown model, payout terms, platform support, and final checkout price/);
 });
 
-test('OneUp Trader uses the provided partner link and code with current rule guidance', async () => {
+test('OneUp Trader is not published and the homepage firm count is updated', async () => {
   const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
 
-  assert.match(main, /id:'oneuptrader'/);
-  assert.match(main, /name:'OneUp Trader'/);
-  assert.match(main, /affiliateUrl:'https:\/\/www\.oneupapp\.io\/\?via=dutrading'/);
-  assert.match(main, /couponCode:'dutrading'/);
-  assert.match(main, /renderOneUpTraderArticle/);
-  assert.match(main, /10 trading days or 5 days for Express/);
-  assert.match(main, /Confirm current account size, trailing drawdown, consistency, funded rules, reset fees, and final checkout price/);
+  assert.doesNotMatch(main, /oneuptrader/i);
+  assert.doesNotMatch(main, /OneUp Trader/i);
+  assert.doesNotMatch(main, /oneupapp\.io/i);
+  assert.match(main, /<b>11<\/b> starter firms/);
 });
 
 test('The Legends Trading uses the provided partner link, code, and current promotion', async () => {
