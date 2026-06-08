@@ -61,7 +61,7 @@ test('sitemap includes the best EOD drawdown SEO page', async () => {
   assert.match(sitemap, /https:\/\/futurespropedge\.com\/best-eod-drawdown-prop-firms-nq-traders\.html/);
 });
 
-test('homepage exposes SEO guides without hiding current offers', async () => {
+test('homepage exposes SEO guides after the hero offers', async () => {
   const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
 
   assert.match(main, /href="#guides">Guides<\/a>/);
@@ -71,13 +71,36 @@ test('homepage exposes SEO guides without hiding current offers', async () => {
   assert.match(main, /href="\/lucid-trading-vs-apex-nq-traders\.html"/);
   assert.match(main, /href="\/best-eod-drawdown-prop-firms-nq-traders\.html"/);
 
-  const offersIndex = main.indexOf('Current offers to check before you buy.');
+  const offersIndex = main.indexOf('${offerBanners()}');
   const guidesIndex = main.indexOf('${guidesSection()}');
   const compareIndex = main.indexOf('${comparisonSection(false)}');
 
-  assert.ok(offersIndex > -1, 'offer section should stay on the homepage');
+  assert.ok(offersIndex > -1, 'offer banners should stay on the homepage');
   assert.ok(guidesIndex > offersIndex, 'guides should appear after offers');
   assert.ok(compareIndex > guidesIndex, 'comparison table should remain after guides');
+});
+
+test('homepage replaces the cockpit with current clickable affiliate offers and a top market tape', async () => {
+  const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
+
+  assert.doesNotMatch(main, /Nasdaq futures risk cockpit/);
+  assert.doesNotMatch(main, /nq-chart-card upgraded/);
+  assert.match(main, /class="top-market-tape"/);
+  assert.match(main, /FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,CMCMARKETS:GOLD,TVC:USOIL/);
+  assert.match(main, /const offers = \[\s*\{ id:'lucidtraderfunding'/);
+  assert.match(main, /50% off all accounts/);
+  assert.match(main, /Valid through July 2 at 5 PM ET/);
+  assert.match(main, /Up to 70% off/);
+  assert.match(main, /Eligible evaluations/);
+  assert.match(main, /25% off/);
+  assert.match(main, /Premium accounts/);
+  assert.match(main, /80% off/);
+  assert.match(main, /50% \/ 30% off/);
+  assert.match(main, /Apprentice \/ Elite plans/);
+  assert.match(main, /\$50 \/ \$60 off/);
+  assert.match(main, /50K \/ 100K accounts/);
+  assert.match(main, /60% off/);
+  assert.doesNotMatch(main, /Current offers to check before you buy\./);
 });
 
 test('comparison table uses a short source-review badge and preserves readable columns', async () => {
