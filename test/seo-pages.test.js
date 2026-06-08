@@ -97,8 +97,8 @@ test('homepage replaces the cockpit with current clickable affiliate offers and 
   assert.match(main, /80% off/);
   assert.match(main, /50% \/ 30% off/);
   assert.match(main, /Apprentice \/ Elite plans/);
-  assert.match(main, /\$50 \/ \$60 off/);
-  assert.match(main, /50K \/ 100K accounts/);
+  assert.match(main, /89% off/);
+  assert.match(main, /Option 1 accounts/);
   assert.match(main, /60% off/);
   assert.doesNotMatch(main, /Current offers to check before you buy\./);
 });

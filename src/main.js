@@ -204,7 +204,7 @@ function offerBanners(){
     { id:'alphafutures', headline:'Alpha Futures', discount:'25% off', detail:'Premium accounts', code:'Duckens026406' },
     { id:'daytraders', headline:'DayTraders', discount:'80% off', detail:'Check current eligible account pricing', code:'TNTIQNUL' },
     { id:'legendstrading', headline:'The Legends Trading', discount:'50% / 30% off', detail:'Apprentice / Elite plans', code:'DUTRADING' },
-    { id:'bulenox', headline:'Bulenox', discount:'$50 / $60 off', detail:'50K / 100K accounts', code:'dutrading' },
+    { id:'bulenox', headline:'Bulenox', discount:'89% off', detail:'Option 1 accounts', code:'dutrading' },
     { id:'earn2trade', headline:'Earn2Trade', discount:'60% off', detail:'Current Trader Career Path pricing', code:'dutrading' }
   ];
   return `<div class="promo-grid">${offers.map(offer=>{
