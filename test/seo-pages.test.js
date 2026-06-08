@@ -101,6 +101,12 @@ test('homepage replaces the cockpit with current clickable affiliate offers and 
   assert.match(main, /Option 1 accounts/);
   assert.match(main, /60% off/);
   assert.doesNotMatch(main, /Current offers to check before you buy\./);
+
+  const offerBanners = main.slice(
+    main.indexOf('function offerBanners(){'),
+    main.indexOf('function guidesSection(){')
+  );
+  assert.doesNotMatch(offerBanners, /Confirm final checkout price/);
 });
 
 test('comparison table uses a short source-review badge and preserves readable columns', async () => {

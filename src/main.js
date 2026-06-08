@@ -209,7 +209,7 @@ function offerBanners(){
   ];
   return `<div class="promo-grid">${offers.map(offer=>{
     const firm = firms.find(f=>f.id === offer.id);
-    return `<a class="promo-banner promo-${offer.id}${offer.featured ? ' featured' : ''}" href="${affiliateHref(firm)}" target="_blank" rel="sponsored noreferrer" aria-label="${offer.headline}: ${offer.discount}. Opens in a new tab" data-outbound-firm="${firm.id}" data-outbound-source="offer-banner"><div class="promo-banner-top"><span>${offer.headline}</span><b>Open offer</b></div><strong class="offer-discount">${offer.discount}</strong><p>${offer.detail}</p><div class="promo-banner-bottom"><span>Code to try: ${offer.code}</span>${offer.expires ? `<em>${offer.expires}</em>` : ''}<b>Confirm final checkout price</b></div></a>`;
+    return `<a class="promo-banner promo-${offer.id}${offer.featured ? ' featured' : ''}" href="${affiliateHref(firm)}" target="_blank" rel="sponsored noreferrer" aria-label="${offer.headline}: ${offer.discount}. Opens in a new tab" data-outbound-firm="${firm.id}" data-outbound-source="offer-banner"><div class="promo-banner-top"><span>${offer.headline}</span><b>Open offer</b></div><strong class="offer-discount">${offer.discount}</strong><p>${offer.detail}</p><div class="promo-banner-bottom"><span>Code to try: ${offer.code}</span>${offer.expires ? `<em>${offer.expires}</em>` : ''}</div></a>`;
   }).join('')}</div>`;
 }
 
