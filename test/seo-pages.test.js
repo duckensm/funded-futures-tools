@@ -90,8 +90,8 @@ test('homepage replaces the cockpit with current clickable affiliate offers and 
   assert.match(main, /const offers = \[\s*\{ id:'lucidtraderfunding'/);
   assert.match(main, /50% off all accounts/);
   assert.match(main, /Valid through July 2 at 5 PM ET/);
-  assert.match(main, /Up to 70% off/);
-  assert.match(main, /Eligible evaluations/);
+  assert.match(main, /80% off/);
+  assert.match(main, /OTP accounts/);
   assert.match(main, /25% off/);
   assert.match(main, /Premium accounts/);
   assert.match(main, /80% off/);
