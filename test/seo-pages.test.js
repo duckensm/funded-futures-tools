@@ -62,9 +62,9 @@ test('sitemap includes the best EOD drawdown SEO page', async () => {
 });
 
 test('homepage exposes SEO guides after the hero offers', async () => {
-  const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
+  const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
 
-  assert.match(main, /href="#guides">Guides<\/a>/);
+  assert.match(main, /href="\/#guides">Guides<\/a>/);
   assert.match(main, /id="guides"/);
   assert.match(main, /NQ Prop Firm Guides/);
   assert.match(main, /href="\/best-nq-prop-firms\.html"/);
@@ -81,7 +81,7 @@ test('homepage exposes SEO guides after the hero offers', async () => {
 });
 
 test('homepage replaces the cockpit with current clickable affiliate offers and a top market tape', async () => {
-  const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
+  const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
 
   assert.doesNotMatch(main, /Nasdaq futures risk cockpit/);
   assert.doesNotMatch(main, /nq-chart-card upgraded/);
@@ -110,7 +110,7 @@ test('homepage replaces the cockpit with current clickable affiliate offers and 
 });
 
 test('comparison table uses a short source-review badge and preserves readable columns', async () => {
-  const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
+  const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
   const styles = await readFile(new URL('../src/styles.css', import.meta.url), 'utf8');
 
   assert.match(main, /f\.verification === 'official' \? 'Source reviewed'/);
@@ -122,7 +122,7 @@ test('comparison table uses a short source-review badge and preserves readable c
 });
 
 test('Earn2Trade uses the provided partner link and code', async () => {
-  const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
+  const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
 
   assert.match(main, /id:'earn2trade'/);
   assert.match(main, /category:'Legacy structured evaluation \+ live-account path'/);
@@ -132,7 +132,7 @@ test('Earn2Trade uses the provided partner link and code', async () => {
 });
 
 test('Alpha Futures uses the provided partner link and code with official-source guidance', async () => {
-  const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
+  const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
 
   assert.match(main, /id:'alphafutures'/);
   assert.match(main, /name:'Alpha Futures'/);
@@ -145,7 +145,7 @@ test('Alpha Futures uses the provided partner link and code with official-source
 });
 
 test('DayTraders uses the provided partner link and code with current rule guidance', async () => {
-  const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
+  const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
 
   assert.match(main, /id:'daytraders'/);
   assert.match(main, /name:'DayTraders'/);
@@ -157,7 +157,7 @@ test('DayTraders uses the provided partner link and code with current rule guida
 });
 
 test('OneUp Trader is not published and the homepage firm count is updated', async () => {
-  const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
+  const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
 
   assert.doesNotMatch(main, /oneuptrader/i);
   assert.doesNotMatch(main, /OneUp Trader/i);
@@ -166,7 +166,7 @@ test('OneUp Trader is not published and the homepage firm count is updated', asy
 });
 
 test('The Legends Trading uses the provided partner link, code, and current promotion', async () => {
-  const main = await readFile(new URL('../src/main.js', import.meta.url), 'utf8');
+  const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
 
   assert.match(main, /id:'legendstrading'/);
   assert.match(main, /name:'The Legends Trading'/);
