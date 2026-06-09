@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
+import { firms, affiliateFirms, comparisonFirms } from '../src/data/firms.js';
 
 test('best NQ prop firms page is a public SEO page with disclosures', async () => {
   const html = await readFile(new URL('../public/best-nq-prop-firms.html', import.meta.url), 'utf8');
@@ -47,8 +48,6 @@ test('best EOD drawdown page is a public SEO page with disclosures', async () =>
   assert.match(html, /<h1>Best EOD Drawdown Prop Firms for NQ Traders<\/h1>/);
   assert.match(html, /Lucid Trading/);
   assert.match(html, /Apex Trader Funding/);
-  assert.match(html, /Tradeify/);
-  assert.match(html, /MyFundedFutures/);
   assert.match(html, /Affiliate disclosure/);
   assert.match(html, /Recommended first look/);
   assert.doesNotMatch(html, /fastest growing/i);
@@ -94,7 +93,6 @@ test('homepage replaces the cockpit with current clickable affiliate offers and 
   assert.match(main, /OTP accounts/);
   assert.match(main, /25% off/);
   assert.match(main, /Premium accounts/);
-  assert.match(main, /80% off/);
   assert.match(main, /50% \/ 30% off/);
   assert.match(main, /Apprentice \/ Elite plans/);
   assert.match(main, /89% off/);
@@ -121,59 +119,49 @@ test('comparison table uses a short source-review badge and preserves readable c
   assert.match(styles, /\.table-details td>strong\{display:block;line-height:1\.15;margin-bottom:8px\}/);
 });
 
-test('Earn2Trade uses the provided partner link and code', async () => {
-  const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
+// --- Affiliate data layer ----------------------------------------------------
 
-  assert.match(main, /id:'earn2trade'/);
-  assert.match(main, /category:'Legacy structured evaluation \+ live-account path'/);
-  assert.match(main, /affiliateUrl:'https:\/\/www\.earn2trade\.com\/trader-career-path\?a_pid=dutrading&a_bid=8d7b4b9e'/);
-  assert.match(main, /couponCode:'dutrading'/);
-  assert.match(main, /try code dutrading and confirm final checkout price/);
+const EXPECTED_PARTNERS = {
+  'lucid-trading': { code: 'DUTRADING', url: 'https://lucidtrading.com/ref/dutrading' },
+  phidias: { code: 'DUTRADING', url: 'https://member.phidiaspropfirm.com/aff/go/duckensm' },
+  'alpha-futures': { code: 'Duckens026406', url: 'https://app.alpha-futures.com/signup/Duckens026406/' },
+  daytraders: { code: 'TNTIQNUL', url: 'https://daytraders.com/go/dutrading?c=TNTIQNUL' },
+  'legends-trading': { code: 'DUTRADING', url: 'https://thelegendstrading.com/?ref=dutrading' },
+  bulenox: { code: 'dutrading', url: 'https://bulenox.com/member/aff/go/dutrading' },
+  earn2trade: { code: 'dutrading', url: 'https://www.earn2trade.com/trader-career-path?a_pid=dutrading&a_bid=8d7b4b9e' },
+};
+
+test('the seven affiliate partners carry the verified partner links and codes', () => {
+  assert.equal(affiliateFirms.length, 7);
+  for (const [slug, expected] of Object.entries(EXPECTED_PARTNERS)) {
+    const firm = firms.find((f) => f.slug === slug);
+    assert.ok(firm, `missing partner firm: ${slug}`);
+    assert.equal(firm.affiliate, true, `${slug} must be flagged affiliate`);
+    assert.equal(firm.affiliateUrl, expected.url, `${slug} affiliate URL`);
+    assert.equal(firm.code, expected.code, `${slug} code`);
+    assert.ok(firm.badge && firm.lane, `${slug} needs badge and lane`);
+    assert.ok(['static', 'eod_trailing', 'intraday_trailing'].includes(firm.drawdownType), `${slug} drawdownType`);
+    assert.ok(Array.isArray(firm.pros) && firm.pros.length >= 3, `${slug} pros`);
+    assert.ok(Array.isArray(firm.cons) && firm.cons.length >= 2, `${slug} cons`);
+  }
 });
 
-test('Alpha Futures uses the provided partner link and code with official-source guidance', async () => {
-  const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
-
-  assert.match(main, /id:'alphafutures'/);
-  assert.match(main, /name:'Alpha Futures'/);
-  assert.match(main, /affiliateUrl:'https:\/\/app\.alpha-futures\.com\/signup\/Duckens026406\/'/);
-  assert.match(main, /couponCode:'Duckens026406'/);
-  assert.match(main, /renderAlphaFuturesArticle/);
-  assert.match(main, /Alpha Futures account types/);
-  assert.match(main, /Zero, Premium, Advanced, and Standard/);
-  assert.match(main, /Confirm current account type, MLL, payout cap, news rules, and final checkout price/);
+test('comparison foils carry no referral CTA data', () => {
+  const foils = comparisonFirms.map((f) => f.slug).sort();
+  assert.deepEqual(foils, ['apex', 'topstep']);
+  for (const f of comparisonFirms) {
+    assert.equal(f.affiliate, false);
+    assert.equal(f.affiliateUrl, '', `${f.slug} must not have an affiliate URL`);
+    assert.equal(f.code, '', `${f.slug} must not have a code`);
+  }
 });
 
-test('DayTraders uses the provided partner link and code with current rule guidance', async () => {
-  const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
-
-  assert.match(main, /id:'daytraders'/);
-  assert.match(main, /name:'DayTraders'/);
-  assert.match(main, /affiliateUrl:'https:\/\/daytraders\.com\/go\/dutrading\?c=TNTIQNUL'/);
-  assert.match(main, /couponCode:'TNTIQNUL'/);
-  assert.match(main, /renderDayTradersArticle/);
-  assert.match(main, /Trailing, EOD, Static, S2F, and S2L/);
-  assert.match(main, /Confirm current account type, drawdown model, payout terms, platform support, and final checkout price/);
-});
-
-test('OneUp Trader is not published and the homepage firm count is updated', async () => {
-  const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
-
-  assert.doesNotMatch(main, /oneuptrader/i);
-  assert.doesNotMatch(main, /OneUp Trader/i);
-  assert.doesNotMatch(main, /oneupapp\.io/i);
-  assert.match(main, /<b>11<\/b> starter firms/);
-});
-
-test('The Legends Trading uses the provided partner link, code, and current promotion', async () => {
-  const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
-
-  assert.match(main, /id:'legendstrading'/);
-  assert.match(main, /name:'The Legends Trading'/);
-  assert.match(main, /affiliateUrl:'https:\/\/thelegendstrading\.com\/\?ref=dutrading'/);
-  assert.match(main, /couponCode:'DUTRADING'/);
-  assert.match(main, /50% OFF Apprentice Plans; 30% OFF Elite Plans/);
-  assert.match(main, /renderLegendsTradingArticle/);
-  assert.match(main, /Apprentice, Elite, and Straight to Master/);
-  assert.match(main, /Confirm the DUTRADING discount, account rules, activation fee, payout terms, and final checkout price/);
+test('dropped firms are gone from the data layer and renderers', async () => {
+  const render = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
+  const data = await readFile(new URL('../src/data/firms.js', import.meta.url), 'utf8');
+  for (const gone of [/tradeify/i, /takeprofittrader/i, /myfundedfutures/i, /oneup/i]) {
+    assert.doesNotMatch(render, gone);
+    assert.doesNotMatch(data, gone);
+  }
+  assert.match(render, /<b>9<\/b> covered firms/);
 });
