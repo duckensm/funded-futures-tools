@@ -35,6 +35,7 @@ function initFreeAnalytics(){
 initFreeAnalytics();
 
 import { firms, money, num, finderRecommendation, firmTraits, affiliateActions, drawdownCalc, nqCalc, plannerCalc, pageShell } from './render.js';
+import { QUIZ, quizWinner, quizResultCard } from './pages.js';
 import { findRoute } from './routes.js';
 
 function trackEvent(name,payload={}){
@@ -140,6 +141,44 @@ function bindGlobal(){
   initMarketTape();
   bindCompareFinder();
   bindLeadForm();
+  bindQuiz();
+}
+function bindQuiz(){
+  const box=document.getElementById('quizBox');
+  if(!box) return;
+  let step=0;
+  const picks=[];
+  const render=()=>{
+    if(step < QUIZ.questions.length){
+      const q=QUIZ.questions[step];
+      box.innerHTML=`
+        <div class="quiz-progress"><span>Question ${step+1} of ${QUIZ.questions.length}</span><div class="quiz-bar"><i style="width:${(step/QUIZ.questions.length)*100}%"></i></div></div>
+        <h3 class="quiz-question">${q.q}</h3>
+        <div class="quiz-answers">${q.answers.map((a,i)=>`<button class="quiz-answer" type="button" data-answer="${i}">${a.label}</button>`).join('')}</div>
+        ${step>0?'<button class="btn small quiz-back" type="button">← Back</button>':''}`;
+      box.querySelectorAll('[data-answer]').forEach(btn=>btn.addEventListener('click',()=>{
+        picks[step]=q.answers[Number(btn.dataset.answer)];
+        step+=1;
+        if(step===QUIZ.questions.length){
+          const {slug}=quizWinner(picks.slice(0,QUIZ.questions.length));
+          trackEvent('quiz_complete',{firm:slug,path:location.pathname});
+        }
+        render();
+      }));
+      box.querySelector('.quiz-back')?.addEventListener('click',()=>{step-=1;render();});
+    } else {
+      const {slug,reasons}=quizWinner(picks);
+      box.innerHTML=`${quizResultCard(slug,reasons)}<button class="btn small quiz-back" type="button">↺ Retake the quiz</button>`;
+      box.querySelector('.quiz-back')?.addEventListener('click',()=>{step=0;picks.length=0;render();});
+      box.querySelectorAll('[data-outbound-firm]').forEach(a=>a.addEventListener('click',()=>trackEvent('outbound_firm_click',{firm:a.dataset.outboundFirm,source:a.dataset.outboundSource,path:location.pathname})));
+      box.querySelectorAll('[data-copy-code]').forEach(btn=>btn.addEventListener('click', async()=>{
+        const code=btn.dataset.copyCode;
+        try{ await navigator.clipboard.writeText(code); showToast(`Code ${code} copied`); }catch{ showToast('Copy unavailable'); }
+        trackEvent('coupon_code_copy',{firm:btn.dataset.copyFirm||'',code,path:location.pathname});
+      }));
+    }
+  };
+  render();
 }
 function initMarketTape(){
   const container=document.getElementById('marketTapeWidget');

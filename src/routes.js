@@ -4,7 +4,7 @@ import {
 } from './render.js';
 import {
   renderHub, renderReview, renderDiscount, renderApexAlternatives,
-  renderTopstepAlternatives, MONTH_YEAR, YEAR
+  renderTopstepAlternatives, renderQuizPage, MONTH_YEAR, YEAR
 } from './pages.js';
 
 export const SITE_ORIGIN = 'https://futurespropedge.com';
@@ -84,6 +84,12 @@ export function getRoutes() {
       title: `Best Topstep Alternatives ${YEAR} | ${BRAND}`,
       description: 'Topstep alternatives for NQ/MNQ traders organized by what you want: best overall rules, education included, live capital paths, and budget evaluations.',
       render: renderTopstepAlternatives,
+    },
+    {
+      path: '/quiz/',
+      title: `Which Futures Prop Firm Fits You? 60-Second Quiz | ${BRAND}`,
+      description: 'Answer five quick questions about your budget, funding goals, and NQ/MNQ trading style and get matched to the right futures prop firm — with its discount code.',
+      render: renderQuizPage,
     },
     {
       path: '/disclosure/',

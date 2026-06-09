@@ -93,7 +93,7 @@ export function renderHub() {
       ${reviewLinks(lucid)}
     </div>
 
-    <div class="article-card"><h2>Not sure which one fits you?</h2><p>Answer five questions and get matched to the right firm for your budget, drawdown preference, and goals.</p><div class="hub-card-cta"><a class="btn primary" href="/quiz/">Take the 60-second quiz</a><a class="btn" href="/calculators/">Run the risk calculator</a></div></div>
+    ${renderQuizSection()}
 
     <h2 class="hub-section-title">The rest of the field, by what they're best at</h2>
     <div class="hub-grid">${rest.map((f, i) => firmCard(f, i + 2)).join('')}</div>
@@ -214,6 +214,121 @@ export function renderDiscount(f) {
       <details><summary>Is the ${f.code} code still active in ${MONTH_YEAR}?</summary><p>It was active when this page was last built. Codes can be paused or changed by the firm at any time, so always confirm the discount is applied on the checkout screen before paying.</p></details>
       <details><summary>Does the code stack with sale prices?</summary><p>Usually a code applies to the listed price at checkout, but stacking rules are set by ${f.name}. If checkout shows a better sitewide promo, use whichever final price is lower.</p></details>
       <details><summary>Do I pay more by using an affiliate code?</summary><p>No — the price is the same or lower. Futures Prop Edge may earn a commission from the firm, which is how the site stays free.</p></details>
+    </div>
+  </article>`;
+}
+
+// ---------------------------------------------------------------------------
+// Decision quiz: embedded on the hub and standalone at /quiz/
+// ---------------------------------------------------------------------------
+// Every outcome maps to one of the 7 partners. Scores are summed per answer;
+// ties and weak signals fall back to Lucid (the "best overall for NQ/MNQ" default).
+export const QUIZ = {
+  defaultSlug: 'lucid-trading',
+  questions: [
+    {
+      q: 'What is your budget for the first evaluation?',
+      answers: [
+        { label: 'As low as possible — under ~$100 if I can', scores: { daytraders: 3 }, reason: 'You want the cheapest entry: DayTraders has the lowest-priced evaluations on our list, with one-time pricing and a static-drawdown option.' },
+        { label: 'Normal eval pricing is fine ($100–$300)', scores: { 'lucid-trading': 1 } },
+        { label: 'Budget is not the constraint — rules and tools are', scores: { 'alpha-futures': 1, phidias: 1 } },
+      ],
+    },
+    {
+      q: 'How do you want to get funded?',
+      answers: [
+        { label: 'Skip the evaluation — fund me from day one', scores: { 'legends-trading': 4 }, reason: 'You want instant funding: The Legends Trading’s Straight to Master route skips the evaluation entirely.' },
+        { label: 'Pass an eval, but end up with real LIVE capital, not sim', scores: { phidias: 4 }, reason: 'You want real live capital: Phidias’ Express to Live path converts to LIVE capital at the first payout instead of staying simulated.' },
+        { label: 'A standard evaluation is fine', scores: { 'lucid-trading': 1 } },
+      ],
+    },
+    {
+      q: 'Where are you in your trading journey?',
+      answers: [
+        { label: 'Complete beginner — I want education included', scores: { earn2trade: 4 }, reason: 'You are still learning: Earn2Trade bundles education with the evaluation and is the longest-established firm on our list.' },
+        { label: 'I have traded NQ/MNQ but not been funded yet', scores: { 'lucid-trading': 1 } },
+        { label: 'Experienced — I have held funded accounts before', scores: { 'alpha-futures': 1, bulenox: 1 } },
+      ],
+    },
+    {
+      q: 'How do you actually trade NQ/MNQ?',
+      answers: [
+        { label: 'Automated strategies / NinjaTrader algos', scores: { 'lucid-trading': 3 }, reason: 'You run automated strategies: Lucid is our top pick for algo and NinjaTrader traders, with EOD drawdown that won’t punish intraday spikes (verify the current automation policy).' },
+        { label: 'Discretionary intraday', scores: { 'lucid-trading': 1 } },
+        { label: 'I hold swing / overnight positions', scores: { phidias: 2 }, reason: 'You hold overnight: Phidias Premium accounts allow overnight and weekend holds.' },
+      ],
+    },
+    {
+      q: 'Which perk matters most to you?',
+      answers: [
+        { label: 'Stacking many accounts as cheaply as possible', scores: { bulenox: 4 }, reason: 'You want to stack accounts: Bulenox runs frequent deep discounts and pays 100% of your first $10K.' },
+        { label: 'Premium analytics and tools on my trading', scores: { 'alpha-futures': 4 }, reason: 'You want serious tooling: Alpha Futures is our pick for analytics and tools around a one-step evaluation.' },
+        { label: 'Just the best all-round rules for NQ/MNQ', scores: { 'lucid-trading': 2 }, reason: 'You want the best all-rounder: Lucid is our #1 overall for NQ/MNQ — EOD drawdown on every account type and fast payouts.' },
+      ],
+    },
+  ],
+};
+
+export function quizWinner(pickedAnswers) {
+  const scores = {};
+  for (const a of pickedAnswers) {
+    for (const [slug, pts] of Object.entries(a.scores || {})) scores[slug] = (scores[slug] || 0) + pts;
+  }
+  let winner = QUIZ.defaultSlug;
+  let best = scores[QUIZ.defaultSlug] || 0;
+  for (const [slug, pts] of Object.entries(scores)) {
+    if (pts > best) { winner = slug; best = pts; }
+  }
+  const reasons = pickedAnswers
+    .filter((a) => a.reason && (a.scores || {})[winner])
+    .map((a) => a.reason);
+  return { slug: winner, reasons };
+}
+
+export function quizResultCard(slug, reasons) {
+  const f = firmBySlug(slug) || firmBySlug(QUIZ.defaultSlug);
+  const why = reasons.length
+    ? `<ul class="hub-points">${reasons.map((r) => `<li>${r}</li>`).join('')}</ul>`
+    : `<p>Based on your answers, the safest starting point is our overall #1 for NQ/MNQ traders.</p>`;
+  return `
+    <div class="verdict-box quiz-result">
+      <span class="pill green">${f.badge}</span>
+      <h3>Your match: ${f.name}</h3>
+      <p>${publicCopy(f.lane)}</p>
+      <h4>Why it matched your answers</h4>
+      ${why}
+      ${f.code ? `<div class="code-box"><small>Use code</small><button class="code-value" type="button" data-copy-code="${f.code}" data-copy-firm="${f.id}" aria-label="Copy code ${f.code}">${f.code}</button><small>tap / click to copy</small></div>` : ''}
+      <div class="hub-card-cta">${affiliateCta(f, 'quiz-result', `Open the current ${f.name} offer`)}</div>
+      <div class="firm-page-links"><a href="/review/${f.slug}/">Read the full ${f.name} review</a><a href="/discount/${f.slug}/">${f.name} discount code</a></div>
+      <p class="disclaimer">Affiliate link — confirm rules and the final checkout price before buying.</p>
+    </div>`;
+}
+
+export function renderQuizSection() {
+  return `
+  <section class="article-card quiz-card" id="quiz-widget">
+    <span class="pill green">60-second quiz</span>
+    <h2>Which futures prop firm actually fits you?</h2>
+    <p>${QUIZ.questions.length} quick questions about your budget, funding goals, and trading style. Every result is one of the ${affiliateFirms.length} firms we recommend — no email required to see your match.</p>
+    <div id="quizBox" data-quiz>
+      <noscript><p>The quiz needs JavaScript. Browse <a href="/best-futures-prop-firms/">the full ranked list</a> instead.</p></noscript>
+    </div>
+  </section>`;
+}
+
+export function renderQuizPage() {
+  return `
+  <article class="article wrap">
+    <nav class="crumbs"><a href="/">Home</a> › <a href="/best-futures-prop-firms/">Best firms</a> › Quiz</nav>
+    <h1>Find Your Futures Prop Firm in 60 Seconds</h1>
+    <p class="lead">Answer five questions and get matched to one of the ${affiliateFirms.length} funded futures programs we recommend for NQ/MNQ traders — with the discount code for it.</p>
+    ${disclosureLine()}
+    ${renderQuizSection()}
+    <div class="article-card">
+      <h2>All possible results</h2>
+      <p>The quiz only ever recommends firms from our reviewed list:</p>
+      <ul>${affiliateFirms.map((f) => `<li><a href="/review/${f.slug}/"><b>${f.name}</b></a> — ${f.badge}</li>`).join('')}</ul>
+      <div class="firm-page-links"><a href="/best-futures-prop-firms/">See the full ranked list</a><a href="/calculators/">Run the risk calculators</a></div>
     </div>
   </article>`;
 }

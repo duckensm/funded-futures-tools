@@ -97,3 +97,17 @@ html,body,#app{max-width:100%;overflow-x:hidden}.table-wrap{max-width:100%;overf
 .article details p{margin:10px 0 2px}
 @media(max-width:920px){.hub-grid,.pros-cons{grid-template-columns:1fr}}
 @media(max-width:560px){.hub-card,.verdict-box{padding:18px}.hub-card-cta .btn,.hub-card-cta .code-chip{width:100%;justify-content:center;text-align:center}.code-box-hero .btn{width:100%;justify-content:center}}
+
+/* Decision quiz */
+.quiz-card h2{margin-top:12px}
+.quiz-progress{display:flex;flex-direction:column;gap:8px;margin:18px 0 6px}
+.quiz-progress span{color:var(--sub);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.quiz-bar{height:6px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden}
+.quiz-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),#7ee7c7);border-radius:999px;transition:width .25s ease}
+.quiz-question{font-size:clamp(20px,3vw,26px);letter-spacing:-.03em;margin:14px 0 16px}
+.quiz-answers{display:grid;gap:10px;margin-bottom:16px}
+.quiz-answer{text-align:left;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.035);color:var(--text);padding:16px 18px;font:600 15px Inter;cursor:pointer;transition:.15s ease;min-height:44px}
+.quiz-answer:hover{border-color:rgba(16,185,129,.45);background:rgba(16,185,129,.08);transform:translateY(-1px)}
+.quiz-result h3{margin:10px 0 8px;font-size:26px}
+.quiz-result h4{margin:18px 0 8px;color:var(--text)}
+.quiz-back{margin-top:4px}
