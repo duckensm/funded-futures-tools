@@ -1,7 +1,11 @@
 import {
-  firms, pageShell, renderHome, renderCompare, renderChecklist,
+  firms, affiliateFirms, pageShell, renderHome, renderCompare, renderChecklist,
   renderCalculators, renderFirms, renderDisclaimers, renderPrivacy, renderTerms
 } from './render.js';
+import {
+  renderHub, renderReview, renderDiscount, renderApexAlternatives,
+  renderTopstepAlternatives, MONTH_YEAR, YEAR
+} from './pages.js';
 
 export const SITE_ORIGIN = 'https://futurespropedge.com';
 const BRAND = 'Futures Prop Edge';
@@ -62,12 +66,61 @@ export function getRoutes() {
     },
   ];
 
+  routes.push(
+    {
+      path: '/best-futures-prop-firms/',
+      title: `Best Futures Prop Firms ${YEAR} for NQ/MNQ Traders | ${BRAND}`,
+      description: `The ${affiliateFirms.length} funded futures programs we recommend for NQ/MNQ traders, ranked by rule fit: drawdown type, payout rules, and pricing. Updated ${MONTH_YEAR}.`,
+      render: renderHub,
+    },
+    {
+      path: '/apex-alternatives/',
+      title: `Best Apex Trader Funding Alternatives ${YEAR} | ${BRAND}`,
+      description: 'Apex alternatives for NQ/MNQ traders organized by rule fit: EOD drawdown instead of intraday trailing, live-capital paths, and static-drawdown budget evaluations.',
+      render: renderApexAlternatives,
+    },
+    {
+      path: '/topstep-alternatives/',
+      title: `Best Topstep Alternatives ${YEAR} | ${BRAND}`,
+      description: 'Topstep alternatives for NQ/MNQ traders organized by what you want: best overall rules, education included, live capital paths, and budget evaluations.',
+      render: renderTopstepAlternatives,
+    },
+    {
+      path: '/disclosure/',
+      title: `Affiliate Disclosure | ${BRAND}`,
+      description: 'How Futures Prop Edge earns affiliate commissions, and why every rule still needs verifying on official firm sites.',
+      render: renderDisclaimers,
+    },
+  );
+
+  for (const f of affiliateFirms) {
+    routes.push(
+      {
+        path: `/review/${f.slug}/`,
+        title: `${f.name} Review ${YEAR}: ${f.badge} | ${BRAND}`,
+        description: `${f.name} review for NQ/MNQ traders: ${f.badge.toLowerCase()}. Drawdown mechanics, payout rules, pros and cons, and the current discount code.`,
+        render: () => renderReview(f),
+      },
+      {
+        path: `/discount/${f.slug}/`,
+        title: `${f.name} Discount Code ${f.code} — ${MONTH_YEAR}`,
+        description: `Working ${f.name} discount code for ${MONTH_YEAR}: use code ${f.code} at checkout. Copy the code, see what it applies to, and confirm the final price before buying.`,
+        render: () => renderDiscount(f),
+      },
+    );
+  }
+
   for (const f of firms) {
+    const isPartner = f.affiliate;
     routes.push({
       path: `/firms/${f.id}/`,
       title: `${f.name} Rules for NQ/MNQ Traders | ${BRAND}`,
       description: f.fit,
-      render: () => renderFirms(f.id),
+      // Partner rule pages now render the data-driven review and point their
+      // canonical at /review/<slug>/ so legacy URLs keep working without
+      // splitting search equity.
+      canonical: isPartner ? `${SITE_ORIGIN}/review/${f.slug}/` : undefined,
+      render: () => (isPartner ? renderReview(f) : renderFirms(f.id)),
     });
   }
 
@@ -82,7 +135,7 @@ export function findRoute(path) {
 // Replacement callbacks are used so `$` in page content is never treated as a
 // regex replacement pattern.
 export function renderDocument(route, template) {
-  const canonical = SITE_ORIGIN + route.path;
+  const canonical = route.canonical || SITE_ORIGIN + route.path;
   const title = escAttr(route.title);
   const description = escAttr(route.description);
   let html = template;

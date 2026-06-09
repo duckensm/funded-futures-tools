@@ -12,7 +12,8 @@ test('every route prerenders full body content for crawlers, not an empty shell'
     const html = renderDocument(route, template);
     assert.ok(!html.includes('<div id="app"></div>'), `${route.path} ships an empty app shell`);
     assert.match(html, /<main>[\s\S]*<\/main>/, `${route.path} is missing rendered main content`);
-    assert.ok(html.includes(`<link rel="canonical" href="${SITE_ORIGIN}${route.path}" />`), `${route.path} canonical URL not set`);
+    const canonical = route.canonical || `${SITE_ORIGIN}${route.path}`;
+    assert.ok(html.includes(`<link rel="canonical" href="${canonical}" />`), `${route.path} canonical URL not set`);
     assert.ok(html.includes('<footer class="footer">'), `${route.path} is missing the footer`);
   }
 });

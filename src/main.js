@@ -132,6 +132,11 @@ function bindGlobal(){
   }));
   bindHelpDots();
   document.querySelectorAll('[data-outbound-firm]').forEach(a=>a.addEventListener('click',()=>trackEvent('outbound_firm_click',{firm:a.dataset.outboundFirm,source:a.dataset.outboundSource,path:location.pathname})));
+  document.querySelectorAll('[data-copy-code]').forEach(btn=>btn.addEventListener('click', async()=>{
+    const code=btn.dataset.copyCode;
+    try{ await navigator.clipboard.writeText(code); showToast(`Code ${code} copied`); }catch{ showToast('Copy unavailable'); }
+    trackEvent('coupon_code_copy',{firm:btn.dataset.copyFirm||'',code,path:location.pathname});
+  }));
   initMarketTape();
   bindCompareFinder();
   bindLeadForm();
