@@ -46,6 +46,29 @@ function reviewLinks(f) {
 }
 
 // ---------------------------------------------------------------------------
+// Inline email capture: "free prop firm eval tracker spreadsheet"
+// Posts to the existing /api/subscribe Vercel function (MailerLite).
+// TODO(email-provider): the tracker spreadsheet itself is not delivered yet.
+// Once you pick the final provider/automation, attach the spreadsheet link to
+// the welcome email for the `eval_tracker_spreadsheet` source (or a dedicated
+// MailerLite group) and update the success message in bindInlineCapture().
+// ---------------------------------------------------------------------------
+export function renderEmailCapture(context) {
+  return `
+  <div class="inline-capture" data-capture-context="${context}">
+    <div class="inline-capture-copy">
+      <h3>Get my free prop firm eval tracker spreadsheet</h3>
+      <p>Track every evaluation, reset, payout, and rule violation in one sheet — so you know your real cost per funded account.</p>
+    </div>
+    <form class="inline-capture-form" data-inline-capture>
+      <input type="email" name="email" autocomplete="email" placeholder="you@example.com" aria-label="Email address" required>
+      <button class="btn primary" type="submit">Send me the tracker</button>
+    </form>
+    <p class="inline-capture-status" data-capture-status>No spam — unsubscribe anytime. Educational only, not financial advice.</p>
+  </div>`;
+}
+
+// ---------------------------------------------------------------------------
 // Hub: /best-futures-prop-firms/
 // ---------------------------------------------------------------------------
 export function renderHub() {
@@ -161,6 +184,8 @@ export function renderReview(f) {
     </div>
 
     ${verdictCta}
+
+    ${f.affiliate ? renderEmailCapture(`review-${f.slug}`) : ''}
 
     <div class="article-card">
       <h2>Keep comparing</h2>
@@ -301,6 +326,7 @@ export function quizResultCard(slug, reasons) {
       <div class="hub-card-cta">${affiliateCta(f, 'quiz-result', `Open the current ${f.name} offer`)}</div>
       <div class="firm-page-links"><a href="/review/${f.slug}/">Read the full ${f.name} review</a><a href="/discount/${f.slug}/">${f.name} discount code</a></div>
       <p class="disclaimer">Affiliate link — confirm rules and the final checkout price before buying.</p>
+      ${renderEmailCapture('quiz-result')}
     </div>`;
 }
 

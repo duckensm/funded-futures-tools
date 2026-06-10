@@ -125,7 +125,7 @@ const EXPECTED_PARTNERS = {
   'lucid-trading': { code: 'DUTRADING', url: 'https://lucidtrading.com/ref/dutrading' },
   phidias: { code: 'DUTRADING', url: 'https://member.phidiaspropfirm.com/aff/go/duckensm' },
   'alpha-futures': { code: 'Duckens026406', url: 'https://app.alpha-futures.com/signup/Duckens026406/' },
-  daytraders: { code: 'TNTIQNUL', url: 'https://daytraders.com/go/dutrading?c=TNTIQNUL' },
+  daytraders: { code: 'DUTRADING', url: 'https://daytraders.com/go/dutrading?c=DUTRADING' },
   'legends-trading': { code: 'DUTRADING', url: 'https://thelegendstrading.com/?ref=dutrading' },
   bulenox: { code: 'dutrading', url: 'https://bulenox.com/member/aff/go/dutrading' },
   earn2trade: { code: 'dutrading', url: 'https://www.earn2trade.com/trader-career-path?a_pid=dutrading&a_bid=8d7b4b9e' },

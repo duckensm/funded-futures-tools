@@ -18,10 +18,11 @@ function affiliatePrimaryLabel(f){ return f.affiliateUrl ? 'Check current offer'
 function affiliateHref(f){ return f.affiliateUrl || f.officialUrl; }
 function couponText(f){ return f.couponCode ? `<span class="pill amber">Code to try: ${f.couponCode}</span>` : '<span class="pill">No public code listed</span>'; }
 function affiliateActions(f, details=true){
-  const rel=f.affiliateUrl ? 'sponsored noreferrer' : 'noreferrer';
+  const rel=f.affiliateUrl ? 'sponsored noopener' : 'noopener';
   const source=f.affiliateUrl ? 'affiliate' : 'official-fallback';
+  const btnClass=f.affiliateUrl ? 'btn affiliate small outbound' : 'btn small outbound';
   const detailsBtn=details ? `<a class="btn small" href="${f.affiliate ? `/review/${f.slug}/` : `/firms/${f.id}/`}">Compare rules</a>` : '';
-  return `<div class="affiliate-actions"><a class="btn primary small outbound" href="${affiliateHref(f)}" target="_blank" rel="${rel}" data-outbound-firm="${f.id}" data-outbound-source="${source}">${affiliatePrimaryLabel(f)}</a>${detailsBtn}</div>`;
+  return `<div class="affiliate-actions"><a class="${btnClass}" href="${affiliateHref(f)}" target="_blank" rel="${rel}" data-outbound-firm="${f.id}" data-outbound-source="${source}">${affiliatePrimaryLabel(f)}</a>${detailsBtn}</div>`;
 }
 function affiliateCard(f){
   if(isRecommended(f)){
@@ -82,7 +83,7 @@ function pageShell(content){
     <div class="sticky-tools"><a class="btn small" href="/calculators/">Calculator</a><button class="btn small" id="copyLink">Copy link</button></div>
     <div class="tooltip-pop" id="tooltipPop" role="tooltip"></div>
     <div class="toast" id="toast">Link copied</div>
-      <footer class="footer"><div class="wrap footer-grid"><div><div class="brand"><span class="brand-mark"></span><span>Futures Prop Edge</span></div><p class="disclaimer">Built for futures traders comparing funded account rules. We focus on NQ/MNQ risk, drawdown mechanics, and practical rule clarity.</p></div><div><b>Tools</b><p class="disclaimer"><a href="/compare/">Comparison table</a><br><a href="/checklist/">NQ checklist</a><br><a href="/calculators/">Drawdown calculator</a><br><a href="/best-nq-prop-firms.html">Best NQ prop firms</a><br><a href="/lucid-trading-vs-apex-nq-traders.html">Lucid vs Apex</a><br><a href="/best-eod-drawdown-prop-firms-nq-traders.html">Best EOD drawdown firms</a></p></div><div><b>Important</b><p class="disclaimer">Educational only. Not financial advice. Prop firm rules change; always verify on official websites before buying.<br><a href="/disclaimers/">Disclosures</a> | <a href="/privacy/">Privacy</a> | <a href="/terms/">Terms</a></p></div></div></footer>
+      <footer class="footer"><div class="wrap footer-grid"><div><div class="brand"><span class="brand-mark"></span><span>Futures Prop Edge</span></div><p class="disclaimer">Built for futures traders comparing funded account rules. We focus on NQ/MNQ risk, drawdown mechanics, and practical rule clarity.</p></div><div><b>Tools</b><p class="disclaimer"><a href="/compare/">Comparison table</a><br><a href="/checklist/">NQ checklist</a><br><a href="/calculators/">Drawdown calculator</a><br><a href="/best-nq-prop-firms.html">Best NQ prop firms</a><br><a href="/lucid-trading-vs-apex-nq-traders.html">Lucid vs Apex</a><br><a href="/best-eod-drawdown-prop-firms-nq-traders.html">Best EOD drawdown firms</a></p></div><div><b>Important</b><p class="disclaimer">Affiliate disclosure: Futures Prop Edge may earn commissions from affiliate links and discount codes on this site, at no extra cost to you.<br>Educational only. Not financial advice. Prop firm rules change; always verify on official websites before buying.<br><a href="/disclosure/">Affiliate disclosure</a> | <a href="/disclaimers/">Disclosures</a> | <a href="/privacy/">Privacy</a> | <a href="/terms/">Terms</a></p></div></div></footer>
   `;
 }
 
@@ -128,14 +129,14 @@ function offerBanners(){
     { id:'lucidtraderfunding', headline:'Lucid Trading', discount:'50% off all accounts', detail:'Includes LucidDirect', code:'DUTRADING', expires:'Valid through July 2 at 5 PM ET', featured:true },
     { id:'phidias', headline:'Phidias Propfirm', discount:'80% off', detail:'OTP accounts', code:'DUTRADING' },
     { id:'alphafutures', headline:'Alpha Futures', discount:'25% off', detail:'Premium accounts', code:'Duckens026406' },
-    { id:'daytraders', headline:'DayTraders', discount:'80% off', detail:'Check current eligible account pricing', code:'TNTIQNUL' },
+    { id:'daytraders', headline:'DayTraders', discount:'80% off', detail:'Check current eligible account pricing', code:'DUTRADING' },
     { id:'legendstrading', headline:'The Legends Trading', discount:'50% / 30% off', detail:'Apprentice / Elite plans', code:'DUTRADING' },
     { id:'bulenox', headline:'Bulenox', discount:'89% off', detail:'Option 1 accounts', code:'dutrading' },
     { id:'earn2trade', headline:'Earn2Trade', discount:'60% off', detail:'Current Trader Career Path pricing', code:'dutrading' }
   ];
   return `<div class="promo-grid">${offers.map(offer=>{
     const firm = firms.find(f=>f.id === offer.id);
-    return `<a class="promo-banner promo-${offer.id}${offer.featured ? ' featured' : ''}" href="${affiliateHref(firm)}" target="_blank" rel="sponsored noreferrer" aria-label="${offer.headline}: ${offer.discount}. Opens in a new tab" data-outbound-firm="${firm.id}" data-outbound-source="offer-banner"><div class="promo-banner-top"><span>${offer.headline}</span><b>Open offer</b></div><strong class="offer-discount">${offer.discount}</strong><p>${offer.detail}</p><div class="promo-banner-bottom"><span>Code to try: ${offer.code}</span>${offer.expires ? `<em>${offer.expires}</em>` : ''}</div></a>`;
+    return `<a class="promo-banner promo-${offer.id}${offer.featured ? ' featured' : ''}" href="${affiliateHref(firm)}" target="_blank" rel="sponsored noopener" aria-label="${offer.headline}: ${offer.discount}. Opens in a new tab" data-outbound-firm="${firm.id}" data-outbound-source="offer-banner"><div class="promo-banner-top"><span>${offer.headline}</span><b>Open offer</b></div><strong class="offer-discount">${offer.discount}</strong><p>${offer.detail}</p><div class="promo-banner-bottom"><span>Code to try: ${offer.code}</span>${offer.expires ? `<em>${offer.expires}</em>` : ''}</div></a>`;
   }).join('')}</div>`;
 }
 

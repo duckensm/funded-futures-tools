@@ -157,7 +157,48 @@ function bindGlobal(){
   initMarketTape();
   bindCompareFinder();
   bindLeadForm();
+  bindInlineCapture();
   bindQuiz();
+}
+// Inline "eval tracker spreadsheet" capture. Posts to the existing MailerLite
+// serverless endpoint. TODO(email-provider): once the final provider/automation
+// is chosen, deliver the tracker spreadsheet from the welcome email for the
+// eval_tracker_spreadsheet source and adjust the success copy below.
+function bindInlineCapture(root=document){
+  root.querySelectorAll('[data-inline-capture]').forEach(form=>{
+    if(form.dataset.bound) return;
+    form.dataset.bound='true';
+    const status=form.parentElement.querySelector('[data-capture-status]');
+    const context=form.parentElement.dataset.captureContext||'inline';
+    form.addEventListener('submit', async event=>{
+      event.preventDefault();
+      const email=form.querySelector('input[type="email"]');
+      const value=(email?.value||'').trim();
+      if(!email?.checkValidity() || !value){ email?.focus(); return; }
+      const submitBtn=form.querySelector('button[type="submit"]');
+      submitBtn.disabled=true;
+      if(status) status.textContent='Saving your email…';
+      let saved=false;
+      try{
+        const response=await fetch('/api/subscribe',{
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({email:value,focus:'Eval tracker spreadsheet',path:location.pathname,source:'eval_tracker_spreadsheet'})
+        });
+        const data=await response.json().catch(()=>({}));
+        saved=Boolean(response.ok && data.saved);
+      }catch(err){
+        console.warn('[inline capture unavailable]', err);
+      }finally{
+        submitBtn.disabled=false;
+      }
+      if(status) status.textContent=saved
+        ? 'You’re on the list — the eval tracker will arrive by email.'
+        : 'Signup could not be completed right now. Please try again later.';
+      trackEvent('lead_magnet_submit',{focus:'Eval tracker spreadsheet',source:'eval_tracker_spreadsheet',context,path:location.pathname});
+      trackEvent('lead_magnet_subscribe_status',{saved,error:saved?'none':'subscribe_failed',source:'eval_tracker_spreadsheet',path:location.pathname});
+    });
+  });
 }
 function bindQuiz(){
   const box=document.getElementById('quizBox');
@@ -192,6 +233,7 @@ function bindQuiz(){
         try{ await navigator.clipboard.writeText(code); showToast(`Code ${code} copied`); }catch{ showToast('Copy unavailable'); }
         trackEvent('coupon_code_copy',{firm:btn.dataset.copyFirm||'',code,path:location.pathname});
       }));
+      bindInlineCapture(box);
     }
   };
   render();

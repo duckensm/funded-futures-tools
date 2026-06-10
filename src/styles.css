@@ -123,3 +123,14 @@ html,body,#app{max-width:100%;overflow-x:hidden}.table-wrap{max-width:100%;overf
 .survival-formula{margin-top:12px;padding:12px 14px;border:1px solid var(--line2);border-radius:12px;background:rgba(0,0,0,.2);color:var(--sub);font-size:12px;line-height:1.65}
 .survival-formula b{color:var(--text);font-family:JetBrains Mono}
 @media(max-width:560px){.survival-table thead{display:none}.survival-table,.survival-table tbody,.survival-table tr,.survival-table td{display:block;width:100%}.survival-table tr{border-bottom:1px solid var(--line);padding:10px 0}.survival-table td{border:0;padding:3px 12px}.survival-table td:first-child{font-weight:800;color:var(--text)}}
+
+/* Inline email capture (eval tracker) */
+.inline-capture{border:1px solid rgba(109,115,255,.3);border-radius:22px;padding:24px;margin:24px 0;background:radial-gradient(circle at 90% 0%,rgba(109,115,255,.16),transparent 38%),rgba(255,255,255,.03)}
+.inline-capture h3{margin:0 0 8px;font-size:20px;letter-spacing:-.03em}
+.inline-capture p{margin:0 0 14px;color:var(--muted);font-size:14px;line-height:1.55}
+.inline-capture-form{display:flex;gap:10px;flex-wrap:wrap}
+.inline-capture-form input{flex:1 1 220px;height:48px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--text);padding:0 14px;font:500 14px Inter}
+.inline-capture-form input:focus{outline:2px solid rgba(109,115,255,.36);border-color:rgba(109,115,255,.5)}
+.inline-capture-form .btn{min-height:48px}
+.inline-capture-status{margin:10px 0 0;color:var(--sub);font-size:12px;line-height:1.5}
+@media(max-width:560px){.inline-capture{padding:18px}.inline-capture-form .btn{width:100%;justify-content:center}}
