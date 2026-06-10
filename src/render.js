@@ -129,7 +129,7 @@ function offerBanners(){
     { id:'lucidtraderfunding', headline:'Lucid Trading', discount:'50% off all accounts', detail:'Includes LucidDirect', code:'DUTRADING', expires:'Valid through July 2 at 5 PM ET', featured:true },
     { id:'phidias', headline:'Phidias Propfirm', discount:'80% off', detail:'OTP accounts', code:'DUTRADING' },
     { id:'alphafutures', headline:'Alpha Futures', discount:'25% off', detail:'Premium accounts', code:'Duckens026406' },
-    { id:'daytraders', headline:'DayTraders', discount:'80% off', detail:'Check current eligible account pricing', code:'DUTRADING' },
+    { id:'daytraders', headline:'DayTraders', discount:'90% off', detail:'Limited-time special — confirm eligible accounts at checkout', code:'DUTRADING' },
     { id:'legendstrading', headline:'The Legends Trading', discount:'50% / 30% off', detail:'Apprentice / Elite plans', code:'DUTRADING' },
     { id:'bulenox', headline:'Bulenox', discount:'89% off', detail:'Option 1 accounts', code:'dutrading' },
     { id:'earn2trade', headline:'Earn2Trade', discount:'60% off', detail:'Current Trader Career Path pricing', code:'dutrading' }
