@@ -4,7 +4,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { getRoutes, renderDocument } from '../src/routes.js';
+import { buildRobots, buildSitemap, getRoutes, renderDocument } from '../src/routes.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -18,6 +18,11 @@ for (const route of getRoutes()) {
   writeFileSync(path.join(outDir, 'index.html'), html);
   written.push(route.path);
 }
+
+// Sitemap and robots.txt are generated from the route table at build time so
+// new pages can never be forgotten.
+writeFileSync(path.join(dist, 'sitemap.xml'), buildSitemap());
+writeFileSync(path.join(dist, 'robots.txt'), buildRobots());
 
 // Sanity check: crawlers must receive visible body content, not an empty shell.
 const home = readFileSync(path.join(dist, 'index.html'), 'utf8');

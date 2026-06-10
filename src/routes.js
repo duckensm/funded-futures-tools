@@ -4,7 +4,8 @@ import {
 } from './render.js';
 import {
   renderHub, renderReview, renderDiscount, renderApexAlternatives,
-  renderTopstepAlternatives, renderQuizPage, MONTH_YEAR, YEAR
+  renderTopstepAlternatives, renderQuizPage, discountFaqs, publicCopy,
+  MONTH_YEAR, YEAR
 } from './pages.js';
 
 export const SITE_ORIGIN = 'https://futurespropedge.com';
@@ -21,6 +22,13 @@ export function getRoutes() {
       title: `${BRAND} | NQ/MNQ prop firm calculators`,
       description: 'Compare funded futures prop firms, calculate NQ/MNQ risk, review drawdown and payout rules, and check current offers before choosing an account.',
       render: renderHome,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: BRAND,
+        url: `${SITE_ORIGIN}/`,
+        description: 'Comparison site and calculator hub for funded futures traders, focused on NQ/MNQ prop-firm rules: drawdown mechanics, payout policies, and current offers.',
+      },
     },
     {
       path: '/compare/',
@@ -100,18 +108,36 @@ export function getRoutes() {
   );
 
   for (const f of affiliateFirms) {
+    const reviewJsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'Review',
+      itemReviewed: { '@type': 'Organization', name: f.name, url: f.officialUrl },
+      author: { '@type': 'Organization', name: BRAND, url: `${SITE_ORIGIN}/` },
+      reviewBody: publicCopy(f.lane),
+    };
+    if (f.lastVerified && f.lastVerified !== 'TODO_VERIFY') reviewJsonLd.dateModified = f.lastVerified;
     routes.push(
       {
         path: `/review/${f.slug}/`,
         title: `${f.name} Review ${YEAR}: ${f.badge} | ${BRAND}`,
         description: `${f.name} review for NQ/MNQ traders: ${f.badge.toLowerCase()}. Drawdown mechanics, payout rules, pros and cons, and the current discount code.`,
         render: () => renderReview(f),
+        jsonLd: reviewJsonLd,
       },
       {
         path: `/discount/${f.slug}/`,
         title: `${f.name} Discount Code ${f.code} — ${MONTH_YEAR}`,
         description: `Working ${f.name} discount code for ${MONTH_YEAR}: use code ${f.code} at checkout. Copy the code, see what it applies to, and confirm the final price before buying.`,
         render: () => renderDiscount(f),
+        jsonLd: {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: discountFaqs(f).map((faq) => ({
+            '@type': 'Question',
+            name: faq.q,
+            acceptedAnswer: { '@type': 'Answer', text: faq.a },
+          })),
+        },
       },
     );
   }
@@ -153,6 +179,37 @@ export function renderDocument(route, template) {
   html = html.replace(/(<meta property="og:url" content=")[^"]*(" \/>)/, (m, a, b) => a + canonical + b);
   html = html.replace(/(<meta name="twitter:title" content=")[^"]*(" \/>)/, (m, a, b) => a + title + b);
   html = html.replace(/(<meta name="twitter:description" content=")[^"]*(" \/>)/, (m, a, b) => a + description + b);
+  if (route.jsonLd) {
+    const json = JSON.stringify(route.jsonLd).replace(/</g, '\\u003c');
+    html = html.replace('</head>', () => `  <script type="application/ld+json">${json}</script>\n  </head>`);
+  }
   html = html.replace('<div id="app"></div>', () => `<div id="app">${pageShell(route.render())}</div>`);
   return html;
+}
+
+// Hand-written SEO pages that live in public/ and are served as-is.
+export const LEGACY_PUBLIC_PAGES = [
+  'best-nq-prop-firms.html',
+  'lucid-trading-vs-apex-nq-traders.html',
+  'best-eod-drawdown-prop-firms-nq-traders.html',
+  'nq-prop-firm-risk-checklist.html',
+];
+
+// sitemap.xml / robots.txt are generated at build time by scripts/prerender.mjs.
+// Alias routes whose canonical points elsewhere (legacy /firms/<id>/ partner
+// pages) are excluded so the sitemap only lists canonical URLs.
+export function buildSitemap(buildDate = new Date()) {
+  const lastmod = buildDate.toISOString().slice(0, 10);
+  const locs = [];
+  for (const r of getRoutes()) {
+    if (r.canonical && r.canonical !== SITE_ORIGIN + r.path) continue;
+    locs.push(SITE_ORIGIN + r.path);
+  }
+  for (const p of LEGACY_PUBLIC_PAGES) locs.push(`${SITE_ORIGIN}/${p}`);
+  const entries = locs.map((loc) => `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
+}
+
+export function buildRobots() {
+  return `User-agent: *\nAllow: /\n\nSitemap: ${SITE_ORIGIN}/sitemap.xml\n`;
 }

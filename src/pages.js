@@ -197,6 +197,24 @@ export function renderReview(f) {
 // ---------------------------------------------------------------------------
 // Coupon pages: /discount/<slug>/
 // ---------------------------------------------------------------------------
+// FAQ entries are shared between the rendered page and its FAQPage JSON-LD.
+export function discountFaqs(f) {
+  return [
+    {
+      q: `Is the ${f.code} code still active in ${MONTH_YEAR}?`,
+      a: `It was active when this page was last built. Codes can be paused or changed by the firm at any time, so always confirm the discount is applied on the checkout screen before paying.`,
+    },
+    {
+      q: 'Does the code stack with sale prices?',
+      a: `Usually a code applies to the listed price at checkout, but stacking rules are set by ${f.name}. If checkout shows a better sitewide promo, use whichever final price is lower.`,
+    },
+    {
+      q: 'Do I pay more by using an affiliate code?',
+      a: 'No — the price is the same or lower. Futures Prop Edge may earn a commission from the firm, which is how the site stays free.',
+    },
+  ];
+}
+
 export function renderDiscount(f) {
   return `
   <article class="article wrap">
@@ -236,9 +254,7 @@ export function renderDiscount(f) {
 
     <div class="article-card" id="faq">
       <h2>FAQ</h2>
-      <details><summary>Is the ${f.code} code still active in ${MONTH_YEAR}?</summary><p>It was active when this page was last built. Codes can be paused or changed by the firm at any time, so always confirm the discount is applied on the checkout screen before paying.</p></details>
-      <details><summary>Does the code stack with sale prices?</summary><p>Usually a code applies to the listed price at checkout, but stacking rules are set by ${f.name}. If checkout shows a better sitewide promo, use whichever final price is lower.</p></details>
-      <details><summary>Do I pay more by using an affiliate code?</summary><p>No — the price is the same or lower. Futures Prop Edge may earn a commission from the firm, which is how the site stays free.</p></details>
+      ${discountFaqs(f).map((faq) => `<details><summary>${faq.q}</summary><p>${faq.a}</p></details>`).join('\n      ')}
     </div>
   </article>`;
 }
