@@ -1,6 +1,6 @@
 import './styles.css';
 import { inject, track as vercelTrack } from '@vercel/analytics';
-import { DEFAULT_CALCULATORS, calculateDrawdownState, calculateFuturesRisk } from './calculatorLogic.js';
+import { DEFAULT_CALCULATORS, calculateDrawdownState, calculateFuturesRisk, calculateLossStreakSurvival } from './calculatorLogic.js';
 
 inject();
 
@@ -109,6 +109,22 @@ function updateCalc(which){
     const rewardRiskDisplay=rewardRisk>0 ? `${rewardRisk.toFixed(1)}R` : '--';
     document.getElementById('nqResults').innerHTML=`<div class="metric"><span>${symbol} dollar risk</span><strong>${money(risk)}</strong></div><div class="metric"><span>Daily loss used</span><strong>${pctDaily.toFixed(0)}%</strong></div><div class="metric"><span>Cushion used</span><strong>${pctCushion.toFixed(0)}%</strong></div><div class="metric"><span>Reward:risk</span><strong>${rewardRiskDisplay}</strong></div>`;
     document.getElementById('nqNote').textContent = pctDaily>50 || pctCushion>35 ? `Aggressive: ${contracts} ${symbol} contract(s) with a ${stopPts}-point stop can damage the account quickly.` : `Reasonable starting point for ${symbol} if the setup quality is strong and firm rules allow it.`;
+    const spikePts=num('spikePts');
+    const survival=calculateLossStreakSurvival({pointValue,contracts,stopPts,cushion:num('cushion'),spikePts});
+    const survivalBox=document.getElementById('nqSurvival');
+    if(survivalBox){
+      survivalBox.innerHTML=`
+        <h4>Consecutive losing trades you survive, by drawdown type</h4>
+        <table class="survival-table">
+          <thead><tr><th>Drawdown model</th><th>Losses survived</th><th>Where to get it</th></tr></thead>
+          <tbody>
+            <tr><td>Static</td><td><b>${survival.staticTrades}</b></td><td class="survival-cta">Static drawdown firms: <a href="/review/daytraders/">DayTraders →</a></td></tr>
+            <tr><td>EOD trailing</td><td><b>${survival.eodTrades}</b></td><td class="survival-cta">Firms with EOD drawdown: <a href="/review/lucid-trading/">Lucid</a>, <a href="/review/phidias/">Phidias →</a></td></tr>
+            <tr><td>Intraday trailing</td><td><b>${survival.intradayTrades}</b></td><td class="survival-cta">Assumes one ${spikePts}-point open-profit spike (${money(survival.spikeDollars)}) reverses and lifts the threshold first.</td></tr>
+          </tbody>
+        </table>
+        <p class="survival-formula">The math: risk per trade = $${pointValue} × ${contracts} contract(s) × ${stopPts} pts = <b>${money(survival.riskPerTrade)}</b>. Static &amp; EOD: floor(cushion ÷ risk) = floor(${money(num('cushion'))} ÷ ${money(survival.riskPerTrade)}). Intraday trailing: floor((cushion − spike give-back) ÷ risk) = floor((${money(num('cushion'))} − ${money(survival.spikeDollars)}) ÷ ${money(survival.riskPerTrade)}). During a pure losing streak EOD matches static because no new end-of-day high is set; EOD thresholds rise on winning days instead.</p>`;
+    }
   }
   if(which==='planner'){
     const daily=num('profitTarget')/Math.max(1,num('days')), lossesToFail=num('maxDailyLoss')/Math.max(1,num('riskTrade')), rr=daily/Math.max(1,num('riskTrade'));

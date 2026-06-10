@@ -16,6 +16,7 @@ export const DEFAULT_CALCULATORS = {
     dailyLoss: 1000,
     cushion: 2000,
     target: 3000,
+    spikePts: 12.5,
   },
   planner: {
     profitTarget: 3000,
@@ -66,6 +67,42 @@ export function calculateDrawdownState({
     extraProfitNeeded,
     consistencyPass,
     consistencyPct: safeConsistencyPct,
+  };
+}
+
+// How many consecutive losing trades the account survives under each
+// drawdown model, assuming every loss is a clean stop-out of `stopPts`.
+//
+//   riskPerTrade = pointValue * contracts * stopPts
+//   static:   floor(cushion / riskPerTrade)
+//     The threshold never moves, so only realized losses consume cushion.
+//   eod:      floor(cushion / riskPerTrade)
+//     During a pure losing streak there is no new end-of-day high, so the
+//     threshold stays frozen and the streak math matches static. (The
+//     difference shows up earlier: winning days raise the EOD threshold.)
+//   intraday: floor((cushion - spikePts * pointValue * contracts) / riskPerTrade)
+//     An open-profit spike of `spikePts` that reverses raises the trailing
+//     threshold before the losses begin, burning cushion you never realized.
+export function calculateLossStreakSurvival({
+  pointValue,
+  contracts,
+  stopPts,
+  cushion,
+  spikePts,
+}) {
+  const riskPerTrade = pointValue * contracts * stopPts;
+  const safeCushion = Math.max(0, cushion);
+  const spikeDollars = Math.max(0, spikePts) * pointValue * contracts;
+  const survived = (available) => {
+    if (riskPerTrade <= 0) return 0;
+    return Math.max(0, Math.floor(available / riskPerTrade));
+  };
+  return {
+    riskPerTrade,
+    spikeDollars,
+    staticTrades: survived(safeCushion),
+    eodTrades: survived(safeCushion),
+    intradayTrades: survived(safeCushion - spikeDollars),
   };
 }
 

@@ -111,3 +111,15 @@ html,body,#app{max-width:100%;overflow-x:hidden}.table-wrap{max-width:100%;overf
 .quiz-result h3{margin:10px 0 8px;font-size:26px}
 .quiz-result h4{margin:18px 0 8px;color:var(--text)}
 .quiz-back{margin-top:4px}
+
+/* Loss-streak survival comparison */
+.survival-box{margin-top:16px}
+.survival-box h4{margin:0 0 10px;font-size:15px;letter-spacing:-.01em}
+.survival-table{width:100%;min-width:0;border-collapse:collapse;border:1px solid var(--line2);border-radius:14px;overflow:hidden}
+.survival-table th,.survival-table td{padding:11px 12px;font-size:13px;border-bottom:1px solid var(--line2);text-align:left}
+.survival-table th{background:rgba(255,255,255,.045);color:#d7dbff;font-size:11px;text-transform:uppercase;letter-spacing:.06em;position:static}
+.survival-table td b{font:700 18px JetBrains Mono;color:#9ff3d2}
+.survival-cta{color:var(--sub)}.survival-cta a{color:#9ff3d2;text-decoration:underline;text-underline-offset:3px}
+.survival-formula{margin-top:12px;padding:12px 14px;border:1px solid var(--line2);border-radius:12px;background:rgba(0,0,0,.2);color:var(--sub);font-size:12px;line-height:1.65}
+.survival-formula b{color:var(--text);font-family:JetBrains Mono}
+@media(max-width:560px){.survival-table thead{display:none}.survival-table,.survival-table tbody,.survival-table tr,.survival-table td{display:block;width:100%}.survival-table tr{border-bottom:1px solid var(--line);padding:10px 0}.survival-table td{border:0;padding:3px 12px}.survival-table td:first-child{font-weight:800;color:var(--text)}}
