@@ -1,0 +1,83 @@
+Lucid vs Apex faceless voiceover script
+Target length: about 3 to 4 minutes
+
+Slide 1 - Cover
+If you trade NQ or MNQ and you are looking at prop firm challenges, Apex and Lucid Trading are two names you are probably going to see a lot.
+
+In this video, I am going to compare them from the point of view that actually matters to a futures trader: drawdown rules, payout friction, account size, and how much room you really have to trade.
+
+Quick disclosure: this is educational only, not financial advice. Some links may be affiliate links, which can support the channel at no extra cost to you. Always check the official firm rules before buying.
+
+Slide 2 - Quick Verdict
+Here is the quick verdict.
+
+Lucid is stronger if you want cleaner rules and a simpler funded-stage experience. Apex is stronger if your main goal is having more accounts and more scale.
+
+So this is not just "which firm pays more." It is more about which firm fits how you actually trade.
+
+If you are a one-account NQ or MNQ trader, Lucid has a very strong case. If you are trying to build around many accounts, Apex still has a reason to be in the conversation.
+
+Slide 3 - Drawdown
+The first thing I look at is drawdown.
+
+With NQ, a normal stop can get expensive fast. A 25 point stop on one NQ contract is 500 dollars of risk. So the drawdown model can make or break the account before your strategy even has time to work.
+
+EOD drawdown is usually easier to understand because the trader is not constantly fighting every unrealized move inside the day.
+
+That does not mean any firm is risk free. It just means the rule structure matters. Before buying a challenge, you want to know exactly when the drawdown moves, whether unrealized gains count, and how much cushion you really have.
+
+Slide 4 - NQ Risk Math
+This is the part a lot of traders skip.
+
+On NQ, 25 points is 500 dollars per contract. On MNQ, that same 25 point idea is only 50 dollars per micro contract.
+
+So if you are trading two MNQ contracts, that is about 100 dollars of risk instead of 500.
+
+That is why MNQ can make sense early in a challenge or funded account. It gives you a way to trade the same market with less pressure while you build cushion.
+
+The account size does not matter as much as the usable cushion. A 50K account with 2,000 or 2,500 dollars of drawdown can disappear quickly if the position size is too big.
+
+Slide 5 - Payouts
+The second thing is payout friction.
+
+Do not compare only the headline payout split. A firm can advertise a strong split, but the actual payout experience also depends on minimum trading days, consistency rules, payout windows, buffers, and whether the rules are easy to follow.
+
+This is where I think Lucid deserves attention. Their rule structure is easier for a lot of newer funded traders to understand.
+
+Apex still has advantages, especially account quantity and scale, but you have to understand the full payout path, not just the big number on the sales page.
+
+Slide 6 - Scorecard
+Here is how I would break it down.
+
+For drawdown, I give Lucid the edge for simplicity, especially for traders who want a cleaner funded-stage setup.
+
+For evaluation speed and account quantity, Apex has the edge. Apex is known for letting traders work with more accounts, and that matters to some traders.
+
+For funded simplicity and payout rule simplicity, I would lean Lucid.
+
+Overall, for most one-account NQ or MNQ traders, Lucid is the cleaner fit. For traders who care most about many accounts and copier-style scale, Apex still has a place.
+
+Slide 7 - Site Demo
+This is why I built the calculator on Futures Prop Edge.
+
+Before I buy any challenge, I want to know three things: how much one trade risks, how much of the drawdown cushion that trade uses, and what the reward-to-risk looks like.
+
+For example, if the stop is 500 dollars and the target is 1,000 dollars, that is 2R. But if that same 500 dollar risk uses 25 percent of the account cushion, that trade may still be too aggressive for the account.
+
+That is the kind of simple math that can save a trader from buying the wrong account or sizing too big too early.
+
+Slide 8 - CTA
+If you want to compare the firms yourself, go to futurespropedge.com.
+
+I have the free NQ and MNQ calculator there, plus a written comparison and current promo links when available.
+
+Use the site before buying a challenge. Check the rules, check your risk, and make sure the account actually fits the way you trade.
+
+Slide 9 - Source Check
+One final thing: rules and prices change.
+
+Before you buy, always check the official Lucid and Apex pages directly. Look at the current drawdown rules, payout rules, pricing, and promo terms.
+
+The goal is not just to get a discount. The goal is to pick an account you can actually manage.
+
+That is how you give yourself a better shot at keeping the account alive long enough to get paid.
