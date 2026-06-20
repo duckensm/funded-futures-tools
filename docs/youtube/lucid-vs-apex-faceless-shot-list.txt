@@ -2,7 +2,7 @@ Lucid vs Apex faceless video shot list
 
 1. Cover: 3 second intro, zoom slowly into LUCID vs APEX.
 2. Verdict: reveal Lucid column, reveal Apex column, then say the balanced verdict.
-3. Drawdown: animate green price line first, then show amber EOD floor. Use a subtle whoosh.
+3. Drawdown: use drawdown-chase-animation.html?record=1 as a 10-13 second clip. The green trader line rises first, then the amber drawdown floor chases behind it.
 4. NQ risk math: reveal 1 NQ risk, then 2 MNQ risk. Let the $500 and $100 numbers pop.
 5. Payouts: reveal each friction point one at a time while reading the payout section.
 6. Scorecard: highlight one category at a time. End with the overall Lucid verdict.
@@ -13,5 +13,6 @@ Lucid vs Apex faceless video shot list
 Recording style:
 - Use voiceover only.
 - Add NQ chart or calculator screen recordings between slides.
+- Replace or interrupt slide 3 with the drawdown chase animation for motion.
 - Keep transitions fast and clean, no meme sounds.
 - Put affiliate disclosure in the description and early voiceover.

@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drawdown Chase Animation</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050608;
+      --panel: #10141d;
+      --grid: rgba(148, 163, 184, 0.16);
+      --text: #f8fafc;
+      --muted: #a8b3c7;
+      --green: #10b981;
+      --blue: #6d73ff;
+      --amber: #f59e0b;
+      --red: #fb7185;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: var(--bg);
+      font-family: Aptos, Inter, Arial, sans-serif;
+    }
+
+    .stage {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(16, 185, 129, 0.12), transparent 28%),
+        radial-gradient(circle at 88% 16%, rgba(109, 115, 255, 0.12), transparent 30%),
+        #050608;
+    }
+
+    canvas {
+      width: min(100vw, 177.78vh);
+      height: min(56.25vw, 100vh);
+      display: block;
+    }
+
+    .controls {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      display: flex;
+      gap: 10px;
+    }
+
+    body.recording .controls {
+      display: none;
+    }
+
+    button {
+      border: 1px solid rgba(248, 250, 252, 0.18);
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: rgba(16, 20, 29, 0.82);
+      color: var(--text);
+      font: 700 14px Aptos, Arial, sans-serif;
+      cursor: pointer;
+    }
+
+    button:hover {
+      border-color: rgba(16, 185, 129, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <main class="stage" aria-label="Animated trailing drawdown explainer">
+    <canvas id="drawdown" width="1280" height="720"></canvas>
+  </main>
+  <div class="controls" aria-hidden="true">
+    <button type="button" id="replay">Replay</button>
+    <button type="button" id="pause">Pause</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("drawdown");
+    const ctx = canvas.getContext("2d");
+    const replay = document.getElementById("replay");
+    const pause = document.getElementById("pause");
+
+    if (new URLSearchParams(window.location.search).has("record")) {
+      document.body.classList.add("recording");
+    }
+
+    const W = canvas.width;
+    const H = canvas.height;
+    const chart = { x: 92, y: 282, w: 1096, h: 250 };
+    const duration = 13500;
+    const cushion = 7.8;
+    const values = [50, 55, 62, 67, 73, 70, 80, 87, 92, 88, 83, 78, 74, 71, 68, 65];
+    const minValue = 40;
+    const maxValue = 100;
+    let start = performance.now();
+    let paused = false;
+    let pauseAt = 0;
+
+    function easeInOut(t) {
+      return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    }
+
+    function lerp(a, b, t) {
+      return a + (b - a) * t;
+    }
+
+    function clamp(v, min, max) {
+      return Math.max(min, Math.min(max, v));
+    }
+
+    function valueToY(value) {
+      const pct = (value - minValue) / (maxValue - minValue);
+      return chart.y + chart.h - pct * chart.h;
+    }
+
+    function indexToX(index) {
+      return chart.x + (index / (values.length - 1)) * chart.w;
+    }
+
+    function getState(progress) {
+      const raw = clamp(progress, 0, 1) * (values.length - 1);
+      const i = Math.min(Math.floor(raw), values.length - 2);
+      const local = raw - i;
+      const value = lerp(values[i], values[i + 1], easeInOut(local));
+      const x = lerp(indexToX(i), indexToX(i + 1), local);
+      const visible = values.slice(0, i + 1);
+      visible.push(value);
+      const high = Math.max(...visible);
+      const floor = high - cushion;
+      const cushionLeft = value - floor;
+      return { i, local, value, x, high, floor, cushionLeft, visible };
+    }
+
+    function roundedRect(x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+    }
+
+    function text(text, x, y, size, color = "#f8fafc", weight = 700, align = "left") {
+      ctx.fillStyle = color;
+      ctx.font = `${weight} ${size}px Aptos, Arial, sans-serif`;
+      ctx.textAlign = align;
+      ctx.textBaseline = "alphabetic";
+      ctx.fillText(text, x, y);
+    }
+
+    function drawGrid() {
+      ctx.strokeStyle = "rgba(148, 163, 184, 0.14)";
+      ctx.lineWidth = 1;
+      for (let i = 0; i <= 8; i += 1) {
+        const x = chart.x + (chart.w / 8) * i;
+        ctx.beginPath();
+        ctx.moveTo(x, chart.y);
+        ctx.lineTo(x, chart.y + chart.h);
+        ctx.stroke();
+      }
+      for (let i = 0; i <= 5; i += 1) {
+        const y = chart.y + (chart.h / 5) * i;
+        ctx.beginPath();
+        ctx.moveTo(chart.x, y);
+        ctx.lineTo(chart.x + chart.w, y);
+        ctx.stroke();
+      }
+    }
+
+    function drawPath(points, color, width, glow = false) {
+      if (points.length < 2) return;
+      ctx.save();
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      if (glow) {
+        ctx.shadowColor = color;
+        ctx.shadowBlur = 18;
+      }
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.beginPath();
+      points.forEach((point, index) => {
+        if (index === 0) ctx.moveTo(point.x, point.y);
+        else ctx.lineTo(point.x, point.y);
+      });
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function phase(progress, cushionLeft) {
+      if (progress < 0.34) return ["Trader pushes the high-water mark", "#10b981"];
+      if (progress < 0.58) return ["Trailing floor follows behind", "#f59e0b"];
+      if (cushionLeft < 3.5) return ["Danger: drawdown is chasing the trader", "#fb7185"];
+      return ["Pullback: cushion starts shrinking", "#f59e0b"];
+    }
+
+    function drawFrame(now) {
+      const elapsed = paused ? pauseAt : (now - start) % duration;
+      const progress = elapsed / duration;
+      const state = getState(progress);
+      const pricePoints = state.visible.map((value, index) => {
+        const x = index === state.visible.length - 1 ? state.x : indexToX(index);
+        return { x, y: valueToY(value) };
+      });
+      let high = values[0];
+      const floorPoints = state.visible.map((value, index) => {
+        high = Math.max(high, value);
+        const x = index === state.visible.length - 1 ? state.x : indexToX(index);
+        return { x, y: valueToY(high - cushion) };
+      });
+      const [phaseText, phaseColor] = phase(progress, state.cushionLeft);
+      const traderY = valueToY(state.value);
+      const floorY = valueToY(state.floor);
+      const pulse = Math.sin(progress * Math.PI * 24) * 0.5 + 0.5;
+      const danger = state.cushionLeft < 3.8;
+
+      ctx.clearRect(0, 0, W, H);
+
+      const bg = ctx.createLinearGradient(0, 0, W, H);
+      bg.addColorStop(0, "#050608");
+      bg.addColorStop(0.5, "#070b12");
+      bg.addColorStop(1, "#050608");
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, W, H);
+
+      text("Futures Prop Edge", 126, 70, 18, "#f8fafc", 700);
+      roundedRect(64, 44, 42, 42, 12);
+      ctx.fillStyle = "rgba(248,250,252,0.03)";
+      ctx.fill();
+      ctx.strokeStyle = "rgba(248,250,252,0.18)";
+      ctx.stroke();
+      text("F", 85, 73, 18, "#f8fafc", 700, "center");
+
+      roundedRect(64, 106, 202, 34, 17);
+      ctx.fillStyle = "rgba(16,185,129,0.09)";
+      ctx.fill();
+      ctx.strokeStyle = "#10b981";
+      ctx.stroke();
+      text("TRAILING DRAWDOWN", 165, 128, 12, "#10b981", 800, "center");
+
+      text("When the floor chases the trader", 64, 200, 46, "#f8fafc", 800);
+      text("The higher the account runs, the more the drawdown floor can trail behind it.", 66, 236, 22, "#a8b3c7", 500);
+
+      roundedRect(chart.x - 28, chart.y - 28, chart.w + 56, chart.h + 56, 18);
+      ctx.fillStyle = "rgba(16,20,29,0.84)";
+      ctx.fill();
+      ctx.strokeStyle = "rgba(148,163,184,0.25)";
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      drawGrid();
+
+      ctx.fillStyle = danger ? "rgba(251,113,133,0.12)" : "rgba(245,158,11,0.08)";
+      ctx.fillRect(chart.x, floorY, chart.w, chart.y + chart.h - floorY);
+
+      drawPath(floorPoints, danger ? "#fb7185" : "#f59e0b", 5, danger);
+      drawPath(pricePoints, "#10b981", 7, true);
+
+      ctx.strokeStyle = "rgba(251,113,133,0.35)";
+      ctx.lineWidth = 2;
+      ctx.setLineDash([10, 12]);
+      ctx.beginPath();
+      ctx.moveTo(state.x, traderY);
+      ctx.lineTo(state.x, floorY);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.fillStyle = "#f59e0b";
+      ctx.beginPath();
+      ctx.arc(state.x, floorY, 8, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = danger ? "#fb7185" : "#10b981";
+      ctx.shadowColor = danger ? "#fb7185" : "#10b981";
+      ctx.shadowBlur = danger ? 28 : 18;
+      ctx.beginPath();
+      ctx.arc(state.x, traderY, danger ? 19 + pulse * 5 : 18, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      ctx.strokeStyle = "#f8fafc";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(state.x - 8, traderY - 1);
+      ctx.lineTo(state.x + 8, traderY - 1);
+      ctx.moveTo(state.x, traderY - 10);
+      ctx.lineTo(state.x, traderY + 10);
+      ctx.stroke();
+
+      roundedRect(state.x - 76, traderY - 74, 152, 40, 12);
+      ctx.fillStyle = "rgba(5,6,8,0.82)";
+      ctx.fill();
+      ctx.strokeStyle = "rgba(16,185,129,0.35)";
+      ctx.stroke();
+      text("TRADER", state.x, traderY - 48, 15, "#f8fafc", 800, "center");
+
+      roundedRect(Math.min(state.x + 22, chart.x + chart.w - 210), floorY + 14, 206, 42, 12);
+      ctx.fillStyle = "rgba(5,6,8,0.82)";
+      ctx.fill();
+      ctx.strokeStyle = danger ? "rgba(251,113,133,0.65)" : "rgba(245,158,11,0.45)";
+      ctx.stroke();
+      text("DRAWDOWN FLOOR", Math.min(state.x + 125, chart.x + chart.w - 107), floorY + 41, 14, danger ? "#fb7185" : "#f59e0b", 800, "center");
+
+      roundedRect(64, 592, 440, 70, 16);
+      ctx.fillStyle = "rgba(16,20,29,0.84)";
+      ctx.fill();
+      ctx.strokeStyle = "rgba(148,163,184,0.2)";
+      ctx.stroke();
+      text(phaseText, 88, 624, 20, phaseColor, 800);
+      text(`Cushion left: ${Math.max(0, Math.round(state.cushionLeft * 10) / 10)} pts`, 88, 650, 18, "#a8b3c7", 600);
+
+      roundedRect(784, 592, 404, 70, 16);
+      ctx.fillStyle = danger ? "rgba(251,113,133,0.12)" : "rgba(16,185,129,0.08)";
+      ctx.fill();
+      ctx.strokeStyle = danger ? "rgba(251,113,133,0.42)" : "rgba(16,185,129,0.32)";
+      ctx.stroke();
+      text(danger ? "This is where traders feel trapped." : "High-water mark pulls the floor up.", 812, 624, 20, "#f8fafc", 800);
+      text("Know the rule before sizing the trade.", 812, 650, 18, "#a8b3c7", 600);
+
+      text("Educational only. Verify current firm rules before buying.", 790, 686, 12, "#a8b3c7", 500);
+
+      requestAnimationFrame(drawFrame);
+    }
+
+    replay.addEventListener("click", () => {
+      start = performance.now();
+      paused = false;
+      pauseAt = 0;
+      pause.textContent = "Pause";
+    });
+
+    pause.addEventListener("click", () => {
+      if (paused) {
+        start = performance.now() - pauseAt;
+        paused = false;
+        pause.textContent = "Pause";
+      } else {
+        pauseAt = (performance.now() - start) % duration;
+        paused = true;
+        pause.textContent = "Play";
+      }
+    });
+
+    requestAnimationFrame(drawFrame);
+  </script>
+</body>
+</html>

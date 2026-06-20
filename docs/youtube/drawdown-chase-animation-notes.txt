@@ -1,0 +1,18 @@
+Drawdown chase animation notes
+
+File:
+C:\Users\ducke\funded-futures-tools\docs\youtube\drawdown-chase-animation.html
+
+Clean recording URL:
+file:///C:/Users/ducke/funded-futures-tools/docs/youtube/drawdown-chase-animation.html?record=1
+
+How to use it:
+1. Open the clean recording URL in Chrome.
+2. Start screen recording at 1280x720 or 1920x1080.
+3. Record one full loop, about 13.5 seconds.
+4. Put the clip after slide 3, or use it to replace slide 3 entirely.
+5. Read this line over the clip:
+   "This is what I mean when the drawdown floor chases the trader. As the account makes new highs, the floor follows behind. When price pulls back, the cushion gets smaller fast."
+
+Editing tip:
+Cut the clip right after the red danger phase starts, then move into the NQ risk math slide.
