@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lucid vs Apex Thumbnail</title>
+  <style>
+    :root {
+      --bg: #050608;
+      --panel: #10141d;
+      --text: #f8fafc;
+      --muted: #a8b3c7;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --red: #fb7185;
+      --blue: #6d73ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 1280px;
+      height: 720px;
+      margin: 0;
+      overflow: hidden;
+      background: var(--bg);
+      font-family: Aptos, Inter, Arial, sans-serif;
+    }
+
+    .thumb {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(16, 185, 129, 0.22), transparent 34%),
+        radial-gradient(circle at 82% 14%, rgba(245, 158, 11, 0.2), transparent 33%),
+        linear-gradient(135deg, #050608 0%, #07110f 42%, #0d0a05 100%);
+      color: var(--text);
+    }
+
+    .thumb::before {
+      content: "";
+      position: absolute;
+      inset: -80px;
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.09) 1px, transparent 1px);
+      background-size: 72px 72px;
+      transform: rotate(-4deg);
+      opacity: 0.5;
+    }
+
+    .brand {
+      position: absolute;
+      top: 42px;
+      left: 58px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--text);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 0;
+      z-index: 3;
+    }
+
+    .mark {
+      display: grid;
+      width: 54px;
+      height: 54px;
+      place-items: center;
+      border: 2px solid rgba(248, 250, 252, 0.2);
+      border-radius: 14px;
+      background: rgba(248, 250, 252, 0.04);
+      font-size: 26px;
+      font-weight: 900;
+    }
+
+    .main-title {
+      position: absolute;
+      top: 112px;
+      left: 58px;
+      right: 58px;
+      display: grid;
+      grid-template-columns: 1fr 190px 1fr;
+      align-items: center;
+      gap: 28px;
+      z-index: 3;
+    }
+
+    .firm {
+      min-height: 148px;
+      border: 2px solid;
+      border-radius: 24px;
+      padding: 28px 32px;
+      background: rgba(16, 20, 29, 0.78);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+    }
+
+    .firm strong {
+      display: block;
+      font-size: 72px;
+      font-weight: 950;
+      line-height: 0.92;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .firm span {
+      display: block;
+      margin-top: 12px;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .lucid {
+      border-color: rgba(16, 185, 129, 0.76);
+      box-shadow: 0 0 44px rgba(16, 185, 129, 0.22);
+    }
+
+    .lucid strong,
+    .lucid span {
+      color: var(--green);
+    }
+
+    .apex {
+      border-color: rgba(245, 158, 11, 0.76);
+      box-shadow: 0 0 44px rgba(245, 158, 11, 0.2);
+      text-align: right;
+    }
+
+    .apex strong,
+    .apex span {
+      color: var(--amber);
+    }
+
+    .vs {
+      display: grid;
+      place-items: center;
+      height: 150px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, rgba(248, 250, 252, 0.2), rgba(109, 115, 255, 0.08) 52%, rgba(5, 6, 8, 0.78) 75%);
+      border: 2px solid rgba(248, 250, 252, 0.18);
+      color: #fff;
+      font-size: 64px;
+      font-weight: 950;
+      text-shadow: 0 5px 22px rgba(109, 115, 255, 0.7);
+    }
+
+    .hook {
+      position: absolute;
+      left: 58px;
+      right: 58px;
+      bottom: 58px;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .hook h1 {
+      margin: 0;
+      max-width: 780px;
+      color: var(--text);
+      font-size: 76px;
+      line-height: 0.96;
+      font-weight: 950;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      text-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+    }
+
+    .hook h1 em {
+      color: var(--red);
+      font-style: normal;
+    }
+
+    .risk-card {
+      width: 360px;
+      border: 2px solid rgba(251, 113, 133, 0.72);
+      border-radius: 22px;
+      padding: 24px 26px;
+      background: rgba(24, 8, 14, 0.82);
+      box-shadow: 0 0 42px rgba(251, 113, 133, 0.2);
+    }
+
+    .risk-card .label {
+      color: var(--red);
+      font-size: 24px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .risk-card .sub {
+      margin-top: 8px;
+      color: var(--text);
+      font-size: 30px;
+      line-height: 1.05;
+      font-weight: 900;
+    }
+
+    .chart {
+      position: absolute;
+      left: 145px;
+      top: 300px;
+      width: 990px;
+      height: 206px;
+      opacity: 0.9;
+      z-index: 2;
+    }
+
+    .chart svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .badge {
+      position: absolute;
+      left: 58px;
+      top: 614px;
+      z-index: 5;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid rgba(16, 185, 129, 0.5);
+      border-radius: 999px;
+      padding: 12px 20px;
+      background: rgba(4, 45, 36, 0.82);
+      color: var(--text);
+      font-size: 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <main class="thumb" aria-label="YouTube thumbnail for Lucid versus Apex NQ prop firm comparison">
+    <div class="brand">
+      <div class="mark">F</div>
+      <div>Futures Prop Edge</div>
+    </div>
+
+    <section class="main-title">
+      <div class="firm lucid">
+        <strong>Lucid</strong>
+        <span>Cleaner Rules</span>
+      </div>
+      <div class="vs">VS</div>
+      <div class="firm apex">
+        <strong>Apex</strong>
+        <span>More Accounts</span>
+      </div>
+    </section>
+
+    <div class="chart" aria-hidden="true">
+      <svg viewBox="0 0 990 206" role="img">
+        <defs>
+          <filter id="greenGlow" x="-30%" y="-60%" width="160%" height="220%">
+            <feGaussianBlur stdDeviation="8" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter id="redGlow" x="-30%" y="-60%" width="160%" height="220%">
+            <feGaussianBlur stdDeviation="9" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <path d="M20 162 L160 132 L282 94 L380 112 L486 60 L592 38 L720 66 L842 100 L964 128" fill="none" stroke="#10b981" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" filter="url(#greenGlow)" />
+        <path d="M20 190 L160 160 L282 124 L380 124 L486 86 L592 66 L720 66 L842 96 L964 124" fill="none" stroke="#fb7185" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" filter="url(#redGlow)" />
+        <circle cx="842" cy="96" r="22" fill="#fb7185" filter="url(#redGlow)" />
+        <path d="M830 96 H854 M842 84 V108" stroke="#fff" stroke-width="7" stroke-linecap="round" />
+        <rect x="700" y="18" width="240" height="54" rx="16" fill="rgba(5,6,8,0.78)" stroke="#fb7185" stroke-width="3" />
+        <text x="820" y="53" fill="#fb7185" text-anchor="middle" font-family="Aptos, Arial, sans-serif" font-size="22" font-weight="900">DRAWDOWN CHASE</text>
+      </svg>
+    </div>
+
+    <section class="hook">
+      <h1>NQ Traders:<br /><em>Pick This?</em></h1>
+      <div class="risk-card">
+        <div class="label">Real Risk Check</div>
+        <div class="sub">Drawdown, payouts, account fit</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
