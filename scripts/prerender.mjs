@@ -26,7 +26,7 @@ writeFileSync(path.join(dist, 'robots.txt'), buildRobots());
 
 // Sanity check: crawlers must receive visible body content, not an empty shell.
 const home = readFileSync(path.join(dist, 'index.html'), 'utf8');
-if (home.includes('<div id="app"></div>') || !home.includes('drawdown trap')) {
+if (home.includes('<div id="app"></div>') || !home.includes('Know the rule.')) {
   console.error('[prerender] FAILED: homepage body content missing from static HTML');
   process.exit(1);
 }

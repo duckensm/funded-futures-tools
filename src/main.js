@@ -255,12 +255,12 @@ function bindCompareFinder(){
   const renderResult=()=>{
     if(!goal||!result) return;
     const f=finderRecommendation(goal.value);
-    result.innerHTML=`<span class="pill green">Best starting point</span><h3>${f.name}</h3><p>${f.fit}</p><div class="finder-tags">${firmTraits(f).map(t=>`<span>${t}</span>`).join('')}</div>${affiliateActions(f,true)}`;
+    result.innerHTML=`<span class="finder-kicker">Recommended starting point</span><h3>${f.name}</h3><p>${f.fit}</p><div class="finder-tags">${firmTraits(f).map(t=>`<span>${t}</span>`).join('')}</div>${affiliateActions(f,true)}`;
   };
   goal?.addEventListener('change',()=>{renderResult(); trackEvent('prop_firm_finder_change',{goal:goal.value,path:location.pathname});});
   renderResult();
   const chips=[...document.querySelectorAll('.filter-chip')];
-  const cards=[...document.querySelectorAll('[data-firm-card]')];
+  const cards=[...document.querySelectorAll('[data-firm-card],[data-firm-row]')];
   const search=document.getElementById('firmSearch');
   const apply=()=>{
     const active=document.querySelector('.filter-chip.active')?.dataset.filter || 'all';

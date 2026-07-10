@@ -60,23 +60,24 @@ test('sitemap includes the best EOD drawdown SEO page', () => {
   assert.match(sitemap, /https:\/\/futurespropedge\.com\/best-eod-drawdown-prop-firms-nq-traders\.html/);
 });
 
-test('homepage exposes SEO guides after the hero offers', async () => {
+test('homepage exposes SEO guides after the decision tools and offers', async () => {
   const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
 
   assert.match(main, /href="\/#guides">Guides<\/a>/);
   assert.match(main, /id="guides"/);
-  assert.match(main, /NQ Prop Firm Guides/);
+  assert.match(main, /OPEN GUIDES/);
   assert.match(main, /href="\/best-nq-prop-firms\.html"/);
   assert.match(main, /href="\/lucid-trading-vs-apex-nq-traders\.html"/);
   assert.match(main, /href="\/best-eod-drawdown-prop-firms-nq-traders\.html"/);
 
-  const offersIndex = main.indexOf('${offerBanners()}');
+  const offersIndex = main.indexOf('${offersSection()}');
   const guidesIndex = main.indexOf('${guidesSection()}');
   const compareIndex = main.indexOf('${comparisonSection(false)}');
 
   assert.ok(offersIndex > -1, 'offer banners should stay on the homepage');
   assert.ok(guidesIndex > offersIndex, 'guides should appear after offers');
-  assert.ok(compareIndex > guidesIndex, 'comparison table should remain after guides');
+  assert.ok(compareIndex > offersIndex, 'comparison table should remain after offers');
+  assert.ok(guidesIndex > compareIndex, 'guides should follow the comparison and checklist');
 });
 
 test('homepage replaces the cockpit with current clickable affiliate offers and a top market tape', async () => {
@@ -86,22 +87,22 @@ test('homepage replaces the cockpit with current clickable affiliate offers and 
   assert.doesNotMatch(main, /nq-chart-card upgraded/);
   assert.match(main, /class="top-market-tape"/);
   assert.match(main, /FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,CMCMARKETS:GOLD,TVC:USOIL/);
-  assert.match(main, /const offers = \[\s*\{ id:'lucidtraderfunding'/);
-  assert.match(main, /50% off all accounts/);
-  assert.match(main, /Valid through July 2 at 5 PM ET/);
-  assert.match(main, /80% off/);
-  assert.match(main, /OTP accounts/);
+  assert.match(main, /function currentOffers\(\)/);
+  assert.match(main, /Current code offer/);
+  assert.doesNotMatch(main, /Valid through July 2 at 5 PM ET/);
+  assert.match(main, /Up to 80% off/);
+  assert.match(main, /One-time payment accounts/);
   assert.match(main, /25% off/);
-  assert.match(main, /Premium accounts/);
-  assert.match(main, /50% \/ 30% off/);
+  assert.match(main, /Premium plans/);
+  assert.match(main, /80% \/ 45% off/);
   assert.match(main, /Apprentice \/ Elite plans/);
-  assert.match(main, /89% off/);
-  assert.match(main, /Option 1 accounts/);
-  assert.match(main, /60% off/);
+  assert.match(main, /Auto-applied offer/);
+  assert.match(main, /Option 1 and Option 2 pricing/);
+  assert.match(main, /Trader Career Path/);
   assert.doesNotMatch(main, /Current offers to check before you buy\./);
 
   const offerBanners = main.slice(
-    main.indexOf('function offerBanners(){'),
+    main.indexOf('function currentOffers(){'),
     main.indexOf('function guidesSection(){')
   );
   assert.doesNotMatch(offerBanners, /Confirm final checkout price/);
@@ -125,7 +126,7 @@ const EXPECTED_PARTNERS = {
   'lucid-trading': { code: 'DUTRADING', url: 'https://lucidtrading.com/ref/dutrading' },
   phidias: { code: 'DUTRADING', url: 'https://member.phidiaspropfirm.com/aff/go/duckensm' },
   'alpha-futures': { code: 'Duckens026406', url: 'https://app.alpha-futures.com/signup/Duckens026406/' },
-  daytraders: { code: 'DUTRADING', url: 'https://daytraders.com/go/dutrading?c=DUTRADING' },
+  daytraders: { code: 'TNTIQNUL', url: 'https://daytraders.com/go/dutrading?c=TNTIQNUL' },
   'legends-trading': { code: 'DUTRADING', url: 'https://thelegendstrading.com/?ref=dutrading' },
   bulenox: { code: 'dutrading', url: 'https://bulenox.com/member/aff/go/dutrading' },
   earn2trade: { code: 'dutrading', url: 'https://www.earn2trade.com/trader-career-path?a_pid=dutrading&a_bid=8d7b4b9e' },
@@ -163,5 +164,5 @@ test('dropped firms are gone from the data layer and renderers', async () => {
     assert.doesNotMatch(render, gone);
     assert.doesNotMatch(data, gone);
   }
-  assert.match(render, /<b>9<\/b> covered firms/);
+  assert.match(render, /<b>9<\/b> firms reviewed/);
 });

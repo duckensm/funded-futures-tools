@@ -22,7 +22,8 @@ test('every route prerenders full body content for crawlers, not an empty shell'
 test('home page static HTML contains visible hero text and affiliate offers', async () => {
   const template = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   const home = renderDocument(getRoutes()[0], template);
-  assert.match(home, /drawdown trap/);
+  assert.match(home, /Know the rule/);
+  assert.match(home, /Open risk calculator/);
   assert.match(home, /lucidtrading\.com\/ref\/dutrading/);
   assert.match(home, /member\.phidiaspropfirm\.com\/aff\/go\/duckensm/);
 });

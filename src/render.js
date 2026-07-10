@@ -73,46 +73,47 @@ function pageShell(content){
       <div class="wrap nav-inner">
         <a class="brand" href="/" aria-label="Futures Prop Edge home"><span class="brand-mark"></span><span>Futures Prop Edge</span></a>
         <nav class="nav-links" aria-label="Primary">
-          <a href="/best-futures-prop-firms/">Best Firms</a><a href="/compare/">Compare Firms</a><a href="/checklist/">Checklist</a><a href="/calculators/">Calculators</a><a href="/#guides">Guides</a><a href="/firms/">Firm Guides</a><a href="/disclaimers/">Disclosures</a>
+          <a href="/compare/">Compare</a><a href="/calculators/">Calculators</a><a href="/#guides">Guides</a><a href="/checklist/">Checklist</a>
         </nav>
-        <div class="nav-cta"><a class="btn" href="/checklist/">Free checklist</a><a class="btn primary" href="/compare/">Compare firms</a><button class="btn mobile-menu" id="menuBtn" aria-controls="mobileNav" aria-expanded="false">Menu</button></div>
+        <div class="nav-cta"><a class="btn primary" href="/compare/">Compare firms <span aria-hidden="true">&rarr;</span></a><button class="btn mobile-menu" id="menuBtn" aria-controls="mobileNav" aria-expanded="false">Menu</button></div>
       </div>
-      <div class="wrap mobile-nav-drawer" id="mobileNav" hidden><a href="/best-futures-prop-firms/">Best firms</a><a href="/compare/">Compare firms</a><a href="/checklist/">Checklist</a><a href="/calculators/">Calculators</a><a href="/#guides">Guides</a><a href="/firms/">Firm guides</a><a href="/disclaimers/">Disclosures</a></div>
+      <div class="wrap mobile-nav-drawer" id="mobileNav" hidden><a href="/compare/">Compare</a><a href="/calculators/">Calculators</a><a href="/#guides">Guides</a><a href="/checklist/">Checklist</a><a href="/firms/">Firm reviews</a><a href="/disclaimers/">Disclosures</a></div>
     </header>
     <main>${content}</main>
-    <div class="sticky-tools"><a class="btn small" href="/calculators/">Calculator</a><button class="btn small" id="copyLink">Copy link</button></div>
+    <div class="sticky-tools"><a class="btn small primary" href="/calculators/">Open calculator</a><button class="btn small" id="copyLink">Copy link</button></div>
     <div class="tooltip-pop" id="tooltipPop" role="tooltip"></div>
     <div class="toast" id="toast">Link copied</div>
-      <footer class="footer"><div class="wrap footer-grid"><div><div class="brand"><span class="brand-mark"></span><span>Futures Prop Edge</span></div><p class="disclaimer">Built for futures traders comparing funded account rules. We focus on NQ/MNQ risk, drawdown mechanics, and practical rule clarity.</p></div><div><b>Tools</b><p class="disclaimer"><a href="/compare/">Comparison table</a><br><a href="/checklist/">NQ checklist</a><br><a href="/calculators/">Drawdown calculator</a><br><a href="/best-nq-prop-firms.html">Best NQ prop firms</a><br><a href="/lucid-trading-vs-apex-nq-traders.html">Lucid vs Apex</a><br><a href="/best-eod-drawdown-prop-firms-nq-traders.html">Best EOD drawdown firms</a></p></div><div><b>Important</b><p class="disclaimer">Affiliate disclosure: Futures Prop Edge may earn commissions from affiliate links and discount codes on this site, at no extra cost to you.<br>Educational only. Not financial advice. Prop firm rules change; always verify on official websites before buying.<br><a href="/disclosure/">Affiliate disclosure</a> | <a href="/disclaimers/">Disclosures</a> | <a href="/privacy/">Privacy</a> | <a href="/terms/">Terms</a></p></div></div></footer>
+    <footer class="footer"><div class="wrap footer-grid"><div class="footer-brand"><div class="brand"><span class="brand-mark"></span><span>Futures Prop Edge</span></div><p>Practical tools and rule guides for NQ/MNQ traders comparing funded futures accounts.</p></div><div><b>Tools</b><a href="/compare/">Compare firms</a><a href="/calculators/">Risk calculators</a><a href="/checklist/">Printable checklist</a><a href="/firms/">Firm reviews</a></div><div><b>Guides</b><a href="/best-nq-prop-firms.html">Best NQ prop firms</a><a href="/lucid-trading-vs-apex-nq-traders.html">Lucid vs Apex</a><a href="/best-eod-drawdown-prop-firms-nq-traders.html">Best EOD drawdown firms</a></div><div><b>Policies</b><a href="/disclosure/">Affiliate disclosure</a><a href="/disclaimers/">Disclosures</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div></div><div class="wrap footer-legal">Futures Prop Edge may earn commissions from affiliate links. Educational only, not financial advice. Futures trading is risky. Prop-firm rules, fees, and offers change; verify current terms before purchasing.</div></footer>
   `;
 }
 
 function renderHome(){
   return `
   ${topMarketTape()}
-  <section class="hero"><div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow"><span class="dot"></span>Built for NQ / MNQ funded futures traders</div>
-      <h1>Choose the right prop firm before the <span class="grad">drawdown trap</span> gets you.</h1>
-      <p class="lead">Compare funded futures accounts, calculate trailing drawdown risk, size NQ trades correctly, and find current offers without digging through scattered rule pages.</p>
-      <div class="hero-actions"><a class="btn primary" href="/calculators/">Start with risk calculator</a><a class="btn" href="/compare/">Compare firms</a><a class="btn" href="/checklist/">Get checklist</a></div>
-      <div class="mini-proof"><span><b>9</b> covered firms</span><span><b>3</b> calculators</span><span><b>NQ-first</b> examples</span><span><b>Current offers</b> clearly labeled</span></div>
+  <section class="hero hero-v2"><div class="hero-chart" aria-hidden="true"></div><div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Know the rule.<br>Size the risk.<br>Pick the right firm.</h1>
+      <p class="lead">Compare funded futures accounts, pressure-test drawdown, and size NQ/MNQ trades before you pay for another evaluation.</p>
+      <div class="hero-actions"><a class="btn primary" href="/calculators/">Open risk calculator <span aria-hidden="true">&rarr;</span></a><a class="btn" href="/compare/">Compare firms <span aria-hidden="true">&rarr;</span></a></div>
+      <div class="mini-proof"><span><b>9</b> firms reviewed</span><span><b>3</b> risk tools</span><span><b>NQ-first</b> guidance</span></div>
     </div>
-    <div class="hero-offers" aria-label="Current prop firm discounts">
-      <div class="hero-offers-head"><span>Current discounts</span><b>Click an offer to open it directly</b></div>
-      ${offerBanners()}
-    </div>
+    <aside class="hero-offers" aria-label="Current prop firm offers">
+      <div class="hero-offers-head"><span>Current offers</span><b>Reviewed July 9, 2026</b></div>
+      ${offerBanners({limit:4,variant:'rail'})}
+      <a class="offer-all-link" href="#all-offers">View all offers <span aria-hidden="true">&rarr;</span></a>
+    </aside>
   </div></section>
   ${startPathSection()}
-  ${guidesSection()}
+  ${calculatorSection()}
+  ${offersSection()}
   ${comparisonSection(false)}
   ${leadMagnetSection()}
-  ${calculatorSection()}
-  <section class="section"><div class="wrap cta-band"><div><div class="eyebrow"><span class="dot"></span>Built for futures traders</div><h2>Compare rules before you buy an account.</h2><p class="subhead">Use the finder, firm guides, and calculators to check drawdown, payout, daily-loss, and risk rules before choosing a funded futures account.</p></div><a class="btn primary" href="/disclaimers/">Review disclosures</a></div></section>`;
+  ${guidesSection()}
+  <section class="section"><div class="wrap cta-band"><div><span class="section-index">READY TO COMPARE?</span><h2>Do the math before you pay the fee.</h2><p class="subhead">Open the calculator, compare the rules, and verify the latest terms before choosing an account.</p></div><a class="btn primary" href="/calculators/">Open risk calculator <span aria-hidden="true">&rarr;</span></a></div></section>`;
 }
 
 function topMarketTape(){
-  return `<section class="top-market-tape" aria-label="Market context for S&P 500, Nasdaq 100, gold, and crude oil"><div class="wrap top-market-inner"><div class="top-market-label"><span class="dot"></span><b>Market context</b><small>ES / NQ / GC / CL</small></div><div class="market-tape-widget" id="marketTapeWidget"><tv-ticker-tape symbols="FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,CMCMARKETS:GOLD,TVC:USOIL"></tv-ticker-tape><div class="market-tape-loading">Loading market tape...</div></div><span class="top-market-note">Indicative only</span></div></section>`;
+  return `<section class="top-market-tape" aria-label="Market context for S&P 500, Nasdaq 100, gold, and crude oil"><div class="wrap top-market-inner"><div class="top-market-label"><span class="market-status"></span><b>ES / NQ / GC / CL</b></div><div class="market-tape-widget" id="marketTapeWidget"><tv-ticker-tape symbols="FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,CMCMARKETS:GOLD,TVC:USOIL"></tv-ticker-tape><div class="market-tape-loading">Loading market context...</div></div><span class="top-market-note">Indicative market context</span></div></section>`;
 }
 
 function startPathSection(){
@@ -121,23 +122,30 @@ function startPathSection(){
     { href:'/compare/', label:'2', title:'Compare rule fit', text:'Filter by drawdown, payout path, activation fees, and NQ-friendly rules.' },
     { href:'/checklist/', label:'3', title:'Use the checklist', text:'Download the pre-check before you use an offer or buy a challenge.' }
   ];
-  return `<section class="start-path wrap" aria-label="Suggested first steps">${steps.map(step=>`<a href="${step.href}"><span>${step.label}</span><div><b>${step.title}</b><em>${step.text}</em></div></a>`).join('')}</section>`;
+  return `<section class="start-path wrap" aria-label="Suggested first steps"><h2>Built for NQ traders.</h2>${steps.map(step=>`<a href="${step.href}"><span>${step.label}</span><div><b>${step.title}</b><em>${step.text}</em></div><i aria-hidden="true">&rarr;</i></a>`).join('')}</section>`;
 }
 
-function offerBanners(){
-  const offers = [
-    { id:'lucidtraderfunding', headline:'Lucid Trading', discount:'50% off all accounts', detail:'Includes LucidDirect', code:'DUTRADING', expires:'Valid through July 2 at 5 PM ET', featured:true },
-    { id:'phidias', headline:'Phidias Propfirm', discount:'80% off', detail:'OTP accounts', code:'DUTRADING' },
-    { id:'alphafutures', headline:'Alpha Futures', discount:'25% off', detail:'Premium accounts', code:'Duckens026406' },
-    { id:'daytraders', headline:'DayTraders', discount:'90% off', detail:'Limited-time special — confirm eligible accounts at checkout', code:'DUTRADING' },
-    { id:'legendstrading', headline:'The Legends Trading', discount:'50% / 30% off', detail:'Apprentice / Elite plans', code:'DUTRADING' },
-    { id:'bulenox', headline:'Bulenox', discount:'89% off', detail:'Option 1 accounts', code:'dutrading' },
-    { id:'earn2trade', headline:'Earn2Trade', discount:'60% off', detail:'Current Trader Career Path pricing', code:'dutrading' }
+function currentOffers(){
+  return [
+    { id:'lucidtraderfunding', headline:'Lucid Trading', discount:'Current code offer', detail:'Pricing varies by account type', code:'DUTRADING', featured:true },
+    { id:'phidias', headline:'Phidias Propfirm', discount:'Up to 80% off', detail:'One-time payment accounts', code:'DUTRADING' },
+    { id:'legendstrading', headline:'The Legends Trading', discount:'80% / 45% off', detail:'Apprentice / Elite plans', code:'LTG' },
+    { id:'alphafutures', headline:'Alpha Futures', discount:'25% off', detail:'Premium plans', code:'PREMIUM' },
+    { id:'daytraders', headline:'DayTraders', discount:'Auto-applied offer', detail:'Tracked link applies available promotion', code:'TNTIQNUL' },
+    { id:'bulenox', headline:'Bulenox', discount:'Current code offer', detail:'Option 1 and Option 2 pricing', code:'dutrading' },
+    { id:'earn2trade', headline:'Earn2Trade', discount:'Current code offer', detail:'Trader Career Path', code:'dutrading' }
   ];
-  return `<div class="promo-grid">${offers.map(offer=>{
+}
+
+function offerBanners({limit=7,variant='grid'}={}){
+  return `<div class="promo-grid promo-${variant}">${currentOffers().slice(0,limit).map(offer=>{
     const firm = firms.find(f=>f.id === offer.id);
-    return `<a class="promo-banner promo-${offer.id}${offer.featured ? ' featured' : ''}" href="${affiliateHref(firm)}" target="_blank" rel="sponsored noopener" aria-label="${offer.headline}: ${offer.discount}. Opens in a new tab" data-outbound-firm="${firm.id}" data-outbound-source="offer-banner"><div class="promo-banner-top"><span>${offer.headline}</span><b>Open offer</b></div><strong class="offer-discount">${offer.discount}</strong><p>${offer.detail}</p><div class="promo-banner-bottom"><span>Code to try: ${offer.code}</span>${offer.expires ? `<em>${offer.expires}</em>` : ''}</div></a>`;
+    return `<a class="promo-banner promo-${offer.id}${offer.featured ? ' featured' : ''}" href="${affiliateHref(firm)}" target="_blank" rel="sponsored noopener" aria-label="${offer.headline}: ${offer.discount}. Opens in a new tab" data-outbound-firm="${firm.id}" data-outbound-source="offer-banner"><div class="promo-banner-top"><span>${offer.headline}</span><b>Open offer</b></div><div class="promo-banner-value"><strong class="offer-discount">${offer.discount}</strong><p>${offer.detail}</p></div><div class="promo-banner-bottom"><span>Code: ${offer.code}</span><i aria-hidden="true">&rarr;</i></div></a>`;
   }).join('')}</div>`;
+}
+
+function offersSection(){
+  return `<section class="section offers-section" id="all-offers"><div class="wrap"><div class="section-head"><div><span class="section-index">CURRENT OFFERS</span><h2>Tracked links. Current public promos.</h2><p class="subhead">Percentages are shown only when the firm publishes a current offer. Otherwise, the tracked link opens the latest available pricing.</p></div><a class="btn" href="/disclosure/">Affiliate disclosure</a></div>${offerBanners()}</div></section>`;
 }
 
 function guidesSection(){
@@ -146,23 +154,22 @@ function guidesSection(){
     { href:'/lucid-trading-vs-apex-nq-traders.html', label:'Lucid vs Apex', text:'A direct rule-fit comparison: Lucid for cleaner EOD rules, Apex for account-scale context.', cta:'Compare rules' },
     { href:'/best-eod-drawdown-prop-firms-nq-traders.html', label:'Best EOD Drawdown Firms', text:'Use this before buying if intraday trailing drawdown keeps catching normal NQ trades.', cta:'See EOD guide' }
   ];
-  return `<section class="section guide-strip" id="guides"><div class="wrap"><div class="section-head"><div><span class="eyebrow"><span class="dot"></span>NQ Prop Firm Guides</span><h2>Rule guides that support the comparison.</h2><p class="subhead">These pages give visitors more context, then point them back to the calculators, comparison table, checklist, and current offers before they buy.</p></div><a class="btn primary" href="/compare/">Compare firms</a></div><div class="guide-grid">${guides.map(guide=>`<a class="guide-card" href="${guide.href}"><span class="pill">Guide</span><h3>${guide.label}</h3><p>${guide.text}</p><b>${guide.cta}</b></a>`).join('')}</div></div></section>`;
+  return `<section class="section guide-strip" id="guides"><div class="wrap"><div class="section-head"><div><span class="section-index">OPEN GUIDES</span><h2>Read the rule before you trade the account.</h2><p class="subhead">Focused guides for NQ/MNQ traders comparing drawdown, payout, and account fit.</p></div></div><div class="guide-grid">${guides.map((guide,index)=>`<a class="guide-card" href="${guide.href}"><span>0${index+1}</span><div><h3>${guide.label}</h3><p>${guide.text}</p></div><b>${guide.cta} <i aria-hidden="true">&rarr;</i></b></a>`).join('')}</div></div></section>`;
 }
 
 function leadMagnetSection(){
-  return `<section class="section lead-magnet" id="checklist"><div class="wrap lead-grid"><div class="lead-copy"><span class="eyebrow"><span class="dot"></span>Free NQ prop firm checklist</span><h2>Before you buy another challenge, run through the drawdown traps first.</h2><p class="subhead">Download a practical checklist for NQ/MNQ traders: EOD vs intraday drawdown, daily loss limits, consistency rules, payout buffers, activation fees, and account-size risk.</p><div class="checklist-preview"><div><b>1</b><span>Confirm the drawdown type before comparing prices.</span></div><div><b>2</b><span>Calculate NQ/MNQ stop risk against daily loss and cushion.</span></div><div><b>3</b><span>Check payout rules, consistency %, activation fees, and reset costs.</span></div><div><b>4</b><span>Use offers only after rechecking live checkout terms.</span></div></div></div><form class="lead-form" id="leadForm"><h3>Unlock the printable checklist</h3><p>Enter your email to join Futures Prop Edge and unlock the NQ Prop Firm Risk Checklist instantly. You can unsubscribe anytime.</p><label>Email address</label><input id="leadEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required><label>Trading focus</label><select id="leadFocus" name="focus"><option value="NQ/MNQ prop firm challenges">NQ/MNQ prop firm challenges</option><option value="EOD drawdown accounts">EOD drawdown accounts</option><option value="Firm offers / comparison">Firm offers / comparison</option><option value="Risk sizing calculators">Risk sizing calculators</option></select><button class="btn primary" type="submit">Join list + unlock checklist</button><p class="lead-status" id="leadStatus">Instant checklist access plus occasional rule and promo updates. No spam; unsubscribe anytime. Educational only, not financial advice.</p><div class="download-card" id="checklistDownload" hidden><b>Checklist unlocked.</b><span>Open the printable checklist guide and keep comparing firms on the site.</span><a class="btn small" id="openChecklist" href="/nq-prop-firm-risk-checklist.html" target="_blank" rel="noopener">Open printable checklist</a></div></form></div></section>`;
+  return `<section class="section lead-magnet" id="checklist"><div class="wrap lead-grid"><div class="lead-copy"><span class="section-index">FREE CHECKLIST</span><h2>Do the rule check before you buy the challenge.</h2><p class="subhead">A printable NQ/MNQ checklist for drawdown, daily loss, payout rules, fees, and position risk.</p><div class="checklist-preview"><div><b>01</b><span>Confirm the drawdown model</span><small>Know what moves the floor.</small></div><div><b>02</b><span>Size the stop in dollars</span><small>Compare normal loss against cushion.</small></div><div><b>03</b><span>Check payout and consistency rules</span><small>Review limits before payout day.</small></div><div><b>04</b><span>Recheck fees and live offer terms</span><small>Verify current terms before checkout.</small></div></div></div><form class="lead-form" id="leadForm"><span class="section-index">UNLOCK ACCESS</span><h3>Unlock the printable checklist</h3><p>Join Futures Prop Edge and open the checklist instantly.</p><label for="leadEmail">Email address</label><input id="leadEmail" name="email" type="email" autocomplete="email" placeholder="trader@example.com" required><label for="leadFocus">Trading focus</label><select id="leadFocus" name="focus"><option value="NQ/MNQ prop firm challenges">NQ/MNQ prop firm challenges</option><option value="EOD drawdown accounts">EOD drawdown accounts</option><option value="Firm offers / comparison">Firm offers / comparison</option><option value="Risk sizing calculators">Risk sizing calculators</option></select><button class="btn primary" type="submit">Join list + unlock checklist <span aria-hidden="true">&rarr;</span></button><p class="lead-status" id="leadStatus">Instant access. Occasional rule and promo updates. Unsubscribe anytime. Educational only.</p><div class="download-card" id="checklistDownload" hidden><b>Checklist unlocked.</b><span>Open the printable guide and keep comparing firms on the site.</span><a class="btn small" id="openChecklist" href="/nq-prop-firm-risk-checklist.html" target="_blank" rel="noopener">Open printable checklist</a></div></form></div></section>`;
 }
 function comparisonSection(full=true){
-  const rows = firms.map(f=>`<tr data-firm-row data-tags="${firmTraits(f).join(' ').toLowerCase()}"><td><strong>${f.name}</strong><br><span class="pill ${verificationClass(f)}">${verificationLabel(f)}</span>${recommendationBadge(f)}</td><td><strong>${f.category}</strong><br><span class="muted-small">${f.best}</span></td><td>${publicCopy(f.price)}</td><td>${publicCopy(f.drawdown)}</td><td>${publicCopy(f.daily)}</td><td>${affiliateActions(f,true)}</td></tr>`).join('');
-  const cards = firms.map(f=>`<article class="finder-card" data-firm-card data-firm-name="${f.name.toLowerCase()}" data-filter-match="all ${['recommended','eod','static','fast','noactivation'].filter(x=>firmMatches(f,x)).join(' ')}"><div class="finder-card-top"><div><h3>${f.name}</h3><p>${f.fit}</p></div>${recommendationBadge(f)}</div><div class="finder-tags">${firmTraits(f).map(t=>`<span>${t}</span>`).join('')}</div><div class="finder-stats"><div><small>Drawdown</small><b>${publicCopy(f.drawdown)}</b></div><div><small>Payout</small><b>${publicCopy(f.payout)}</b></div><div><small>Cost note</small><b>${publicCopy(f.price)}</b></div></div><div class="finder-actions">${affiliateActions(f,true)}</div></article>`).join('');
-  return `<section class="section" id="compare"><div class="wrap"><div class="section-head"><div><h2>Find and compare futures prop firms.</h2><p class="subhead">Use the finder to narrow accounts by what matters: recommended firms, EOD/static drawdown, fast payout paths, activation fees, and NQ-friendly risk rules.</p></div>${full?'<a class="btn" href="/calculators/">Check risk</a>':''}</div><div class="finder-panel"><div class="finder-copy"><span class="eyebrow"><span class="dot"></span>Prop firm finder</span><h3>Pick your priority. Get a practical starting point.</h3><p>Not every trader needs the same firm. Choose your main goal and the finder highlights the closest match from the firms covered in this guide.</p><select id="finderGoal"><option value="fast">Fast payout / live-capital path</option><option value="cheapest">Lowest displayed starting cost</option><option value="eod">EOD drawdown preferred</option><option value="static">Static drawdown / no trailing</option><option value="structured">Structured legacy evaluation</option><option value="flexible">Flexible payout-policy choice</option></select></div><div class="finder-result" id="finderResult"></div></div><div class="compare-toolbar"><div class="filter-buttons" role="group" aria-label="Compare filters"><button class="filter-chip active" data-filter="all">All firms</button><button class="filter-chip" data-filter="recommended">Recommended</button><button class="filter-chip" data-filter="eod">EOD drawdown</button><button class="filter-chip" data-filter="static">Static</button><button class="filter-chip" data-filter="fast">Fast payout</button><button class="filter-chip" data-filter="noactivation">No activation fee</button></div><input id="firmSearch" class="firm-search" type="search" placeholder="Search firm, drawdown, payout..."></div><div class="finder-grid">${cards}</div><details class="table-details" ${full?'open':''}><summary>Open full comparison table</summary><div class="table-wrap"><table><thead><tr><th>Firm</th><th>Category</th><th>Price</th><th>Drawdown</th><th>Daily loss</th><th></th></tr></thead><tbody>${rows}</tbody></table></div></details></div></section>`;
+  const rows = firms.map(f=>`<tr data-firm-row data-firm-name="${f.name.toLowerCase()}" data-filter-match="all ${['recommended','eod','static','fast','noactivation'].filter(x=>firmMatches(f,x)).join(' ')}"><td><strong>${f.name}</strong><span class="row-source">${verificationLabel(f)}</span></td><td>${publicCopy(f.best)}</td><td><strong>${publicCopy(f.drawdown)}</strong></td><td>${publicCopy(f.payout)}</td><td>${publicCopy(f.price)}</td><td>${affiliateActions(f,true)}</td></tr>`).join('');
+  return `<section class="section compare-section" id="compare"><div class="wrap"><div class="section-head"><div><span class="section-index">FIRM COMPARISON</span><h2>Find the firm that fits how you trade.</h2><p class="subhead">Filter by drawdown, payout path, fees, and NQ-friendly rules.</p></div>${full?'<a class="btn" href="/calculators/">Check risk first</a>':''}</div><div class="finder-panel"><div class="finder-copy"><label for="finderGoal">My priority</label><select id="finderGoal"><option value="fast">Fast payout / live-capital path</option><option value="cheapest">Lowest displayed starting cost</option><option value="eod">EOD drawdown preferred</option><option value="static">Static drawdown / no trailing</option><option value="structured">Structured legacy evaluation</option><option value="flexible">Flexible payout-policy choice</option></select></div><div class="finder-result" id="finderResult"></div></div><div class="compare-toolbar"><input id="firmSearch" class="firm-search" type="search" placeholder="Search firms or rules" aria-label="Search firms or rules"><div class="filter-buttons" role="group" aria-label="Compare filters"><button class="filter-chip active" data-filter="all">All</button><button class="filter-chip" data-filter="recommended">Recommended</button><button class="filter-chip" data-filter="eod">EOD</button><button class="filter-chip" data-filter="static">Static</button><button class="filter-chip" data-filter="fast">Fast payout</button></div></div><div class="table-wrap comparison-table"><table><thead><tr><th>Firm</th><th>Best for</th><th>Drawdown</th><th>Payout path</th><th>Cost note</th><th>Action</th></tr></thead><tbody>${rows}</tbody></table></div><p class="comparison-disclosure">Affiliate links may earn a commission. Rules and offers change; verify terms before buying.</p></div></section>`;
 }
 
 function renderCompare(){ return comparisonSection(true); }
 function renderChecklist(){ return `${leadMagnetSection()}${calculatorSection()}`; }
 
 function calculatorSection(){
-  return `<section class="section" id="calculators"><div class="wrap"><div class="section-head"><div><h2>Free calculators for prop firm risk.</h2><p class="subhead">Pressure-test drawdown, consistency rules, futures stop risk, and challenge pace before choosing an account.</p></div></div><div class="calc-grid"><div class="tabs"><button class="tab active" data-calc="drawdown"><b>Trailing drawdown + consistency</b><br>Calculate liquidation cushion and 30/40/50% consistency rules.</button><button class="tab" data-calc="nq"><b>Futures risk</b><br>NQ, MNQ, ES, GC, and CL stop-risk calculator.</button><button class="tab" data-calc="planner"><b>Challenge pass planner</b><br>Estimate daily target and risk pace.</button></div><div class="calculator" id="calcPanel"></div></div></div></section>`;
+  return `<section class="section calculator-section" id="calculators"><div class="wrap"><div class="section-head"><div><span class="section-index">TOOLS &amp; CALCULATORS</span><h2>Pressure-test the account before you buy it.</h2><p class="subhead">Three calculators for drawdown, futures position risk, and evaluation pace.</p></div></div><div class="calc-grid"><div class="tabs"><button class="tab active" data-calc="drawdown"><b>Drawdown + consistency</b><span>Liquidation floor and payout rules</span></button><button class="tab" data-calc="nq"><b>Futures risk</b><span>NQ, MNQ, ES, GC, and CL sizing</span></button><button class="tab" data-calc="planner"><b>Challenge planner</b><span>Daily target and risk pace</span></button></div><div class="calculator" id="calcPanel"></div><aside class="why-matters"><h3>Why this matters</h3><div><b>01</b><span>Know what moves the floor.</span></div><div><b>02</b><span>Size normal losses against cushion.</span></div><div><b>03</b><span>Do not let one big day block payout.</span></div></aside></div></div></section>`;
 }
 function renderCalculators(){ return calculatorSection(); }
 
