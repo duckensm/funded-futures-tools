@@ -129,9 +129,9 @@ function currentOffers(){
   return [
     { id:'lucidtraderfunding', headline:'Lucid Trading', discount:'Current code offer', detail:'Pricing varies by account type', code:'DUTRADING', featured:true },
     { id:'phidias', headline:'Phidias Propfirm', discount:'Up to 80% off', detail:'One-time payment accounts', code:'DUTRADING' },
-    { id:'legendstrading', headline:'The Legends Trading', discount:'80% / 45% off', detail:'Apprentice / Elite plans', code:'LTG' },
-    { id:'alphafutures', headline:'Alpha Futures', discount:'25% off', detail:'Premium plans', code:'PREMIUM' },
-    { id:'daytraders', headline:'DayTraders', discount:'Auto-applied offer', detail:'Tracked link applies available promotion', code:'TNTIQNUL' },
+    { id:'legendstrading', headline:'The Legends Trading', discount:'80% / 45% off', detail:'Apprentice / Elite plans', code:'DUTRADING' },
+    { id:'alphafutures', headline:'Alpha Futures', discount:'25% off', detail:'Premium plans', code:'Duckens026406' },
+    { id:'daytraders', headline:'DayTraders', discount:'Auto-applied offer', detail:'Tracked link applies available promotion', code:'DUTRADING' },
     { id:'bulenox', headline:'Bulenox', discount:'Current code offer', detail:'Option 1 and Option 2 pricing', code:'dutrading' },
     { id:'earn2trade', headline:'Earn2Trade', discount:'Current code offer', detail:'Trader Career Path', code:'dutrading' }
   ];

@@ -84,6 +84,10 @@ test('homepage replaces the cockpit with current clickable affiliate offers and 
   const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
 
   assert.doesNotMatch(main, /Nasdaq futures risk cockpit/);
+  assert.match(main, /id:'alphafutures'[^\n]+code:'Duckens026406'/);
+  assert.match(main, /id:'legendstrading'[^\n]+code:'DUTRADING'/);
+  assert.match(main, /id:'daytraders'[^\n]+code:'DUTRADING'/);
+  assert.doesNotMatch(main, /code:'(?:PREMIUM|LTG|TNTIQNUL)'/);
   assert.doesNotMatch(main, /nq-chart-card upgraded/);
   assert.match(main, /class="top-market-tape"/);
   assert.match(main, /FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,CMCMARKETS:GOLD,TVC:USOIL/);
@@ -126,7 +130,7 @@ const EXPECTED_PARTNERS = {
   'lucid-trading': { code: 'DUTRADING', url: 'https://lucidtrading.com/ref/dutrading' },
   phidias: { code: 'DUTRADING', url: 'https://member.phidiaspropfirm.com/aff/go/duckensm' },
   'alpha-futures': { code: 'Duckens026406', url: 'https://app.alpha-futures.com/signup/Duckens026406/' },
-  daytraders: { code: 'TNTIQNUL', url: 'https://daytraders.com/go/dutrading?c=TNTIQNUL' },
+  daytraders: { code: 'DUTRADING', url: 'https://daytraders.com/go/dutrading?c=TNTIQNUL' },
   'legends-trading': { code: 'DUTRADING', url: 'https://thelegendstrading.com/?ref=dutrading' },
   bulenox: { code: 'dutrading', url: 'https://bulenox.com/member/aff/go/dutrading' },
   earn2trade: { code: 'dutrading', url: 'https://www.earn2trade.com/trader-career-path?a_pid=dutrading&a_bid=8d7b4b9e' },
