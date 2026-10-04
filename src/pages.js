@@ -1,17 +1,14 @@
 // Data-driven page templates: hub, review, discount/coupon, and alternatives
 // pages. Every firm fact on these pages comes from src/data/firms.js.
-import { affiliateFirms, firmBySlug } from './data/firms.js';
+import { affiliateFirms, firmBySlug, stripUnverified } from './data/firms.js';
 
 // Month/year stamped at build time (prerender runs this in Node during `npm run build`).
 export const MONTH_YEAR = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 export const YEAR = String(new Date().getFullYear());
 
-// Internal TODO_VERIFY markers must never reach visitors. Published copy gets
-// a neutral "verify on the official site" phrasing instead.
+// Unverified claims never reach visitors (see stripUnverified in firms.js).
 export function publicCopy(text) {
-  return String(text)
-    .replace(/\s*\(TODO_VERIFY[^)]*\)/g, ' (verify current terms on the official site)')
-    .replace(/TODO_VERIFY[^.;]*/g, 'verify current terms on the official site');
+  return stripUnverified(text);
 }
 
 const DRAWDOWN_LABELS = {
@@ -231,7 +228,7 @@ export function renderReview(f) {
         <tr><td><strong>Targets / accounts</strong></td><td>${publicCopy(f.target)}</td></tr>
         <tr><td><strong>Daily loss rules</strong></td><td>${publicCopy(f.daily)}</td></tr>
         <tr><td><strong>Payouts</strong></td><td>${publicCopy(f.payoutNote)}</td></tr>
-        <tr><td><strong>Platforms</strong></td><td>${publicCopy(f.platforms.join(', '))}</td></tr>
+        <tr><td><strong>Platforms</strong></td><td>${f.platforms.length ? publicCopy(f.platforms.join(', ')) : 'Not yet verified'}</td></tr>
         <tr><td><strong>Last reviewed</strong></td><td>${f.lastVerified === 'TODO_VERIFY' ? 'Official-source review pending' : `${f.lastVerified} against <a href="${f.officialUrl}" target="_blank" rel="noopener">official sources</a>`}</td></tr>
       </tbody></table></div>
     </div>

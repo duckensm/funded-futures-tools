@@ -29,6 +29,14 @@ test('home page static HTML contains visible hero text and affiliate offers', as
   assert.doesNotMatch(home, /lucidtrading\.com\/ref/);
 });
 
+test('no unverified claim reaches a rendered page', async () => {
+  const template = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+  for (const route of getRoutes()) {
+    const html = renderDocument(route, template);
+    assert.doesNotMatch(html, /TODO_VERIFY|verify current terms on the official site/, `${route.path} shows an unverified claim`);
+  }
+});
+
 test('routes have unique titles and descriptions', () => {
   const routes = getRoutes();
   const titles = new Set(routes.map((r) => r.title));

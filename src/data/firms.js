@@ -270,7 +270,7 @@ const FIRMS = [
     lane: 'Benchmark firm included for rule comparison only. Futures Prop Edge is not a Lucid Trading affiliate.',
     badge: 'Comparison Benchmark',
     drawdownType: 'eod_trailing',
-    drawdownNote: 'Official pages describe EOD drawdown across Pro, Flex, and Direct account types (TODO_VERIFY current rules).',
+    drawdownNote: 'Official pages describe EOD drawdown across Pro, Flex, and Direct account types.',
     pros: [
       'Official pages describe EOD trailing drawdown across account types',
       'LucidDirect option for traders who want straight funded access',
@@ -357,14 +357,33 @@ const FIRMS = [
 
 // Legacy aliases used by the existing comparison table, finder, and firm
 // guide renderers. New code should prefer the canonical field names.
-export const firms = FIRMS.map((f) => ({
-  ...f,
-  id: f.legacyId,
-  couponCode: f.code,
-  price: f.pricingNote,
-  drawdown: f.drawdownNote,
-  payout: f.payoutNote,
-}));
+// Unverified claims never reach visitors: list items marked TODO_VERIFY are
+// dropped, and marked clauses are cut out of text fields.
+const UNVERIFIED = /TODO_VERIFY/;
+export function stripUnverified(text) {
+  return String(text)
+    .split(/(?<=[.;])\s+/)
+    .filter((part) => !UNVERIFIED.test(part))
+    .join(' ')
+    .trim()
+    .replace(/;$/, '.');
+}
+const TEXT_FIELDS = ['lane', 'drawdownNote', 'pricingNote', 'payoutNote', 'category', 'best', 'target', 'daily', 'fit'];
+const LIST_FIELDS = ['pros', 'cons', 'platforms'];
+
+export const firms = FIRMS.map((raw) => {
+  const f = { ...raw };
+  for (const k of TEXT_FIELDS) f[k] = stripUnverified(raw[k]) || 'Not yet verified';
+  for (const k of LIST_FIELDS) f[k] = raw[k].filter((t) => !UNVERIFIED.test(t));
+  return {
+    ...f,
+    id: f.legacyId,
+    couponCode: f.code,
+    price: f.pricingNote,
+    drawdown: f.drawdownNote,
+    payout: f.payoutNote,
+  };
+});
 
 export const affiliateFirms = firms.filter((f) => f.affiliate);
 export const comparisonFirms = firms.filter((f) => !f.affiliate);
