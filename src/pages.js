@@ -85,7 +85,7 @@ export function awardSpotlight({ heading = 'h2', source = 'spotlight', sealId = 
       ${name}
       <p class="spotlight-lede">${publicCopy(f.lane)}</p>
       <ul class="spotlight-reasons">${f.pros.slice(0, 4).map((p) => `<li>${publicCopy(p)}</li>`).join('')}</ul>
-      <div class="spotlight-actions">${affiliateCta(f, `${source}-cta`, 'Claim the DUTRADING discount')}<a class="btn ghost" href="/review/${f.slug}/">Why it won</a></div>
+      <div class="spotlight-actions">${affiliateCta(f, `${source}-cta`, 'Claim 45% off')}<a class="btn ghost" href="/review/${f.slug}/">Why it won</a></div>
     </div>
     <div class="spotlight-art">
       ${awardSeal(sealId, 'Best Overall')}

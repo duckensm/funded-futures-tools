@@ -91,7 +91,7 @@ test('homepage award plaques carry every partner offer and a top market tape', a
 
   const offers = Object.fromEntries(affiliateFirms.map((f) => [f.slug, `${f.offer} | ${f.offerDetail}`]));
   assert.deepEqual(offers, {
-    'legends-trading': 'Current code offer | Apprentice and Elite plans',
+    'legends-trading': '45% off | Every account with code DUTRADING',
     phidias: 'Up to 80% off | One-time payment accounts',
     'alpha-futures': '25% off | Premium plans',
     daytraders: 'Auto-applied offer | Tracked link applies available promotion',
