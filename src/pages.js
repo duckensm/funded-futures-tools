@@ -32,13 +32,84 @@ function disclosureLine() {
   return '<p class="page-disclosure">Affiliate disclosure: Futures Prop Edge may earn a commission if you buy through links or codes on this page, at no extra cost to you. Rules and prices change — always confirm the final terms at checkout. <a href="/disclosure/">Full disclosure</a>.</p>';
 }
 
-function affiliateCta(f, source, label = 'Check current offer') {
-  return `<a class="btn affiliate outbound" href="${f.affiliateUrl}" target="_blank" rel="sponsored noopener" data-outbound-firm="${f.id}" data-outbound-source="${source}">${label} →</a>`;
+export function affiliateCta(f, source, label = 'Check current offer') {
+  return `<a class="btn affiliate outbound" href="${f.affiliateUrl}" target="_blank" rel="sponsored noopener" data-outbound-firm="${f.id}" data-outbound-source="${source}">${label}</a>`;
+}
+
+// ---------------------------------------------------------------------------
+// Edge Awards: our own editorial picks, drawn as an engraved seal. Every page
+// that shows the seal also carries the affiliate disclosure.
+// ---------------------------------------------------------------------------
+export const TOP_PICK_SLUG = 'legends-trading';
+
+export function awardSeal(id, line = 'Best Overall') {
+  const edge = [];
+  for (let i = 0; i < 72; i++) {
+    const a = (i / 72) * Math.PI * 2;
+    const r = i % 2 ? 111 : 118;
+    edge.push(`${(120 + r * Math.cos(a)).toFixed(1)},${(120 + r * Math.sin(a)).toFixed(1)}`);
+  }
+  return `<svg class="seal" viewBox="0 0 240 300" role="img" aria-label="Futures Prop Edge Awards ${YEAR}: ${line}">
+    <path class="seal-ribbon" d="M84 196 L58 296 L86 280 L106 300 L124 210 Z"/>
+    <path class="seal-ribbon seal-ribbon-b" d="M156 196 L182 296 L154 280 L134 300 L116 210 Z"/>
+    <polygon class="seal-edge" points="${edge.join(' ')}"/>
+    <circle class="seal-face" cx="120" cy="120" r="98"/>
+    <circle class="seal-rule" cx="120" cy="120" r="70"/>
+    <defs><path id="${id}-ring" d="M120,120 m-84,0 a84,84 0 1,1 168,0 a84,84 0 1,1 -168,0"/></defs>
+    <g class="seal-spin"><text class="seal-ring"><textPath href="#${id}-ring" textLength="520" lengthAdjust="spacing">Futures Prop Edge Awards ✦ NQ &amp; MNQ ✦ Editor's pick ✦ </textPath></text></g>
+    <text class="seal-year" x="120" y="128" text-anchor="middle">${YEAR}</text>
+    <text class="seal-line" x="120" y="156" text-anchor="middle">${line}</text>
+  </svg>`;
+}
+
+export function couponTicket(f, source) {
+  return `<div class="ticket">
+      <div class="ticket-main">
+        <span class="ticket-label">${f.name} code</span>
+        <button class="ticket-code" type="button" data-copy-code="${f.code}" data-copy-firm="${f.id}" aria-label="Copy code ${f.code}">${f.code}</button>
+        <span class="ticket-offer">${f.offer}<small>${f.offerDetail}</small></span>
+      </div>
+      <div class="ticket-stub">${affiliateCta(f, source, 'Claim the offer')}<small>Tap the code to copy it</small></div>
+    </div>`;
+}
+
+// The Best Overall spotlight: home hero (h1) and hub top pick (h2).
+export function awardSpotlight({ heading = 'h2', source = 'spotlight', sealId = 'seal' } = {}) {
+  const f = firmBySlug(TOP_PICK_SLUG);
+  const name = heading === 'h1'
+    ? `<h1 class="spotlight-title"><span class="spotlight-kicker">Best prop firm for NQ &amp; MNQ traders, ${YEAR}</span><span class="spotlight-name">${f.name}</span></h1>`
+    : `<h2 class="spotlight-title"><span class="spotlight-kicker">#1 overall, ${YEAR}</span><span class="spotlight-name">${f.name}</span></h2>`;
+  return `
+  <div class="spotlight">
+    <div class="spotlight-copy">
+      ${name}
+      <p class="spotlight-lede">${publicCopy(f.lane)}</p>
+      <ul class="spotlight-reasons">${f.pros.slice(0, 4).map((p) => `<li>${publicCopy(p)}</li>`).join('')}</ul>
+      <div class="spotlight-actions">${affiliateCta(f, `${source}-cta`, 'Claim up to 80% off')}<a class="btn ghost" href="/review/${f.slug}/">Why it won</a></div>
+    </div>
+    <div class="spotlight-art">
+      ${awardSeal(sealId, 'Best Overall')}
+      ${couponTicket(f, `${source}-ticket`)}
+    </div>
+  </div>`;
 }
 
 function codeChip(f) {
   if (!f.code) return '';
-  return `<button class="code-chip" type="button" data-copy-code="${f.code}" data-copy-firm="${f.id}" aria-label="Copy code ${f.code}">Code: <b>${f.code}</b> ⧉</button>`;
+  return `<button class="code-chip" type="button" data-copy-code="${f.code}" data-copy-firm="${f.id}" aria-label="Copy code ${f.code}">Code <b>${f.code}</b></button>`;
+}
+
+// "Our pick instead" card for benchmark (non-affiliate) firm pages.
+export function topPickInstead() {
+  const f = firmBySlug(TOP_PICK_SLUG);
+  return `
+    <div class="article-card pick-instead">
+      <span class="pill brass">Our pick instead</span>
+      <h2>${f.name}, Best Overall ${YEAR}</h2>
+      <p>${publicCopy(f.fit)}</p>
+      <div class="hub-card-cta">${codeChip(f)}${affiliateCta(f, 'benchmark-pick-instead', 'Claim the Legends offer')}</div>
+      <div class="firm-page-links"><a href="/review/${f.slug}/">Why it won Best Overall</a><a href="/best-futures-prop-firms/">Full ranked list</a></div>
+    </div>`;
 }
 
 function reviewLinks(f) {
@@ -72,8 +143,7 @@ export function renderEmailCapture(context) {
 // Hub: /best-futures-prop-firms/
 // ---------------------------------------------------------------------------
 export function renderHub() {
-  const lucid = firmBySlug('lucid-trading');
-  const rest = affiliateFirms.filter((f) => f.slug !== 'lucid-trading');
+  const rest = affiliateFirms.filter((f) => f.slug !== TOP_PICK_SLUG);
 
   const firmCard = (f, rank) => `
     <article class="hub-card" id="${f.slug}">
@@ -104,18 +174,13 @@ export function renderHub() {
   <article class="article wrap">
     <nav class="crumbs"><a href="/">Home</a> › Best futures prop firms</nav>
     <h1>Best Futures Prop Firms ${YEAR}</h1>
-    <p class="lead">The ${affiliateFirms.length} funded futures programs we recommend for NQ/MNQ traders — ranked by rule fit, not by headline discount. Updated ${MONTH_YEAR}.</p>
+    <p class="lead">The ${affiliateFirms.length} funded futures programs we recommend for NQ/MNQ traders, ranked by rule fit rather than headline discount. Updated ${MONTH_YEAR}.</p>
     ${disclosureLine()}
+  </article>
 
-    <div class="article-card hub-top-pick">
-      <span class="pill green">#1 overall</span><span class="pill">${lucid.badge}</span>
-      <h2>${lucid.name}</h2>
-      <p>${publicCopy(lucid.lane)}</p>
-      <ul class="hub-points">${lucid.pros.slice(0, 4).map((p) => `<li>${publicCopy(p)}</li>`).join('')}</ul>
-      <div class="hub-card-cta">${codeChip(lucid)}${affiliateCta(lucid, 'hub-top-pick')}</div>
-      ${reviewLinks(lucid)}
-    </div>
+  <section class="spotlight-band"><div class="wrap">${awardSpotlight({ heading: 'h2', source: 'hub-top-pick', sealId: 'hubSeal' })}</div></section>
 
+  <article class="article wrap">
     ${renderQuizSection()}
 
     <h2 class="hub-section-title">The rest of the field, by what they're best at</h2>
@@ -128,9 +193,9 @@ export function renderHub() {
     </div>
 
     <div class="article-card">
-      <h2>Where are Apex and Topstep?</h2>
-      <p>Both are well-known firms and we keep their rules in our comparisons, but neither is part of our recommended list. If you're coming from either one, start here:</p>
-      <div class="firm-page-links"><a href="/apex-alternatives/">Best Apex alternatives</a><a href="/topstep-alternatives/">Best Topstep alternatives</a></div>
+      <h2>Where are Apex, Topstep, and Lucid?</h2>
+      <p>All three are well-known firms and we keep their rules in our comparisons as benchmarks, but none is part of our recommended list. If you're coming from one of them, start here:</p>
+      <div class="firm-page-links"><a href="/apex-alternatives/">Best Apex alternatives</a><a href="/topstep-alternatives/">Best Topstep alternatives</a><a href="/firms/lucidtraderfunding/">Lucid Trading rules summary</a></div>
     </div>
   </article>`;
 }
@@ -263,39 +328,39 @@ export function renderDiscount(f) {
 // Decision quiz: embedded on the hub and standalone at /quiz/
 // ---------------------------------------------------------------------------
 // Every outcome maps to one of the 7 partners. Scores are summed per answer;
-// ties and weak signals fall back to Lucid (the "best overall for NQ/MNQ" default).
+// ties and weak signals fall back to The Legends Trading (our Best Overall 2026).
 export const QUIZ = {
-  defaultSlug: 'lucid-trading',
+  defaultSlug: TOP_PICK_SLUG,
   questions: [
     {
       q: 'What is your budget for the first evaluation?',
       answers: [
         { label: 'As low as possible — under ~$100 if I can', scores: { daytraders: 3 }, reason: 'You want the cheapest entry: DayTraders has the lowest-priced evaluations on our list, with one-time pricing and a static-drawdown option.' },
-        { label: 'Normal eval pricing is fine ($100–$300)', scores: { 'lucid-trading': 1 } },
+        { label: 'Normal eval pricing is fine ($100–$300)', scores: { 'legends-trading': 1 } },
         { label: 'Budget is not the constraint — rules and tools are', scores: { 'alpha-futures': 1, phidias: 1 } },
       ],
     },
     {
       q: 'How do you want to get funded?',
       answers: [
-        { label: 'Skip the evaluation — fund me from day one', scores: { 'legends-trading': 4 }, reason: 'You want instant funding: The Legends Trading’s Straight to Master route skips the evaluation entirely.' },
+        { label: 'Skip the evaluation, fund me from day one', scores: { 'legends-trading': 4 }, reason: 'You want instant funding: The Legends Trading’s Straight to Master route skips the evaluation entirely.' },
         { label: 'Pass an eval, but end up with real LIVE capital, not sim', scores: { phidias: 4 }, reason: 'You want real live capital: Phidias’ Express to Live path converts to LIVE capital at the first payout instead of staying simulated.' },
-        { label: 'A standard evaluation is fine', scores: { 'lucid-trading': 1 } },
+        { label: 'A standard evaluation is fine', scores: { 'legends-trading': 1 } },
       ],
     },
     {
       q: 'Where are you in your trading journey?',
       answers: [
         { label: 'Complete beginner — I want education included', scores: { earn2trade: 4 }, reason: 'You are still learning: Earn2Trade bundles education with the evaluation and is the longest-established firm on our list.' },
-        { label: 'I have traded NQ/MNQ but not been funded yet', scores: { 'lucid-trading': 1 } },
+        { label: 'I have traded NQ/MNQ but not been funded yet', scores: { 'legends-trading': 1 } },
         { label: 'Experienced — I have held funded accounts before', scores: { 'alpha-futures': 1, bulenox: 1 } },
       ],
     },
     {
       q: 'How do you actually trade NQ/MNQ?',
       answers: [
-        { label: 'Automated strategies / NinjaTrader algos', scores: { 'lucid-trading': 3 }, reason: 'You run automated strategies: Lucid is our top pick for algo and NinjaTrader traders, with EOD drawdown that won’t punish intraday spikes (verify the current automation policy).' },
-        { label: 'Discretionary intraday', scores: { 'lucid-trading': 1 } },
+        { label: 'Automated strategies / NinjaTrader algos', scores: { 'legends-trading': 1, 'alpha-futures': 1 } },
+        { label: 'Discretionary intraday', scores: { 'legends-trading': 2 }, reason: 'You trade intraday: The Legends Trading’s Apprentice and Elite evaluations use EOD trailing drawdown, so a spike that reverses mid-session does not move your floor.' },
         { label: 'I hold swing / overnight positions', scores: { phidias: 2 }, reason: 'You hold overnight: Phidias Premium accounts allow overnight and weekend holds.' },
       ],
     },
@@ -304,7 +369,7 @@ export const QUIZ = {
       answers: [
         { label: 'Stacking many accounts as cheaply as possible', scores: { bulenox: 4 }, reason: 'You want to stack accounts: Bulenox runs frequent deep discounts and pays 100% of your first $10K.' },
         { label: 'Premium analytics and tools on my trading', scores: { 'alpha-futures': 4 }, reason: 'You want serious tooling: Alpha Futures is our pick for analytics and tools around a one-step evaluation.' },
-        { label: 'Just the best all-round rules for NQ/MNQ', scores: { 'lucid-trading': 2 }, reason: 'You want the best all-rounder: Lucid is our #1 overall for NQ/MNQ — EOD drawdown on every account type and fast payouts.' },
+        { label: 'Just the best all-round rules for NQ/MNQ', scores: { 'legends-trading': 3 }, reason: 'You want the best all-rounder: The Legends Trading is our Best Overall for 2026, with EOD trailing evaluations, a 90/10 split, and no daily loss limit on Elite.' },
       ],
     },
   ],
@@ -412,7 +477,7 @@ export function renderApexAlternatives() {
 
     <h2 class="hub-section-title">Pick the alternative by what hurt you at Apex</h2>
     <div class="hub-grid">
-      ${laneCard('lucid-trading', 'EOD drawdown on every account type — no intraday trailing anywhere in the lineup — plus payouts without payout windows.')}
+      ${laneCard('legends-trading', 'Our Best Overall for 2026: EOD trailing drawdown on Apprentice and Elite evaluations instead of intraday trailing, a 90/10 split, and Straight to Master instant funding.')}
       ${laneCard('phidias', 'A route to real live capital instead of staying simulated, with static drawdown on the Express to Live path.')}
       ${laneCard('daytraders', 'Static drawdown evaluations from $150 with one-time pricing — the threshold never moves up behind you.')}
       ${laneCard('bulenox', 'Budget stacking with an EOD drawdown option (Option 2 accounts) and 100% of your first $10K in payouts.')}
@@ -441,7 +506,7 @@ export function renderTopstepAlternatives() {
 
     <h2 class="hub-section-title">Pick the alternative by what you actually want</h2>
     <div class="hub-grid">
-      ${laneCard('lucid-trading', 'Our #1 overall for NQ/MNQ: EOD trailing drawdown, fast payouts with no windows, and a strong fit for NinjaTrader/algo traders.')}
+      ${laneCard('legends-trading', 'Our Best Overall for 2026: EOD trailing evaluations, a 90/10 split, no daily loss limit on Elite, and an instant-funding route when you want to skip the evaluation.')}
       ${laneCard('earn2trade', 'The closest fit for traders who picked Topstep for structure: education included and the longest-established firm on our list.')}
       ${laneCard('phidias', 'A path to real live capital rather than staying simulated, with fast payout approvals.')}
       ${laneCard('daytraders', 'The budget lane: static-drawdown evaluations from $150 with one-time pricing instead of subscriptions.')}

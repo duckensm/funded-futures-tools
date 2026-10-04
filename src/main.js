@@ -119,7 +119,7 @@ function updateCalc(which){
           <thead><tr><th>Drawdown model</th><th>Losses survived</th><th>Where to get it</th></tr></thead>
           <tbody>
             <tr><td>Static</td><td><b>${survival.staticTrades}</b></td><td class="survival-cta">Static drawdown firms: <a href="/review/daytraders/">DayTraders →</a></td></tr>
-            <tr><td>EOD trailing</td><td><b>${survival.eodTrades}</b></td><td class="survival-cta">Firms with EOD drawdown: <a href="/review/lucid-trading/">Lucid</a>, <a href="/review/phidias/">Phidias →</a></td></tr>
+            <tr><td>EOD trailing</td><td><b>${survival.eodTrades}</b></td><td class="survival-cta">Firms with EOD drawdown: <a href="/review/legends-trading/">The Legends Trading</a>, <a href="/review/phidias/">Phidias</a></td></tr>
             <tr><td>Intraday trailing</td><td><b>${survival.intradayTrades}</b></td><td class="survival-cta">Assumes one ${spikePts}-point open-profit spike (${money(survival.spikeDollars)}) reverses and lifts the threshold first.</td></tr>
           </tbody>
         </table>
@@ -154,6 +154,12 @@ function bindGlobal(){
     try{ await navigator.clipboard.writeText(code); showToast(`Code ${code} copied`); }catch{ showToast('Copy unavailable'); }
     trackEvent('coupon_code_copy',{firm:btn.dataset.copyFirm||'',code,path:location.pathname});
   }));
+  const sticky=document.querySelector('.sticky-tools');
+  if(sticky){
+    const onScroll=()=>sticky.classList.toggle('show',window.scrollY>560);
+    window.addEventListener('scroll',onScroll,{passive:true});
+    onScroll();
+  }
   initMarketTape();
   bindCompareFinder();
   bindLeadForm();

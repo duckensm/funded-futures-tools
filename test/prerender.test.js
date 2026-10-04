@@ -22,10 +22,11 @@ test('every route prerenders full body content for crawlers, not an empty shell'
 test('home page static HTML contains visible hero text and affiliate offers', async () => {
   const template = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   const home = renderDocument(getRoutes()[0], template);
-  assert.match(home, /Know the rule/);
+  assert.match(home, /class="spotlight-name">The Legends Trading</);
   assert.match(home, /Open risk calculator/);
-  assert.match(home, /lucidtrading\.com\/ref\/dutrading/);
+  assert.match(home, /thelegendstrading\.com\/\?ref=dutrading/);
   assert.match(home, /member\.phidiaspropfirm\.com\/aff\/go\/duckensm/);
+  assert.doesNotMatch(home, /lucidtrading\.com\/ref/);
 });
 
 test('routes have unique titles and descriptions', () => {

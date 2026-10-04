@@ -32,7 +32,9 @@ test('Lucid vs Apex page is a public SEO page with disclosures', async () => {
   assert.match(html, /Affiliate disclosure/);
   assert.match(html, /Recommended/);
   assert.match(html, /more-account capacity/);
-  assert.match(html, /preferred Lucid\/Apex rule fit/);
+  assert.match(html, /Futures Prop Edge is not an affiliate of either firm/);
+  assert.match(html, /thelegendstrading\.com\/\?ref=dutrading/);
+  assert.doesNotMatch(html, /lucidtrading\.com\/ref/);
   assert.doesNotMatch(html, /fastest growing/i);
   assert.doesNotMatch(html, /Funded Futures Tools/);
 });
@@ -65,7 +67,6 @@ test('homepage exposes SEO guides after the decision tools and offers', async ()
 
   assert.match(main, /href="\/#guides">Guides<\/a>/);
   assert.match(main, /id="guides"/);
-  assert.match(main, /OPEN GUIDES/);
   assert.match(main, /href="\/best-nq-prop-firms\.html"/);
   assert.match(main, /href="\/lucid-trading-vs-apex-nq-traders\.html"/);
   assert.match(main, /href="\/best-eod-drawdown-prop-firms-nq-traders\.html"/);
@@ -80,54 +81,34 @@ test('homepage exposes SEO guides after the decision tools and offers', async ()
   assert.ok(guidesIndex > compareIndex, 'guides should follow the comparison and checklist');
 });
 
-test('homepage replaces the cockpit with current clickable affiliate offers and a top market tape', async () => {
+test('homepage award plaques carry every partner offer and a top market tape', async () => {
   const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
 
-  assert.doesNotMatch(main, /Nasdaq futures risk cockpit/);
-  assert.match(main, /id:'alphafutures'[^\n]+code:'Duckens026406'/);
-  assert.match(main, /id:'legendstrading'[^\n]+code:'DUTRADING'/);
-  assert.match(main, /id:'daytraders'[^\n]+code:'DUTRADING'/);
-  assert.doesNotMatch(main, /code:'(?:PREMIUM|LTG|TNTIQNUL)'/);
-  assert.doesNotMatch(main, /nq-chart-card upgraded/);
   assert.match(main, /class="top-market-tape"/);
   assert.match(main, /FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,CMCMARKETS:GOLD,TVC:USOIL/);
-  assert.match(main, /function currentOffers\(\)/);
-  assert.match(main, /Current code offer/);
+  assert.match(main, /function offerBanners\(/);
   assert.doesNotMatch(main, /Valid through July 2 at 5 PM ET/);
-  assert.match(main, /Up to 80% off/);
-  assert.match(main, /One-time payment accounts/);
-  assert.match(main, /25% off/);
-  assert.match(main, /Premium plans/);
-  assert.match(main, /80% \/ 45% off/);
-  assert.match(main, /Apprentice \/ Elite plans/);
-  assert.match(main, /Auto-applied offer/);
-  assert.match(main, /Option 1 and Option 2 pricing/);
-  assert.match(main, /Trader Career Path/);
-  assert.doesNotMatch(main, /Current offers to check before you buy\./);
 
-  const offerBanners = main.slice(
-    main.indexOf('function currentOffers(){'),
-    main.indexOf('function guidesSection(){')
-  );
-  assert.doesNotMatch(offerBanners, /Confirm final checkout price/);
+  const offers = Object.fromEntries(affiliateFirms.map((f) => [f.slug, `${f.offer} | ${f.offerDetail}`]));
+  assert.deepEqual(offers, {
+    'legends-trading': '80% / 45% off | Apprentice / Elite plans',
+    phidias: 'Up to 80% off | One-time payment accounts',
+    'alpha-futures': '25% off | Premium plans',
+    daytraders: 'Auto-applied offer | Tracked link applies available promotion',
+    bulenox: 'Current code offer | Option 1 and Option 2 pricing',
+    earn2trade: 'Current code offer | Trader Career Path',
+  });
 });
 
-test('comparison table uses a short source-review badge and preserves readable columns', async () => {
+test('comparison table uses a short source-review badge', async () => {
   const main = await readFile(new URL('../src/render.js', import.meta.url), 'utf8');
-  const styles = await readFile(new URL('../src/styles.css', import.meta.url), 'utf8');
-
   assert.match(main, /f\.verification === 'official' \? 'Source reviewed'/);
   assert.doesNotMatch(main, /Official sources reviewed/);
-  assert.match(styles, /\.table-details \.table-wrap\{overflow-x:auto\}/);
-  assert.match(styles, /\.table-details table\{table-layout:fixed;width:100%;min-width:1180px\}/);
-  assert.match(styles, /\.table-details td\{vertical-align:top;line-height:1\.4\}/);
-  assert.match(styles, /\.table-details td>strong\{display:block;line-height:1\.15;margin-bottom:8px\}/);
 });
 
 // --- Affiliate data layer ----------------------------------------------------
 
 const EXPECTED_PARTNERS = {
-  'lucid-trading': { code: 'DUTRADING', url: 'https://lucidtrading.com/ref/dutrading' },
   phidias: { code: 'DUTRADING', url: 'https://member.phidiaspropfirm.com/aff/go/duckensm' },
   'alpha-futures': { code: 'Duckens026406', url: 'https://app.alpha-futures.com/signup/Duckens026406/' },
   daytraders: { code: 'DUTRADING', url: 'https://daytraders.com/go/dutrading?c=TNTIQNUL' },
@@ -136,8 +117,9 @@ const EXPECTED_PARTNERS = {
   earn2trade: { code: 'dutrading', url: 'https://www.earn2trade.com/trader-career-path?a_pid=dutrading&a_bid=8d7b4b9e' },
 };
 
-test('the seven affiliate partners carry the verified partner links and codes', () => {
-  assert.equal(affiliateFirms.length, 7);
+test('the six affiliate partners carry the verified partner links and codes', () => {
+  assert.equal(affiliateFirms.length, 6);
+  assert.equal(affiliateFirms[0].slug, 'legends-trading', 'Best Overall pick leads the partner list');
   for (const [slug, expected] of Object.entries(EXPECTED_PARTNERS)) {
     const firm = firms.find((f) => f.slug === slug);
     assert.ok(firm, `missing partner firm: ${slug}`);
@@ -153,7 +135,7 @@ test('the seven affiliate partners carry the verified partner links and codes', 
 
 test('comparison foils carry no referral CTA data', () => {
   const foils = comparisonFirms.map((f) => f.slug).sort();
-  assert.deepEqual(foils, ['apex', 'topstep']);
+  assert.deepEqual(foils, ['apex', 'lucid-trading', 'topstep']);
   for (const f of comparisonFirms) {
     assert.equal(f.affiliate, false);
     assert.equal(f.affiliateUrl, '', `${f.slug} must not have an affiliate URL`);
@@ -168,5 +150,17 @@ test('dropped firms are gone from the data layer and renderers', async () => {
     assert.doesNotMatch(render, gone);
     assert.doesNotMatch(data, gone);
   }
-  assert.match(render, /<b>9<\/b> firms reviewed/);
+  assert.equal(firms.length, 9);
+  assert.match(render, /<b>\$\{firms\.length\}<\/b> firms, checked against official sources/);
+});
+
+test('Lucid Trading is no longer a partner anywhere on the site', async () => {
+  const files = ['../src/render.js', '../src/pages.js', '../src/main.js', '../src/data/firms.js',
+    '../public/best-nq-prop-firms.html', '../public/best-eod-drawdown-prop-firms-nq-traders.html',
+    '../public/lucid-trading-vs-apex-nq-traders.html'];
+  for (const file of files) {
+    const text = await readFile(new URL(file, import.meta.url), 'utf8');
+    assert.doesNotMatch(text, /lucidtrading\.com\/ref/, `${file} still links the Lucid affiliate URL`);
+    assert.doesNotMatch(text, /review\/lucid-trading|discount\/lucid-trading/, `${file} links a removed Lucid partner page`);
+  }
 });

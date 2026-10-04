@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    { "source": "/review/lucid-trading", "destination": "/firms/lucidtraderfunding/", "permanent": true },
+    { "source": "/review/lucid-trading/", "destination": "/firms/lucidtraderfunding/", "permanent": true },
+    { "source": "/discount/lucid-trading", "destination": "/firms/lucidtraderfunding/", "permanent": true },
+    { "source": "/discount/lucid-trading/", "destination": "/firms/lucidtraderfunding/", "permanent": true }
+  ]
+}
